@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+#import "TabBarController.h"
+#import "MainViewController.h"
+#import "MineViewController.h"
+#import "CountViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +19,30 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    window.backgroundColor = [UIColor whiteColor];
+    [window makeKeyAndVisible];
+    self.window = window;
+    
+    MainViewController *mainVC = [[MainViewController alloc] init];
+    mainVC.title = @"首页";
+    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+
+    CountViewController *countVC = [[CountViewController alloc] init];
+    countVC.title = @"统计";
+    UINavigationController *countNav = [[UINavigationController alloc] initWithRootViewController:countVC];
+    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"统计" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    
+    MineViewController *mineVC = [[MineViewController alloc] init];
+    mineVC.title = @"我的";
+    UINavigationController *mineNav = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    
+    TabBarController *tab = [[TabBarController alloc] init];
+    tab.viewControllers = @[mainNav,countNav,mineNav];
+    window.rootViewController = tab;
+    
     return YES;
 }
 

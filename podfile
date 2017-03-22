@@ -1,0 +1,7 @@
+use_frameworks!
+project 'CXProject'
+target "CXProject" do
+
+pod 'PureLayout', '~> 3.0.2'
+
+end
