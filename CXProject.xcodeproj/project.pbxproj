@@ -13,14 +13,18 @@
 		901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 901780EB1E82626600D6E8A1 /* Assets.xcassets */; };
 		901780FA1E82626600D6E8A1 /* CXProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 901780F91E82626600D6E8A1 /* CXProjectTests.m */; };
 		901781051E82626600D6E8A1 /* CXProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781041E82626600D6E8A1 /* CXProjectUITests.m */; };
-		9017811E1E82653200D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017811D1E82653200D6E8A1 /* TabBarController.m */; };
-		9017811F1E82653200D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017811D1E82653200D6E8A1 /* TabBarController.m */; };
-		901781221E82655B00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781211E82655B00D6E8A1 /* MainViewController.m */; };
-		901781231E82655B00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781211E82655B00D6E8A1 /* MainViewController.m */; };
-		901781261E82657400D6E8A1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781251E82657400D6E8A1 /* MineViewController.m */; };
-		901781271E82657400D6E8A1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781251E82657400D6E8A1 /* MineViewController.m */; };
-		9017812A1E8265B200D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781291E8265B200D6E8A1 /* CountViewController.m */; };
-		9017812B1E8265B200D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781291E8265B200D6E8A1 /* CountViewController.m */; };
+		901781401E8275C700D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017813F1E8275C700D6E8A1 /* CountViewController.m */; };
+		901781411E8275C700D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017813F1E8275C700D6E8A1 /* CountViewController.m */; };
+		901781491E8275E000D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781441E8275E000D6E8A1 /* CountViewController.m */; };
+		9017814A1E8275E000D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781441E8275E000D6E8A1 /* CountViewController.m */; };
+		9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781461E8275E000D6E8A1 /* MineViewController.m */; };
+		9017814C1E8275E000D6E8A1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781461E8275E000D6E8A1 /* MineViewController.m */; };
+		901781561E8275FD00D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017814F1E8275FD00D6E8A1 /* CountViewController.m */; };
+		901781571E8275FD00D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017814F1E8275FD00D6E8A1 /* CountViewController.m */; };
+		901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781511E8275FD00D6E8A1 /* MainViewController.m */; };
+		901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781511E8275FD00D6E8A1 /* MainViewController.m */; };
+		9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781531E8275FD00D6E8A1 /* TabBarController.m */; };
+		9017815B1E8275FD00D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781531E8275FD00D6E8A1 /* TabBarController.m */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,15 +60,19 @@
 		901781001E82626600D6E8A1 /* CXProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CXProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		901781041E82626600D6E8A1 /* CXProjectUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXProjectUITests.m; sourceTree = "<group>"; };
 		901781061E82626600D6E8A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9017811C1E82653200D6E8A1 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
-		9017811D1E82653200D6E8A1 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		901781201E82655B00D6E8A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		901781211E82655B00D6E8A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		901781241E82657400D6E8A1 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
-		901781251E82657400D6E8A1 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		901781281E8265B200D6E8A1 /* CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountViewController.h; sourceTree = "<group>"; };
-		901781291E8265B200D6E8A1 /* CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountViewController.m; sourceTree = "<group>"; };
 		9017812C1E826CF700D6E8A1 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		9017813E1E8275C700D6E8A1 /* CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountViewController.h; sourceTree = "<group>"; };
+		9017813F1E8275C700D6E8A1 /* CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountViewController.m; sourceTree = "<group>"; };
+		901781431E8275E000D6E8A1 /* CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountViewController.h; sourceTree = "<group>"; };
+		901781441E8275E000D6E8A1 /* CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountViewController.m; sourceTree = "<group>"; };
+		901781451E8275E000D6E8A1 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		901781461E8275E000D6E8A1 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		9017814E1E8275FD00D6E8A1 /* CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountViewController.h; sourceTree = "<group>"; };
+		9017814F1E8275FD00D6E8A1 /* CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountViewController.m; sourceTree = "<group>"; };
+		901781501E8275FD00D6E8A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		901781511E8275FD00D6E8A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		901781521E8275FD00D6E8A1 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		901781531E8275FD00D6E8A1 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		B09939730C48F88524F34BB6 /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5CC928867F17D29D35F1D0 /* Pods-CXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXProject/Pods-CXProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +148,8 @@
 				901780DF1E82626600D6E8A1 /* AppDelegate.h */,
 				901780E01E82626600D6E8A1 /* AppDelegate.m */,
 				9017811B1E82653200D6E8A1 /* Main */,
+				901781301E82753D00D6E8A1 /* 统计 */,
+				901781351E82754600D6E8A1 /* 我的 */,
 				901780EB1E82626600D6E8A1 /* Assets.xcassets */,
 				901780F01E82626600D6E8A1 /* Info.plist */,
 				901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */,
@@ -178,16 +188,106 @@
 		9017811B1E82653200D6E8A1 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				9017811C1E82653200D6E8A1 /* TabBarController.h */,
-				9017811D1E82653200D6E8A1 /* TabBarController.m */,
-				901781201E82655B00D6E8A1 /* MainViewController.h */,
-				901781211E82655B00D6E8A1 /* MainViewController.m */,
-				901781281E8265B200D6E8A1 /* CountViewController.h */,
-				901781291E8265B200D6E8A1 /* CountViewController.m */,
-				901781241E82657400D6E8A1 /* MineViewController.h */,
-				901781251E82657400D6E8A1 /* MineViewController.m */,
+				9017814D1E8275FD00D6E8A1 /* Controllers */,
+				901781541E8275FD00D6E8A1 /* Model */,
+				901781551E8275FD00D6E8A1 /* View */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		901781301E82753D00D6E8A1 /* 统计 */ = {
+			isa = PBXGroup;
+			children = (
+				9017813D1E8275C700D6E8A1 /* Controllers */,
+				9017813B1E82758000D6E8A1 /* View */,
+				9017813C1E82758000D6E8A1 /* Model */,
+			);
+			path = "统计";
+			sourceTree = "<group>";
+		};
+		901781351E82754600D6E8A1 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				901781421E8275E000D6E8A1 /* Controllers */,
+				901781471E8275E000D6E8A1 /* Model */,
+				901781481E8275E000D6E8A1 /* View */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		9017813B1E82758000D6E8A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9017813C1E82758000D6E8A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9017813D1E8275C700D6E8A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9017813E1E8275C700D6E8A1 /* CountViewController.h */,
+				9017813F1E8275C700D6E8A1 /* CountViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		901781421E8275E000D6E8A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				901781431E8275E000D6E8A1 /* CountViewController.h */,
+				901781441E8275E000D6E8A1 /* CountViewController.m */,
+				901781451E8275E000D6E8A1 /* MineViewController.h */,
+				901781461E8275E000D6E8A1 /* MineViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		901781471E8275E000D6E8A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		901781481E8275E000D6E8A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9017814D1E8275FD00D6E8A1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9017814E1E8275FD00D6E8A1 /* CountViewController.h */,
+				9017814F1E8275FD00D6E8A1 /* CountViewController.m */,
+				901781501E8275FD00D6E8A1 /* MainViewController.h */,
+				901781511E8275FD00D6E8A1 /* MainViewController.m */,
+				901781521E8275FD00D6E8A1 /* TabBarController.h */,
+				901781531E8275FD00D6E8A1 /* TabBarController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		901781541E8275FD00D6E8A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		901781551E8275FD00D6E8A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,12 +476,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
-				9017811E1E82653200D6E8A1 /* TabBarController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
-				901781261E82657400D6E8A1 /* MineViewController.m in Sources */,
-				901781221E82655B00D6E8A1 /* MainViewController.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
-				9017812A1E8265B200D6E8A1 /* CountViewController.m in Sources */,
+				9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
+				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
+				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
+				901781491E8275E000D6E8A1 /* CountViewController.m in Sources */,
+				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
+				901781561E8275FD00D6E8A1 /* CountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,11 +491,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9017815B1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
 				901780FA1E82626600D6E8A1 /* CXProjectTests.m in Sources */,
-				9017812B1E8265B200D6E8A1 /* CountViewController.m in Sources */,
-				901781231E82655B00D6E8A1 /* MainViewController.m in Sources */,
-				9017811F1E82653200D6E8A1 /* TabBarController.m in Sources */,
-				901781271E82657400D6E8A1 /* MineViewController.m in Sources */,
+				901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */,
+				901781571E8275FD00D6E8A1 /* CountViewController.m in Sources */,
+				9017814A1E8275E000D6E8A1 /* CountViewController.m in Sources */,
+				901781411E8275C700D6E8A1 /* CountViewController.m in Sources */,
+				9017814C1E8275E000D6E8A1 /* MineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
