@@ -15,12 +15,8 @@
 		901781051E82626600D6E8A1 /* CXProjectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781041E82626600D6E8A1 /* CXProjectUITests.m */; };
 		901781401E8275C700D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017813F1E8275C700D6E8A1 /* CountViewController.m */; };
 		901781411E8275C700D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017813F1E8275C700D6E8A1 /* CountViewController.m */; };
-		901781491E8275E000D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781441E8275E000D6E8A1 /* CountViewController.m */; };
-		9017814A1E8275E000D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781441E8275E000D6E8A1 /* CountViewController.m */; };
 		9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781461E8275E000D6E8A1 /* MineViewController.m */; };
 		9017814C1E8275E000D6E8A1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781461E8275E000D6E8A1 /* MineViewController.m */; };
-		901781561E8275FD00D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017814F1E8275FD00D6E8A1 /* CountViewController.m */; };
-		901781571E8275FD00D6E8A1 /* CountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017814F1E8275FD00D6E8A1 /* CountViewController.m */; };
 		901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781511E8275FD00D6E8A1 /* MainViewController.m */; };
 		901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781511E8275FD00D6E8A1 /* MainViewController.m */; };
 		9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781531E8275FD00D6E8A1 /* TabBarController.m */; };
@@ -63,12 +59,8 @@
 		9017812C1E826CF700D6E8A1 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		9017813E1E8275C700D6E8A1 /* CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountViewController.h; sourceTree = "<group>"; };
 		9017813F1E8275C700D6E8A1 /* CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountViewController.m; sourceTree = "<group>"; };
-		901781431E8275E000D6E8A1 /* CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountViewController.h; sourceTree = "<group>"; };
-		901781441E8275E000D6E8A1 /* CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountViewController.m; sourceTree = "<group>"; };
 		901781451E8275E000D6E8A1 /* MineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		901781461E8275E000D6E8A1 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		9017814E1E8275FD00D6E8A1 /* CountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountViewController.h; sourceTree = "<group>"; };
-		9017814F1E8275FD00D6E8A1 /* CountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountViewController.m; sourceTree = "<group>"; };
 		901781501E8275FD00D6E8A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		901781511E8275FD00D6E8A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		901781521E8275FD00D6E8A1 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
@@ -241,8 +233,6 @@
 		901781421E8275E000D6E8A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				901781431E8275E000D6E8A1 /* CountViewController.h */,
-				901781441E8275E000D6E8A1 /* CountViewController.m */,
 				901781451E8275E000D6E8A1 /* MineViewController.h */,
 				901781461E8275E000D6E8A1 /* MineViewController.m */,
 			);
@@ -266,8 +256,6 @@
 		9017814D1E8275FD00D6E8A1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9017814E1E8275FD00D6E8A1 /* CountViewController.h */,
-				9017814F1E8275FD00D6E8A1 /* CountViewController.m */,
 				901781501E8275FD00D6E8A1 /* MainViewController.h */,
 				901781511E8275FD00D6E8A1 /* MainViewController.m */,
 				901781521E8275FD00D6E8A1 /* TabBarController.h */,
@@ -481,9 +469,7 @@
 				9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
-				901781491E8275E000D6E8A1 /* CountViewController.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
-				901781561E8275FD00D6E8A1 /* CountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,8 +480,6 @@
 				9017815B1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
 				901780FA1E82626600D6E8A1 /* CXProjectTests.m in Sources */,
 				901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */,
-				901781571E8275FD00D6E8A1 /* CountViewController.m in Sources */,
-				9017814A1E8275E000D6E8A1 /* CountViewController.m in Sources */,
 				901781411E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9017814C1E8275E000D6E8A1 /* MineViewController.m in Sources */,
 			);
