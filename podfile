@@ -4,4 +4,7 @@ target "CXProject" do
 
 pod 'PureLayout', '~> 3.0.2'
 
+pod 'DDLogger', '~> 1.2.6'
+
+
 end

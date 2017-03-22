@@ -1,12 +1,18 @@
 PODS:
+  - DDLogger (1.2.6):
+    - ICTextView (~> 2.0.1)
+  - ICTextView (2.0.1)
   - PureLayout (3.0.2)
 
 DEPENDENCIES:
+  - DDLogger (~> 1.2.6)
   - PureLayout (~> 3.0.2)
 
 SPEC CHECKSUMS:
+  DDLogger: 5b853c4c1c28c4f262f3d65f282187fd47bf5113
+  ICTextView: 937aca5dd49e39e9cca41ababe8c55bf99c634fc
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
 
-PODFILE CHECKSUM: 14495e4c182cd9d4b9b8d57ccde478a7c57cf727
+PODFILE CHECKSUM: db8ba6a68da78848dab785ba5cac4fa554db7378
 
 COCOAPODS: 1.2.0

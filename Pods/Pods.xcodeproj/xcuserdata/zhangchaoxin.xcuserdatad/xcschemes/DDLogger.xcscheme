@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9FCE75AE79237D93083866D49474B490'
-               BlueprintName = 'PureLayout'
+               BlueprintIdentifier = '8ABB1AD362B7DAD6CFB4B53C3B5E54B0'
+               BlueprintName = 'DDLogger'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PureLayout.framework'>
+               BuildableName = 'DDLogger.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -7,7 +7,7 @@
 //
 
 #import "CountViewController.h"
-
+#import "PureLayout.h"
 @interface CountViewController ()
 
 @end
@@ -17,9 +17,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIRefreshControl *control = [[UIRefreshControl alloc] init];
+    control.attributedTitle = [[NSAttributedString alloc] initWithString:@"加载中..."];
+    control.tintColor = [UIColor redColor];
+    [control addTarget:self action:@selector(refreshAction:) forControlEvents:UIControlEventValueChanged];
     
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT) style:UITableViewStylePlain];
+    [self.view addSubview:tableView];
+    tableView.refreshControl = control;
     
-    UITableView *tableView = [[UITableView alloc] init];
+
+}
+
+- (void)refreshAction:(UIRefreshControl *)control
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [control endRefreshing];
+    });
 }
 
 - (void)didReceiveMemoryWarning {

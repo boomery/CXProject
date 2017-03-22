@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9FCE75AE79237D93083866D49474B490'
-               BlueprintName = 'PureLayout'
+               BlueprintIdentifier = '34EAEA690334D1F89C62C66D72C6BBEB'
+               BlueprintName = 'ICTextView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PureLayout.framework'>
+               BuildableName = 'ICTextView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
