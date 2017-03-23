@@ -1,5 +1,5 @@
 //
-//  MineViewController.h
+//  CountCell.h
 //  CXProject
 //
 //  Created by zhangchaoxin on 2017/3/22.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MineViewController : BaseViewController
+@interface CountCell : UITableViewCell
 
 @end

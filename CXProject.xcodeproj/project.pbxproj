@@ -21,6 +21,11 @@
 		901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781511E8275FD00D6E8A1 /* MainViewController.m */; };
 		9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781531E8275FD00D6E8A1 /* TabBarController.m */; };
 		9017815B1E8275FD00D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781531E8275FD00D6E8A1 /* TabBarController.m */; };
+		9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017815D1E8276C600D6E8A1 /* CountCell.m */; };
+		901781601E8276C600D6E8A1 /* CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017815D1E8276C600D6E8A1 /* CountCell.m */; };
+		901781611E8276C600D6E8A1 /* CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9017815E1E8276C600D6E8A1 /* CountCell.xib */; };
+		901781621E8276C600D6E8A1 /* CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9017815E1E8276C600D6E8A1 /* CountCell.xib */; };
+		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +70,11 @@
 		901781511E8275FD00D6E8A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		901781521E8275FD00D6E8A1 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		901781531E8275FD00D6E8A1 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		9017815C1E8276C600D6E8A1 /* CountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountCell.h; sourceTree = "<group>"; };
+		9017815D1E8276C600D6E8A1 /* CountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountCell.m; sourceTree = "<group>"; };
+		9017815E1E8276C600D6E8A1 /* CountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountCell.xib; sourceTree = "<group>"; };
+		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B09939730C48F88524F34BB6 /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5CC928867F17D29D35F1D0 /* Pods-CXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXProject/Pods-CXProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +149,8 @@
 			children = (
 				901780DF1E82626600D6E8A1 /* AppDelegate.h */,
 				901780E01E82626600D6E8A1 /* AppDelegate.m */,
+				908D03751E835EB600F0C0C1 /* BaseViewController.h */,
+				908D03761E835EB600F0C0C1 /* BaseViewController.m */,
 				9017811B1E82653200D6E8A1 /* Main */,
 				901781301E82753D00D6E8A1 /* 统计 */,
 				901781351E82754600D6E8A1 /* 我的 */,
@@ -210,6 +222,9 @@
 		9017813B1E82758000D6E8A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9017815C1E8276C600D6E8A1 /* CountCell.h */,
+				9017815D1E8276C600D6E8A1 /* CountCell.m */,
+				9017815E1E8276C600D6E8A1 /* CountCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -391,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
+				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901781621E8276C600D6E8A1 /* CountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,12 +481,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
+				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
 				9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
+				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +501,7 @@
 				901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781411E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9017814C1E8275E000D6E8A1 /* MineViewController.m in Sources */,
+				901781601E8276C600D6E8A1 /* CountCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

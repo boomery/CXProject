@@ -24,10 +24,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIView+HHFrame.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0320B8C246AA862F980EFDA3D4C74AF8</key>
+		<key>3069CA419E88A8BE623D2F5F68A10B15</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3B7702E195D5BE74C95CB746F5581901</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8ABB1AD362B7DAD6CFB4B53C3B5E54B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9FCE75AE79237D93083866D49474B490</key>
+		<key>D3FBFDFCBD8D5814DF2AB20122941149</key>
 		<dict>
 			<key>primary</key>
 			<true/>

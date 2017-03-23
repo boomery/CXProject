@@ -1,0 +1,6 @@
+framework module UIView_HHFrame {
+  umbrella header "UIView+HHFrame-umbrella.h"
+
+  export *
+  module * { export * }
+}

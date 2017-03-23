@@ -6,5 +6,8 @@ pod 'PureLayout', '~> 3.0.2'
 
 pod 'DDLogger', '~> 1.2.6'
 
+pod 'UIView+HHFrame', '~> 1.0.0'
+
+
 
 end

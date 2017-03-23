@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CountViewController : UIViewController
+@interface CountViewController : BaseViewController
 
 @end

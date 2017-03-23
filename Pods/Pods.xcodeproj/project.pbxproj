@@ -7,78 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16099C91280AE862CA6529EF3584D1F6 /* PureLayoutDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 7487AA8150AE0A5C6F94FC57B4A49127 /* PureLayoutDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		18DB25062C0D120E7990D943CCE76A92 /* ICTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B2F4BDB9177E277291E6CFE77E2F05 /* ICTextView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		1ABA204B6DF1A880E15A905CC313C161 /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B5E8C7A095737B1AEEB0CAF6A30EF729 /* NSLayoutConstraint+PureLayout.m */; };
+		00A5E3C470447BC97CC0E16B57229C0B /* UIView+HHFrame-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A64F9ACC824BD3AB1414AE73839310 /* UIView+HHFrame-dummy.m */; };
+		0323389EC1D25784279C91D6B1E2BBE8 /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C235AA2B57ADF1E978CD7DF452CB3AB /* NSArray+PureLayout.m */; };
+		0DD45EC9A93537A5B61CF55A8193DEA7 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = F6464944C197AB6CC20385FF61C0B045 /* UIView+Frame.m */; };
+		1192BD88FD4393AC801C32A3C7A55F0F /* PureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 458AD5C257B617392BA77B9B15CFFDA9 /* PureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		12677DDCB640C2CA92B18DF32F60569F /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B284BDC9D3454F5BB072B49D98E0D2 /* NSLayoutConstraint+PureLayout.m */; };
+		18DB25062C0D120E7990D943CCE76A92 /* ICTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5486E6D7637B79ED05FEEE11E4D767 /* ICTextView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		1CD8BFB7F403463AEDD6CE38FAA56893 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */; };
 		1FFAA8A92D9BDF59F2A3E55DFB5713B7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9454F4BD72B402362E40E5B30BCBE5A2 /* QuartzCore.framework */; };
-		206D6E6A50DFA354702EEE7709F21527 /* NSLayoutConstraint+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = AD15A7F4CE3E1FF1414C37037C385622 /* NSLayoutConstraint+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		214446E32AF553B47A189ED98DACFD8B /* ICTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B86A1D85C88C324A23213D85BC58BB1 /* ICTextView.framework */; };
-		232DDC509442D508BFDB1BBC32FE9845 /* ddlog_check_icon_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A62743BFC1776A913AB73A6D01604583 /* ddlog_check_icon_normal@3x.png */; };
-		2383BABB6A294452FE9C85F06681D388 /* ALView+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A6789E2A48192163035C65F3D799766 /* ALView+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		26CFBA46528FC6B2C711537183774EA9 /* ddlog_check_icon_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 727ED522CCEB2B3B02EED4AAA71CB325 /* ddlog_check_icon_normal@2x.png */; };
-		2841D413377D88A5ABF33DC6D65566E2 /* DDLoggerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9243935C04CB633D316715AA5212D7 /* DDLoggerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32A9EDA2A12DA0A7C062CA2EA46BE484 /* DDUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A758920A5AE0A8ECE321EB81F6F73DA2 /* DDUncaughtExceptionHandler.m */; };
-		3683C4D975207C9F342B4C4B1A5C9D31 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */; };
-		3DDE1E2ADB80A4E8EB75CD3B39C38814 /* ICRangeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D7009D6CE0918C9E95315B87D22DBC9A /* ICRangeUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3EA20398636103F2B19376797A2709B8 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A4A69CA4700270F6D873FE989364A /* ALView+PureLayout.m */; };
-		425772D6331BCD791711BE5E0E0A63CA /* DDLogListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9620B30D4C805984732DB61E44DF648F /* DDLogListTableViewController.xib */; };
-		4318CE48410439C8AFFE44BB2D718614 /* DDLogDetailKeyboardToolBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 72C83B4D8E32A995377212DC54B370A1 /* DDLogDetailKeyboardToolBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		517FE752B91ED7B5BC3C3FFA235CA604 /* PureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCDE9C51ECCE4F1A7EA44AAA3FC4C5A /* PureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5929AEF69291DEF94911A993EB056D7D /* DDLogListTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E4DE83F2533E1C079A89CEAFDB462FED /* DDLogListTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5987037914D3C464B70F4605C263FCAA /* DDLogger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 353B714CD7EF640E11148B9F9BFCA9D6 /* DDLogger-dummy.m */; };
-		59C03E6DFB63E518821D6D61C046FB47 /* PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 96A87CF8EC1B31CDC3F1BEC834DAB4F3 /* PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5B8045700231E410B5F13451548AA93D /* PureLayout+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = AE497BA8222C23DBD8AF079C8F3BF88E /* PureLayout+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E9D89D51EEEFFE2DFD624D04A2DD70E /* ICRangeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B6CA422CB637F5359F709FDEAA69C617 /* ICRangeUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		63EBC03FFBFD869083ACBC2E1F17A650 /* ddlog_check_icon_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B9522A90104A0BC1CFFE0C5AA27F4F /* ddlog_check_icon_selected@2x.png */; };
-		641B93B3E5268415D6F73E4E12012DBD /* DDUncaughtExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 23C547051447B5AB5C2A04B26D84B75A /* DDUncaughtExceptionHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7100DE8BC6116EC5F877402EF2FD3374 /* DDLogger-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C82A1E1C65F9A89F518FD1A3601CE65 /* DDLogger-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		72FCF2997C0BD9C012EAB7168B669718 /* Pods-CXProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D89545C164CE7166250093CA55FA6F1E /* Pods-CXProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		74F5F296578A43C1E78690C595AF583B /* DDLogDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CD9A6938AFE12C467C301FECFA7FCB6 /* DDLogDetailViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		868372AE6ACD1F6FCA3DF38D5AD35A84 /* DDLogConsoleView.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B590D2A09F2C69086A0EF8E1161108 /* DDLogConsoleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8E0BE594407FB830CCD3AB8FD723F83D /* ddlog_check_icon_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F971A090D56A6024EEC9B6E82AD5FCC6 /* ddlog_check_icon_selected@3x.png */; };
-		8F97CEDC9C80C77CACF95DBC82A12428 /* ICTextView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 11620BC85D5C94A76F51DFC57383EBDD /* ICTextView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		232DDC509442D508BFDB1BBC32FE9845 /* ddlog_check_icon_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D82A83F93D1787D6EA8D60B6FCA72836 /* ddlog_check_icon_normal@3x.png */; };
+		26CFBA46528FC6B2C711537183774EA9 /* ddlog_check_icon_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B625C60BE84AB6D6568221465A742FC /* ddlog_check_icon_normal@2x.png */; };
+		2841D413377D88A5ABF33DC6D65566E2 /* DDLoggerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C06F6F064592DFA54EDFA46757F58E1F /* DDLoggerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		32A9EDA2A12DA0A7C062CA2EA46BE484 /* DDUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 733F6E309AD1CAC2D0BCA3E1DB8F9682 /* DDUncaughtExceptionHandler.m */; };
+		380D85A806BBBFE3447E22F89B9B78B8 /* UIView+HHFrame-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E12C1AA810D15F683762412C82AEBD47 /* UIView+HHFrame-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DDE1E2ADB80A4E8EB75CD3B39C38814 /* ICRangeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2894B5A8744733181F06A155DDD13CA /* ICRangeUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		425772D6331BCD791711BE5E0E0A63CA /* DDLogListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E06C328A0B879D994AA7FF43D5CA95E /* DDLogListTableViewController.xib */; };
+		4318CE48410439C8AFFE44BB2D718614 /* DDLogDetailKeyboardToolBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 6168F3F33D3BFE4E9D65E51AF12AD73F /* DDLogDetailKeyboardToolBar.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5929AEF69291DEF94911A993EB056D7D /* DDLogListTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 066586E53EE3B575E1CD713CA61220EA /* DDLogListTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5987037914D3C464B70F4605C263FCAA /* DDLogger-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F70FD5D273BE111D8F109F92B96A0C70 /* DDLogger-dummy.m */; };
+		5E9D89D51EEEFFE2DFD624D04A2DD70E /* ICRangeUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C7E292527EC34088DC5AC4FF305278 /* ICRangeUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5F578DFA4405874ECCE44DEDFA5DECE2 /* Pods-CXProject-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D89545C164CE7166250093CA55FA6F1E /* Pods-CXProject-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63EBC03FFBFD869083ACBC2E1F17A650 /* ddlog_check_icon_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D8B72DD1AADD0F7E4FDEE230D96D945 /* ddlog_check_icon_selected@2x.png */; };
+		641B93B3E5268415D6F73E4E12012DBD /* DDUncaughtExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E4CC0634243FF8177C0940258F08C0B /* DDUncaughtExceptionHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		666C541ED785FB3E5EB437439DE102D9 /* Pods-CXProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5215FCCBAD68AAC5E36E6F221CC3B0D /* Pods-CXProject-dummy.m */; };
+		6B8284DAD4C02FA2EBBA3AA23C85CFCA /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9048B5F828AA6203E07C4287D1CD7 /* PureLayout-dummy.m */; };
+		6D0460C29D2364DFE8378E94B04FE5C3 /* PureLayout+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = F72EA1AFA67A28367F121F0DC3865E8B /* PureLayout+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7100DE8BC6116EC5F877402EF2FD3374 /* DDLogger-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FCE07B6A34CE94F87E4B3156DAB83B04 /* DDLogger-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74F5F296578A43C1E78690C595AF583B /* DDLogDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 63CB8AB7FA6A91090D9E2ABA1C626F6E /* DDLogDetailViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		868372AE6ACD1F6FCA3DF38D5AD35A84 /* DDLogConsoleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7CBFB3A8290C2A5CFD6C757543CC7E5D /* DDLogConsoleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		891A036DE4C0B962A3B22A356290B096 /* NSArray+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = A13C99A27282A4B23D94782EC0E1391A /* NSArray+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E0BE594407FB830CCD3AB8FD723F83D /* ddlog_check_icon_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284E307C47A617DD2A4543136A339E1C /* ddlog_check_icon_selected@3x.png */; };
+		8F97CEDC9C80C77CACF95DBC82A12428 /* ICTextView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CC0E4BD043F4F3E295DEC45D473B978 /* ICTextView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		907386A6B84E655AF519370C47967623 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5D4D1616B9B5312B0B8308B03332AD /* UIKit.framework */; };
-		931624C33E4B822A81FA6FB5282EF43B /* DDLogListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1034075436ABEA485BBC178B647641E7 /* DDLogListTableViewCell.m */; };
-		93A85C49AF1965F5B63F264D268193A3 /* ICTextView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA1CBF518024A538B20BA859242F2DA /* ICTextView-dummy.m */; };
-		94323F19C407D326ECAFFC9BA075211B /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6128373711FEA6C4DCE88F374A170666 /* NSArray+PureLayout.m */; };
-		9917D29414C1095F78B4F4B12FE13112 /* DDLogConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84555BB981625AEB39E7D6E3202A490F /* DDLogConsoleView.m */; };
-		A6FBD0A5FEC0E30844BFC889AB1A426B /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7938495CB67ACDBFA4DA79279900F737 /* PureLayout-dummy.m */; };
-		AD066F3750C99D0281FF962CA61F75C0 /* DDLogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7AA44F17C77D1D32620931DD07FCC9 /* DDLogDetailViewController.m */; };
-		AE7890C8F8F3C65F4606E8A563AE8D66 /* NSArray+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = B79145300D9F40EB77A2B6DBFE7F207A /* NSArray+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B04BAB0008058597B053441F6A4FA127 /* ICTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = BA558487E1445EABE4B03B29073E6C97 /* ICTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B0548A799004651484F672ADE46F6215 /* DDLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 4ABF17874533931762217DA254ABCE49 /* DDLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BB1AF2247E6B81547755D7CFEDAF1036 /* DDLogListTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AEC5EA2302BFBCF5AB475FDD2D3EF2BC /* DDLogListTableViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BE8E5BBEEF6A401C00B63701967A8DFB /* ICPreprocessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E37303ACA53AA60BC62AE1647C2F85A /* ICPreprocessor.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C02AA6BD160356A58C9B3D74064CCCB5 /* DDLogListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EF3E91DFDD75D1706086E21B7B239 /* DDLogListTableViewController.m */; };
-		C7D5B8309C3508B06BB28CBBDB8ACC5D /* DDLoggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF748B243C8C169A1C4DC1396368BE67 /* DDLoggerManager.m */; };
+		931624C33E4B822A81FA6FB5282EF43B /* DDLogListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E3A9AAE01D9B85923562D2E6DA952D /* DDLogListTableViewCell.m */; };
+		93A85C49AF1965F5B63F264D268193A3 /* ICTextView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD9D780898B8F9957F57761C38298A0 /* ICTextView-dummy.m */; };
+		9917D29414C1095F78B4F4B12FE13112 /* DDLogConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F71570FA9E6C24EA100151374C8714C /* DDLogConsoleView.m */; };
+		AD066F3750C99D0281FF962CA61F75C0 /* DDLogDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6085667E1D6FDEA338DF33E3A8410 /* DDLogDetailViewController.m */; };
+		B04BAB0008058597B053441F6A4FA127 /* ICTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCCFC4540680A46D716B7CE6C993A7D /* ICTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0548A799004651484F672ADE46F6215 /* DDLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D8E0581E8EEC17FB504007A7213FDD9 /* DDLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B96289BF79E1C22CBC19AD53C3F09386 /* UIView+Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = C8CC43D89EE3154D7DE77E24DC21525F /* UIView+Frame.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB1AF2247E6B81547755D7CFEDAF1036 /* DDLogListTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 32D5886423B910CD78A5EB32972381D9 /* DDLogListTableViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BDEDF29D8992EA7D290F1834BB75438F /* PureLayoutDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 169DA04DBF929CA4FE70D745AA6075D5 /* PureLayoutDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE8E5BBEEF6A401C00B63701967A8DFB /* ICPreprocessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 64E8E38823CA3D49E4A5CC934AEBB039 /* ICPreprocessor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C02AA6BD160356A58C9B3D74064CCCB5 /* DDLogListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401E050AB1901FB0425C28CA393B2E87 /* DDLogListTableViewController.m */; };
+		C7D5B8309C3508B06BB28CBBDB8ACC5D /* DDLoggerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB30DAD553BE14082D0FE0CD7AACECB /* DDLoggerManager.m */; };
+		C971430884A6D842C1E10D45E027D2F0 /* PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = AD9D3C454785BE9C546EA6D99CF11FED /* PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CBB9801249FF71925ABCD07D979ABF68 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE19CDCD53C322FB11FDCA8D61241186 /* CoreGraphics.framework */; };
-		CCE68335B991EF90E1B7C7BB46F338DB /* DDLoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EA3E9ABFB670C2B37CA040B9FF50F16 /* DDLoggerClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D63DC7AF7D7AA49CF0F054CCE435FA84 /* Pods-CXProject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5215FCCBAD68AAC5E36E6F221CC3B0D /* Pods-CXProject-dummy.m */; };
-		E51D8760BB978065854E99D227D0437D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */; };
+		CCE68335B991EF90E1B7C7BB46F338DB /* DDLoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5366F6A7B208AA7434115A184FCFF2A1 /* DDLoggerClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D30238CA9002588E4B36E5C4F7340FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */; };
+		D62FDAF0557ADD12DF7613FEEE34DEEB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */; };
 		E549100BA95BC71CA8AF25CA678FB151 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5D4D1616B9B5312B0B8308B03332AD /* UIKit.framework */; };
 		E6E85C61E51D0B13E48D88F415A60144 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */; };
-		EE61B72A2F8D0BA3C77F6BDC0CEE5012 /* DDLoggerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5BC85D731A2DAB67B6742A76538B57 /* DDLoggerClient.m */; };
-		EE6DE07EF5EC42374B57F5B652DB73F4 /* DDLogDetailKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4233DDB12A4A9CDB18B0AD7309CED787 /* DDLogDetailKeyboardToolBar.m */; };
-		F09CE1D5E439FA335DA6F0343B98B5EB /* DDLogListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E9BF687236EE354D52A430A2BD83A9B /* DDLogListTableViewCell.xib */; };
-		FB394912468B985A4697A06710059BCC /* DDLogDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BB5A2FC64E48A44E70BF0FAF832D1FA /* DDLogDetailViewController.xib */; };
-		FCECB55C1ADAD23BC35ABBF85A961E6B /* ICRegularExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B90B4EEDE724C2729E77D18C009E01 /* ICRegularExpression.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		FFC64BB9448E7D5F56262F0B811D0807 /* ICRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = 9987C5F8F044D725D955EF1985529B5D /* ICRegularExpression.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		EAB680C2AE15A7DD40CF52A237E628EA /* ALView+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = C54936ECBE98D498A591D656B5E626EA /* ALView+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE61B72A2F8D0BA3C77F6BDC0CEE5012 /* DDLoggerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEB12CDE0E684BDAE9F078E43A287B7 /* DDLoggerClient.m */; };
+		EE6DE07EF5EC42374B57F5B652DB73F4 /* DDLogDetailKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3823CF0CE00E45C4A38252BCC8B6A1 /* DDLogDetailKeyboardToolBar.m */; };
+		F09CE1D5E439FA335DA6F0343B98B5EB /* DDLogListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA97B04EBA27F2FDED28607D947FE2AF /* DDLogListTableViewCell.xib */; };
+		F175210514A4358D9961F2A7F7740F0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */; };
+		FA32C1D607B46C7BC4FD8EFAEC1ECEC4 /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 465672440C5085CA896CF04870A8664E /* ALView+PureLayout.m */; };
+		FB37BE564058B8FDA8168177166921E1 /* NSLayoutConstraint+PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 13546B4DF9834F51FD851C8F49EE464D /* NSLayoutConstraint+PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB394912468B985A4697A06710059BCC /* DDLogDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CD9E8C5D59990EB7C84D5A1856A7321 /* DDLogDetailViewController.xib */; };
+		FCECB55C1ADAD23BC35ABBF85A961E6B /* ICRegularExpression.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C3997DF15BE303F9EF0E07647B103F7 /* ICRegularExpression.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FFC64BB9448E7D5F56262F0B811D0807 /* ICRegularExpression.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE45EEB30AF680BD6E8BCE8A7EE8C23 /* ICRegularExpression.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3D902F1DEE824F4AD4EC173E1E7FFD8C /* PBXContainerItemProxy */ = {
+		13A6EE22008C02E439D365318EF282EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8ABB1AD362B7DAD6CFB4B53C3B5E54B0;
-			remoteInfo = DDLogger;
+			remoteGlobalIDString = 3B7702E195D5BE74C95CB746F5581901;
+			remoteInfo = "UIView+HHFrame";
 		};
-		A829FB2C38760989AD905EC8EF6FE380 /* PBXContainerItemProxy */ = {
+		3C8992C9D2F8163CD52D2FD83DD571F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9FCE75AE79237D93083866D49474B490;
+			remoteGlobalIDString = 3069CA419E88A8BE623D2F5F68A10B15;
 			remoteInfo = PureLayout;
 		};
 		A947BB6FEE2F8FA9356450A6FDA1F53B /* PBXContainerItemProxy */ = {
@@ -88,102 +93,134 @@
 			remoteGlobalIDString = 34EAEA690334D1F89C62C66D72C6BBEB;
 			remoteInfo = ICTextView;
 		};
-		AFBEE5E50CC6BD081EF68A674220244F /* PBXContainerItemProxy */ = {
+		CD9BAAC5BC41D601622940EAF3FE5E2B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 34EAEA690334D1F89C62C66D72C6BBEB;
 			remoteInfo = ICTextView;
 		};
+		EF610AFE9FEE16A1FDC68326AED62201 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8ABB1AD362B7DAD6CFB4B53C3B5E54B0;
+			remoteInfo = DDLogger;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06B46F11F9733828B863920850F1D60D /* DDLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DDLogger.framework; path = DDLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		066586E53EE3B575E1CD713CA61220EA /* DDLogListTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogListTableViewCell.h; path = DDLogger/DDLogListTableViewCell.h; sourceTree = "<group>"; };
+		07C7E292527EC34088DC5AC4FF305278 /* ICRangeUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICRangeUtils.h; path = ICTextView/ICRangeUtils.h; sourceTree = "<group>"; };
+		08B284BDC9D3454F5BB072B49D98E0D2 /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		09F0D51C01CB0FE43B745022697C8A40 /* UIView_HHFrame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UIView_HHFrame.framework; path = "UIView+HHFrame.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B86A1D85C88C324A23213D85BC58BB1 /* ICTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ICTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D7AA44F17C77D1D32620931DD07FCC9 /* DDLogDetailViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogDetailViewController.m; path = DDLogger/DDLogDetailViewController.m; sourceTree = "<group>"; };
-		0E9BF687236EE354D52A430A2BD83A9B /* DDLogListTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DDLogListTableViewCell.xib; path = DDLogger/DDLogListTableViewCell.xib; sourceTree = "<group>"; };
-		1034075436ABEA485BBC178B647641E7 /* DDLogListTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogListTableViewCell.m; path = DDLogger/DDLogListTableViewCell.m; sourceTree = "<group>"; };
-		11620BC85D5C94A76F51DFC57383EBDD /* ICTextView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ICTextView-umbrella.h"; sourceTree = "<group>"; };
-		165226E396F6AE7CC06E3DBDCB4265C8 /* ICTextView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ICTextView.modulemap; sourceTree = "<group>"; };
-		17F5FF60B68DEE1812D54BADE06B8783 /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CXProject.framework; path = "Pods-CXProject.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F6A9AE5C1E8D4A1254F64C80BC6F41F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		23C547051447B5AB5C2A04B26D84B75A /* DDUncaughtExceptionHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDUncaughtExceptionHandler.h; path = DDLogger/DDUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		0C3997DF15BE303F9EF0E07647B103F7 /* ICRegularExpression.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICRegularExpression.h; path = ICTextView/ICRegularExpression.h; sourceTree = "<group>"; };
+		125847851C6094FC93BF53275677B296 /* DDLogger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DDLogger.framework; path = DDLogger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13546B4DF9834F51FD851C8F49EE464D /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		169DA04DBF929CA4FE70D745AA6075D5 /* PureLayoutDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = PureLayout/PureLayout/PureLayoutDefines.h; sourceTree = "<group>"; };
+		1E4CC0634243FF8177C0940258F08C0B /* DDUncaughtExceptionHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDUncaughtExceptionHandler.h; path = DDLogger/DDUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		1F988672F63DC4428A8DA54409215D72 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		228786CB132470B9A63080765102449C /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CXProject.framework; path = "Pods-CXProject.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23A64F9ACC824BD3AB1414AE73839310 /* UIView+HHFrame-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHFrame-dummy.m"; sourceTree = "<group>"; };
 		268011A1B42EFF68344E1017269F582F /* Pods-CXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CXProject.debug.xcconfig"; sourceTree = "<group>"; };
-		2EA3E9ABFB670C2B37CA040B9FF50F16 /* DDLoggerClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLoggerClient.h; path = DDLogger/DDLoggerClient.h; sourceTree = "<group>"; };
+		284E307C47A617DD2A4543136A339E1C /* ddlog_check_icon_selected@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_selected@3x.png"; path = "DDLogger/ddlog_check_icon_selected@3x.png"; sourceTree = "<group>"; };
+		2C8901F94007BC8BD99527CF5FEC3800 /* PureLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-prefix.pch"; sourceTree = "<group>"; };
+		2E06C328A0B879D994AA7FF43D5CA95E /* DDLogListTableViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DDLogListTableViewController.xib; path = DDLogger/DDLogListTableViewController.xib; sourceTree = "<group>"; };
+		2F71570FA9E6C24EA100151374C8714C /* DDLogConsoleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogConsoleView.m; path = DDLogger/DDLogConsoleView.m; sourceTree = "<group>"; };
 		2FE7B22513978CBE309E1803A6643CE5 /* Pods-CXProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CXProject.release.xcconfig"; sourceTree = "<group>"; };
-		353B714CD7EF640E11148B9F9BFCA9D6 /* DDLogger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DDLogger-dummy.m"; sourceTree = "<group>"; };
-		387878227955433E876810EEB25FDD71 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CD9A6938AFE12C467C301FECFA7FCB6 /* DDLogDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogDetailViewController.h; path = DDLogger/DDLogDetailViewController.h; sourceTree = "<group>"; };
-		4233DDB12A4A9CDB18B0AD7309CED787 /* DDLogDetailKeyboardToolBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogDetailKeyboardToolBar.m; path = DDLogger/DDLogDetailKeyboardToolBar.m; sourceTree = "<group>"; };
-		43B90B4EEDE724C2729E77D18C009E01 /* ICRegularExpression.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICRegularExpression.h; path = ICTextView/ICRegularExpression.h; sourceTree = "<group>"; };
-		4ABF17874533931762217DA254ABCE49 /* DDLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogger.h; path = DDLogger/DDLogger.h; sourceTree = "<group>"; };
-		4E3F2B00DA3893785E3CFC48024F8990 /* PureLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PureLayout.xcconfig; sourceTree = "<group>"; };
-		54D1C94DD606ACAA2768C9F763B986E2 /* DDLogger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DDLogger.xcconfig; sourceTree = "<group>"; };
+		32D5886423B910CD78A5EB32972381D9 /* DDLogListTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogListTableViewController.h; path = DDLogger/DDLogListTableViewController.h; sourceTree = "<group>"; };
+		3B625C60BE84AB6D6568221465A742FC /* ddlog_check_icon_normal@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_normal@2x.png"; path = "DDLogger/ddlog_check_icon_normal@2x.png"; sourceTree = "<group>"; };
+		401E050AB1901FB0425C28CA393B2E87 /* DDLogListTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogListTableViewController.m; path = DDLogger/DDLogListTableViewController.m; sourceTree = "<group>"; };
+		458AD5C257B617392BA77B9B15CFFDA9 /* PureLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-umbrella.h"; sourceTree = "<group>"; };
+		465672440C5085CA896CF04870A8664E /* ALView+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "PureLayout/PureLayout/ALView+PureLayout.m"; sourceTree = "<group>"; };
+		4AC9048B5F828AA6203E07C4287D1CD7 /* PureLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PureLayout-dummy.m"; sourceTree = "<group>"; };
+		4C235AA2B57ADF1E978CD7DF452CB3AB /* NSArray+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+PureLayout.m"; path = "PureLayout/PureLayout/NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		4CC0E4BD043F4F3E295DEC45D473B978 /* ICTextView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ICTextView-umbrella.h"; sourceTree = "<group>"; };
+		4CD9E8C5D59990EB7C84D5A1856A7321 /* DDLogDetailViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DDLogDetailViewController.xib; path = DDLogger/DDLogDetailViewController.xib; sourceTree = "<group>"; };
+		506598C6913CDDD5FE9965451F8EE7D8 /* ICTextView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ICTextView-prefix.pch"; sourceTree = "<group>"; };
+		5366F6A7B208AA7434115A184FCFF2A1 /* DDLoggerClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLoggerClient.h; path = DDLogger/DDLoggerClient.h; sourceTree = "<group>"; };
+		55765613F715AD0E65C2B2F5FFF00121 /* DDLogger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDLogger-prefix.pch"; sourceTree = "<group>"; };
+		5D8E0581E8EEC17FB504007A7213FDD9 /* DDLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogger.h; path = DDLogger/DDLogger.h; sourceTree = "<group>"; };
+		5DC4BBA181F83CE1D7B3B832A4616DA5 /* DDLogger.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DDLogger.xcconfig; sourceTree = "<group>"; };
+		5F3823CF0CE00E45C4A38252BCC8B6A1 /* DDLogDetailKeyboardToolBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogDetailKeyboardToolBar.m; path = DDLogger/DDLogDetailKeyboardToolBar.m; sourceTree = "<group>"; };
 		5FEAA6A91684FB4121D924BC5A2D7063 /* Pods-CXProject-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CXProject-acknowledgements.plist"; sourceTree = "<group>"; };
-		6128373711FEA6C4DCE88F374A170666 /* NSArray+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+PureLayout.m"; path = "PureLayout/PureLayout/NSArray+PureLayout.m"; sourceTree = "<group>"; };
-		63B7ABDC0B7635CC5B80382ACD41E41C /* PureLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-prefix.pch"; sourceTree = "<group>"; };
-		727ED522CCEB2B3B02EED4AAA71CB325 /* ddlog_check_icon_normal@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_normal@2x.png"; path = "DDLogger/ddlog_check_icon_normal@2x.png"; sourceTree = "<group>"; };
-		72C83B4D8E32A995377212DC54B370A1 /* DDLogDetailKeyboardToolBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogDetailKeyboardToolBar.h; path = DDLogger/DDLogDetailKeyboardToolBar.h; sourceTree = "<group>"; };
-		7487AA8150AE0A5C6F94FC57B4A49127 /* PureLayoutDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = PureLayout/PureLayout/PureLayoutDefines.h; sourceTree = "<group>"; };
-		7938495CB67ACDBFA4DA79279900F737 /* PureLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PureLayout-dummy.m"; sourceTree = "<group>"; };
-		7A6789E2A48192163035C65F3D799766 /* ALView+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "PureLayout/PureLayout/ALView+PureLayout.h"; sourceTree = "<group>"; };
+		6168F3F33D3BFE4E9D65E51AF12AD73F /* DDLogDetailKeyboardToolBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogDetailKeyboardToolBar.h; path = DDLogger/DDLogDetailKeyboardToolBar.h; sourceTree = "<group>"; };
+		63CB8AB7FA6A91090D9E2ABA1C626F6E /* DDLogDetailViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogDetailViewController.h; path = DDLogger/DDLogDetailViewController.h; sourceTree = "<group>"; };
+		64E8E38823CA3D49E4A5CC934AEBB039 /* ICPreprocessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICPreprocessor.h; path = ICTextView/ICPreprocessor.h; sourceTree = "<group>"; };
+		6AD9D780898B8F9957F57761C38298A0 /* ICTextView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ICTextView-dummy.m"; sourceTree = "<group>"; };
+		6E38FEFFF8CA1FAF66FF5762AF24DA23 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7299F49D92C2FB0D1C69616BB7580736 /* ICTextView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ICTextView.xcconfig; sourceTree = "<group>"; };
+		733F6E309AD1CAC2D0BCA3E1DB8F9682 /* DDUncaughtExceptionHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDUncaughtExceptionHandler.m; path = DDLogger/DDUncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		7B5D4D1616B9B5312B0B8308B03332AD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		7BB5A2FC64E48A44E70BF0FAF832D1FA /* DDLogDetailViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DDLogDetailViewController.xib; path = DDLogger/DDLogDetailViewController.xib; sourceTree = "<group>"; };
-		7C82A1E1C65F9A89F518FD1A3601CE65 /* DDLogger-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDLogger-umbrella.h"; sourceTree = "<group>"; };
-		7CEB90A604DE3C24E64F0D16D2FABA92 /* DDLogger.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DDLogger.modulemap; sourceTree = "<group>"; };
+		7CBFB3A8290C2A5CFD6C757543CC7E5D /* DDLogConsoleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogConsoleView.h; path = DDLogger/DDLogConsoleView.h; sourceTree = "<group>"; };
+		7D8B72DD1AADD0F7E4FDEE230D96D945 /* ddlog_check_icon_selected@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_selected@2x.png"; path = "DDLogger/ddlog_check_icon_selected@2x.png"; sourceTree = "<group>"; };
 		809CC11AE7012B2F787B0BC4C04275A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		83B937FEBB7CFD22C07853C63C691608 /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PureLayout.modulemap; sourceTree = "<group>"; };
+		83A1365948736A8958DDA3B05FF867B9 /* DDLogger.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DDLogger.modulemap; sourceTree = "<group>"; };
 		84128477CD1D0316F66CBB39B98A9FD2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84555BB981625AEB39E7D6E3202A490F /* DDLogConsoleView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogConsoleView.m; path = DDLogger/DDLogConsoleView.m; sourceTree = "<group>"; };
-		8E37303ACA53AA60BC62AE1647C2F85A /* ICPreprocessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICPreprocessor.h; path = ICTextView/ICPreprocessor.h; sourceTree = "<group>"; };
+		8531258712A86C55A9C9216790F13AE3 /* ICTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ICTextView.framework; path = ICTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92889BF4440B8F9061149BA3107CCB4E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9454F4BD72B402362E40E5B30BCBE5A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		9620B30D4C805984732DB61E44DF648F /* DDLogListTableViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DDLogListTableViewController.xib; path = DDLogger/DDLogListTableViewController.xib; sourceTree = "<group>"; };
-		96A87CF8EC1B31CDC3F1BEC834DAB4F3 /* PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
-		9987C5F8F044D725D955EF1985529B5D /* ICRegularExpression.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICRegularExpression.m; path = ICTextView/ICRegularExpression.m; sourceTree = "<group>"; };
-		9CAA1EE3C0B443CD4B2AD2804FB77067 /* ICTextView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ICTextView-prefix.pch"; sourceTree = "<group>"; };
 		9EB0F0FF3F7412C6DB2A96A9117ED4F3 /* Pods-CXProject-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CXProject-resources.sh"; sourceTree = "<group>"; };
-		A62743BFC1776A913AB73A6D01604583 /* ddlog_check_icon_normal@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_normal@3x.png"; path = "DDLogger/ddlog_check_icon_normal@3x.png"; sourceTree = "<group>"; };
-		A758920A5AE0A8ECE321EB81F6F73DA2 /* DDUncaughtExceptionHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDUncaughtExceptionHandler.m; path = DDLogger/DDUncaughtExceptionHandler.m; sourceTree = "<group>"; };
-		AB0161141324E86A046C434BD6618AA4 /* DDLogger-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDLogger-prefix.pch"; sourceTree = "<group>"; };
-		AD15A7F4CE3E1FF1414C37037C385622 /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+PureLayout.h"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
-		AE497BA8222C23DBD8AF079C8F3BF88E /* PureLayout+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "PureLayout/PureLayout/PureLayout+Internal.h"; sourceTree = "<group>"; };
-		AEC5EA2302BFBCF5AB475FDD2D3EF2BC /* DDLogListTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogListTableViewController.h; path = DDLogger/DDLogListTableViewController.h; sourceTree = "<group>"; };
-		B0B590D2A09F2C69086A0EF8E1161108 /* DDLogConsoleView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogConsoleView.h; path = DDLogger/DDLogConsoleView.h; sourceTree = "<group>"; };
-		B1B9522A90104A0BC1CFFE0C5AA27F4F /* ddlog_check_icon_selected@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_selected@2x.png"; path = "DDLogger/ddlog_check_icon_selected@2x.png"; sourceTree = "<group>"; };
-		B2B2F4BDB9177E277291E6CFE77E2F05 /* ICTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICTextView.m; path = ICTextView/ICTextView.m; sourceTree = "<group>"; };
-		B5E8C7A095737B1AEEB0CAF6A30EF729 /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
-		B6CA422CB637F5359F709FDEAA69C617 /* ICRangeUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICRangeUtils.h; path = ICTextView/ICRangeUtils.h; sourceTree = "<group>"; };
-		B76EF3E91DFDD75D1706086E21B7B239 /* DDLogListTableViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogListTableViewController.m; path = DDLogger/DDLogListTableViewController.m; sourceTree = "<group>"; };
-		B79145300D9F40EB77A2B6DBFE7F207A /* NSArray+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+PureLayout.h"; path = "PureLayout/PureLayout/NSArray+PureLayout.h"; sourceTree = "<group>"; };
-		BA558487E1445EABE4B03B29073E6C97 /* ICTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICTextView.h; path = ICTextView/ICTextView.h; sourceTree = "<group>"; };
-		BBA1CBF518024A538B20BA859242F2DA /* ICTextView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ICTextView-dummy.m"; sourceTree = "<group>"; };
-		BF833840E04C916D045C1AD020C4D96B /* ICTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ICTextView.framework; path = ICTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A13C99A27282A4B23D94782EC0E1391A /* NSArray+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+PureLayout.h"; path = "PureLayout/PureLayout/NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		AA072F7572977F71476303CD12521916 /* UIView+HHFrame.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UIView+HHFrame.xcconfig"; sourceTree = "<group>"; };
+		ABCCFC4540680A46D716B7CE6C993A7D /* ICTextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ICTextView.h; path = ICTextView/ICTextView.h; sourceTree = "<group>"; };
+		AD9D3C454785BE9C546EA6D99CF11FED /* PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
+		ADEB12CDE0E684BDAE9F078E43A287B7 /* DDLoggerClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLoggerClient.m; path = DDLogger/DDLoggerClient.m; sourceTree = "<group>"; };
+		B2894B5A8744733181F06A155DDD13CA /* ICRangeUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICRangeUtils.m; path = ICTextView/ICRangeUtils.m; sourceTree = "<group>"; };
+		BA714EE74568A754FD20BB16E8CA7E81 /* UIView+HHFrame-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+HHFrame-prefix.pch"; sourceTree = "<group>"; };
+		C06F6F064592DFA54EDFA46757F58E1F /* DDLoggerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLoggerManager.h; path = DDLogger/DDLoggerManager.h; sourceTree = "<group>"; };
 		C50AF1D4743BD893DD7545A5845C5E57 /* Pods-CXProject-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CXProject-frameworks.sh"; sourceTree = "<group>"; };
-		C857E15FB9D47D9239122570E68F3183 /* ICTextView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ICTextView.xcconfig; sourceTree = "<group>"; };
-		CDCDE9C51ECCE4F1A7EA44AAA3FC4C5A /* PureLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-umbrella.h"; sourceTree = "<group>"; };
-		CE2C9518BB8827AE1E41248AB6220166 /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PureLayout.framework; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF9243935C04CB633D316715AA5212D7 /* DDLoggerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLoggerManager.h; path = DDLogger/DDLoggerManager.h; sourceTree = "<group>"; };
+		C54936ECBE98D498A591D656B5E626EA /* ALView+PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ALView+PureLayout.h"; path = "PureLayout/PureLayout/ALView+PureLayout.h"; sourceTree = "<group>"; };
+		C7E5BEEBFCAD286A6A83308C7F1E20E6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8CC43D89EE3154D7DE77E24DC21525F /* UIView+Frame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		CA97B04EBA27F2FDED28607D947FE2AF /* DDLogListTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DDLogListTableViewCell.xib; path = DDLogger/DDLogListTableViewCell.xib; sourceTree = "<group>"; };
+		D0E3A9AAE01D9B85923562D2E6DA952D /* DDLogListTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogListTableViewCell.m; path = DDLogger/DDLogListTableViewCell.m; sourceTree = "<group>"; };
+		D4C6085667E1D6FDEA338DF33E3A8410 /* DDLogDetailViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLogDetailViewController.m; path = DDLogger/DDLogDetailViewController.m; sourceTree = "<group>"; };
 		D5215FCCBAD68AAC5E36E6F221CC3B0D /* Pods-CXProject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CXProject-dummy.m"; sourceTree = "<group>"; };
-		D7009D6CE0918C9E95315B87D22DBC9A /* ICRangeUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICRangeUtils.m; path = ICTextView/ICRangeUtils.m; sourceTree = "<group>"; };
+		D82A83F93D1787D6EA8D60B6FCA72836 /* ddlog_check_icon_normal@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_normal@3x.png"; path = "DDLogger/ddlog_check_icon_normal@3x.png"; sourceTree = "<group>"; };
 		D89545C164CE7166250093CA55FA6F1E /* Pods-CXProject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CXProject-umbrella.h"; sourceTree = "<group>"; };
-		DC1A4A69CA4700270F6D873FE989364A /* ALView+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ALView+PureLayout.m"; path = "PureLayout/PureLayout/ALView+PureLayout.m"; sourceTree = "<group>"; };
+		DFE45EEB30AF680BD6E8BCE8A7EE8C23 /* ICRegularExpression.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICRegularExpression.m; path = ICTextView/ICRegularExpression.m; sourceTree = "<group>"; };
+		E12C1AA810D15F683762412C82AEBD47 /* UIView+HHFrame-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+HHFrame-umbrella.h"; sourceTree = "<group>"; };
 		E28E4891144C4CCF002CF12EC5E4840E /* Pods-CXProject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-CXProject.modulemap"; sourceTree = "<group>"; };
-		E4DE83F2533E1C079A89CEAFDB462FED /* DDLogListTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DDLogListTableViewCell.h; path = DDLogger/DDLogListTableViewCell.h; sourceTree = "<group>"; };
+		E37EB89687A6A1450C7F721B86893A9C /* ICTextView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ICTextView.modulemap; sourceTree = "<group>"; };
 		E752865DDABC755A71F0A47C4A99CEF8 /* Pods-CXProject-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CXProject-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EF748B243C8C169A1C4DC1396368BE67 /* DDLoggerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLoggerManager.m; path = DDLogger/DDLoggerManager.m; sourceTree = "<group>"; };
-		F971A090D56A6024EEC9B6E82AD5FCC6 /* ddlog_check_icon_selected@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ddlog_check_icon_selected@3x.png"; path = "DDLogger/ddlog_check_icon_selected@3x.png"; sourceTree = "<group>"; };
-		FA5BC85D731A2DAB67B6742A76538B57 /* DDLoggerClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLoggerClient.m; path = DDLogger/DDLoggerClient.m; sourceTree = "<group>"; };
-		FCDE57920DB1117459D2DCD14F968632 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E799D638CC1347D5CB27881A5162CFBB /* UIView+HHFrame.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "UIView+HHFrame.modulemap"; sourceTree = "<group>"; };
+		E7A3F7349EF17CC44111FC2B045C3D8F /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = PureLayout.modulemap; sourceTree = "<group>"; };
+		EAE0D34E01C0A3A39F176E6846CC857D /* PureLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PureLayout.xcconfig; sourceTree = "<group>"; };
+		F1BFE8A736BFB1CE69083FBE2AF9D699 /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PureLayout.framework; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6464944C197AB6CC20385FF61C0B045 /* UIView+Frame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		F70FD5D273BE111D8F109F92B96A0C70 /* DDLogger-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DDLogger-dummy.m"; sourceTree = "<group>"; };
+		F72EA1AFA67A28367F121F0DC3865E8B /* PureLayout+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "PureLayout/PureLayout/PureLayout+Internal.h"; sourceTree = "<group>"; };
+		FA5486E6D7637B79ED05FEEE11E4D767 /* ICTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ICTextView.m; path = ICTextView/ICTextView.m; sourceTree = "<group>"; };
+		FCE07B6A34CE94F87E4B3156DAB83B04 /* DDLogger-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DDLogger-umbrella.h"; sourceTree = "<group>"; };
 		FE19CDCD53C322FB11FDCA8D61241186 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		FFB30DAD553BE14082D0FE0CD7AACECB /* DDLoggerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DDLoggerManager.m; path = DDLogger/DDLoggerManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0327C218CEB3585C738190EC6FF49454 /* Frameworks */ = {
+		3846D768DAE2E7DE73548B6BD7BA3EFB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3683C4D975207C9F342B4C4B1A5C9D31 /* Foundation.framework in Frameworks */,
+				D62FDAF0557ADD12DF7613FEEE34DEEB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AEA28C3F636890643D6607B401BA660 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F175210514A4358D9961F2A7F7740F0C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94C09EE17C33F6FFC4972EFBFC524FC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30238CA9002588E4B36E5C4F7340FB0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,14 +242,6 @@
 				E6E85C61E51D0B13E48D88F415A60144 /* Foundation.framework in Frameworks */,
 				1FFAA8A92D9BDF59F2A3E55DFB5713B7 /* QuartzCore.framework in Frameworks */,
 				907386A6B84E655AF519370C47967623 /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBF12EA2A3957CD8F9D91878AB4D61E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E51D8760BB978065854E99D227D0437D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,45 +275,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		25DA44D123F8D4C540A06EA7AF385467 /* Support Files */ = {
+		305F29B5E3378B634027043C9C344E53 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7CEB90A604DE3C24E64F0D16D2FABA92 /* DDLogger.modulemap */,
-				54D1C94DD606ACAA2768C9F763B986E2 /* DDLogger.xcconfig */,
-				353B714CD7EF640E11148B9F9BFCA9D6 /* DDLogger-dummy.m */,
-				AB0161141324E86A046C434BD6618AA4 /* DDLogger-prefix.pch */,
-				7C82A1E1C65F9A89F518FD1A3601CE65 /* DDLogger-umbrella.h */,
-				1F6A9AE5C1E8D4A1254F64C80BC6F41F /* Info.plist */,
+				3B625C60BE84AB6D6568221465A742FC /* ddlog_check_icon_normal@2x.png */,
+				D82A83F93D1787D6EA8D60B6FCA72836 /* ddlog_check_icon_normal@3x.png */,
+				7D8B72DD1AADD0F7E4FDEE230D96D945 /* ddlog_check_icon_selected@2x.png */,
+				284E307C47A617DD2A4543136A339E1C /* ddlog_check_icon_selected@3x.png */,
+				4CD9E8C5D59990EB7C84D5A1856A7321 /* DDLogDetailViewController.xib */,
+				CA97B04EBA27F2FDED28607D947FE2AF /* DDLogListTableViewCell.xib */,
+				2E06C328A0B879D994AA7FF43D5CA95E /* DDLogListTableViewController.xib */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/DDLogger";
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		2C9ACE8B1E326F6723EB0A92C92EEE07 /* DDLogger */ = {
+		36B31135A25272E90D0A40BE3238E96F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0B590D2A09F2C69086A0EF8E1161108 /* DDLogConsoleView.h */,
-				84555BB981625AEB39E7D6E3202A490F /* DDLogConsoleView.m */,
-				72C83B4D8E32A995377212DC54B370A1 /* DDLogDetailKeyboardToolBar.h */,
-				4233DDB12A4A9CDB18B0AD7309CED787 /* DDLogDetailKeyboardToolBar.m */,
-				3CD9A6938AFE12C467C301FECFA7FCB6 /* DDLogDetailViewController.h */,
-				0D7AA44F17C77D1D32620931DD07FCC9 /* DDLogDetailViewController.m */,
-				4ABF17874533931762217DA254ABCE49 /* DDLogger.h */,
-				2EA3E9ABFB670C2B37CA040B9FF50F16 /* DDLoggerClient.h */,
-				FA5BC85D731A2DAB67B6742A76538B57 /* DDLoggerClient.m */,
-				CF9243935C04CB633D316715AA5212D7 /* DDLoggerManager.h */,
-				EF748B243C8C169A1C4DC1396368BE67 /* DDLoggerManager.m */,
-				E4DE83F2533E1C079A89CEAFDB462FED /* DDLogListTableViewCell.h */,
-				1034075436ABEA485BBC178B647641E7 /* DDLogListTableViewCell.m */,
-				AEC5EA2302BFBCF5AB475FDD2D3EF2BC /* DDLogListTableViewController.h */,
-				B76EF3E91DFDD75D1706086E21B7B239 /* DDLogListTableViewController.m */,
-				23C547051447B5AB5C2A04B26D84B75A /* DDUncaughtExceptionHandler.h */,
-				A758920A5AE0A8ECE321EB81F6F73DA2 /* DDUncaughtExceptionHandler.m */,
-				BF0CD99051EC7044795E03F7DE66C37D /* Resources */,
-				25DA44D123F8D4C540A06EA7AF385467 /* Support Files */,
+				E37EB89687A6A1450C7F721B86893A9C /* ICTextView.modulemap */,
+				7299F49D92C2FB0D1C69616BB7580736 /* ICTextView.xcconfig */,
+				6AD9D780898B8F9957F57761C38298A0 /* ICTextView-dummy.m */,
+				506598C6913CDDD5FE9965451F8EE7D8 /* ICTextView-prefix.pch */,
+				4CC0E4BD043F4F3E295DEC45D473B978 /* ICTextView-umbrella.h */,
+				1F988672F63DC4428A8DA54409215D72 /* Info.plist */,
 			);
-			name = DDLogger;
-			path = DDLogger;
+			name = "Support Files";
+			path = "../Target Support Files/ICTextView";
 			sourceTree = "<group>";
 		};
 		71F928BCD0DF82912A4BE20F6AEE2044 /* Targets Support Files */ = {
@@ -295,14 +311,18 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7BCDE8AA020C81BD367C90DD6448D166 /* Pods */ = {
+		7691EC21169F0DA671358903980C528B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2C9ACE8B1E326F6723EB0A92C92EEE07 /* DDLogger */,
-				7E4CD5BCC086C6E377E628A21858302A /* ICTextView */,
-				864FCFAB7A8765F06E9EE6E213B94D9A /* PureLayout */,
+				92889BF4440B8F9061149BA3107CCB4E /* Info.plist */,
+				E799D638CC1347D5CB27881A5162CFBB /* UIView+HHFrame.modulemap */,
+				AA072F7572977F71476303CD12521916 /* UIView+HHFrame.xcconfig */,
+				23A64F9ACC824BD3AB1414AE73839310 /* UIView+HHFrame-dummy.m */,
+				BA714EE74568A754FD20BB16E8CA7E81 /* UIView+HHFrame-prefix.pch */,
+				E12C1AA810D15F683762412C82AEBD47 /* UIView+HHFrame-umbrella.h */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/UIView+HHFrame";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -310,72 +330,106 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				25931D367897162028640BE6E703D63A /* Frameworks */,
-				7BCDE8AA020C81BD367C90DD6448D166 /* Pods */,
-				E462BE5BE5BB3EBCD17B8BFC1C13FAFB /* Products */,
+				CDF45A47DAFC85F7F92BEFDDD0BABDEF /* Pods */,
+				95E411C1BB06F6C3AEB817A419B0478E /* Products */,
 				71F928BCD0DF82912A4BE20F6AEE2044 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		7E4CD5BCC086C6E377E628A21858302A /* ICTextView */ = {
+		8D2DC8324DE5D275527932D0870F4812 /* DDLogger */ = {
 			isa = PBXGroup;
 			children = (
-				8E37303ACA53AA60BC62AE1647C2F85A /* ICPreprocessor.h */,
-				B6CA422CB637F5359F709FDEAA69C617 /* ICRangeUtils.h */,
-				D7009D6CE0918C9E95315B87D22DBC9A /* ICRangeUtils.m */,
-				43B90B4EEDE724C2729E77D18C009E01 /* ICRegularExpression.h */,
-				9987C5F8F044D725D955EF1985529B5D /* ICRegularExpression.m */,
-				BA558487E1445EABE4B03B29073E6C97 /* ICTextView.h */,
-				B2B2F4BDB9177E277291E6CFE77E2F05 /* ICTextView.m */,
-				8FF84F73C10B34F668DA380A77B919F8 /* Support Files */,
+				7CBFB3A8290C2A5CFD6C757543CC7E5D /* DDLogConsoleView.h */,
+				2F71570FA9E6C24EA100151374C8714C /* DDLogConsoleView.m */,
+				6168F3F33D3BFE4E9D65E51AF12AD73F /* DDLogDetailKeyboardToolBar.h */,
+				5F3823CF0CE00E45C4A38252BCC8B6A1 /* DDLogDetailKeyboardToolBar.m */,
+				63CB8AB7FA6A91090D9E2ABA1C626F6E /* DDLogDetailViewController.h */,
+				D4C6085667E1D6FDEA338DF33E3A8410 /* DDLogDetailViewController.m */,
+				5D8E0581E8EEC17FB504007A7213FDD9 /* DDLogger.h */,
+				5366F6A7B208AA7434115A184FCFF2A1 /* DDLoggerClient.h */,
+				ADEB12CDE0E684BDAE9F078E43A287B7 /* DDLoggerClient.m */,
+				C06F6F064592DFA54EDFA46757F58E1F /* DDLoggerManager.h */,
+				FFB30DAD553BE14082D0FE0CD7AACECB /* DDLoggerManager.m */,
+				066586E53EE3B575E1CD713CA61220EA /* DDLogListTableViewCell.h */,
+				D0E3A9AAE01D9B85923562D2E6DA952D /* DDLogListTableViewCell.m */,
+				32D5886423B910CD78A5EB32972381D9 /* DDLogListTableViewController.h */,
+				401E050AB1901FB0425C28CA393B2E87 /* DDLogListTableViewController.m */,
+				1E4CC0634243FF8177C0940258F08C0B /* DDUncaughtExceptionHandler.h */,
+				733F6E309AD1CAC2D0BCA3E1DB8F9682 /* DDUncaughtExceptionHandler.m */,
+				305F29B5E3378B634027043C9C344E53 /* Resources */,
+				CFD02EE174FB0A1B8E78C353214AEFD6 /* Support Files */,
 			);
-			name = ICTextView;
-			path = ICTextView;
+			name = DDLogger;
+			path = DDLogger;
 			sourceTree = "<group>";
 		};
-		864FCFAB7A8765F06E9EE6E213B94D9A /* PureLayout */ = {
+		95E411C1BB06F6C3AEB817A419B0478E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A6789E2A48192163035C65F3D799766 /* ALView+PureLayout.h */,
-				DC1A4A69CA4700270F6D873FE989364A /* ALView+PureLayout.m */,
-				B79145300D9F40EB77A2B6DBFE7F207A /* NSArray+PureLayout.h */,
-				6128373711FEA6C4DCE88F374A170666 /* NSArray+PureLayout.m */,
-				AD15A7F4CE3E1FF1414C37037C385622 /* NSLayoutConstraint+PureLayout.h */,
-				B5E8C7A095737B1AEEB0CAF6A30EF729 /* NSLayoutConstraint+PureLayout.m */,
-				96A87CF8EC1B31CDC3F1BEC834DAB4F3 /* PureLayout.h */,
-				AE497BA8222C23DBD8AF079C8F3BF88E /* PureLayout+Internal.h */,
-				7487AA8150AE0A5C6F94FC57B4A49127 /* PureLayoutDefines.h */,
-				F74B56A80D6E68D7764D91EFE842EC96 /* Support Files */,
+				125847851C6094FC93BF53275677B296 /* DDLogger.framework */,
+				8531258712A86C55A9C9216790F13AE3 /* ICTextView.framework */,
+				228786CB132470B9A63080765102449C /* Pods_CXProject.framework */,
+				F1BFE8A736BFB1CE69083FBE2AF9D699 /* PureLayout.framework */,
+				09F0D51C01CB0FE43B745022697C8A40 /* UIView_HHFrame.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ACA5CDC7D21643356D19C5CD8B59A742 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E38FEFFF8CA1FAF66FF5762AF24DA23 /* Info.plist */,
+				E7A3F7349EF17CC44111FC2B045C3D8F /* PureLayout.modulemap */,
+				EAE0D34E01C0A3A39F176E6846CC857D /* PureLayout.xcconfig */,
+				4AC9048B5F828AA6203E07C4287D1CD7 /* PureLayout-dummy.m */,
+				2C8901F94007BC8BD99527CF5FEC3800 /* PureLayout-prefix.pch */,
+				458AD5C257B617392BA77B9B15CFFDA9 /* PureLayout-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PureLayout";
+			sourceTree = "<group>";
+		};
+		BEADEDAF835A00B0F4DA56B49605CBF6 /* PureLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C54936ECBE98D498A591D656B5E626EA /* ALView+PureLayout.h */,
+				465672440C5085CA896CF04870A8664E /* ALView+PureLayout.m */,
+				A13C99A27282A4B23D94782EC0E1391A /* NSArray+PureLayout.h */,
+				4C235AA2B57ADF1E978CD7DF452CB3AB /* NSArray+PureLayout.m */,
+				13546B4DF9834F51FD851C8F49EE464D /* NSLayoutConstraint+PureLayout.h */,
+				08B284BDC9D3454F5BB072B49D98E0D2 /* NSLayoutConstraint+PureLayout.m */,
+				AD9D3C454785BE9C546EA6D99CF11FED /* PureLayout.h */,
+				F72EA1AFA67A28367F121F0DC3865E8B /* PureLayout+Internal.h */,
+				169DA04DBF929CA4FE70D745AA6075D5 /* PureLayoutDefines.h */,
+				ACA5CDC7D21643356D19C5CD8B59A742 /* Support Files */,
 			);
 			name = PureLayout;
 			path = PureLayout;
 			sourceTree = "<group>";
 		};
-		8FF84F73C10B34F668DA380A77B919F8 /* Support Files */ = {
+		CDF45A47DAFC85F7F92BEFDDD0BABDEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				165226E396F6AE7CC06E3DBDCB4265C8 /* ICTextView.modulemap */,
-				C857E15FB9D47D9239122570E68F3183 /* ICTextView.xcconfig */,
-				BBA1CBF518024A538B20BA859242F2DA /* ICTextView-dummy.m */,
-				9CAA1EE3C0B443CD4B2AD2804FB77067 /* ICTextView-prefix.pch */,
-				11620BC85D5C94A76F51DFC57383EBDD /* ICTextView-umbrella.h */,
-				387878227955433E876810EEB25FDD71 /* Info.plist */,
+				8D2DC8324DE5D275527932D0870F4812 /* DDLogger */,
+				E5834D5749CA28833C2B72E238EB712C /* ICTextView */,
+				BEADEDAF835A00B0F4DA56B49605CBF6 /* PureLayout */,
+				E900D52320B6F80A9095530E67A60495 /* UIView+HHFrame */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/ICTextView";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		BF0CD99051EC7044795E03F7DE66C37D /* Resources */ = {
+		CFD02EE174FB0A1B8E78C353214AEFD6 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				727ED522CCEB2B3B02EED4AAA71CB325 /* ddlog_check_icon_normal@2x.png */,
-				A62743BFC1776A913AB73A6D01604583 /* ddlog_check_icon_normal@3x.png */,
-				B1B9522A90104A0BC1CFFE0C5AA27F4F /* ddlog_check_icon_selected@2x.png */,
-				F971A090D56A6024EEC9B6E82AD5FCC6 /* ddlog_check_icon_selected@3x.png */,
-				7BB5A2FC64E48A44E70BF0FAF832D1FA /* DDLogDetailViewController.xib */,
-				0E9BF687236EE354D52A430A2BD83A9B /* DDLogListTableViewCell.xib */,
-				9620B30D4C805984732DB61E44DF648F /* DDLogListTableViewController.xib */,
+				83A1365948736A8958DDA3B05FF867B9 /* DDLogger.modulemap */,
+				5DC4BBA181F83CE1D7B3B832A4616DA5 /* DDLogger.xcconfig */,
+				F70FD5D273BE111D8F109F92B96A0C70 /* DDLogger-dummy.m */,
+				55765613F715AD0E65C2B2F5FFF00121 /* DDLogger-prefix.pch */,
+				FCE07B6A34CE94F87E4B3156DAB83B04 /* DDLogger-umbrella.h */,
+				C7E5BEEBFCAD286A6A83308C7F1E20E6 /* Info.plist */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/DDLogger";
 			sourceTree = "<group>";
 		};
 		DEDCCFE3EA352906B7F13287C8A3D821 /* iOS */ = {
@@ -389,42 +443,36 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E462BE5BE5BB3EBCD17B8BFC1C13FAFB /* Products */ = {
+		E5834D5749CA28833C2B72E238EB712C /* ICTextView */ = {
 			isa = PBXGroup;
 			children = (
-				06B46F11F9733828B863920850F1D60D /* DDLogger.framework */,
-				BF833840E04C916D045C1AD020C4D96B /* ICTextView.framework */,
-				17F5FF60B68DEE1812D54BADE06B8783 /* Pods_CXProject.framework */,
-				CE2C9518BB8827AE1E41248AB6220166 /* PureLayout.framework */,
+				64E8E38823CA3D49E4A5CC934AEBB039 /* ICPreprocessor.h */,
+				07C7E292527EC34088DC5AC4FF305278 /* ICRangeUtils.h */,
+				B2894B5A8744733181F06A155DDD13CA /* ICRangeUtils.m */,
+				0C3997DF15BE303F9EF0E07647B103F7 /* ICRegularExpression.h */,
+				DFE45EEB30AF680BD6E8BCE8A7EE8C23 /* ICRegularExpression.m */,
+				ABCCFC4540680A46D716B7CE6C993A7D /* ICTextView.h */,
+				FA5486E6D7637B79ED05FEEE11E4D767 /* ICTextView.m */,
+				36B31135A25272E90D0A40BE3238E96F /* Support Files */,
 			);
-			name = Products;
+			name = ICTextView;
+			path = ICTextView;
 			sourceTree = "<group>";
 		};
-		F74B56A80D6E68D7764D91EFE842EC96 /* Support Files */ = {
+		E900D52320B6F80A9095530E67A60495 /* UIView+HHFrame */ = {
 			isa = PBXGroup;
 			children = (
-				FCDE57920DB1117459D2DCD14F968632 /* Info.plist */,
-				83B937FEBB7CFD22C07853C63C691608 /* PureLayout.modulemap */,
-				4E3F2B00DA3893785E3CFC48024F8990 /* PureLayout.xcconfig */,
-				7938495CB67ACDBFA4DA79279900F737 /* PureLayout-dummy.m */,
-				63B7ABDC0B7635CC5B80382ACD41E41C /* PureLayout-prefix.pch */,
-				CDCDE9C51ECCE4F1A7EA44AAA3FC4C5A /* PureLayout-umbrella.h */,
+				C8CC43D89EE3154D7DE77E24DC21525F /* UIView+Frame.h */,
+				F6464944C197AB6CC20385FF61C0B045 /* UIView+Frame.m */,
+				7691EC21169F0DA671358903980C528B /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/PureLayout";
+			name = "UIView+HHFrame";
+			path = "UIView+HHFrame";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		03BF3B7897778B7CEDD5F121E7BAC92D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				72FCF2997C0BD9C012EAB7168B669718 /* Pods-CXProject-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2C661B5A1F8A67D75BDDFBDBF1FE336A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,17 +485,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E4B2D28C4D51C5B6E4A5F752349E9E5 /* Headers */ = {
+		7DCA548A1AA92F85EE13A5123342CAAB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2383BABB6A294452FE9C85F06681D388 /* ALView+PureLayout.h in Headers */,
-				AE7890C8F8F3C65F4606E8A563AE8D66 /* NSArray+PureLayout.h in Headers */,
-				206D6E6A50DFA354702EEE7709F21527 /* NSLayoutConstraint+PureLayout.h in Headers */,
-				5B8045700231E410B5F13451548AA93D /* PureLayout+Internal.h in Headers */,
-				517FE752B91ED7B5BC3C3FFA235CA604 /* PureLayout-umbrella.h in Headers */,
-				59C03E6DFB63E518821D6D61C046FB47 /* PureLayout.h in Headers */,
-				16099C91280AE862CA6529EF3584D1F6 /* PureLayoutDefines.h in Headers */,
+				EAB680C2AE15A7DD40CF52A237E628EA /* ALView+PureLayout.h in Headers */,
+				891A036DE4C0B962A3B22A356290B096 /* NSArray+PureLayout.h in Headers */,
+				FB37BE564058B8FDA8168177166921E1 /* NSLayoutConstraint+PureLayout.h in Headers */,
+				6D0460C29D2364DFE8378E94B04FE5C3 /* PureLayout+Internal.h in Headers */,
+				1192BD88FD4393AC801C32A3C7A55F0F /* PureLayout-umbrella.h in Headers */,
+				C971430884A6D842C1E10D45E027D2F0 /* PureLayout.h in Headers */,
+				BDEDF29D8992EA7D290F1834BB75438F /* PureLayoutDefines.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96A7323B2843784F2D09A172CC4A9136 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B96289BF79E1C22CBC19AD53C3F09386 /* UIView+Frame.h in Headers */,
+				380D85A806BBBFE3447E22F89B9B78B8 /* UIView+HHFrame-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,27 +525,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B912FA48EED63C86CBC2D766E8FC57B8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F578DFA4405874ECCE44DEDFA5DECE2 /* Pods-CXProject-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0320B8C246AA862F980EFDA3D4C74AF8 /* Pods-CXProject */ = {
+		3069CA419E88A8BE623D2F5F68A10B15 /* PureLayout */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 399B80F2D6EDC2EE9D1B75A17B27F296 /* Build configuration list for PBXNativeTarget "Pods-CXProject" */;
+			buildConfigurationList = A118A0852825312187A25D3DEE02F689 /* Build configuration list for PBXNativeTarget "PureLayout" */;
 			buildPhases = (
-				081963CB56D50E38A64C8D1044360D0E /* Sources */,
-				DBF12EA2A3957CD8F9D91878AB4D61E1 /* Frameworks */,
-				03BF3B7897778B7CEDD5F121E7BAC92D /* Headers */,
+				077CE80D4DE5D77EE8A954FE882E5ECC /* Sources */,
+				94C09EE17C33F6FFC4972EFBFC524FC8 /* Frameworks */,
+				7DCA548A1AA92F85EE13A5123342CAAB /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7B5AA2CE32FC17A4AD16C8F3DD13262C /* PBXTargetDependency */,
-				B6793A5B288C259FD9B2628C1127E76E /* PBXTargetDependency */,
-				46EDACF44C968290699FB2C9660AA370 /* PBXTargetDependency */,
 			);
-			name = "Pods-CXProject";
-			productName = "Pods-CXProject";
-			productReference = 17F5FF60B68DEE1812D54BADE06B8783 /* Pods_CXProject.framework */;
+			name = PureLayout;
+			productName = PureLayout;
+			productReference = F1BFE8A736BFB1CE69083FBE2AF9D699 /* PureLayout.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		34EAEA690334D1F89C62C66D72C6BBEB /* ICTextView */ = {
@@ -505,7 +567,24 @@
 			);
 			name = ICTextView;
 			productName = ICTextView;
-			productReference = BF833840E04C916D045C1AD020C4D96B /* ICTextView.framework */;
+			productReference = 8531258712A86C55A9C9216790F13AE3 /* ICTextView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3B7702E195D5BE74C95CB746F5581901 /* UIView+HHFrame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72739CEFE3207BDAFDABB08522B0C39F /* Build configuration list for PBXNativeTarget "UIView+HHFrame" */;
+			buildPhases = (
+				3D7180AE2310A7A69B4CE8DDEB886273 /* Sources */,
+				3846D768DAE2E7DE73548B6BD7BA3EFB /* Frameworks */,
+				96A7323B2843784F2D09A172CC4A9136 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UIView+HHFrame";
+			productName = "UIView+HHFrame";
+			productReference = 09F0D51C01CB0FE43B745022697C8A40 /* UIView_HHFrame.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		8ABB1AD362B7DAD6CFB4B53C3B5E54B0 /* DDLogger */ = {
@@ -524,24 +603,28 @@
 			);
 			name = DDLogger;
 			productName = DDLogger;
-			productReference = 06B46F11F9733828B863920850F1D60D /* DDLogger.framework */;
+			productReference = 125847851C6094FC93BF53275677B296 /* DDLogger.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9FCE75AE79237D93083866D49474B490 /* PureLayout */ = {
+		D3FBFDFCBD8D5814DF2AB20122941149 /* Pods-CXProject */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5106C9A06C37593A4BF803251151654E /* Build configuration list for PBXNativeTarget "PureLayout" */;
+			buildConfigurationList = 0D5B365F6BCA48E8348F314167FA5984 /* Build configuration list for PBXNativeTarget "Pods-CXProject" */;
 			buildPhases = (
-				71180E8942B65A06F42BCA551293C3F0 /* Sources */,
-				0327C218CEB3585C738190EC6FF49454 /* Frameworks */,
-				8E4B2D28C4D51C5B6E4A5F752349E9E5 /* Headers */,
+				C7445DA0E7E46505E72A45B8860040E8 /* Sources */,
+				8AEA28C3F636890643D6607B401BA660 /* Frameworks */,
+				B912FA48EED63C86CBC2D766E8FC57B8 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AD15AC67AB40BBF505E56442FB57E042 /* PBXTargetDependency */,
+				DBE1089DF8E890031470CE319091F18F /* PBXTargetDependency */,
+				47B03B5FF5E2449838C460222DBD1C33 /* PBXTargetDependency */,
+				9A8FF1CDE4E2F1E838DCB65F82FBD69A /* PBXTargetDependency */,
 			);
-			name = PureLayout;
-			productName = PureLayout;
-			productReference = CE2C9518BB8827AE1E41248AB6220166 /* PureLayout.framework */;
+			name = "Pods-CXProject";
+			productName = "Pods-CXProject";
+			productReference = 228786CB132470B9A63080765102449C /* Pods_CXProject.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -561,14 +644,15 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = E462BE5BE5BB3EBCD17B8BFC1C13FAFB /* Products */;
+			productRefGroup = 95E411C1BB06F6C3AEB817A419B0478E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8ABB1AD362B7DAD6CFB4B53C3B5E54B0 /* DDLogger */,
 				34EAEA690334D1F89C62C66D72C6BBEB /* ICTextView */,
-				0320B8C246AA862F980EFDA3D4C74AF8 /* Pods-CXProject */,
-				9FCE75AE79237D93083866D49474B490 /* PureLayout */,
+				D3FBFDFCBD8D5814DF2AB20122941149 /* Pods-CXProject */,
+				3069CA419E88A8BE623D2F5F68A10B15 /* PureLayout */,
+				3B7702E195D5BE74C95CB746F5581901 /* UIView+HHFrame */,
 			);
 		};
 /* End PBXProject section */
@@ -591,11 +675,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		081963CB56D50E38A64C8D1044360D0E /* Sources */ = {
+		077CE80D4DE5D77EE8A954FE882E5ECC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D63DC7AF7D7AA49CF0F054CCE435FA84 /* Pods-CXProject-dummy.m in Sources */,
+				FA32C1D607B46C7BC4FD8EFAEC1ECEC4 /* ALView+PureLayout.m in Sources */,
+				0323389EC1D25784279C91D6B1E2BBE8 /* NSArray+PureLayout.m in Sources */,
+				12677DDCB640C2CA92B18DF32F60569F /* NSLayoutConstraint+PureLayout.m in Sources */,
+				6B8284DAD4C02FA2EBBA3AA23C85CFCA /* PureLayout-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +694,15 @@
 				FFC64BB9448E7D5F56262F0B811D0807 /* ICRegularExpression.m in Sources */,
 				93A85C49AF1965F5B63F264D268193A3 /* ICTextView-dummy.m in Sources */,
 				18DB25062C0D120E7990D943CCE76A92 /* ICTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D7180AE2310A7A69B4CE8DDEB886273 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DD45EC9A93537A5B61CF55A8193DEA7 /* UIView+Frame.m in Sources */,
+				00A5E3C470447BC97CC0E16B57229C0B /* UIView+HHFrame-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -626,37 +722,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71180E8942B65A06F42BCA551293C3F0 /* Sources */ = {
+		C7445DA0E7E46505E72A45B8860040E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EA20398636103F2B19376797A2709B8 /* ALView+PureLayout.m in Sources */,
-				94323F19C407D326ECAFFC9BA075211B /* NSArray+PureLayout.m in Sources */,
-				1ABA204B6DF1A880E15A905CC313C161 /* NSLayoutConstraint+PureLayout.m in Sources */,
-				A6FBD0A5FEC0E30844BFC889AB1A426B /* PureLayout-dummy.m in Sources */,
+				666C541ED785FB3E5EB437439DE102D9 /* Pods-CXProject-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		46EDACF44C968290699FB2C9660AA370 /* PBXTargetDependency */ = {
+		47B03B5FF5E2449838C460222DBD1C33 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PureLayout;
-			target = 9FCE75AE79237D93083866D49474B490 /* PureLayout */;
-			targetProxy = A829FB2C38760989AD905EC8EF6FE380 /* PBXContainerItemProxy */;
+			target = 3069CA419E88A8BE623D2F5F68A10B15 /* PureLayout */;
+			targetProxy = 3C8992C9D2F8163CD52D2FD83DD571F6 /* PBXContainerItemProxy */;
 		};
-		7B5AA2CE32FC17A4AD16C8F3DD13262C /* PBXTargetDependency */ = {
+		9A8FF1CDE4E2F1E838DCB65F82FBD69A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UIView+HHFrame";
+			target = 3B7702E195D5BE74C95CB746F5581901 /* UIView+HHFrame */;
+			targetProxy = 13A6EE22008C02E439D365318EF282EF /* PBXContainerItemProxy */;
+		};
+		AD15AC67AB40BBF505E56442FB57E042 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = DDLogger;
 			target = 8ABB1AD362B7DAD6CFB4B53C3B5E54B0 /* DDLogger */;
-			targetProxy = 3D902F1DEE824F4AD4EC173E1E7FFD8C /* PBXContainerItemProxy */;
+			targetProxy = EF610AFE9FEE16A1FDC68326AED62201 /* PBXContainerItemProxy */;
 		};
-		B6793A5B288C259FD9B2628C1127E76E /* PBXTargetDependency */ = {
+		DBE1089DF8E890031470CE319091F18F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ICTextView;
 			target = 34EAEA690334D1F89C62C66D72C6BBEB /* ICTextView */;
-			targetProxy = AFBEE5E50CC6BD081EF68A674220244F /* PBXContainerItemProxy */;
+			targetProxy = CD9BAAC5BC41D601622940EAF3FE5E2B /* PBXContainerItemProxy */;
 		};
 		FEC4493962C9682E55C86C4A5D3B62D0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -669,7 +768,7 @@
 /* Begin XCBuildConfiguration section */
 		087522B9B9A3D4E0CFDD1A21B47F3CBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54D1C94DD606ACAA2768C9F763B986E2 /* DDLogger.xcconfig */;
+			baseConfigurationReference = 5DC4BBA181F83CE1D7B3B832A4616DA5 /* DDLogger.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -698,40 +797,9 @@
 			};
 			name = Release;
 		};
-		33A365BCA3426BADC53BFDE23A7440B2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E3F2B00DA3893785E3CFC48024F8990 /* PureLayout.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PureLayout/PureLayout-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PureLayout/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PureLayout/PureLayout.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = PureLayout;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		5E652F290D9412403F746A2544CEDB57 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C857E15FB9D47D9239122570E68F3183 /* ICTextView.xcconfig */;
+			baseConfigurationReference = 7299F49D92C2FB0D1C69616BB7580736 /* ICTextView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -752,6 +820,41 @@
 				MODULEMAP_FILE = "Target Support Files/ICTextView/ICTextView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = ICTextView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6412E5F1C80290C7F7112C7F65FDF689 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 268011A1B42EFF68344E1017269F582F /* Pods-CXProject.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-CXProject/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-CXProject/Pods-CXProject.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_CXProject;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -800,44 +903,9 @@
 			};
 			name = Release;
 		};
-		69D2C8346F44F13F4049C5F9C72AE9E9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 268011A1B42EFF68344E1017269F582F /* Pods-CXProject.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-CXProject/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-CXProject/Pods-CXProject.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_CXProject;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		72F5CC6CC4CDD4BB06E3BDBD8A7337C3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C857E15FB9D47D9239122570E68F3183 /* ICTextView.xcconfig */;
+			baseConfigurationReference = 7299F49D92C2FB0D1C69616BB7580736 /* ICTextView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -866,7 +934,131 @@
 			};
 			name = Release;
 		};
-		7F5A65BC1A172B98FB6B4DDA2C30385A /* Release */ = {
+		8488EDAC4072E88CC5B5F4B2685593D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DC4BBA181F83CE1D7B3B832A4616DA5 /* DDLogger.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/DDLogger/DDLogger-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DDLogger/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DDLogger/DDLogger.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DDLogger;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8615D637DE464CD42CF75E18CF9D7025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAE0D34E01C0A3A39F176E6846CC857D /* PureLayout.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PureLayout/PureLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PureLayout/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PureLayout/PureLayout.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PureLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A539ADD9875EFBDE820380E16A5BFEC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAE0D34E01C0A3A39F176E6846CC857D /* PureLayout.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PureLayout/PureLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PureLayout/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PureLayout/PureLayout.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PureLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A9F22B37CB0346302DE179860BCC412A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA072F7572977F71476303CD12521916 /* UIView+HHFrame.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UIView+HHFrame/UIView+HHFrame-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIView+HHFrame/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UIView+HHFrame/UIView+HHFrame.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UIView_HHFrame;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA9803A65ADA6FA4D18DDB204B969AC5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2FE7B22513978CBE309E1803A6643CE5 /* Pods-CXProject.release.xcconfig */;
 			buildSettings = {
@@ -901,9 +1093,9 @@
 			};
 			name = Release;
 		};
-		8488EDAC4072E88CC5B5F4B2685593D3 /* Debug */ = {
+		CCB70312995F7406F45489E8D299849D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54D1C94DD606ACAA2768C9F763B986E2 /* DDLogger.xcconfig */;
+			baseConfigurationReference = AA072F7572977F71476303CD12521916 /* UIView+HHFrame.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -916,45 +1108,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DDLogger/DDLogger-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DDLogger/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/UIView+HHFrame/UIView+HHFrame-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIView+HHFrame/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DDLogger/DDLogger.modulemap";
+				MODULEMAP_FILE = "Target Support Files/UIView+HHFrame/UIView+HHFrame.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DDLogger;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BCFC583CADA3A6AF43AE939FF68E6005 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E3F2B00DA3893785E3CFC48024F8990 /* PureLayout.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PureLayout/PureLayout-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/PureLayout/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/PureLayout/PureLayout.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = PureLayout;
+				PRODUCT_NAME = UIView_HHFrame;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1010,6 +1171,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0D5B365F6BCA48E8348F314167FA5984 /* Build configuration list for PBXNativeTarget "Pods-CXProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6412E5F1C80290C7F7112C7F65FDF689 /* Debug */,
+				CA9803A65ADA6FA4D18DDB204B969AC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1019,20 +1189,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		399B80F2D6EDC2EE9D1B75A17B27F296 /* Build configuration list for PBXNativeTarget "Pods-CXProject" */ = {
+		72739CEFE3207BDAFDABB08522B0C39F /* Build configuration list for PBXNativeTarget "UIView+HHFrame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				69D2C8346F44F13F4049C5F9C72AE9E9 /* Debug */,
-				7F5A65BC1A172B98FB6B4DDA2C30385A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5106C9A06C37593A4BF803251151654E /* Build configuration list for PBXNativeTarget "PureLayout" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BCFC583CADA3A6AF43AE939FF68E6005 /* Debug */,
-				33A365BCA3426BADC53BFDE23A7440B2 /* Release */,
+				CCB70312995F7406F45489E8D299849D /* Debug */,
+				A9F22B37CB0346302DE179860BCC412A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1042,6 +1203,15 @@
 			buildConfigurations = (
 				5E652F290D9412403F746A2544CEDB57 /* Debug */,
 				72F5CC6CC4CDD4BB06E3BDBD8A7337C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A118A0852825312187A25D3DEE02F689 /* Build configuration list for PBXNativeTarget "PureLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A539ADD9875EFBDE820380E16A5BFEC6 /* Debug */,
+				8615D637DE464CD42CF75E18CF9D7025 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
