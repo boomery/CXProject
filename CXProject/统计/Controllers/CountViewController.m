@@ -11,9 +11,10 @@
 #import "CountCell.h"
 #import "TopBarView.h"
 #import "DataModel.h"
-#define BEGIN_Y 20
+#define BEGIN_Y 20.0
+#define SEARCH_HEIGHT 40.0
 
-@interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource>
+@interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource>
 {
     UISearchBar *_searchBar;
     TopBarView *_topBarView;
@@ -28,16 +29,9 @@
 
 @implementation CountViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.definesPresentationContext = YES;
     [self initViews];
     [self createTempData];
@@ -47,7 +41,7 @@
 {
     _tempArray = [[NSMutableArray alloc] init];
     _resultArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 20; i++)
     {
         DataModel *model = [[DataModel alloc] init];
         model.name = [NSString stringWithFormat:@"项目%d",i];
@@ -58,19 +52,19 @@
 
 - (void)initViews
 {
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, BEGIN_Y, DEF_SCREEN_WIDTH, 40)];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, DEF_SCREEN_WIDTH, SEARCH_HEIGHT)];
     [self.view addSubview:searchBar];
     searchBar.showsCancelButton = YES;
     searchBar.placeholder = @"请输入您要查找的项目";
     searchBar.delegate = self;
     _searchBar = searchBar;
     
-    ResultViewController *resultVC = [[ResultViewController alloc] init];
-    UINavigationController *resultNav = [[UINavigationController alloc] initWithRootViewController:resultVC];
-    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:resultNav];
-    searchController.searchResultsUpdater = self;
+//    ResultViewController *resultVC = [[ResultViewController alloc] init];
+//    UINavigationController *resultNav = [[UINavigationController alloc] initWithRootViewController:resultVC];
+//    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:resultNav];
+//    searchController.searchResultsUpdater = self;
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT - 48 - 20) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT - 64 - 48) style:UITableViewStylePlain];
     [self.view insertSubview:tableView belowSubview:searchBar];
     tableView.delegate = self;
     tableView.dataSource = self;
@@ -98,7 +92,13 @@
     [_searchBar setWidth:size.width];
     [_tableView setWidth:size.width];
     [_topBarView setWidth:size.width];
-    [_tableView setHeight:(size.height - 20 - 48)];
+    [_tableView setHeight:(size.height - 64 - 48)];
+}
+
+#pragma mark - UISearchControllerDelegate
+- (void)willPresentSearchController:(UISearchController *)searchController
+{
+    
 }
 
 #pragma mark - UISearchResultsUpdating
@@ -160,7 +160,7 @@
 {
     if (!_topBarView)
     {
-        _topBarView = [[TopBarView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, 40)];
+        _topBarView = [[TopBarView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, SEARCH_HEIGHT)];
         _topBarView.backgroundColor = [UIColor whiteColor];
     }
     return _topBarView;
@@ -168,7 +168,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40;
+    return SEARCH_HEIGHT;
 }
 
 #pragma mark - UITableViewDelegate
@@ -181,25 +181,25 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.y - _lastOffsetY > 40)
+    if (scrollView.contentOffset.y - _lastOffsetY > SEARCH_HEIGHT/2)
     {
         [UIView animateWithDuration:0.4 animations:^{
-            [_tableView setTop:20];
-            [_searchBar setTop:-40];
+            [_tableView setTop:64];
+            [_searchBar setTop:-SEARCH_HEIGHT];
         }];
     }
-    else if (_lastOffsetY - scrollView.contentOffset.y > 40)
+    else if (_lastOffsetY - scrollView.contentOffset.y > SEARCH_HEIGHT/2)
     {
         [UIView animateWithDuration:0.4 animations:^{
-            [_tableView setTop:60];
-            [_searchBar setTop:20];
+            [_tableView setTop:64+SEARCH_HEIGHT];
+            [_searchBar setTop:64];
         }];
     }
     if (scrollView.contentOffset.y ==0 )
     {
         [UIView animateWithDuration:0.4 animations:^{
-            [_tableView setTop:60];
-            [_searchBar setTop:20];
+            [_tableView setTop:64+SEARCH_HEIGHT];
+            [_searchBar setTop:64];
         }];
     }
 }
