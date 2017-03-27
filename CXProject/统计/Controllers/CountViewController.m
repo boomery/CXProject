@@ -12,16 +12,15 @@
 #import "TopBarView.h"
 #import "DataModel.h"
 #define BEGIN_Y 20.0
-#define SEARCH_HEIGHT 40.0
+#define TopBar_HEIGHT 44.0
 
 @interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource>
 {
+    //界面相关
     UISearchBar *_searchBar;
+    UISearchController *_searchController;
     TopBarView *_topBarView;
-    UITableView *_tableView;
-    CGFloat _lastOffsetY;
-    BOOL _isAnimating;
-    
+    //临时数据源
     NSMutableArray *_tempArray;
     NSMutableArray *_resultArray;
 }
@@ -32,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor redColor];
     self.definesPresentationContext = YES;
     [self initViews];
     [self createTempData];
@@ -52,23 +52,16 @@
 
 - (void)initViews
 {
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, DEF_SCREEN_WIDTH, SEARCH_HEIGHT)];
-    [self.view addSubview:searchBar];
-    searchBar.showsCancelButton = YES;
-    searchBar.placeholder = @"请输入您要查找的项目";
-    searchBar.delegate = self;
-    _searchBar = searchBar;
+    ResultViewController *resultVC = [[ResultViewController alloc] init];
+    UINavigationController *resultNav = [[UINavigationController alloc] initWithRootViewController:resultVC];
+    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:resultNav];
+    searchController.searchResultsUpdater = self;
+    searchController.searchBar.placeholder = @"请输入你要查找的项目名称";
+    _searchController = searchController;
     
-//    ResultViewController *resultVC = [[ResultViewController alloc] init];
-//    UINavigationController *resultNav = [[UINavigationController alloc] initWithRootViewController:resultVC];
-//    UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:resultNav];
-//    searchController.searchResultsUpdater = self;
-    
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT - 64 - 48) style:UITableViewStylePlain];
-    [self.view insertSubview:tableView belowSubview:searchBar];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    _tableView = tableView;
+    _searchBar = searchController.searchBar;
+    [self.view addSubview:searchController.searchBar];
+    searchController.searchBar.delegate = self;
 }
 
 #pragma mark - 横屏布局
@@ -90,21 +83,13 @@
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
     [_searchBar setWidth:size.width];
-    [_tableView setWidth:size.width];
     [_topBarView setWidth:size.width];
-    [_tableView setHeight:(size.height - 64 - 48)];
-}
-
-#pragma mark - UISearchControllerDelegate
-- (void)willPresentSearchController:(UISearchController *)searchController
-{
-    
 }
 
 #pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
-    UINavigationController *nav = (UINavigationController *)searchController.searchResultsUpdater;
+    UINavigationController *nav = (UINavigationController *)searchController.searchResultsController;
     ResultViewController *resultVC = (ResultViewController *)nav.topViewController;
     resultVC.resultArray = _resultArray;
     [resultVC.tableView reloadData];
@@ -116,7 +101,7 @@
     for (DataModel *model in _tempArray)
     {
         NSRange range = [model.name rangeOfString:text];
-        if (range.length != NSNotFound)
+        if (range.location != NSNotFound)
         {
             [_resultArray addObject:model];
         }
@@ -136,8 +121,16 @@
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section == 0)
+    {
+        return 1;
+    }
     return _tempArray.count;
 }
 
@@ -158,17 +151,29 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if (!_topBarView)
+    if (section == 0)
     {
-        _topBarView = [[TopBarView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, SEARCH_HEIGHT)];
-        _topBarView.backgroundColor = [UIColor whiteColor];
+        return nil;
     }
-    return _topBarView;
+    else
+    {
+        if (!_topBarView)
+        {
+            _topBarView = [[TopBarView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, TopBar_HEIGHT)];
+            _topBarView.offSet = TopBar_HEIGHT;
+            _topBarView.titleArray = @[@"综合排序",@"横竖屏切换",@"筛选:"];
+        }
+        return _topBarView;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return SEARCH_HEIGHT;
+    if (section == 0)
+    {
+        return 0;
+    }
+    return TopBar_HEIGHT;
 }
 
 #pragma mark - UITableViewDelegate
@@ -181,47 +186,39 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.y - _lastOffsetY > SEARCH_HEIGHT/2)
+    if (scrollView.contentOffset.y == -64)
     {
-        [UIView animateWithDuration:0.4 animations:^{
-            [_tableView setTop:64];
-            [_searchBar setTop:-SEARCH_HEIGHT];
-        }];
-    }
-    else if (_lastOffsetY - scrollView.contentOffset.y > SEARCH_HEIGHT/2)
-    {
-        [UIView animateWithDuration:0.4 animations:^{
-            [_tableView setTop:64+SEARCH_HEIGHT];
-            [_searchBar setTop:64];
-        }];
-    }
-    if (scrollView.contentOffset.y ==0 )
-    {
-        [UIView animateWithDuration:0.4 animations:^{
-            [_tableView setTop:64+SEARCH_HEIGHT];
-            [_searchBar setTop:64];
-        }];
+        _topBarView.offSet = TopBar_HEIGHT;
     }
 }
 
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+//搜索框要么显示要么隐藏，不然会出现显示错位
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    _lastOffsetY = scrollView.contentOffset.y;
+    if (scrollView.contentOffset.y < -64 + 44/2)
+    {
+        _topBarView.offSet = TopBar_HEIGHT;
+        [UIView animateWithDuration:0.2 animations:^{
+            scrollView.contentOffset = CGPointMake(0, -64);
+        }];
+    }
+    else if (scrollView.contentOffset.y < -20)
+    {
+        _topBarView.offSet = 0;
+        [UIView animateWithDuration:0.2 animations:^{
+            scrollView.contentOffset = CGPointMake(0, -20);
+        }];
+    }
+    else
+    {
+        _topBarView.offSet = 0;
+    }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

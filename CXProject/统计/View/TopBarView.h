@@ -10,4 +10,19 @@
 
 @interface TopBarView : UIView
 
+@property (nonatomic, weak) id delegate;
+@property (nonatomic, strong) NSArray *titleArray;
+@property (nonatomic, assign) CGFloat offSet;
+
+@end
+
+
+@protocol TopBarViewDelegate <NSObject>
+
+//@required
+//
+//@optional
+
+- (void)topBarViewDidClickedWithIndex:(NSInteger)index topBarView:(TopBarView *)topBarView;
+
 @end
