@@ -5,7 +5,8 @@
 //  Created by zhangchaoxin on 2017/3/23.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
-
+#define LINE_COLOR [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.00]
+#define BUTTON_TINT_COLOR [UIColor colorWithRed:0.93 green:0.36 blue:0.16 alpha:1.00]
 #import "TopBarView.h"
 #import "CountViewController.h"
 @interface TopBarView () <UITableViewDelegate, UITableViewDataSource>
@@ -35,7 +36,7 @@
         [lineView autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self];
         [lineView autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self];
         [lineView autoSetDimension:ALDimensionHeight toSize:0.5];
-        lineView.backgroundColor = [UIColor redColor];
+        lineView.backgroundColor = LINE_COLOR;
     }
     return self;
 }
@@ -54,8 +55,7 @@
         button.titleLabel.font = [UIFont systemFontOfSize:15];
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor colorWithRed:0.93 green:0.36 blue:0.16 alpha:1.00] forState:UIControlStateSelected];
-        [button setTitleColor:[UIColor colorWithRed:0.93 green:0.36 blue:0.16 alpha:1.00] forState:UIControlStateSelected];
+        [button setTitleColor:BUTTON_TINT_COLOR forState:UIControlStateSelected];
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         if (i == 0)
@@ -69,7 +69,7 @@
         {
             UIView *lineView = [UIView newAutoLayoutView];
             [self addSubview:lineView];
-            lineView.backgroundColor = [UIColor redColor];
+            lineView.backgroundColor = LINE_COLOR;
             [lineView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:button];
             [lineView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self];
             [lineView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self];
@@ -88,12 +88,11 @@
         UIWindow *window = [UIApplication sharedApplication].keyWindow;        
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, 0) style:UITableViewStylePlain];
         [window addSubview:tableView];
-        tableView.backgroundColor = [UIColor cyanColor];
         tableView.dataSource = self;
         tableView.delegate = self;
         _tableView = tableView;
         
-        _detailArray = @[@"推荐排序", @"合格率", @"问题数由高到低", @"问题数由高到低"];
+        _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由高到低"];
     }
     return _tableView;
 }
@@ -121,8 +120,7 @@
     }
     else
     {
-        _shouldShowTab = NO;
-        [self tableViewAnimateShouldShow:_shouldShowTab];
+        [self tableViewAnimateShouldShow:NO];
     }
 }
 
@@ -139,8 +137,8 @@
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
     }
-  
     cell.textLabel.text = _detailArray[indexPath.row];
     return cell;
 }
@@ -151,7 +149,9 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
     [_sortButton setTitle:_detailArray[indexPath.row] forState:UIControlStateSelected];
-    [self tableViewAnimateShouldShow:YES];
+    [_sortButton setTitle:_detailArray[indexPath.row] forState:UIControlStateNormal];
+    
+    [self tableViewAnimateShouldShow:NO];
 }
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -162,6 +162,7 @@
 #pragma mark - 动画部分
 - (void)tableViewAnimateShouldShow:(BOOL)shouldShow
 {
+    _shouldShowTab = shouldShow;
     if (shouldShow)
     {
         [UIView animateWithDuration:0.3 animations:^{

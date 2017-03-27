@@ -31,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor redColor];
     self.definesPresentationContext = YES;
     [self initViews];
     [self createTempData];
@@ -110,6 +109,11 @@
 }
 
 #pragma mark - UISearchBarDelegate
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    [_topBarView tableViewAnimateShouldShow:NO];
+    return YES;
+}
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     [self resultArrayWithSearchText:searchText];

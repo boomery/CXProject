@@ -14,7 +14,11 @@
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, assign) CGFloat offSet;
 
+- (void)tableViewAnimateShouldShow:(BOOL)shouldShow;
+
+
 @end
+
 
 
 @protocol TopBarViewDelegate <NSObject>
