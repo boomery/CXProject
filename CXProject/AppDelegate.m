@@ -65,7 +65,9 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     BOOL hasLogin = NO;
-    if (!hasLogin && ![viewController isKindOfClass:[MainViewController class]])
+    UINavigationController *nav = (UINavigationController *)viewController;
+    NSLog(@"%@",NSStringFromClass([nav.topViewController class]));
+    if (!hasLogin && ![nav.topViewController isKindOfClass:[MainViewController class]])
     {
         LoginViewController *loginVC = [[LoginViewController alloc] init];
         UINavigationController *logNav = [[UINavigationController alloc] initWithRootViewController:loginVC];

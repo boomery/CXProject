@@ -16,18 +16,10 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-}
-
-- (BOOL)isValidLogin
-{
-    if (_nameTextField.text.length == 0 || _passwordTextField.text.length == 0)
-    {
-        return NO;
-    }
-    return YES;
 }
 
 //忽略过期方法警告
@@ -36,9 +28,15 @@
 
 - (IBAction)login:(id)sender
 {
-    if ([self isValidLogin])
+    if (![self isValidLogin])
     {
         //执行登录
+        [User loginWithBlock:^(BOOL loginStatus) {
+            if (loginStatus)
+            {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        }];
     }
     else
     {
@@ -52,6 +50,15 @@
 
 #pragma clang diagnostic pop
 
+
+- (BOOL)isValidLogin
+{
+    if (_nameTextField.text.length == 0 || _passwordTextField.text.length == 0)
+    {
+        return NO;
+    }
+    return YES;
+}
 
 
 - (void)didReceiveMemoryWarning {

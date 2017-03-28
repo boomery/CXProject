@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C7741E8A53D600B19056 /* NetworkAPI.m */; };
+		9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C7771E8A53D600B19056 /* NetworkManager.m */; };
+		9016C7971E8A53D600B19056 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C77A1E8A53D600B19056 /* Reachability.m */; };
+		9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C77D1E8A53D600B19056 /* GCDAsyncSocket.m */; };
+		9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C77F1E8A53D600B19056 /* GCDAsyncUdpSocket.m */; };
+		9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C7831E8A53D600B19056 /* SRWebSocket.m */; };
+		9016C79E1E8A568E00B19056 /* DialogHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C79D1E8A568E00B19056 /* DialogHandler.m */; };
+		9016C7A01E8A583500B19056 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9016C79F1E8A583500B19056 /* libicucore.tbd */; };
 		901780DE1E82626600D6E8A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 901780DD1E82626600D6E8A1 /* main.m */; };
 		901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 901780E01E82626600D6E8A1 /* AppDelegate.m */; };
 		901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */; };
@@ -58,6 +66,24 @@
 
 /* Begin PBXFileReference section */
 		18E32DCD72DC853A516D37CD /* Pods-CXProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CXProject/Pods-CXProject.release.xcconfig"; sourceTree = "<group>"; };
+		9016C7731E8A53D600B19056 /* NetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkAPI.h; sourceTree = "<group>"; };
+		9016C7741E8A53D600B19056 /* NetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkAPI.m; sourceTree = "<group>"; };
+		9016C7751E8A53D600B19056 /* NetworkDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkDefine.h; sourceTree = "<group>"; };
+		9016C7761E8A53D600B19056 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		9016C7771E8A53D600B19056 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		9016C7781E8A53D600B19056 /* NetworkURLDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkURLDefine.h; sourceTree = "<group>"; };
+		9016C7791E8A53D600B19056 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		9016C77A1E8A53D600B19056 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		9016C77C1E8A53D600B19056 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		9016C77D1E8A53D600B19056 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		9016C77E1E8A53D600B19056 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		9016C77F1E8A53D600B19056 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		9016C7811E8A53D600B19056 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		9016C7821E8A53D600B19056 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		9016C7831E8A53D600B19056 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		9016C79C1E8A568E00B19056 /* DialogHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogHandler.h; sourceTree = "<group>"; };
+		9016C79D1E8A568E00B19056 /* DialogHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogHandler.m; sourceTree = "<group>"; };
+		9016C79F1E8A583500B19056 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		901780D91E82626600D6E8A1 /* CXProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		901780DD1E82626600D6E8A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		901780DF1E82626600D6E8A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -111,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9016C7A01E8A583500B19056 /* libicucore.tbd in Frameworks */,
 				92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +162,7 @@
 		2781D770A6715334B5D287CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9016C79F1E8A583500B19056 /* libicucore.tbd */,
 				B09939730C48F88524F34BB6 /* Pods_CXProject.framework */,
 			);
 			name = Frameworks;
@@ -147,6 +175,53 @@
 				18E32DCD72DC853A516D37CD /* Pods-CXProject.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9016C7461E8A53D500B19056 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9016C7731E8A53D600B19056 /* NetworkAPI.h */,
+				9016C7741E8A53D600B19056 /* NetworkAPI.m */,
+				9016C7751E8A53D600B19056 /* NetworkDefine.h */,
+				9016C7761E8A53D600B19056 /* NetworkManager.h */,
+				9016C7771E8A53D600B19056 /* NetworkManager.m */,
+				9016C7781E8A53D600B19056 /* NetworkURLDefine.h */,
+				9016C7791E8A53D600B19056 /* Reachability.h */,
+				9016C77A1E8A53D600B19056 /* Reachability.m */,
+				9016C77B1E8A53D600B19056 /* Socket */,
+				9016C7801E8A53D600B19056 /* WebSocket */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9016C77B1E8A53D600B19056 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				9016C77C1E8A53D600B19056 /* GCDAsyncSocket.h */,
+				9016C77D1E8A53D600B19056 /* GCDAsyncSocket.m */,
+				9016C77E1E8A53D600B19056 /* GCDAsyncUdpSocket.h */,
+				9016C77F1E8A53D600B19056 /* GCDAsyncUdpSocket.m */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		9016C7801E8A53D600B19056 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				9016C7811E8A53D600B19056 /* SocketRocket-Prefix.pch */,
+				9016C7821E8A53D600B19056 /* SRWebSocket.h */,
+				9016C7831E8A53D600B19056 /* SRWebSocket.m */,
+			);
+			path = WebSocket;
+			sourceTree = "<group>";
+		};
+		9016C79B1E8A564F00B19056 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9016C79C1E8A568E00B19056 /* DialogHandler.h */,
+				9016C79D1E8A568E00B19056 /* DialogHandler.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		901780D01E82626600D6E8A1 = {
@@ -181,6 +256,8 @@
 				904340121E89FAA400D33ED9 /* LoginViewController.h */,
 				904340131E89FAA400D33ED9 /* LoginViewController.m */,
 				904340141E89FAA400D33ED9 /* LoginViewController.xib */,
+				9016C79B1E8A564F00B19056 /* Utils */,
+				9016C7461E8A53D500B19056 /* Network */,
 				904340171E8A018E00D33ED9 /* UserData */,
 				9017811B1E82653200D6E8A1 /* Main */,
 				901781301E82753D00D6E8A1 /* 统计 */,
@@ -546,18 +623,25 @@
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
+				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
+				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
+				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
 				9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
+				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
+				9016C79E1E8A568E00B19056 /* DialogHandler.m in Sources */,
 				9043400C1E89F7A500D33ED9 /* InputViewController.m in Sources */,
+				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				9043400F1E89F87000D33ED9 /* PhotoViewController.m in Sources */,
+				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
