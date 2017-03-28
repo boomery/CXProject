@@ -16,7 +16,6 @@
 
 - (void)tableViewAnimateShouldShow:(BOOL)shouldShow;
 
-
 @end
 
 

@@ -6,13 +6,13 @@
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 #define LINE_COLOR [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.00]
-#define BUTTON_TINT_COLOR [UIColor colorWithRed:0.93 green:0.36 blue:0.16 alpha:1.00]
+#define BUTTON_SELECTED_COLOR [UIColor colorWithRed:0.93 green:0.36 blue:0.16 alpha:1.00]
 #import "TopBarView.h"
 #import "CountViewController.h"
 @interface TopBarView () <UITableViewDelegate, UITableViewDataSource>
 //下拉列表
 @property (nonatomic, strong) UITableView *tableView;
-//记录选中按钮
+//记录选中第一行的按钮
 @property (nonatomic, strong) UIButton *lastButton;
 //是否显示下拉列表
 @property (nonatomic, assign) BOOL shouldShowTab;
@@ -20,6 +20,8 @@
 @property (nonatomic, strong) UIButton *sortButton;
 //下拉列表显示的数据
 @property (nonatomic, strong) NSArray *detailArray;
+//记录选中的下拉行
+@property (nonatomic, assign) NSInteger selectedRow;
 @end
 @implementation TopBarView
 
@@ -55,7 +57,7 @@
         button.titleLabel.font = [UIFont systemFontOfSize:15];
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitleColor:BUTTON_TINT_COLOR forState:UIControlStateSelected];
+        [button setTitleColor:BUTTON_SELECTED_COLOR forState:UIControlStateSelected];
         [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         if (i == 0)
@@ -91,7 +93,6 @@
         tableView.dataSource = self;
         tableView.delegate = self;
         _tableView = tableView;
-        
         _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由高到低"];
     }
     return _tableView;
@@ -139,6 +140,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         cell.textLabel.font = [UIFont systemFontOfSize:15];
     }
+    if (indexPath.row == _selectedRow)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        cell.textLabel.textColor = BUTTON_SELECTED_COLOR;
+        
+    }
+    else
+    {
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     cell.textLabel.text = _detailArray[indexPath.row];
     return cell;
 }
@@ -146,17 +158,17 @@
 #pragma mark - UITableViewDelegate
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    _selectedRow = indexPath.row;
     [_sortButton setTitle:_detailArray[indexPath.row] forState:UIControlStateSelected];
     [_sortButton setTitle:_detailArray[indexPath.row] forState:UIControlStateNormal];
-    
+    [_tableView reloadData];
     [self tableViewAnimateShouldShow:NO];
 }
+
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = 0;
+    cell.selected = NO;
 }
 
 #pragma mark - 动画部分
