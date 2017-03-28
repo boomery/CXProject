@@ -26,6 +26,6 @@
 //
 //@optional
 
-- (void)topBarViewDidClickedWithIndex:(NSInteger)index topBarView:(TopBarView *)topBarView;
+- (void)topBarViewDidClickedWithIndex:(NSInteger)index text:(NSString *)text topBarView:(TopBarView *)topBarView;
 
 @end

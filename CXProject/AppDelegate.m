@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "TabBarController.h"
 #import "MainViewController.h"
-#import "MineViewController.h"
 #import "CountViewController.h"
+#import "InputViewController.h"
+#import "MineViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -29,10 +30,15 @@
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
     mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
 
+    InputViewController *inputVC = [[InputViewController alloc] init];
+    inputVC.title = @"数据录入";
+    UINavigationController *inputNav = [[UINavigationController alloc] initWithRootViewController:inputVC];
+    inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    
     CountViewController *countVC = [[CountViewController alloc] init];
-    countVC.title = @"统计";
+    countVC.title = @"数据统计";
     UINavigationController *countNav = [[UINavigationController alloc] initWithRootViewController:countVC];
-    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"统计" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据统计" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
     mineVC.title = @"我的";
@@ -40,7 +46,7 @@
     mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     TabBarController *tab = [[TabBarController alloc] init];
-    tab.viewControllers = @[mainNav,countNav,mineNav];
+    tab.viewControllers = @[mainNav, inputNav, countNav, mineNav];
     window.rootViewController = tab;
     
     return YES;

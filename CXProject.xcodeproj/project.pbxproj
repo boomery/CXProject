@@ -26,6 +26,12 @@
 		901781611E8276C600D6E8A1 /* CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9017815E1E8276C600D6E8A1 /* CountCell.xib */; };
 		901781621E8276C600D6E8A1 /* CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9017815E1E8276C600D6E8A1 /* CountCell.xib */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
+		9043400C1E89F7A500D33ED9 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9043400B1E89F7A500D33ED9 /* InputViewController.m */; };
+		9043400F1E89F87000D33ED9 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9043400E1E89F87000D33ED9 /* PhotoViewController.m */; };
+		904340111E89F8A500D33ED9 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340101E89F8A500D33ED9 /* InputViewController.xib */; };
+		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
+		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
+		9043401A1E8A019C00D33ED9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340191E8A019C00D33ED9 /* User.m */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90D4DF501E83C54A000A1918 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF4F1E83C54A000A1918 /* DataModel.m */; };
@@ -78,6 +84,16 @@
 		9017815D1E8276C600D6E8A1 /* CountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountCell.m; sourceTree = "<group>"; };
 		9017815E1E8276C600D6E8A1 /* CountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountCell.xib; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
+		9043400A1E89F7A500D33ED9 /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		9043400B1E89F7A500D33ED9 /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		9043400D1E89F87000D33ED9 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		9043400E1E89F87000D33ED9 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		904340101E89F8A500D33ED9 /* InputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
+		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		904340141E89FAA400D33ED9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		904340181E8A019C00D33ED9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		904340191E8A019C00D33ED9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -162,8 +178,13 @@
 				901780E01E82626600D6E8A1 /* AppDelegate.m */,
 				908D03751E835EB600F0C0C1 /* BaseViewController.h */,
 				908D03761E835EB600F0C0C1 /* BaseViewController.m */,
+				904340121E89FAA400D33ED9 /* LoginViewController.h */,
+				904340131E89FAA400D33ED9 /* LoginViewController.m */,
+				904340141E89FAA400D33ED9 /* LoginViewController.xib */,
+				904340171E8A018E00D33ED9 /* UserData */,
 				9017811B1E82653200D6E8A1 /* Main */,
 				901781301E82753D00D6E8A1 /* 统计 */,
+				904340091E89F78E00D33ED9 /* 录入 */,
 				901781351E82754600D6E8A1 /* 我的 */,
 				901780EB1E82626600D6E8A1 /* Assets.xcassets */,
 				901780F01E82626600D6E8A1 /* Info.plist */,
@@ -311,6 +332,27 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		904340091E89F78E00D33ED9 /* 录入 */ = {
+			isa = PBXGroup;
+			children = (
+				9043400A1E89F7A500D33ED9 /* InputViewController.h */,
+				9043400B1E89F7A500D33ED9 /* InputViewController.m */,
+				904340101E89F8A500D33ED9 /* InputViewController.xib */,
+				9043400D1E89F87000D33ED9 /* PhotoViewController.h */,
+				9043400E1E89F87000D33ED9 /* PhotoViewController.m */,
+			);
+			path = "录入";
+			sourceTree = "<group>";
+		};
+		904340171E8A018E00D33ED9 /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				904340181E8A019C00D33ED9 /* User.h */,
+				904340191E8A019C00D33ED9 /* User.m */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,9 +465,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
+				904340111E89F8A500D33ED9 /* InputViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
@@ -511,6 +556,9 @@
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
+				9043400C1E89F7A500D33ED9 /* InputViewController.m in Sources */,
+				9043400F1E89F87000D33ED9 /* PhotoViewController.m in Sources */,
+				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

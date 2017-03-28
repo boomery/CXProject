@@ -1,32 +1,28 @@
 //
-//  TabBarController.m
+//  InputViewController.m
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/3/22.
+//  Created by zhangchaoxin on 2017/3/28.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#import "TabBarController.h"
-
-@interface TabBarController ()
+#import "InputViewController.h"
+#import "PhotoViewController.h"
+@interface InputViewController ()
 
 @end
 
-@implementation TabBarController
+@implementation InputViewController
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
-- (void)setSelectedIndex:(NSUInteger)selectedIndex
+- (IBAction)photobuttonClicked:(id)sender
 {
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-    [super setSelectedIndex:selectedIndex];
+    PhotoViewController *photoVC = [[PhotoViewController alloc] init];
+    photoVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:photoVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

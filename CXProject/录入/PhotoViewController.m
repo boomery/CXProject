@@ -1,32 +1,22 @@
 //
-//  TabBarController.m
+//  PhotoViewController.m
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/3/22.
+//  Created by zhangchaoxin on 2017/3/28.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#import "TabBarController.h"
+#import "PhotoViewController.h"
 
-@interface TabBarController ()
+@interface PhotoViewController ()
 
 @end
 
-@implementation TabBarController
+@implementation PhotoViewController
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)setSelectedIndex:(NSUInteger)selectedIndex
-{
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-    [super setSelectedIndex:selectedIndex];
 }
 
 - (void)didReceiveMemoryWarning {

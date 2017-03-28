@@ -14,7 +14,7 @@
 #define BEGIN_Y 20.0
 #define TopBar_HEIGHT 44.0
 
-@interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource>
+@interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource, TopBarViewDelegate>
 {
     //界面相关
     UISearchBar *_searchBar;
@@ -153,6 +153,15 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return 0;
+    }
+    return TopBar_HEIGHT;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section == 0)
@@ -165,19 +174,19 @@
         {
             _topBarView = [[TopBarView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, TopBar_HEIGHT)];
             _topBarView.offSet = TopBar_HEIGHT;
+            _topBarView.delegate = self;
             _topBarView.titleArray = @[@"综合排序",@"横竖屏切换",@"筛选:"];
         }
         return _topBarView;
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+#pragma mark - TopBarViewDelegate
+- (void)topBarViewDidClickedWithIndex:(NSInteger)index text:(NSString *)text topBarView:(TopBarView *)topBarView
 {
-    if (section == 0)
-    {
-        return 0;
-    }
-    return TopBar_HEIGHT;
+    [self.tableView reloadData];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    NSLog(@"选中了第%ld行，条件是%@",index,text);
 }
 
 #pragma mark - UITableViewDelegate

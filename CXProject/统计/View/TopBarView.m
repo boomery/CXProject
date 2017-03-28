@@ -54,7 +54,7 @@
         [views addObject:button];
         
         button.tag = i;
-        button.titleLabel.font = [UIFont systemFontOfSize:15];
+        button.titleLabel.font = LABEL_FONT;
         [button setTitle:_titleArray[i] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [button setTitleColor:BUTTON_SELECTED_COLOR forState:UIControlStateSelected];
@@ -72,14 +72,14 @@
             UIView *lineView = [UIView newAutoLayoutView];
             [self addSubview:lineView];
             lineView.backgroundColor = LINE_COLOR;
-            [lineView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:button];
+            [lineView autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:button withOffset:5];
             [lineView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self];
             [lineView autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self];
             [lineView autoSetDimension:ALDimensionWidth toSize:0.5];
         }
     }
     [views autoSetViewsDimension:ALDimensionHeight toSize:40];
-    [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:10.0 insetSpacing:YES matchedSizes:YES];
+    [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
     [[views firstObject] autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
@@ -93,7 +93,7 @@
         tableView.dataSource = self;
         tableView.delegate = self;
         _tableView = tableView;
-        _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由高到低"];
+        _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由低到高"];
     }
     return _tableView;
 }
@@ -138,7 +138,7 @@
     if (!cell)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
+        cell.textLabel.font = LABEL_FONT;
     }
     if (indexPath.row == _selectedRow)
     {
@@ -163,6 +163,10 @@
     [_sortButton setTitle:_detailArray[indexPath.row] forState:UIControlStateNormal];
     [_tableView reloadData];
     [self tableViewAnimateShouldShow:NO];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(topBarViewDidClickedWithIndex:text:topBarView:)])
+    {
+        [self.delegate topBarViewDidClickedWithIndex:indexPath.row text:_detailArray[indexPath.row] topBarView:self];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath

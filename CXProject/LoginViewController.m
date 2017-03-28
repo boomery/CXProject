@@ -1,32 +1,22 @@
 //
-//  TabBarController.m
+//  LoginViewController.m
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/3/22.
+//  Created by zhangchaoxin on 2017/3/28.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#import "TabBarController.h"
+#import "LoginViewController.h"
 
-@interface TabBarController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation TabBarController
+@implementation LoginViewController
 
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)setSelectedIndex:(NSUInteger)selectedIndex
-{
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-    [super setSelectedIndex:selectedIndex];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
