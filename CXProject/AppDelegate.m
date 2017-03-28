@@ -12,24 +12,33 @@
 #import "CountViewController.h"
 #import "InputViewController.h"
 #import "MineViewController.h"
-@interface AppDelegate ()
+#import "LoginViewController.h"
+@interface AppDelegate () <UITabBarControllerDelegate>
+@property (nonatomic, strong) TabBarController *tab;
+@property (nonatomic, strong) UINavigationController *logNav;
 
 @end
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     window.backgroundColor = [UIColor whiteColor];
     [window makeKeyAndVisible];
     self.window = window;
-    
+    [self setupControllers];
+    return YES;
+}
+
+- (void)setupControllers
+{
     MainViewController *mainVC = [[MainViewController alloc] init];
     mainVC.title = @"首页";
     UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
     mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
-
+    
     InputViewController *inputVC = [[InputViewController alloc] init];
     inputVC.title = @"数据录入";
     UINavigationController *inputNav = [[UINavigationController alloc] initWithRootViewController:inputVC];
@@ -46,13 +55,32 @@
     mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     TabBarController *tab = [[TabBarController alloc] init];
+    tab.delegate = self;
     tab.viewControllers = @[mainNav, inputNav, countNav, mineNav];
-    window.rootViewController = tab;
-    
+    self.window.rootViewController = tab;
+    _tab = tab;
+}
+
+#pragma mark - UITabBarControllerDelegate
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    BOOL hasLogin = NO;
+    if (!hasLogin && ![viewController isKindOfClass:[MainViewController class]])
+    {
+        LoginViewController *loginVC = [[LoginViewController alloc] init];
+        UINavigationController *logNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        loginVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissLogin)];
+        [_tab presentViewController:logNav animated:YES completion:nil];
+        _logNav = logNav;
+        return NO;
+    }
     return YES;
 }
 
-
+- (void)dismissLogin
+{
+    [_logNav dismissViewControllerAnimated:self completion:nil];
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

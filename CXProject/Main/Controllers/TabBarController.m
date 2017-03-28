@@ -7,9 +7,10 @@
 //
 
 #import "TabBarController.h"
-
+#import "LoginViewController.h"
+#import "MainViewController.h"
 @interface TabBarController ()
-
+@property (nonatomic, strong) UINavigationController *logNav;
 @end
 
 @implementation TabBarController
@@ -19,14 +20,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)setSelectedIndex:(NSUInteger)selectedIndex
-{
-//    if (<#condition#>) {
-//        <#statements#>
-//    }
-    [super setSelectedIndex:selectedIndex];
 }
 
 - (void)didReceiveMemoryWarning {

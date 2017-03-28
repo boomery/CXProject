@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface User : NSObject
 
- (BOOL)
+
+@interface User : NSObject
 
 @end

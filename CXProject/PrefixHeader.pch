@@ -23,4 +23,16 @@
 
 #define LABEL_FONT [UIFont systemFontOfSize:14]
 
+
+
+
+#define ALERT(Message) \
+static UIAlertView *alert = nil;\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+alert = [[UIAlertView alloc] initWithTitle:@"提示" message:Message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];\
+});\
+[alert show];
+
+
 #endif /* PrefixHeader_pch */

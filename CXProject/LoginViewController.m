@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @end
 
@@ -18,6 +20,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+- (BOOL)isValidLogin
+{
+    if (_nameTextField.text.length == 0 || _passwordTextField.text.length == 0)
+    {
+        return NO;
+    }
+    return YES;
+}
+
+//忽略过期方法警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
+- (IBAction)login:(id)sender
+{
+    if ([self isValidLogin])
+    {
+        //执行登录
+    }
+    else
+    {
+        ALERT(@"请检查用户名或密码");
+    }
+}
+- (IBAction)forgetPassword:(id)sender
+{
+    ALERT(@"请联系电话：xxxxxxx");
+}
+
+#pragma clang diagnostic pop
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
