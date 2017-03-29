@@ -65,7 +65,6 @@
 {
     BOOL hasLogin = [User userLoginStatus];
     UINavigationController *nav = (UINavigationController *)viewController;
-    NSLog(@"%@",NSStringFromClass([nav.topViewController class]));
     if (!hasLogin && ![nav.topViewController isKindOfClass:[MainViewController class]])
     {
         LoginViewController *loginVC = [[LoginViewController alloc] init];

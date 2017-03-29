@@ -15,23 +15,10 @@
 @class ThreadModel;
 @interface NetworkAPI : NSObject
 
-#pragma mark - 获取栏目列表
-+ (void)getMainListSuccessBlock:(SuccessBlock)successBlock
-                   failureBlock:(FailureBlock)failureBlock
-                        showHUD:(BOOL)showHUD;
-
-#pragma mark - 获取主题列表
-+ (void)getListDetailgetListDetailWithModel:(ListModel *)model
-                                       page:(int)page
-                               SuccessBlock:(SuccessBlock)successBlock
-                               failureBlock:(FailureBlock)failureBlock
-                                    showHUD:(BOOL)showHUD;
-
-#pragma mark - 获取主题详情
-+ (void)getThreadDetailgetListDetailWithModel:(ThreadModel *)model
-                                         page:(int)page
-                                 SuccessBlock:(SuccessBlock)successBlock
-                                 failureBlock:(FailureBlock)failureBlock
-                                      showHUD:(BOOL)showHUD;
-
++ (void)uploadImage:(UIImage *)image
+               type:(NSString *)type
+          projectID:(NSString *)projectID
+            showHUD:(BOOL)showHUD
+       successBlock:(SuccessBlock)successBlock
+       failureBlock:(FailureBlock)failureBlock;
 @end

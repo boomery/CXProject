@@ -83,6 +83,7 @@
 		9016C7831E8A53D600B19056 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		9016C79F1E8A583500B19056 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		9016C7A41E8B570B00B19056 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
+		9016C7A61E8B938400B19056 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		901780D91E82626600D6E8A1 /* CXProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		901780DD1E82626600D6E8A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		901780DF1E82626600D6E8A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,6 +162,7 @@
 		2781D770A6715334B5D287CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9016C7A61E8B938400B19056 /* AVFoundation.framework */,
 				9016C79F1E8A583500B19056 /* libicucore.tbd */,
 				B09939730C48F88524F34BB6 /* Pods_CXProject.framework */,
 			);

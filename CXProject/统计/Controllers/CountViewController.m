@@ -186,7 +186,6 @@
 {
     [self.tableView reloadData];
     [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    NSLog(@"选中了第%ld行，条件是%@",index,text);
 }
 
 #pragma mark - UITableViewDelegate

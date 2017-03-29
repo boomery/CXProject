@@ -9,6 +9,51 @@
 #import "NetworkAPI.h"
 @implementation NetworkAPI
 
+static dispatch_source_t timer;
+#pragma mark - 上传照片
++ (void)uploadImage:(UIImage *)image type:(NSString *)type projectID:(NSString *)projectID showHUD:(BOOL)showHUD successBlock:(SuccessBlock)successBlock
+       failureBlock:(FailureBlock)failureBlock
+{
+    __block float progress = 0.0;
+    if (showHUD)
+    {
+        [SVProgressHUD showProgress:progress];
+    }
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+
+    timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    //开始时间
+    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+    
+    //间隔时间
+    uint64_t interval = 0.2 * NSEC_PER_SEC;
+    
+    dispatch_source_set_timer(timer, start, interval, 0);
+    
+    //设置回调
+    dispatch_source_set_event_handler(timer, ^{
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+        [SVProgressHUD showProgress:progress status:@"上传中..."];
+        if(progress < 1.0f)
+        {
+            progress += 0.05f;
+        }
+        else
+        {
+            dispatch_cancel(timer);
+            [SVProgressHUD showSuccessWithStatus:@"上传成功"];
+            successBlock(nil);
+        }
+        NSLog(@"----self.timer---");
+    });
+    //启动timer
+    dispatch_resume(timer);
+}
+
+- (void)dismiss
+{
+    [SVProgressHUD showSuccessWithStatus:@"上传完成"];
+}
 #pragma mark - 获取栏目列表
 + (void)getMainListSuccessBlock:(SuccessBlock)successBlock
                    failureBlock:(FailureBlock)failureBlock
