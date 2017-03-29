@@ -44,7 +44,6 @@ static dispatch_source_t timer;
             [SVProgressHUD showSuccessWithStatus:@"上传成功"];
             successBlock(nil);
         }
-        NSLog(@"----self.timer---");
     });
     //启动timer
     dispatch_resume(timer);

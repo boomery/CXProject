@@ -183,10 +183,10 @@
 			children = (
 				9016C7731E8A53D600B19056 /* NetworkAPI.h */,
 				9016C7741E8A53D600B19056 /* NetworkAPI.m */,
-				9016C7751E8A53D600B19056 /* NetworkDefine.h */,
 				9016C7761E8A53D600B19056 /* NetworkManager.h */,
 				9016C7771E8A53D600B19056 /* NetworkManager.m */,
 				9016C7781E8A53D600B19056 /* NetworkURLDefine.h */,
+				9016C7751E8A53D600B19056 /* NetworkDefine.h */,
 				9016C7791E8A53D600B19056 /* Reachability.h */,
 				9016C77A1E8A53D600B19056 /* Reachability.m */,
 				9016C77B1E8A53D600B19056 /* Socket */,

@@ -10,8 +10,13 @@
 #import "TopBarView.h"
 #import "CountViewController.h"
 @interface TopBarView () <UITableViewDelegate, UITableViewDataSource>
+{
+    //横屏竖屏距离顶部高度不同
+    CGFloat _topHeight;
+}
 //下拉列表
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIButton *grayBuuton;
 //记录选中第一行的按钮
 @property (nonatomic, strong) UIButton *lastButton;
 //是否显示下拉列表
@@ -22,6 +27,7 @@
 @property (nonatomic, strong) NSArray *detailArray;
 //记录选中的下拉行
 @property (nonatomic, assign) NSInteger selectedRow;
+
 @end
 @implementation TopBarView
 
@@ -39,8 +45,16 @@
         [lineView autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self];
         [lineView autoSetDimension:ALDimensionHeight toSize:0.5];
         lineView.backgroundColor = LINE_COLOR;
+        
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:UIDeviceOrientationDidChangeNotification object:nil];
     }
     return self;
+}
+- (void)layoutSubviews
+{
+    [self setOffSet:_offSet];
+    self.width = self.superview.width;
+    _tableView.width = self.width;
 }
 #pragma mark - 布局界面
 - (void)setTitleArray:(NSArray *)titleArray
@@ -94,6 +108,8 @@
         tableView.delegate = self;
         _tableView = tableView;
         _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由低到高"];
+        
+//        grayBuuton
     }
     return _tableView;
 }
@@ -102,7 +118,18 @@
 - (void)setOffSet:(CGFloat)offSet
 {
     _offSet = offSet;
-    [self.tableView setTop:(64 + self.height + _offSet)];
+    
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    if (orientation == UIDeviceOrientationPortrait)
+    {
+        _topHeight = 64;
+    }
+    else if (orientation == UIDeviceOrientationLandscapeRight)
+    {
+        _topHeight = 32;
+    }
+    [self.tableView setTop:(_topHeight + self.height + _offSet)];
 }
 
 #pragma mark - 代理方法
@@ -163,6 +190,7 @@
     [_sortButton setTitle:_detailArray[indexPath.row] forState:UIControlStateNormal];
     [_tableView reloadData];
     [self tableViewAnimateShouldShow:NO];
+    self.offSet = 0;
     if (self.delegate && [self.delegate respondsToSelector:@selector(topBarViewDidClickedWithIndex:text:topBarView:)])
     {
         [self.delegate topBarViewDidClickedWithIndex:indexPath.row text:_detailArray[indexPath.row] topBarView:self];
@@ -182,13 +210,13 @@
     if (shouldShow)
     {
         [UIView animateWithDuration:0.3 animations:^{
-            self.tableView.frame = CGRectMake(0, 64 + self.height + _offSet, self.width, 4*44);
+            self.tableView.frame = CGRectMake(0, _topHeight + self.height + _offSet, self.width, 4*44);
         }];
     }
    else
    {
        [UIView animateWithDuration:0.3 animations:^{
-           self.tableView.frame = CGRectMake(0, 64 + self.height + _offSet, self.width, 0);
+           self.tableView.frame = CGRectMake(0, _topHeight + self.height + _offSet, self.width, 0);
        }];
    }
 }

@@ -13,7 +13,6 @@
 #import "DataModel.h"
 #define BEGIN_Y 20.0
 #define TopBar_HEIGHT 44.0
-
 @interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource, TopBarViewDelegate>
 {
     //界面相关
@@ -23,6 +22,8 @@
     //临时数据源
     NSMutableArray *_tempArray;
     NSMutableArray *_resultArray;
+    
+    CGFloat _navHeight;
 }
 @end
 
@@ -64,10 +65,10 @@
 }
 
 #pragma mark - 横屏布局
-- (BOOL)shouldAutorotate
-{
-    return NO;
-}
+//- (BOOL)shouldAutorotate
+//{
+//    return NO;
+//}
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
@@ -81,6 +82,15 @@
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
+    if (size.width > size.height)
+    {
+        _navHeight = 32;
+    }
+    else
+    {
+        _navHeight = 64;
+    }
+    
     [_searchBar setWidth:size.width];
     [_topBarView setWidth:size.width];
 }
@@ -198,27 +208,28 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.y == -64)
+    if (scrollView.contentOffset.y == -_navHeight)
     {
         _topBarView.offSet = TopBar_HEIGHT;
     }
+    NSLog(@"%.f",scrollView.contentOffset.y);
 }
 
 //搜索框要么显示要么隐藏，不然会出现显示错位
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (scrollView.contentOffset.y < -64 + 44/2)
+    if (scrollView.contentOffset.y < -_navHeight + 44/2)
     {
         _topBarView.offSet = TopBar_HEIGHT;
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -64);
+            scrollView.contentOffset = CGPointMake(0, -_navHeight);
         }];
     }
-    else if (scrollView.contentOffset.y < -20)
+    else if (scrollView.contentOffset.y < _navHeight + 44)
     {
         _topBarView.offSet = 0;
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -20);
+            scrollView.contentOffset = CGPointMake(0, -_navHeight + 44);
         }];
     }
     else
