@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-typedef void(^statusBlock)(BOOL loginStatus);
+typedef void(^completion)(BOOL loginStatus);
 @interface User : NSObject
 
 + (instancetype)sharedUser;
 
-+ (BOOL)LoginStatus;
++ (BOOL)userLoginStatus;
 
-+ (void)loginWithBlock:(statusBlock)statusBlock;
++ (void)loginWithBlock:(completion)completionBlock;
+
++ (void)logoutWithBlock:(completion)completionBlock;
+
 
 @end

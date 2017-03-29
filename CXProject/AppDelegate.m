@@ -7,14 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "TabBarController.h"
 #import "MainViewController.h"
 #import "CountViewController.h"
 #import "InputViewController.h"
 #import "MineViewController.h"
 #import "LoginViewController.h"
 @interface AppDelegate () <UITabBarControllerDelegate>
-@property (nonatomic, strong) TabBarController *tab;
+
 @property (nonatomic, strong) UINavigationController *logNav;
 
 @end
@@ -64,7 +63,7 @@
 #pragma mark - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
-    BOOL hasLogin = NO;
+    BOOL hasLogin = [User userLoginStatus];
     UINavigationController *nav = (UINavigationController *)viewController;
     NSLog(@"%@",NSStringFromClass([nav.topViewController class]));
     if (!hasLogin && ![nav.topViewController isKindOfClass:[MainViewController class]])

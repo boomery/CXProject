@@ -33,24 +33,38 @@
     return self;
 }
 
-+ (void)loginWithBlock:(statusBlock)statusBlock
+#pragma mark - 登录
++ (void)loginWithBlock:(completion)completionBlock
 {
-    [DialogHandler showDlg];
-    //登录请求
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self setLoginStatus:YES];
-        [DialogHandler showSuccessWithTitle:@"登录成功" completionBlock:^{
-            statusBlock(YES);
+    [SVProgressHUD show];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismissWithCompletion:^{
+            [SVProgressHUD showSuccessWithStatus:@"success"];
+            [self setUserLoginStatus:YES];
+            completionBlock(YES);
         }];
     });
 }
 
-+ (void)setLoginStatus:(BOOL)hasLogin
+#pragma mark - 退出登录
++ (void)logoutWithBlock:(completion)completionBlock
+{
+    [SVProgressHUD showWithStatus:@"退出登录"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismissWithCompletion:^{
+            [self setUserLoginStatus:NO];
+            completionBlock(YES);
+        }];
+    });
+}
+
+
++ (void)setUserLoginStatus:(BOOL)hasLogin
 {
     [[NSUserDefaults standardUserDefaults] setBool:hasLogin forKey:USER_LOGIN_STATUS];
 }
 
-+ (BOOL)LoginStatus
++ (BOOL)userLoginStatus
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS];
 }

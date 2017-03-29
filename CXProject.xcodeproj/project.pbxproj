@@ -13,8 +13,8 @@
 		9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C77D1E8A53D600B19056 /* GCDAsyncSocket.m */; };
 		9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C77F1E8A53D600B19056 /* GCDAsyncUdpSocket.m */; };
 		9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C7831E8A53D600B19056 /* SRWebSocket.m */; };
-		9016C79E1E8A568E00B19056 /* DialogHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C79D1E8A568E00B19056 /* DialogHandler.m */; };
 		9016C7A01E8A583500B19056 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9016C79F1E8A583500B19056 /* libicucore.tbd */; };
+		9016C7A51E8B570B00B19056 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9016C7A41E8B570B00B19056 /* PhotoViewController.xib */; };
 		901780DE1E82626600D6E8A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 901780DD1E82626600D6E8A1 /* main.m */; };
 		901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 901780E01E82626600D6E8A1 /* AppDelegate.m */; };
 		901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */; };
@@ -81,9 +81,8 @@
 		9016C7811E8A53D600B19056 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		9016C7821E8A53D600B19056 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		9016C7831E8A53D600B19056 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
-		9016C79C1E8A568E00B19056 /* DialogHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogHandler.h; sourceTree = "<group>"; };
-		9016C79D1E8A568E00B19056 /* DialogHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogHandler.m; sourceTree = "<group>"; };
 		9016C79F1E8A583500B19056 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		9016C7A41E8B570B00B19056 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		901780D91E82626600D6E8A1 /* CXProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		901780DD1E82626600D6E8A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		901780DF1E82626600D6E8A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -218,8 +217,6 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9016C79C1E8A568E00B19056 /* DialogHandler.h */,
-				9016C79D1E8A568E00B19056 /* DialogHandler.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -417,6 +414,7 @@
 				904340101E89F8A500D33ED9 /* InputViewController.xib */,
 				9043400D1E89F87000D33ED9 /* PhotoViewController.h */,
 				9043400E1E89F87000D33ED9 /* PhotoViewController.m */,
+				9016C7A41E8B570B00B19056 /* PhotoViewController.xib */,
 			);
 			path = "录入";
 			sourceTree = "<group>";
@@ -545,6 +543,7 @@
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
+				9016C7A51E8B570B00B19056 /* PhotoViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
 				904340111E89F8A500D33ED9 /* InputViewController.xib in Resources */,
 			);
@@ -637,7 +636,6 @@
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
-				9016C79E1E8A568E00B19056 /* DialogHandler.m in Sources */,
 				9043400C1E89F7A500D33ED9 /* InputViewController.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				9043400F1E89F87000D33ED9 /* PhotoViewController.m in Sources */,

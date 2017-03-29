@@ -17,7 +17,11 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[NetworkManager alloc] initWithBaseURL:[NSURL URLWithString:API_HOST]];
-        manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        manager.requestSerializer.timeoutInterval = 15;
+//        manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+        manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/html", @"text/json", @"text/plain", @"text/javascript", nil];
+
     });
     return manager;
 }
@@ -29,7 +33,7 @@
 {
     if (showHud)
     {
-        [DialogHandler showDlg];
+//        [DialogHandler showDlg];
     }
     return [[NetworkManager shareManager] GET:URLString parameters:parameters success:success failure:failure];
 }
@@ -41,7 +45,7 @@
 {
     if (showHud)
     {
-        [DialogHandler showDlg];
+//        [DialogHandler showDlg];
     }
     return [[NetworkManager shareManager] POST:URLString parameters:parameters success:success failure:failure];
 }
@@ -54,7 +58,7 @@
 {
     if (showHud)
     {
-        [DialogHandler showDlg];
+//        [DialogHandler showDlg];
     }
     return [[NetworkManager shareManager] POST:URLString parameters:parameters constructingBodyWithBlock:block success:success failure:failure];
 }
