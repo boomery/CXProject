@@ -14,10 +14,9 @@
 
 @implementation BaseNavigationController
 
-#pragma mark - override method
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
 - (BOOL)shouldAutorotate
@@ -29,7 +28,6 @@
 {
     return [self.topViewController supportedInterfaceOrientations];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

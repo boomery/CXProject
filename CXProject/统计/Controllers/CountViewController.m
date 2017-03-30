@@ -73,23 +73,27 @@
 
 - (BOOL)shouldAutorotate
 {
-    return NO;
+    return YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscape;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
-    return UIInterfaceOrientationPortrait | UIInterfaceOrientationLandscapeLeft;
+    return UIInterfaceOrientationPortrait | UIInterfaceOrientationMaskLandscape;
 }
 
-//强制旋转没有调用本方法
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
 
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
 }
 
 #pragma mark - TopBarViewDelegate
