@@ -15,6 +15,8 @@
 		9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C7831E8A53D600B19056 /* SRWebSocket.m */; };
 		9016C7A01E8A583500B19056 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9016C79F1E8A583500B19056 /* libicucore.tbd */; };
 		9016C7A51E8B570B00B19056 /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9016C7A41E8B570B00B19056 /* PhotoViewController.xib */; };
+		9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C7AC1E8C938C00B19056 /* BaseNavigationController.m */; };
+		9016C7B01E8C948A00B19056 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9016C7AF1E8C948A00B19056 /* TabBarController.m */; };
 		901780DE1E82626600D6E8A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 901780DD1E82626600D6E8A1 /* main.m */; };
 		901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 901780E01E82626600D6E8A1 /* AppDelegate.m */; };
 		901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */; };
@@ -27,8 +29,6 @@
 		9017814C1E8275E000D6E8A1 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781461E8275E000D6E8A1 /* MineViewController.m */; };
 		901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781511E8275FD00D6E8A1 /* MainViewController.m */; };
 		901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781511E8275FD00D6E8A1 /* MainViewController.m */; };
-		9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781531E8275FD00D6E8A1 /* TabBarController.m */; };
-		9017815B1E8275FD00D6E8A1 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 901781531E8275FD00D6E8A1 /* TabBarController.m */; };
 		9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017815D1E8276C600D6E8A1 /* CountCell.m */; };
 		901781601E8276C600D6E8A1 /* CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017815D1E8276C600D6E8A1 /* CountCell.m */; };
 		901781611E8276C600D6E8A1 /* CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9017815E1E8276C600D6E8A1 /* CountCell.xib */; };
@@ -84,6 +84,10 @@
 		9016C79F1E8A583500B19056 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		9016C7A41E8B570B00B19056 /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		9016C7A61E8B938400B19056 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9016C7AB1E8C938C00B19056 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		9016C7AC1E8C938C00B19056 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		9016C7AE1E8C948A00B19056 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		9016C7AF1E8C948A00B19056 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		901780D91E82626600D6E8A1 /* CXProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		901780DD1E82626600D6E8A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		901780DF1E82626600D6E8A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,8 +108,6 @@
 		901781461E8275E000D6E8A1 /* MineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		901781501E8275FD00D6E8A1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		901781511E8275FD00D6E8A1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		901781521E8275FD00D6E8A1 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
-		901781531E8275FD00D6E8A1 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		9017815C1E8276C600D6E8A1 /* CountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountCell.h; sourceTree = "<group>"; };
 		9017815D1E8276C600D6E8A1 /* CountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountCell.m; sourceTree = "<group>"; };
 		9017815E1E8276C600D6E8A1 /* CountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountCell.xib; sourceTree = "<group>"; };
@@ -252,6 +254,10 @@
 				901780E01E82626600D6E8A1 /* AppDelegate.m */,
 				908D03751E835EB600F0C0C1 /* BaseViewController.h */,
 				908D03761E835EB600F0C0C1 /* BaseViewController.m */,
+				9016C7AB1E8C938C00B19056 /* BaseNavigationController.h */,
+				9016C7AC1E8C938C00B19056 /* BaseNavigationController.m */,
+				9016C7AE1E8C948A00B19056 /* TabBarController.h */,
+				9016C7AF1E8C948A00B19056 /* TabBarController.m */,
 				904340121E89FAA400D33ED9 /* LoginViewController.h */,
 				904340131E89FAA400D33ED9 /* LoginViewController.m */,
 				904340141E89FAA400D33ED9 /* LoginViewController.xib */,
@@ -388,8 +394,6 @@
 			children = (
 				901781501E8275FD00D6E8A1 /* MainViewController.h */,
 				901781511E8275FD00D6E8A1 /* MainViewController.m */,
-				901781521E8275FD00D6E8A1 /* TabBarController.h */,
-				901781531E8275FD00D6E8A1 /* TabBarController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -624,12 +628,12 @@
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
+				9016C7B01E8C948A00B19056 /* TabBarController.m in Sources */,
 				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
-				9017815A1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
@@ -642,6 +646,7 @@
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				9043400F1E89F87000D33ED9 /* PhotoViewController.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
+				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,7 +655,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9017815B1E8275FD00D6E8A1 /* TabBarController.m in Sources */,
 				901780FA1E82626600D6E8A1 /* CXProjectTests.m in Sources */,
 				901781591E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781411E8275C700D6E8A1 /* CountViewController.m in Sources */,

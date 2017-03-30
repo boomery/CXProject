@@ -12,7 +12,9 @@
 #import "TopBarView.h"
 #import "DataModel.h"
 #define BEGIN_Y 20.0
-#define TopBar_HEIGHT 44.0
+#define TOPBAR_HEIGHT 44.0
+#define SEARCHBAR_HEIGTH TOPBAR_HEIGHT
+#define NAV_HEIGHT 64.0
 @interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource, TopBarViewDelegate>
 {
     //界面相关
@@ -22,9 +24,8 @@
     //临时数据源
     NSMutableArray *_tempArray;
     NSMutableArray *_resultArray;
-    
-    CGFloat _navHeight;
 }
+@property (nonatomic, assign) BOOL isLandscape;
 @end
 
 @implementation CountViewController
@@ -65,34 +66,60 @@
 }
 
 #pragma mark - 横屏布局
-//- (BOOL)shouldAutorotate
-//{
-//    return NO;
-//}
+//横屏布局写在这里
+- (void)viewWillLayoutSubviews
+{
+    [_searchBar setWidth:self.view.width];
+}
+
+- (BOOL)shouldAutorotate
+{
+    return NO;
+}
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+    return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskLandscapeLeft;
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
-    return UIInterfaceOrientationPortrait | UIInterfaceOrientationLandscapeLeft | UIInterfaceOrientationLandscapeRight;
+    return UIInterfaceOrientationPortrait | UIInterfaceOrientationLandscapeLeft;
 }
 
+//强制旋转没有调用本方法
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    if (size.width > size.height)
-    {
-        _navHeight = 32;
+
+}
+
+#pragma mark - TopBarViewDelegate
+- (void)topBarViewDidClickedWithIndex:(NSInteger)index text:(NSString *)text topBarView:(TopBarView *)topBarView
+{
+    [self.tableView reloadData];
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)topBarViewDidClickedChangeButton
+{
+    [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
+}
+- (void)interfaceOrientation:(UIInterfaceOrientation)orientation
+{
+    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
+        SEL selector             = NSSelectorFromString(@"setOrientation:");
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:[UIDevice currentDevice]];
+        int val                  = orientation;
+        // 从2开始是因为0 1 两个参数已经被selector和target占用
+        [invocation setArgument:&val atIndex:2];
+        [invocation invoke];
     }
-    else
-    {
-        _navHeight = 64;
-    }
+}
+- (void)topBarViewDidClickedSiftButton
+{
     
-    [_searchBar setWidth:size.width];
-    [_topBarView setWidth:size.width];
 }
 
 #pragma mark - UISearchResultsUpdating
@@ -169,7 +196,7 @@
     {
         return 0;
     }
-    return TopBar_HEIGHT;
+    return TOPBAR_HEIGHT;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -182,20 +209,13 @@
     {
         if (!_topBarView)
         {
-            _topBarView = [[TopBarView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, TopBar_HEIGHT)];
-            _topBarView.offSet = TopBar_HEIGHT;
+            _topBarView = [[TopBarView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, TOPBAR_HEIGHT)];
+            _topBarView.offSet = SEARCHBAR_HEIGTH;
             _topBarView.delegate = self;
             _topBarView.titleArray = @[@"综合排序",@"横竖屏切换",@"筛选:"];
         }
         return _topBarView;
     }
-}
-
-#pragma mark - TopBarViewDelegate
-- (void)topBarViewDidClickedWithIndex:(NSInteger)index text:(NSString *)text topBarView:(TopBarView *)topBarView
-{
-    [self.tableView reloadData];
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -208,28 +228,27 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (scrollView.contentOffset.y == -_navHeight)
+    if (scrollView.contentOffset.y == -NAV_HEIGHT)
     {
-        _topBarView.offSet = TopBar_HEIGHT;
+        _topBarView.offSet = SEARCHBAR_HEIGTH;
     }
-    NSLog(@"%.f",scrollView.contentOffset.y);
 }
 
 //搜索框要么显示要么隐藏，不然会出现显示错位
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (scrollView.contentOffset.y < -_navHeight + 44/2)
+    if (scrollView.contentOffset.y < -NAV_HEIGHT + 44/2)
     {
-        _topBarView.offSet = TopBar_HEIGHT;
+        _topBarView.offSet = SEARCHBAR_HEIGTH;
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -_navHeight);
+            scrollView.contentOffset = CGPointMake(0, -NAV_HEIGHT);
         }];
     }
-    else if (scrollView.contentOffset.y < _navHeight + 44)
+    else if (scrollView.contentOffset.y < NAV_HEIGHT + 44)
     {
         _topBarView.offSet = 0;
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -_navHeight + 44);
+            scrollView.contentOffset = CGPointMake(0, -NAV_HEIGHT + 44);
         }];
     }
     else

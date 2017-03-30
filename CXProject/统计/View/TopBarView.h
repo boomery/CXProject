@@ -25,7 +25,8 @@
 //@required
 //
 //@optional
-
+- (void)topBarViewDidClickedSiftButton;
+- (void)topBarViewDidClickedChangeButton;
 - (void)topBarViewDidClickedWithIndex:(NSInteger)index text:(NSString *)text topBarView:(TopBarView *)topBarView;
 
 @end

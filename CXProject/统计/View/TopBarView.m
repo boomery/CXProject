@@ -11,7 +11,7 @@
 #import "CountViewController.h"
 @interface TopBarView () <UITableViewDelegate, UITableViewDataSource>
 {
-    //横屏竖屏距离顶部高度不同
+    //自动旋转情况下 没有状态栏时横屏竖屏距离顶部高度不同
     CGFloat _topHeight;
 }
 //下拉列表
@@ -45,6 +45,7 @@
         [lineView autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self];
         [lineView autoSetDimension:ALDimensionHeight toSize:0.5];
         lineView.backgroundColor = LINE_COLOR;
+        _topHeight = 64;
         
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:UIDeviceOrientationDidChangeNotification object:nil];
     }
@@ -55,6 +56,15 @@
     [self setOffSet:_offSet];
     self.width = self.superview.width;
     _tableView.width = self.width;
+//    if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft)
+//    {
+//        _tableView.transform = CGAffineTransformMakeRotation(M_PI/2);
+//    }
+//    else
+//    {
+//        
+//    }
+    
 }
 #pragma mark - 布局界面
 - (void)setTitleArray:(NSArray *)titleArray
@@ -107,6 +117,7 @@
         tableView.dataSource = self;
         tableView.delegate = self;
         _tableView = tableView;
+//        UIView *view = self.superview.superview;
         _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由低到高"];
         
 //        grayBuuton
@@ -118,17 +129,6 @@
 - (void)setOffSet:(CGFloat)offSet
 {
     _offSet = offSet;
-    
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    
-    if (orientation == UIDeviceOrientationPortrait)
-    {
-        _topHeight = 64;
-    }
-    else if (orientation == UIDeviceOrientationLandscapeRight)
-    {
-        _topHeight = 32;
-    }
     [self.tableView setTop:(_topHeight + self.height + _offSet)];
 }
 
@@ -148,6 +148,20 @@
     }
     else
     {
+        if (button.tag == 1)
+        {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(topBarViewDidClickedChangeButton)])
+            {
+                [self.delegate topBarViewDidClickedChangeButton];
+            }
+        }
+        else if (button.tag == 2)
+        {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(topBarViewDidClickedSiftButton)])
+            {
+                [self.delegate topBarViewDidClickedSiftButton];
+            }
+        }
         [self tableViewAnimateShouldShow:NO];
     }
 }

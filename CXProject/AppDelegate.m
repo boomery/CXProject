@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BaseNavigationController.h"
 #import "MainViewController.h"
 #import "CountViewController.h"
 #import "InputViewController.h"
@@ -14,7 +15,7 @@
 #import "LoginViewController.h"
 @interface AppDelegate () <UITabBarControllerDelegate>
 
-@property (nonatomic, strong) UINavigationController *logNav;
+@property (nonatomic, strong) BaseNavigationController *logNav;
 
 @end
 
@@ -35,22 +36,22 @@
 {
     MainViewController *mainVC = [[MainViewController alloc] init];
     mainVC.title = @"首页";
-    UINavigationController *mainNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    BaseNavigationController *mainNav = [[BaseNavigationController alloc] initWithRootViewController:mainVC];
     mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     InputViewController *inputVC = [[InputViewController alloc] init];
     inputVC.title = @"数据录入";
-    UINavigationController *inputNav = [[UINavigationController alloc] initWithRootViewController:inputVC];
+    BaseNavigationController *inputNav = [[BaseNavigationController alloc] initWithRootViewController:inputVC];
     inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     CountViewController *countVC = [[CountViewController alloc] init];
     countVC.title = @"数据统计";
-    UINavigationController *countNav = [[UINavigationController alloc] initWithRootViewController:countVC];
+    BaseNavigationController *countNav = [[BaseNavigationController alloc] initWithRootViewController:countVC];
     countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据统计" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
     mineVC.title = @"我的";
-    UINavigationController *mineNav = [[UINavigationController alloc] initWithRootViewController:mineVC];
+    BaseNavigationController *mineNav = [[BaseNavigationController alloc] initWithRootViewController:mineVC];
     mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     TabBarController *tab = [[TabBarController alloc] init];
@@ -64,11 +65,11 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
     BOOL hasLogin = [User userLoginStatus];
-    UINavigationController *nav = (UINavigationController *)viewController;
+    BaseNavigationController *nav = (BaseNavigationController *)viewController;
     if (!hasLogin && ![nav.topViewController isKindOfClass:[MainViewController class]])
     {
         LoginViewController *loginVC = [[LoginViewController alloc] init];
-        UINavigationController *logNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        BaseNavigationController *logNav = [[BaseNavigationController alloc] initWithRootViewController:loginVC];
         loginVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissLogin)];
         [_tab presentViewController:logNav animated:YES completion:nil];
         _logNav = logNav;
