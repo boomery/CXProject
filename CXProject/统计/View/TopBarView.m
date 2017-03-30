@@ -10,12 +10,7 @@
 #import "TopBarView.h"
 #import "CountViewController.h"
 @interface TopBarView () <UITableViewDelegate, UITableViewDataSource>
-{
-    //自动旋转情况下 没有状态栏时横屏竖屏距离顶部高度不同
-    CGFloat _topHeight;
-}
-//下拉列表
-@property (nonatomic, strong) UITableView *tableView;
+
 @property (nonatomic, strong) UIButton *grayBuuton;
 //记录选中第一行的按钮
 @property (nonatomic, strong) UIButton *lastButton;
@@ -45,26 +40,19 @@
         [lineView autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self];
         [lineView autoSetDimension:ALDimensionHeight toSize:0.5];
         lineView.backgroundColor = LINE_COLOR;
-        _topHeight = 64;
         
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:UIDeviceOrientationDidChangeNotification object:nil];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, 0) style:UITableViewStylePlain];
+        tableView.dataSource = self;
+        tableView.delegate = self;
+        _tableView = tableView;
+        
+        _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由低到高"];
     }
     return self;
 }
 - (void)layoutSubviews
 {
-    [self setOffSet:_offSet];
-    self.width = self.superview.width;
     _tableView.width = self.width;
-//    if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft)
-//    {
-//        _tableView.transform = CGAffineTransformMakeRotation(M_PI/2);
-//    }
-//    else
-//    {
-//        
-//    }
-    
 }
 #pragma mark - 布局界面
 - (void)setTitleArray:(NSArray *)titleArray
@@ -107,29 +95,12 @@
     [[views firstObject] autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
-- (UITableView *)tableView
-{
-    if (!_tableView)
-    {
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;        
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.width, 0) style:UITableViewStylePlain];
-        [window addSubview:tableView];
-        tableView.dataSource = self;
-        tableView.delegate = self;
-        _tableView = tableView;
-//        UIView *view = self.superview.superview;
-        _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由低到高"];
-        
-//        grayBuuton
-    }
-    return _tableView;
-}
-
 #pragma mark - 更新控件坐标
 - (void)setOffSet:(CGFloat)offSet
 {
+    NSLog(@"设置了offset___%.f",offSet);
     _offSet = offSet;
-    [self.tableView setTop:(_topHeight + self.height + _offSet)];
+    [self.tableView setTop:(self.height + _offSet)];
 }
 
 #pragma mark - 代理方法
@@ -204,7 +175,7 @@
     [_sortButton setTitle:_detailArray[indexPath.row] forState:UIControlStateNormal];
     [_tableView reloadData];
     [self tableViewAnimateShouldShow:NO];
-    self.offSet = 0;
+    self.offSet = 44;
     if (self.delegate && [self.delegate respondsToSelector:@selector(topBarViewDidClickedWithIndex:text:topBarView:)])
     {
         [self.delegate topBarViewDidClickedWithIndex:indexPath.row text:_detailArray[indexPath.row] topBarView:self];
@@ -223,14 +194,30 @@
     _shouldShowTab = shouldShow;
     if (shouldShow)
     {
+        UIViewController *vc = (UIViewController *)[[self nextResponder] nextResponder];
+        UITableView *bTabView = (UITableView *)vc.view;
+        if ([bTabView isKindOfClass:[UITableView class]])
+        {
+            [bTabView addSubview:_tableView];
+            _tableView.backgroundColor = [UIColor redColor];
+        }
+        
+       
+        
+        
+        NSLog(@"大背景偏移量是_______%.f",bTabView.contentOffset.y);
+        NSLog(@"____%.f",self.tableView.top);
         [UIView animateWithDuration:0.3 animations:^{
-            self.tableView.frame = CGRectMake(0, _topHeight + self.height + _offSet, self.width, 4*44);
+            self.tableView.frame = CGRectMake(0, self.tableView.top, self.tableView.width, 4*44);
         }];
     }
    else
    {
+       
        [UIView animateWithDuration:0.3 animations:^{
-           self.tableView.frame = CGRectMake(0, _topHeight + self.height + _offSet, self.width, 0);
+           self.tableView.frame = CGRectMake(0, self.tableView.top, self.tableView.width, 0);
+       } completion:^(BOOL finished) {
+           [_tableView removeFromSuperview];
        }];
    }
 }

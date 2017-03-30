@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountViewController">
             <connections>
-                <outlet property="view" destination="Hsq-yu-i7h" id="JAY-Lq-n2t"/>
+                <outlet property="view" destination="Hsq-yu-i7h" id="Iiv-ta-65S"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,7 +23,7 @@
                 <outlet property="dataSource" destination="-1" id="wEv-QE-zpg"/>
                 <outlet property="delegate" destination="-1" id="Noo-yV-72b"/>
             </connections>
-            <point key="canvasLocation" x="-645" y="207"/>
+            <point key="canvasLocation" x="-1141" y="220"/>
         </tableView>
     </objects>
 </document>

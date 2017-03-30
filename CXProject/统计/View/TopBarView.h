@@ -13,6 +13,8 @@
 @property (nonatomic, weak) id delegate;
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, assign) CGFloat offSet;
+//下拉列表
+@property (nonatomic, strong) UITableView *tableView;
 
 - (void)tableViewAnimateShouldShow:(BOOL)shouldShow;
 
