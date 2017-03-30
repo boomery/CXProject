@@ -98,7 +98,6 @@
 #pragma mark - 更新控件坐标
 - (void)setOffSet:(CGFloat)offSet
 {
-    NSLog(@"设置了offset___%.f",offSet);
     _offSet = offSet;
     [self.tableView setTop:(self.height + _offSet)];
 }
@@ -156,12 +155,11 @@
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         cell.textLabel.textColor = BUTTON_SELECTED_COLOR;
-        
     }
     else
     {
-        cell.textLabel.textColor = [UIColor blackColor];
         cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.textLabel.textColor = [UIColor blackColor];
     }
     cell.textLabel.text = _detailArray[indexPath.row];
     return cell;
@@ -182,12 +180,6 @@
     }
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selected = NO;
-}
-
 #pragma mark - 动画部分
 - (void)tableViewAnimateShouldShow:(BOOL)shouldShow
 {
@@ -199,14 +191,7 @@
         if ([bTabView isKindOfClass:[UITableView class]])
         {
             [bTabView addSubview:_tableView];
-            _tableView.backgroundColor = [UIColor redColor];
         }
-        
-       
-        
-        
-        NSLog(@"大背景偏移量是_______%.f",bTabView.contentOffset.y);
-        NSLog(@"____%.f",self.tableView.top);
         [UIView animateWithDuration:0.3 animations:^{
             self.tableView.frame = CGRectMake(0, self.tableView.top, self.tableView.width, 4*44);
         }];
