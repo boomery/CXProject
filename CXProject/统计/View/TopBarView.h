@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface TopBarView : UIView
 
 @property (nonatomic, weak) id delegate;

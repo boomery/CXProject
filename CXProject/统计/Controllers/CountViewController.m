@@ -65,8 +65,7 @@
     searchController.searchBar.delegate = self;
 }
 
-#pragma mark - 横屏布局
-//横屏布局写在这里
+#pragma mark - 强制旋转布局
 - (void)viewWillLayoutSubviews
 {
     [_searchBar setWidth:self.view.width];

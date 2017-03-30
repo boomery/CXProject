@@ -11,7 +11,7 @@
 #import "CountViewController.h"
 @interface TopBarView () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UIButton *grayBuuton;
+@property (nonatomic, strong) UIButton *grayButton;
 //记录选中第一行的按钮
 @property (nonatomic, strong) UIButton *lastButton;
 //是否显示下拉列表
@@ -45,6 +45,13 @@
         tableView.dataSource = self;
         tableView.delegate = self;
         _tableView = tableView;
+
+        _grayButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _grayButton.frame = CGRectMake(0, 0, self.width,INT_MAX);
+
+        _grayButton.backgroundColor = [UIColor lightGrayColor];
+        _grayButton.alpha = 0.5;
+        [_grayButton addTarget:self action:@selector(hideTab) forControlEvents:UIControlEventTouchUpInside];
         
         _detailArray = @[@"综合排序", @"合格率", @"问题数由高到低", @"问题数由低到高"];
     }
@@ -53,6 +60,7 @@
 - (void)layoutSubviews
 {
     _tableView.width = self.width;
+    _grayButton.width = self.width;
 }
 #pragma mark - 布局界面
 - (void)setTitleArray:(NSArray *)titleArray
@@ -102,7 +110,7 @@
     [self.tableView setTop:(self.height + _offSet)];
 }
 
-#pragma mark - 代理方法
+#pragma mark - 点击按钮
 - (void)buttonClicked:(UIButton *)button
 {
     if (button != _lastButton)
@@ -180,31 +188,40 @@
     }
 }
 
+
+- (void)hideTab
+{
+    [self tableViewAnimateShouldShow:NO];
+}
 #pragma mark - 动画部分
 - (void)tableViewAnimateShouldShow:(BOOL)shouldShow
 {
     _shouldShowTab = shouldShow;
-    if (shouldShow)
+    
+    UIViewController *vc = (UIViewController *)[[self nextResponder] nextResponder];
+    UITableView *bTabView = (UITableView *)vc.view;
+    if ([bTabView isKindOfClass:[UITableView class]])
     {
-        UIViewController *vc = (UIViewController *)[[self nextResponder] nextResponder];
-        UITableView *bTabView = (UITableView *)vc.view;
-        if ([bTabView isKindOfClass:[UITableView class]])
+        if (shouldShow)
         {
+            bTabView.scrollEnabled = NO;
+            [bTabView addSubview:_grayButton];
             [bTabView addSubview:_tableView];
+            [UIView animateWithDuration:0.3 animations:^{
+                self.tableView.frame = CGRectMake(0, self.tableView.top, self.tableView.width, 4*44);
+            }];
         }
-        [UIView animateWithDuration:0.3 animations:^{
-            self.tableView.frame = CGRectMake(0, self.tableView.top, self.tableView.width, 4*44);
-        }];
+        else
+        {
+            bTabView.scrollEnabled = YES;
+            [UIView animateWithDuration:0.3 animations:^{
+                self.tableView.frame = CGRectMake(0, self.tableView.top, self.tableView.width, 0);
+            } completion:^(BOOL finished) {
+                [_tableView removeFromSuperview];
+                [_grayButton removeFromSuperview];
+            }];
+        }
     }
-   else
-   {
-       
-       [UIView animateWithDuration:0.3 animations:^{
-           self.tableView.frame = CGRectMake(0, self.tableView.top, self.tableView.width, 0);
-       } completion:^(BOOL finished) {
-           [_tableView removeFromSuperview];
-       }];
-   }
 }
 
 /*
