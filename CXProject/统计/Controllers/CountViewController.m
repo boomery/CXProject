@@ -14,7 +14,6 @@
 #define BEGIN_Y 20.0
 #define TOPBAR_HEIGHT 44.0
 #define SEARCHBAR_HEIGTH TOPBAR_HEIGHT
-#define NAV_HEIGHT self.view.width>self.view.height ? 52.0 : 64.0
 @interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource, TopBarViewDelegate>
 {
     //界面相关
@@ -24,6 +23,8 @@
     //临时数据源
     NSMutableArray *_tempArray;
     NSMutableArray *_resultArray;
+    
+    CGFloat _navHeight;
 }
 @property (nonatomic, assign) BOOL isLandscape;
 @end
@@ -40,6 +41,7 @@
 
 - (void)createTempData
 {
+    _navHeight = self.navigationController.navigationBar.height+20;
     _tempArray = [[NSMutableArray alloc] init];
     _resultArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 20; i++)
@@ -65,7 +67,7 @@
     searchController.searchBar.delegate = self;
 }
 
-#pragma mark - 强制旋转布局
+#pragma mark - 自动横屏布局
 - (void)viewWillLayoutSubviews
 {
     [_searchBar setWidth:self.view.width];
@@ -88,6 +90,7 @@
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
+    _navHeight = self.navigationController.navigationBar.height+20;
 
 }
 
@@ -232,28 +235,27 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat h = NAV_HEIGHT;
+    NSLog(@"%.f",_navHeight);
 #warning 由于_tableView加在了VC的TableView上，所以会随着contentoffset.y的偏移 发生位移 所以需要根据位移量重新计算坐标
     if (scrollView.contentOffset.y>-20)
     {
-        [_topBarView.tableView setTop:(scrollView.contentOffset.y + h)+ _topBarView.offSet];
+        [_topBarView.tableView setTop:(scrollView.contentOffset.y + _navHeight)+ _topBarView.offSet];
     }
 }
 //搜索框要么显示要么隐藏，不然会出现显示错位
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    CGFloat h = NAV_HEIGHT;
-    if (scrollView.contentOffset.y < -h + 44/2)
+    if (scrollView.contentOffset.y < -_navHeight + 44/2)
     {
         _topBarView.offSet = SEARCHBAR_HEIGTH;
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -h);
+            scrollView.contentOffset = CGPointMake(0, -_navHeight);
         }];
     }
-    else if (scrollView.contentOffset.y < -h + 44)
+    else if (scrollView.contentOffset.y < -_navHeight + 44)
     {
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -h + 44);
+            scrollView.contentOffset = CGPointMake(0, -_navHeight + 44);
         }];
     }
 }
