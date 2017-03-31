@@ -31,12 +31,20 @@
             return [self.selectedViewController shouldAutorotate];
         }
     }
-    return NO;
+    return YES;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    return [self.selectedViewController supportedInterfaceOrientations];
+    BaseNavigationController *nav = (BaseNavigationController *)self.selectedViewController;
+    if ([nav isKindOfClass:[BaseNavigationController class]])
+    {
+        if ([nav.topViewController isKindOfClass:[CountViewController class]])
+        {
+            return [self.selectedViewController supportedInterfaceOrientations];
+        }
+    }
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 
