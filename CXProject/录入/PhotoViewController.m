@@ -83,6 +83,7 @@
     [picker dismissViewControllerAnimated:YES completion:^{
         UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
         [_photoButton setImage:image forState:UIControlStateNormal];
+//        /sdfsdfdsfs/
     }];
 }
 
