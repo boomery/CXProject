@@ -28,7 +28,7 @@
     {
         if ([nav.topViewController isKindOfClass:[CountViewController class]])
         {
-            return YES;
+            return [self.selectedViewController shouldAutorotate];
         }
     }
     return NO;

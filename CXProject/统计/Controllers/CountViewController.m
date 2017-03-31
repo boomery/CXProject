@@ -14,7 +14,7 @@
 #define BEGIN_Y 20.0
 #define TOPBAR_HEIGHT 44.0
 #define SEARCHBAR_HEIGTH TOPBAR_HEIGHT
-#define NAV_HEIGHT 64.0
+#define NAV_HEIGHT self.view.width>self.view.height ? 52.0 : 64.0
 @interface CountViewController ()<UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate,UITableViewDelegate, UITableViewDataSource, TopBarViewDelegate>
 {
     //界面相关
@@ -232,27 +232,28 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-
+    CGFloat h = NAV_HEIGHT;
 #warning 由于_tableView加在了VC的TableView上，所以会随着contentoffset.y的偏移 发生位移 所以需要根据位移量重新计算坐标
     if (scrollView.contentOffset.y>-20)
     {
-        [_topBarView.tableView setTop:(scrollView.contentOffset.y+64)+ _topBarView.offSet];
+        [_topBarView.tableView setTop:(scrollView.contentOffset.y + h)+ _topBarView.offSet];
     }
 }
 //搜索框要么显示要么隐藏，不然会出现显示错位
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (scrollView.contentOffset.y < -NAV_HEIGHT + 44/2)
+    CGFloat h = NAV_HEIGHT;
+    if (scrollView.contentOffset.y < -h + 44/2)
     {
         _topBarView.offSet = SEARCHBAR_HEIGTH;
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -NAV_HEIGHT);
+            scrollView.contentOffset = CGPointMake(0, -h);
         }];
     }
-    else if (scrollView.contentOffset.y < -NAV_HEIGHT + 44)
+    else if (scrollView.contentOffset.y < -h + 44)
     {
         [UIView animateWithDuration:0.2 animations:^{
-            scrollView.contentOffset = CGPointMake(0, -NAV_HEIGHT + 44);
+            scrollView.contentOffset = CGPointMake(0, -h + 44);
         }];
     }
 }
