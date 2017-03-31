@@ -89,7 +89,15 @@
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-
+    self.isLandscape = !self.isLandscape;
+    if (self.isLandscape)
+    {
+        self.tabBarController.tabBar.hidden = YES;
+    }
+    else
+    {
+        self.tabBarController.tabBar.hidden = NO;
+    }
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -110,7 +118,6 @@
 }
 - (void)interfaceOrientation:(UIInterfaceOrientation)orientation
 {
-    self.isLandscape = !self.isLandscape;
     if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
         SEL selector             = NSSelectorFromString(@"setOrientation:");
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
