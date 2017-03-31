@@ -90,7 +90,6 @@
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
 {
-    _navHeight = self.navigationController.navigationBar.height+20;
 
 }
 
@@ -235,7 +234,7 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"%.f",_navHeight);
+    _navHeight = self.navigationController.navigationBar.height+20;
 #warning 由于_tableView加在了VC的TableView上，所以会随着contentoffset.y的偏移 发生位移 所以需要根据位移量重新计算坐标
     if (scrollView.contentOffset.y>-20)
     {
