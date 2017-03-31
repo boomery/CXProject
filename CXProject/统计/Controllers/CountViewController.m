@@ -41,7 +41,6 @@
 
 - (void)createTempData
 {
-    _navHeight = self.navigationController.navigationBar.height+20;
     _tempArray = [[NSMutableArray alloc] init];
     _resultArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 20; i++)
