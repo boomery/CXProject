@@ -69,4 +69,9 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS];
 }
 
++ (BOOL)isOurStaff
+{
+    return YES;
+}
+
 @end

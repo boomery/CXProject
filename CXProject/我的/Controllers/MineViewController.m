@@ -25,7 +25,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _titleArray = @[@"我的项目", @"现场考勤", @"团队互评", @"关键字字典", @"意见反馈", @"联系我们", @"版本信息"];
+    if ([User isOurStaff])
+    {
+        _titleArray = @[@"现场考勤", @"我的项目",  @"团队互评", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典"];
+    }
+    else
+    {
+        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息"];
+    }
 }
 #pragma mark - TableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

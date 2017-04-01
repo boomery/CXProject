@@ -14,6 +14,8 @@ typedef void(^completion)(BOOL loginStatus);
 
 + (BOOL)userLoginStatus;
 
++ (BOOL)isOurStaff;
+
 + (void)loginWithBlock:(completion)completionBlock;
 
 + (void)logoutWithBlock:(completion)completionBlock;
