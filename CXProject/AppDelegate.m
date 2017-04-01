@@ -30,6 +30,8 @@
     self.window = window;
     [self setupControllers];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+    
     //背景颜色
     [[UINavigationBar appearance] setBarTintColor:THEME_COLOR];
     //标题颜色
