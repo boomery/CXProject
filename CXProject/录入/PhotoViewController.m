@@ -7,7 +7,8 @@
 //
 
 #import "PhotoViewController.h"
-#import <AVFoundation/AVFoundation.h>
+#import <Photos/Photos.h>
+#import "PhotoEditorViewController.h"
 @interface PhotoViewController () <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *questionView;
@@ -21,6 +22,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     [self requestData];
     // Do any additional setup after loading the view.
@@ -37,7 +39,7 @@
         NSString *mediaType = AVMediaTypeVideo;
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
         if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
-            [SVProgressHUD showWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
+            [SVProgressHUD showInfoWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
             return;
         }
         
@@ -46,7 +48,7 @@
         {
             UIImagePickerController * picker = [[UIImagePickerController alloc] init];
             picker.delegate = self;
-            picker.allowsEditing = YES;
+            picker.allowsEditing = NO;
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;
             [self presentViewController:picker animated:YES completion:nil];
         }
@@ -58,7 +60,7 @@
         {
             UIImagePickerController * picker = [[UIImagePickerController alloc] init];
             picker.delegate = self;
-            picker.allowsEditing = YES;
+            picker.allowsEditing = NO;
             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:picker animated:YES completion:nil];
         }
@@ -80,10 +82,18 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    [picker dismissViewControllerAnimated:YES completion:^{
-        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+
+    
+    PhotoEditorViewController *editor = [[PhotoEditorViewController alloc] init];
+    [picker pushViewController:editor animated:YES];
+    editor.image = image;
+
+    editor.imageBlock = ^(UIImage *image){
+        NSLog(@"%d",[NSThread isMainThread]);
         [_photoButton setImage:image forState:UIControlStateNormal];
-    }];
+        [picker dismissViewControllerAnimated:YES completion:nil];
+    };
 }
 
 #pragma mark - UITableViewDataSource

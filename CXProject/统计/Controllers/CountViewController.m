@@ -241,7 +241,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     _navHeight = self.navigationController.navigationBar.height+20;
-#warning 由于_tableView加在了VC的TableView上，所以会随着contentoffset.y的偏移 发生位移 所以需要根据位移量重新计算坐标
+//由于_tableView加在了VC的TableView上，所以会随着contentoffset.y的偏移 发生位移 所以需要根据位移量重新计算坐标
     if (scrollView.contentOffset.y == -_navHeight)
     {
         _topBarView.offSet = SEARCHBAR_HEIGTH;

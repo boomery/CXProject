@@ -42,6 +42,13 @@
 		9043401A1E8A019C00D33ED9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340191E8A019C00D33ED9 /* User.m */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
+		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
+		90CB986A1E8F7527000FB2BC /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CB98691E8F7527000FB2BC /* Photos.framework */; };
+		90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB986D1E8F7F55000FB2BC /* LSDrawView.m */; };
+		90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98701E8F7F55000FB2BC /* LJBaseModel.m */; };
+		90CB98781E8F7F55000FB2BC /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98721E8F7F55000FB2BC /* NSObject+YYModel.m */; };
+		90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98741E8F7F55000FB2BC /* YYClassInfo.m */; };
+		90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */; };
 		90D4DF501E83C54A000A1918 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF4F1E83C54A000A1918 /* DataModel.m */; };
 		90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF521E83C839000A1918 /* ResultViewController.m */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
@@ -126,6 +133,19 @@
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
 		908D037A1E83987300F0C0C1 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
+		90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditorViewController.h; sourceTree = "<group>"; };
+		90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditorViewController.m; sourceTree = "<group>"; };
+		90CB98691E8F7527000FB2BC /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		90CB986C1E8F7F55000FB2BC /* LSDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSDrawView.h; sourceTree = "<group>"; };
+		90CB986D1E8F7F55000FB2BC /* LSDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSDrawView.m; sourceTree = "<group>"; };
+		90CB986F1E8F7F55000FB2BC /* LJBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJBaseModel.h; sourceTree = "<group>"; };
+		90CB98701E8F7F55000FB2BC /* LJBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJBaseModel.m; sourceTree = "<group>"; };
+		90CB98711E8F7F55000FB2BC /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		90CB98721E8F7F55000FB2BC /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		90CB98731E8F7F55000FB2BC /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		90CB98741E8F7F55000FB2BC /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		90CB98751E8F7F55000FB2BC /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoEditorViewController.xib; sourceTree = "<group>"; };
 		90D4DF4E1E83C54A000A1918 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		90D4DF4F1E83C54A000A1918 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		90D4DF511E83C839000A1918 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
@@ -139,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CB986A1E8F7527000FB2BC /* Photos.framework in Frameworks */,
 				9016C7A01E8A583500B19056 /* libicucore.tbd in Frameworks */,
 				92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */,
 			);
@@ -164,6 +185,7 @@
 		2781D770A6715334B5D287CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90CB98691E8F7527000FB2BC /* Photos.framework */,
 				9016C7A61E8B938400B19056 /* AVFoundation.framework */,
 				9016C79F1E8A583500B19056 /* libicucore.tbd */,
 				B09939730C48F88524F34BB6 /* Pods_CXProject.framework */,
@@ -221,6 +243,10 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				90CB986B1E8F7F0F000FB2BC /* 绘图 */,
+				90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */,
+				90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */,
+				90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -434,6 +460,30 @@
 			path = UserData;
 			sourceTree = "<group>";
 		};
+		90CB986B1E8F7F0F000FB2BC /* 绘图 */ = {
+			isa = PBXGroup;
+			children = (
+				90CB986C1E8F7F55000FB2BC /* LSDrawView.h */,
+				90CB986D1E8F7F55000FB2BC /* LSDrawView.m */,
+				90CB986E1E8F7F55000FB2BC /* YYModel */,
+			);
+			path = "绘图";
+			sourceTree = "<group>";
+		};
+		90CB986E1E8F7F55000FB2BC /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				90CB986F1E8F7F55000FB2BC /* LJBaseModel.h */,
+				90CB98701E8F7F55000FB2BC /* LJBaseModel.m */,
+				90CB98711E8F7F55000FB2BC /* NSObject+YYModel.h */,
+				90CB98721E8F7F55000FB2BC /* NSObject+YYModel.m */,
+				90CB98731E8F7F55000FB2BC /* YYClassInfo.h */,
+				90CB98741E8F7F55000FB2BC /* YYClassInfo.m */,
+				90CB98751E8F7F55000FB2BC /* YYModel.h */,
+			);
+			path = YYModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -548,6 +598,7 @@
 			files = (
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
+				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
 				9016C7A51E8B570B00B19056 /* PhotoViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
@@ -625,12 +676,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CB98781E8F7F55000FB2BC /* NSObject+YYModel.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
+				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				9016C7B01E8C948A00B19056 /* TabBarController.m in Sources */,
 				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
+				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
@@ -642,9 +696,11 @@
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
+				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				9043400C1E89F7A500D33ED9 /* InputViewController.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				9043400F1E89F87000D33ED9 /* PhotoViewController.m in Sources */,
+				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
@@ -783,6 +839,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GBL46J7TV8;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CXProject/PrefixHeader.pch";
 				INFOPLIST_FILE = CXProject/Info.plist;
@@ -800,6 +857,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GBL46J7TV8;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CXProject/PrefixHeader.pch";
 				INFOPLIST_FILE = CXProject/Info.plist;

@@ -25,6 +25,8 @@
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define DEF_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
+
+#define THEME_COLOR [UIColor colorWithRed:0.91 green:0.20 blue:0.14 alpha:1.00]
 #define LABEL_FONT [UIFont systemFontOfSize:14]
 
 

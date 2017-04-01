@@ -29,6 +29,19 @@
     [window makeKeyAndVisible];
     self.window = window;
     [self setupControllers];
+    
+    //背景颜色
+    [[UINavigationBar appearance] setBarTintColor:THEME_COLOR];
+    //标题颜色
+    NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
+    //左右侧字体颜色
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    
+    [[UITabBar appearance] setBarTintColor:THEME_COLOR];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+
     return YES;
 }
 
