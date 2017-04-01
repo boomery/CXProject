@@ -30,7 +30,7 @@
                         <constraint firstAttribute="width" secondItem="XQt-An-hvV" secondAttribute="height" multiplier="1:1" id="OO0-5k-cs0"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                    <state key="normal" image="placeHolder">
+                    <state key="normal" image="photo">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -75,6 +75,6 @@
         </view>
     </objects>
     <resources>
-        <image name="placeHolder" width="300" height="300"/>
+        <image name="photo" width="300" height="300"/>
     </resources>
 </document>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="NewProjectCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新建项目" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-8w-Ohk">
+                        <rect key="frame" x="140" y="52" width="164" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="em6-lG-oK8">
+                        <rect key="frame" x="95" y="52" width="26.5" height="26.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="em6-lG-oK8" secondAttribute="height" multiplier="1:1" id="TOH-1j-bq4"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HTF-8w-Ohk" firstAttribute="centerY" secondItem="em6-lG-oK8" secondAttribute="centerY" constant="0.25" id="4qv-of-OJp"/>
+                    <constraint firstItem="HTF-8w-Ohk" firstAttribute="height" secondItem="em6-lG-oK8" secondAttribute="height" id="NT8-fZ-Z48"/>
+                    <constraint firstItem="em6-lG-oK8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="87" id="WQ4-T1-zFc"/>
+                    <constraint firstItem="HTF-8w-Ohk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="62" id="bs3-q9-o3W"/>
+                    <constraint firstItem="HTF-8w-Ohk" firstAttribute="leading" secondItem="em6-lG-oK8" secondAttribute="trailing" constant="18.5" id="j7q-Sk-Fyx"/>
+                    <constraint firstItem="em6-lG-oK8" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.2" id="nbz-T8-3Ud"/>
+                    <constraint firstItem="em6-lG-oK8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yWR-EB-sFI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="231" y="-123"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="add" width="70" height="70"/>
+    </resources>
+</document>

@@ -43,7 +43,7 @@
 {
     _tempArray = [[NSMutableArray alloc] init];
     _resultArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 5; i++)
     {
         DataModel *model = [[DataModel alloc] init];
         model.name = [NSString stringWithFormat:@"项目%d",i];

@@ -51,6 +51,11 @@
 		90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */; };
 		90CB98961E8F9CA4000FB2BC /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB988E1E8F9CA4000FB2BC /* InputViewController.m */; };
 		90CB98971E8F9CA4000FB2BC /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB988F1E8F9CA4000FB2BC /* NewProjectViewController.m */; };
+		90CB989B1E8F9D61000FB2BC /* NewProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98991E8F9D61000FB2BC /* NewProjectCell.m */; };
+		90CB989C1E8F9D61000FB2BC /* NewProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB989A1E8F9D61000FB2BC /* NewProjectCell.xib */; };
+		90CB98A21E8FA18C000FB2BC /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98A11E8FA18C000FB2BC /* Project.m */; };
+		90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98A41E8FA63D000FB2BC /* ProjectCell.m */; };
+		90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */; };
 		90D4DF501E83C54A000A1918 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF4F1E83C54A000A1918 /* DataModel.m */; };
 		90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF521E83C839000A1918 /* ResultViewController.m */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
@@ -151,6 +156,14 @@
 		90CB988F1E8F9CA4000FB2BC /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		90CB98901E8F9CA4000FB2BC /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
 		90CB98911E8F9CA4000FB2BC /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
+		90CB98981E8F9D61000FB2BC /* NewProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectCell.h; sourceTree = "<group>"; };
+		90CB98991E8F9D61000FB2BC /* NewProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectCell.m; sourceTree = "<group>"; };
+		90CB989A1E8F9D61000FB2BC /* NewProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectCell.xib; sourceTree = "<group>"; };
+		90CB98A01E8FA18C000FB2BC /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		90CB98A11E8FA18C000FB2BC /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		90CB98A31E8FA63D000FB2BC /* ProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCell.h; sourceTree = "<group>"; };
+		90CB98A41E8FA63D000FB2BC /* ProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectCell.m; sourceTree = "<group>"; };
+		90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectCell.xib; sourceTree = "<group>"; };
 		90D4DF4E1E83C54A000A1918 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
 		90D4DF4F1E83C54A000A1918 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		90D4DF511E83C839000A1918 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
@@ -489,6 +502,12 @@
 		90CB98861E8F9C7F000FB2BC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90CB98981E8F9D61000FB2BC /* NewProjectCell.h */,
+				90CB98991E8F9D61000FB2BC /* NewProjectCell.m */,
+				90CB989A1E8F9D61000FB2BC /* NewProjectCell.xib */,
+				90CB98A31E8FA63D000FB2BC /* ProjectCell.h */,
+				90CB98A41E8FA63D000FB2BC /* ProjectCell.m */,
+				90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +531,8 @@
 		90CB98881E8F9C7F000FB2BC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				90CB98A01E8FA18C000FB2BC /* Project.h */,
+				90CB98A11E8FA18C000FB2BC /* Project.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -629,7 +650,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
+				90CB989C1E8F9D61000FB2BC /* NewProjectCell.xib in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
+				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				90CB98931E8F9CA4000FB2BC /* InputViewController.xib in Resources */,
@@ -726,6 +749,7 @@
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
+				90CB98A21E8FA18C000FB2BC /* Project.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* NewProjectViewController.m in Sources */,
@@ -733,11 +757,13 @@
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
+				90CB989B1E8F9D61000FB2BC /* NewProjectCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
+				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

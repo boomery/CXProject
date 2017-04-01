@@ -7,15 +7,28 @@
 //
 
 #import "NewProjectViewController.h"
-
+#import "NewProjectCell.h"
+#import "Project.h"
+#import "ProjectCell.h"
 @interface NewProjectViewController ()
-
+{
+    NSMutableArray *_projectArray;
+}
 @end
 
 @implementation NewProjectViewController
 
-- (void)viewDidLoad {
+static NSString *cellIdentifier1 = @"NewProjectCell";
+static NSString *cellIdentifier2 = @"ProjectCell";
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+   
+    [self initData];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"NewProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier1];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier2];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -23,34 +36,62 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+- (void)initData
+{
+    _projectArray = [NSMutableArray new];
+    for (int i = 0; i < 20; i++)
+    {
+        Project *model = [[Project alloc] init];
+        model.name = [NSString stringWithFormat:@"项目名:%d",i];
+        model.area = [NSString stringWithFormat:@"地区:%d",i];
+        [_projectArray addObject:model];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 1)
+    {
+        return _projectArray.count;
+    }
+    return 1;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell;
+    if (indexPath.section == 0)
+    {
+         cell  = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
+    }
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
+    }
     
     return cell;
 }
-*/
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 240;
+}
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
