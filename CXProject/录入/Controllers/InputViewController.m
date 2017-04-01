@@ -8,6 +8,7 @@
 
 #import "InputViewController.h"
 #import "PhotoViewController.h"
+#import "NewProjectViewController.h"
 @interface InputViewController ()
 
 @end
@@ -17,6 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+- (IBAction)newProject:(id)sender
+{
+    NewProjectViewController *newVC = [[NewProjectViewController alloc] init];
+    newVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:newVC animated:YES];
 }
 - (IBAction)photobuttonClicked:(id)sender
 {
