@@ -10,7 +10,7 @@
 #import "BaseNavigationController.h"
 #import "MainViewController.h"
 #import "CountViewController.h"
-#import "InputViewController.h"
+#import "ProjecListtViewController.h"
 #import "MineViewController.h"
 #import "LoginViewController.h"
 @interface AppDelegate () <UITabBarControllerDelegate>
@@ -29,9 +29,9 @@
     [window makeKeyAndVisible];
     self.window = window;
     [self setupControllers];
+
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    
     //背景颜色
     [[UINavigationBar appearance] setBarTintColor:THEME_COLOR];
     //标题颜色
@@ -39,7 +39,6 @@
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     //左右侧字体颜色
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
     
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
@@ -54,15 +53,15 @@
     BaseNavigationController *mainNav = [[BaseNavigationController alloc] initWithRootViewController:mainVC];
     mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
-    InputViewController *inputVC = [[InputViewController alloc] init];
+    ProjecListtViewController *inputVC = [[ProjecListtViewController alloc] init];
     inputVC.title = @"数据录入";
     BaseNavigationController *inputNav = [[BaseNavigationController alloc] initWithRootViewController:inputVC];
     inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     CountViewController *countVC = [[CountViewController alloc] init];
-    countVC.title = @"数据统计";
+    countVC.title = @"数据查询";
     BaseNavigationController *countNav = [[BaseNavigationController alloc] initWithRootViewController:countVC];
-    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据统计" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
     mineVC.title = @"我的";
@@ -71,7 +70,7 @@
     
     TabBarController *tab = [[TabBarController alloc] init];
     tab.delegate = self;
-    tab.viewControllers = @[mainNav, inputNav, countNav, mineNav];
+    tab.viewControllers = @[mainNav, countNav, inputNav, mineNav];
     self.window.rootViewController = tab;
     _tab = tab;
 }

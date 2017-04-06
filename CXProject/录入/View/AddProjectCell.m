@@ -1,14 +1,14 @@
 //
-//  NewProjectCell.m
+//  AddProjectCell.m
 //  CXProject
 //
 //  Created by zhangchaoxin on 2017/4/1.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#import "NewProjectCell.h"
+#import "AddProjectCell.h"
 
-@implementation NewProjectCell
+@implementation AddProjectCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

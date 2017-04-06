@@ -2,12 +2,12 @@
 //  NewProjectViewController.h
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/4/1.
+//  Created by zhangchaoxin on 2017/4/6.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface NewProjectViewController : UITableViewController
+@interface NewProjectViewController : UIViewController
 
 @end

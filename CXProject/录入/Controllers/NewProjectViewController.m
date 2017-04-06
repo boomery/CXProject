@@ -2,145 +2,77 @@
 //  NewProjectViewController.m
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/4/1.
+//  Created by zhangchaoxin on 2017/4/6.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
 #import "NewProjectViewController.h"
-#import "NewProjectCell.h"
-#import "Project.h"
-#import "ProjectCell.h"
-@interface NewProjectViewController ()
-{
-    NSMutableArray *_projectArray;
-}
+#import "InputCell.h"
+@interface NewProjectViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation NewProjectViewController
 
-static NSString *cellIdentifier1 = @"NewProjectCell";
-static NSString *cellIdentifier2 = @"ProjectCell";
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
-    [self initData];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"新建项目";
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"NewProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier1];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier2];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
+    self.navigationItem.rightBarButtonItem = item;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initViews];
 }
-- (void)initData
+
+static NSString *cellIdentifier = @"InputCell";
+- (void)initViews
 {
-    _projectArray = [NSMutableArray new];
-    for (int i = 0; i < 20; i++)
-    {
-        Project *model = [[Project alloc] init];
-        model.name = [NSString stringWithFormat:@"项目名:%d",i];
-        model.area = [NSString stringWithFormat:@"地区:%d",i];
-        [_projectArray addObject:model];
-    }
+    UITableView *tableView = [[UITableView alloc] initForAutoLayout];
+    [self.view addSubview:tableView];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    [tableView autoPinEdgesToSuperviewEdges];
+    tableView.backgroundColor = [UIColor redColor];
+    self.tableView = tableView;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"InputCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier];
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)save
+{
+    [SVProgressHUD showSuccessWithStatus:@"保存完成"];
 }
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 2;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1)
-    {
-        return _projectArray.count;
-    }
-    return 1;
+    return 9;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    if (indexPath.section == 0)
-    {
-         cell  = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
-    }
-    else
-    {
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
-    }
-    
+    InputCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 240;
+    return 44;
 }
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
-    
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
-*/
 
 /*
 #pragma mark - Navigation

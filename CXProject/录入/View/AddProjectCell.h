@@ -1,5 +1,5 @@
 //
-//  NewProjectCell.h
+//  AddProjectCell.h
 //  CXProject
 //
 //  Created by zhangchaoxin on 2017/4/1.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewProjectCell : UITableViewCell
+@interface AddProjectCell : UITableViewCell
 
 @end

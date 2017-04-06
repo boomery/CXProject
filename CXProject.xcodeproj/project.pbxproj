@@ -36,6 +36,9 @@
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
 		9043401A1E8A019C00D33ED9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340191E8A019C00D33ED9 /* User.m */; };
+		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
+		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
+		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
@@ -46,13 +49,11 @@
 		90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98741E8F7F55000FB2BC /* YYClassInfo.m */; };
 		90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */; };
 		90CB98921E8F9CA4000FB2BC /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98891E8F9CA4000FB2BC /* PhotoViewController.m */; };
-		90CB98931E8F9CA4000FB2BC /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB988B1E8F9CA4000FB2BC /* InputViewController.xib */; };
-		90CB98941E8F9CA4000FB2BC /* NewProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB988C1E8F9CA4000FB2BC /* NewProjectViewController.xib */; };
+		90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB988C1E8F9CA4000FB2BC /* ProjecListtViewController.xib */; };
 		90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */; };
-		90CB98961E8F9CA4000FB2BC /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB988E1E8F9CA4000FB2BC /* InputViewController.m */; };
-		90CB98971E8F9CA4000FB2BC /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB988F1E8F9CA4000FB2BC /* NewProjectViewController.m */; };
-		90CB989B1E8F9D61000FB2BC /* NewProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98991E8F9D61000FB2BC /* NewProjectCell.m */; };
-		90CB989C1E8F9D61000FB2BC /* NewProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB989A1E8F9D61000FB2BC /* NewProjectCell.xib */; };
+		90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB988F1E8F9CA4000FB2BC /* ProjecListtViewController.m */; };
+		90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98991E8F9D61000FB2BC /* AddProjectCell.m */; };
+		90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB989A1E8F9D61000FB2BC /* AddProjectCell.xib */; };
 		90CB98A21E8FA18C000FB2BC /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98A11E8FA18C000FB2BC /* Project.m */; };
 		90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98A41E8FA63D000FB2BC /* ProjectCell.m */; };
 		90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */; };
@@ -130,6 +131,11 @@
 		904340141E89FAA400D33ED9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		904340181E8A019C00D33ED9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		904340191E8A019C00D33ED9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
+		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
+		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
+		908BFE281E95E9AB00937372 /* InputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCell.m; sourceTree = "<group>"; };
+		908BFE291E95E9AB00937372 /* InputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputCell.xib; sourceTree = "<group>"; };
 		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -149,16 +155,13 @@
 		90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoEditorViewController.xib; sourceTree = "<group>"; };
 		90CB98891E8F9CA4000FB2BC /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		90CB988A1E8F9CA4000FB2BC /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
-		90CB988B1E8F9CA4000FB2BC /* InputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
-		90CB988C1E8F9CA4000FB2BC /* NewProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectViewController.xib; sourceTree = "<group>"; };
+		90CB988C1E8F9CA4000FB2BC /* ProjecListtViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjecListtViewController.xib; sourceTree = "<group>"; };
 		90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
-		90CB988E1E8F9CA4000FB2BC /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
-		90CB988F1E8F9CA4000FB2BC /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
-		90CB98901E8F9CA4000FB2BC /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
-		90CB98911E8F9CA4000FB2BC /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
-		90CB98981E8F9D61000FB2BC /* NewProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectCell.h; sourceTree = "<group>"; };
-		90CB98991E8F9D61000FB2BC /* NewProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectCell.m; sourceTree = "<group>"; };
-		90CB989A1E8F9D61000FB2BC /* NewProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectCell.xib; sourceTree = "<group>"; };
+		90CB988F1E8F9CA4000FB2BC /* ProjecListtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjecListtViewController.m; sourceTree = "<group>"; };
+		90CB98911E8F9CA4000FB2BC /* ProjecListtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjecListtViewController.h; sourceTree = "<group>"; };
+		90CB98981E8F9D61000FB2BC /* AddProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectCell.h; sourceTree = "<group>"; };
+		90CB98991E8F9D61000FB2BC /* AddProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectCell.m; sourceTree = "<group>"; };
+		90CB989A1E8F9D61000FB2BC /* AddProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddProjectCell.xib; sourceTree = "<group>"; };
 		90CB98A01E8FA18C000FB2BC /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
 		90CB98A11E8FA18C000FB2BC /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		90CB98A31E8FA63D000FB2BC /* ProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCell.h; sourceTree = "<group>"; };
@@ -502,12 +505,15 @@
 		90CB98861E8F9C7F000FB2BC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				90CB98981E8F9D61000FB2BC /* NewProjectCell.h */,
-				90CB98991E8F9D61000FB2BC /* NewProjectCell.m */,
-				90CB989A1E8F9D61000FB2BC /* NewProjectCell.xib */,
+				90CB98981E8F9D61000FB2BC /* AddProjectCell.h */,
+				90CB98991E8F9D61000FB2BC /* AddProjectCell.m */,
+				90CB989A1E8F9D61000FB2BC /* AddProjectCell.xib */,
 				90CB98A31E8FA63D000FB2BC /* ProjectCell.h */,
 				90CB98A41E8FA63D000FB2BC /* ProjectCell.m */,
 				90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */,
+				908BFE271E95E9AB00937372 /* InputCell.h */,
+				908BFE281E95E9AB00937372 /* InputCell.m */,
+				908BFE291E95E9AB00937372 /* InputCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -515,12 +521,11 @@
 		90CB98871E8F9C7F000FB2BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				90CB98901E8F9CA4000FB2BC /* InputViewController.h */,
-				90CB988E1E8F9CA4000FB2BC /* InputViewController.m */,
-				90CB988B1E8F9CA4000FB2BC /* InputViewController.xib */,
-				90CB98911E8F9CA4000FB2BC /* NewProjectViewController.h */,
-				90CB988F1E8F9CA4000FB2BC /* NewProjectViewController.m */,
-				90CB988C1E8F9CA4000FB2BC /* NewProjectViewController.xib */,
+				90CB98911E8F9CA4000FB2BC /* ProjecListtViewController.h */,
+				90CB988F1E8F9CA4000FB2BC /* ProjecListtViewController.m */,
+				90CB988C1E8F9CA4000FB2BC /* ProjecListtViewController.xib */,
+				908BFE241E95E2DC00937372 /* NewProjectViewController.h */,
+				908BFE251E95E2DC00937372 /* NewProjectViewController.m */,
 				90CB988A1E8F9CA4000FB2BC /* PhotoViewController.h */,
 				90CB98891E8F9CA4000FB2BC /* PhotoViewController.m */,
 				90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */,
@@ -649,15 +654,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
-				90CB989C1E8F9D61000FB2BC /* NewProjectCell.xib in Resources */,
+				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
-				90CB98931E8F9CA4000FB2BC /* InputViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
-				90CB98941E8F9CA4000FB2BC /* NewProjectViewController.xib in Resources */,
+				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,7 +744,6 @@
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				9016C7B01E8C948A00B19056 /* TabBarController.m in Sources */,
 				90CB98921E8F9CA4000FB2BC /* PhotoViewController.m in Sources */,
-				90CB98961E8F9CA4000FB2BC /* InputViewController.m in Sources */,
 				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
@@ -751,13 +755,15 @@
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
 				90CB98A21E8FA18C000FB2BC /* Project.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
+				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
-				90CB98971E8F9CA4000FB2BC /* NewProjectViewController.m in Sources */,
+				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
+				908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
-				90CB989B1E8F9D61000FB2BC /* NewProjectCell.m in Sources */,
+				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
@@ -843,7 +849,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -885,7 +891,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

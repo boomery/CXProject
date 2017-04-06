@@ -23,7 +23,8 @@
     }
     return self;
 }
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     if ([User isOurStaff])
     {
@@ -33,8 +34,13 @@
     {
         _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息"];
     }
+    
+    UIImageView *headerView = [[UIImageView alloc] init];
+//    headerView.image = [UIImage imageNamed:@"pd"];
+    headerView.frame = CGRectMake(0, 0, self.view.width, self.view.height*0.2);
+    self.tableView.tableHeaderView = headerView;
 }
-#pragma mark - TableViewDataSource
+#pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
@@ -56,6 +62,7 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         cell.textLabel.textAlignment = NSTextAlignmentRight;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     if (indexPath.section == 0)
     {
@@ -68,7 +75,7 @@
     return cell;
 }
 
-#pragma mark - TableViewDelegate
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -85,6 +92,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

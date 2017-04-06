@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LSDrawView.h"
-@interface PhotoEditorViewController : UIViewController
+@interface PhotoEditorViewController : BaseViewController
 
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) LSDrawView *drawView;
