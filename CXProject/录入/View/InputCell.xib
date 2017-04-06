@@ -8,13 +8,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="68" id="KGk-i7-Jjw" customClass="InputCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="InputCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -22,40 +21,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOf-4C-U6x">
-                        <rect key="frame" x="18" y="20.5" width="4" height="27"/>
+                        <rect key="frame" x="18" y="13" width="4" height="26"/>
                         <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="9p9-5e-3qM"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="TOb-0R-1YC"/>
+                            <constraint firstAttribute="width" secondItem="MOf-4C-U6x" secondAttribute="height" multiplier="2:13" id="XBe-Hd-wlz"/>
+                            <constraint firstAttribute="width" constant="4" id="xt4-Il-GHJ"/>
+                        </constraints>
                     </view>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-SC-VlB">
+                        <rect key="frame" x="120" y="11" width="187" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nP3-gb-tIa">
-                        <rect key="frame" x="32" y="21" width="85.5" height="27"/>
+                        <rect key="frame" x="30" y="14" width="85.5" height="25.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X5H-SC-VlB">
-                        <rect key="frame" x="122.5" y="18" width="184.5" height="30"/>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="X5H-SC-VlB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2cg-qr-9fI"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="X5H-SC-VlB" secondAttribute="trailing" constant="5" id="4vt-C0-4jJ"/>
-                    <constraint firstItem="nP3-gb-tIa" firstAttribute="height" secondItem="MOf-4C-U6x" secondAttribute="height" id="8TY-Z0-dVN"/>
-                    <constraint firstItem="nP3-gb-tIa" firstAttribute="leading" secondItem="MOf-4C-U6x" secondAttribute="trailing" constant="10" id="D6B-YU-8AJ"/>
-                    <constraint firstItem="MOf-4C-U6x" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="1:17" id="MQR-ge-hKQ"/>
-                    <constraint firstItem="X5H-SC-VlB" firstAttribute="leading" secondItem="nP3-gb-tIa" secondAttribute="trailing" constant="5" id="Nsd-NT-UaC"/>
-                    <constraint firstItem="nP3-gb-tIa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qqx-VO-qRw"/>
-                    <constraint firstItem="MOf-4C-U6x" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="n6S-jh-2W0"/>
-                    <constraint firstItem="MOf-4C-U6x" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.4" id="uqe-T2-mAc"/>
-                    <constraint firstItem="MOf-4C-U6x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="xRp-pK-DWa"/>
+                    <constraint firstItem="nP3-gb-tIa" firstAttribute="leading" secondItem="MOf-4C-U6x" secondAttribute="trailing" constant="8" symbolic="YES" id="8LN-G6-yS1"/>
+                    <constraint firstItem="MOf-4C-U6x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="L5M-Qd-NLY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="X5H-SC-VlB" secondAttribute="trailing" constant="5" id="Yxu-Yd-zx2"/>
+                    <constraint firstItem="X5H-SC-VlB" firstAttribute="centerY" secondItem="nP3-gb-tIa" secondAttribute="centerY" id="blJ-6c-ezD"/>
+                    <constraint firstItem="MOf-4C-U6x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="ffa-Gl-3g6"/>
+                    <constraint firstItem="nP3-gb-tIa" firstAttribute="centerY" secondItem="MOf-4C-U6x" secondAttribute="centerY" id="jW1-ai-oDo"/>
+                    <constraint firstItem="X5H-SC-VlB" firstAttribute="leading" secondItem="nP3-gb-tIa" secondAttribute="trailing" constant="4.5" id="wfC-se-jz7" userLabel="Text Field.leading = Name Label.trailing + 5"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="nP3-gb-tIa" id="PgI-pF-FvP"/>
                 <outlet property="textField" destination="X5H-SC-VlB" id="BuM-xW-1ut"/>
             </connections>
-            <point key="canvasLocation" x="34" y="71"/>
+            <point key="canvasLocation" x="188" y="-245"/>
         </tableViewCell>
     </objects>
 </document>

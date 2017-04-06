@@ -71,7 +71,7 @@
                 <constraint firstItem="GDN-5j-Mng" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.3" id="vvI-XX-Syh"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-325" y="-232"/>
+            <point key="canvasLocation" x="-109" y="-325"/>
         </view>
     </objects>
     <resources>
