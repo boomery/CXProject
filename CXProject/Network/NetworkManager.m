@@ -10,7 +10,9 @@
 #import "NetworkManager.h"
 #import "NetworkURLDefine.h"
 @implementation NetworkManager
-
+//忽略过期方法警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 + (NetworkManager *)shareManager
 {
     static NetworkManager *manager = nil;

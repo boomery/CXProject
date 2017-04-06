@@ -20,9 +20,10 @@
 @end
 
 @protocol UIMyDatePickerDelegate <NSObject>
-
+@optional
 - (void)myDatePickerDidClickCancel:(UIMyDatePicker *)picker;
-- (void)myDatePickerDidClickSure:(UIMyDatePicker *)picker;
 - (void)myDatePickerDidClickToday:(UIMyDatePicker *)picker;
+@required
+- (void)myDatePickerDidClickSure:(UIMyDatePicker *)picker;
 
 @end

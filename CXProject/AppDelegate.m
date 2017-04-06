@@ -21,7 +21,9 @@
 
 @implementation AppDelegate
 
-
+//忽略过期方法警告
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -29,7 +31,6 @@
     [window makeKeyAndVisible];
     self.window = window;
     [self setupControllers];
-
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     //背景颜色
