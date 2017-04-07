@@ -8,6 +8,8 @@
 
 #import "NewProjectViewController.h"
 #import "InputCell.h"
+#import "InputCell2.h"
+#import "InputCell3.h"
 #import "MHKeyboard.h"
 #import "UIMyDatePicker.h"
 @interface NewProjectViewController () <UITableViewDataSource, UITableViewDelegate, UIMyDatePickerDelegate, UITextFieldDelegate>
@@ -34,7 +36,9 @@
     [self initViews];
 }
 
-static NSString *cellIdentifier = @"InputCell";
+static NSString *inputCell = @"InputCell";
+static NSString *inputCell2 = @"InputCell2";
+static NSString *inputCell3 = @"InputCell3";
 - (void)initViews
 {
     UITableView *tableView = [[UITableView alloc] initForAutoLayout];
@@ -46,7 +50,10 @@ static NSString *cellIdentifier = @"InputCell";
     tableView.allowsSelection = NO;
     self.tableView = tableView;
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"InputCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"InputCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell];
+    [self.tableView registerNib:[UINib nibWithNibName:@"InputCell2" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell2];
+    [self.tableView registerNib:[UINib nibWithNibName:@"InputCell3" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell3];
+
     
     [MHKeyboard addRegisterTheViewNeedMHKeyboard:self.view];
     
@@ -78,14 +85,33 @@ static NSString *cellIdentifier = @"InputCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InputCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.nameLabel.text = _titleArray[indexPath.row];
-    cell.textField.delegate = self;
-    if (indexPath.row == 5)
+    switch (indexPath.row)
     {
-        cell.textField.inputView = _datePicker;
+        case 7:
+        {
+            InputCell2 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell2 forIndexPath:indexPath];
+            return cell;
+        }
+            break;
+        case 8:
+        {
+            InputCell3 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell3 forIndexPath:indexPath];
+            return cell;
+        }
+            break;
+        default:
+        {
+            InputCell *cell = [tableView dequeueReusableCellWithIdentifier:inputCell forIndexPath:indexPath];
+            cell.nameLabel.text = _titleArray[indexPath.row];
+            cell.textField.delegate = self;
+            if (indexPath.row == 5)
+            {
+                cell.textField.inputView = _datePicker;
+            }
+            return cell;
+        }
+            break;
     }
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,21 +119,29 @@ static NSString *cellIdentifier = @"InputCell";
     switch (indexPath.row)
     {
         case 7:
-            return 200;
+            return 160;
+            break;
+        case 8:
+            return 240;
             break;
             
         default:
-            return 54;
+            return 44;
 
             break;
     }
 }
+
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     _activeTextField = textField;
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+}
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -118,6 +152,7 @@ static NSString *cellIdentifier = @"InputCell";
 {
     [self.view endEditing:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -45,6 +45,10 @@
 		908BFE3A1E96054E00937372 /* MHKeyboardObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE341E96054E00937372 /* MHKeyboardObjects.m */; };
 		908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE361E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m */; };
 		908BFE421E96269600937372 /* UIMyDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE401E96269500937372 /* UIMyDatePicker.m */; };
+		908BFE461E97264600937372 /* InputCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE441E97264600937372 /* InputCell2.m */; };
+		908BFE471E97264600937372 /* InputCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE451E97264600937372 /* InputCell2.xib */; };
+		908BFE4B1E97265400937372 /* InputCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE491E97265400937372 /* InputCell3.m */; };
+		908BFE4C1E97265400937372 /* InputCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE4A1E97265400937372 /* InputCell3.xib */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
@@ -154,6 +158,12 @@
 		908BFE361E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MHKeyboardFirstResponderNotify.m"; sourceTree = "<group>"; };
 		908BFE3F1E96269500937372 /* UIMyDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIMyDatePicker.h; sourceTree = "<group>"; };
 		908BFE401E96269500937372 /* UIMyDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIMyDatePicker.m; sourceTree = "<group>"; };
+		908BFE431E97264600937372 /* InputCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell2.h; sourceTree = "<group>"; };
+		908BFE441E97264600937372 /* InputCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCell2.m; sourceTree = "<group>"; };
+		908BFE451E97264600937372 /* InputCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputCell2.xib; sourceTree = "<group>"; };
+		908BFE481E97265400937372 /* InputCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell3.h; sourceTree = "<group>"; };
+		908BFE491E97265400937372 /* InputCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCell3.m; sourceTree = "<group>"; };
+		908BFE4A1E97265400937372 /* InputCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputCell3.xib; sourceTree = "<group>"; };
 		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -560,6 +570,12 @@
 				908BFE271E95E9AB00937372 /* InputCell.h */,
 				908BFE281E95E9AB00937372 /* InputCell.m */,
 				908BFE291E95E9AB00937372 /* InputCell.xib */,
+				908BFE431E97264600937372 /* InputCell2.h */,
+				908BFE441E97264600937372 /* InputCell2.m */,
+				908BFE451E97264600937372 /* InputCell2.xib */,
+				908BFE481E97265400937372 /* InputCell3.h */,
+				908BFE491E97265400937372 /* InputCell3.m */,
+				908BFE4A1E97265400937372 /* InputCell3.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -702,8 +718,10 @@
 			files = (
 				908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
+				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
+				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
@@ -808,6 +826,7 @@
 				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
+				908BFE461E97264600937372 /* InputCell2.m in Sources */,
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
@@ -821,6 +840,7 @@
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
+				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,8 +19,8 @@
 
 @implementation ProjecListtViewController
 
-static NSString *cellIdentifier1 = @"NewProjectCell";
-static NSString *cellIdentifier2 = @"ProjectCell";
+static NSString *newProjectCell = @"NewProjectCell";
+static NSString *projectCell = @"ProjectCell";
 
 - (void)viewDidLoad
 {
@@ -28,8 +28,8 @@ static NSString *cellIdentifier2 = @"ProjectCell";
    
     [self initData];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"AddProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier1];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:cellIdentifier2];
+    [self.tableView registerNib:[UINib nibWithNibName:@"AddProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:newProjectCell];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:projectCell];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -74,11 +74,11 @@ static NSString *cellIdentifier2 = @"ProjectCell";
     UITableViewCell *cell;
     if (indexPath.section == 0)
     {
-         cell  = [tableView dequeueReusableCellWithIdentifier:cellIdentifier1 forIndexPath:indexPath];
+         cell  = [tableView dequeueReusableCellWithIdentifier:newProjectCell forIndexPath:indexPath];
     }
     else
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier2 forIndexPath:indexPath];
+        cell = [tableView dequeueReusableCellWithIdentifier:projectCell forIndexPath:indexPath];
     }
     
     return cell;
