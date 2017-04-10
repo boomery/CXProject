@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 #pragma mark - UITableViewDataSource

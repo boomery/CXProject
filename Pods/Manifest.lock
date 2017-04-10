@@ -16,12 +16,14 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - MJRefresh (3.1.12)
   - PureLayout (3.0.2)
   - SVProgressHUD (2.1.2)
   - UIView+HHFrame (1.0.0)
 
 DEPENDENCIES:
   - AFNetwork (~> 0.1.0)
+  - MJRefresh (~> 3.1.12)
   - PureLayout (~> 3.0.2)
   - SVProgressHUD (~> 2.1.2)
   - UIView+HHFrame (~> 1.0.0)
@@ -29,10 +31,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetwork: 0dbdb2ffb4a7770b3d1802dc85b50ab31263f2c2
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   UIView+HHFrame: 93022a0690d2d7482b917e8285f274e68fb37823
 
-PODFILE CHECKSUM: ab85d5a882f04259ba7592db51db53220020f2e8
+PODFILE CHECKSUM: bd14ad7c6614f9429eb7947f6f1ee04bd8a601a5
 
 COCOAPODS: 1.2.0

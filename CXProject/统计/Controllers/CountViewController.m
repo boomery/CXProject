@@ -64,6 +64,8 @@
     _searchBar = searchController.searchBar;
     [self.view addSubview:searchController.searchBar];
     searchController.searchBar.delegate = self;
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 #pragma mark - 自动横屏布局

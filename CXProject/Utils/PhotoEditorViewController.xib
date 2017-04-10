@@ -19,25 +19,33 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtV-L5-WEe">
-                    <rect key="frame" x="273" y="551" width="31" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="确定"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtV-L5-WEe">
+                    <rect key="frame" x="258" y="593" width="37" height="34"/>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="confirmButtonClick:" destination="-1" eventType="touchUpInside" id="kbW-VI-H9k"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ5-fL-YoD">
-                    <rect key="frame" x="81" y="551" width="31" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="撤销"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ5-fL-YoD">
+                    <rect key="frame" x="80" y="593" width="37" height="34"/>
+                    <state key="normal" title="撤销">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
                         <action selector="undoButtonClick:" destination="-1" eventType="touchUpInside" id="MwM-9D-bqr"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="16.5" y="12.5"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="YJ5-fL-YoD" secondAttribute="bottom" constant="40" id="19A-3Z-sGR"/>
+                <constraint firstItem="YJ5-fL-YoD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="80" id="MIu-IG-zQ2"/>
+                <constraint firstAttribute="bottom" secondItem="qtV-L5-WEe" secondAttribute="bottom" constant="40" id="dxb-Bv-VWb"/>
+                <constraint firstAttribute="trailing" secondItem="qtV-L5-WEe" secondAttribute="trailing" constant="80" id="rpD-0c-Gx2"/>
+            </constraints>
+            <point key="canvasLocation" x="-216.5" y="-228.5"/>
         </view>
     </objects>
 </document>

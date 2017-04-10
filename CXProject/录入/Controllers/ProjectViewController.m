@@ -7,7 +7,8 @@
 //
 
 #import "ProjectViewController.h"
-
+#import "MeasureViewController.h"
+#import "PhotoViewController.h"
 @interface ProjectViewController ()
 
 @end
@@ -18,15 +19,53 @@
 {
     [super viewDidLoad];
     self.title = @"录入菜单";
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStylePlain target:self action:@selector(upload)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(upload)];
     self.navigationItem.rightBarButtonItem = item;
     // Do any additional setup after loading the view from its nib.
 }
 - (void)upload
 {
-    [SVProgressHUD showSuccessWithStatus:@"上传成功"];
-    [self.navigationController popViewControllerAnimated:YES];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"项目完成后无法修改" message:@"确定完成吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [SVProgressHUD showSuccessWithStatus:@"项目已经完成"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+   
 }
+#pragma mark - 实测实量
+- (IBAction)measure:(id)sender
+{
+    MeasureViewController *measure = [[MeasureViewController alloc] init];
+    [self.navigationController pushViewController:measure animated:YES];
+}
+
+#pragma mark - 风险评估
+- (IBAction)riskEvaluate:(id)sender
+{
+    PhotoViewController *photoVC = [[PhotoViewController alloc] init];
+    [self.navigationController pushViewController:photoVC animated:YES];
+}
+
+#pragma mark - 抽取结果
+- (IBAction)extractionResult:(id)sender
+{
+    
+}
+
+#pragma mark - 编辑项目
+- (IBAction)editProject:(id)sender
+{
+    
+}
+
+#pragma mark - 团队互评
+- (IBAction)groupEvaluate:(id)sender
+{
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

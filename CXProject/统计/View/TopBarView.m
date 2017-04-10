@@ -100,7 +100,6 @@
     }
     [views autoSetViewsDimension:ALDimensionHeight toSize:40];
     [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
-    [[views firstObject] autoAlignAxisToSuperviewAxis:ALAxisHorizontal];
 }
 
 #pragma mark - 更新控件坐标

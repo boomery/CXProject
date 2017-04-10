@@ -32,11 +32,7 @@ static NSString *projectCell = @"ProjectCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"AddProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:newProjectCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:projectCell];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 - (void)initData
 {
@@ -48,10 +44,6 @@ static NSString *projectCell = @"ProjectCell";
         model.area = [NSString stringWithFormat:@"地区:%d",i];
         [_projectArray addObject:model];
     }
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDataSource
@@ -68,7 +60,6 @@ static NSString *projectCell = @"ProjectCell";
     }
     return 1;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -109,7 +100,12 @@ static NSString *projectCell = @"ProjectCell";
         [self.navigationController pushViewController:projectVC animated:YES];
     }
 }
-    
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

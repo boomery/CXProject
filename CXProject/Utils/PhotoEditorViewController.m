@@ -23,13 +23,15 @@
     [self.view addSubview:_drawView];
     [_drawView autoCenterInSuperview];
     [_drawView autoSetDimensionsToSize:CGSizeMake(self.view.width, self.view.width)];
-    _drawView.brushColor = THEME_COLOR;
+    _drawView.brushColor = [UIColor redColor];
     _drawView.brushWidth = 3;
     _drawView.shapeType = LSShapeEllipse;
     
     _drawView.backgroundImage = _image;
     
-    
+    UIButton *button = [[UIButton alloc] initForAutoLayout];
+    [self.view addSubview:button];
+//    button 
     // Do any additional setup after loading the view.
 }
 - (IBAction)undoButtonClick:(id)sender
