@@ -105,6 +105,9 @@
                     <constraint firstItem="ooh-og-1jE" firstAttribute="centerY" secondItem="fNC-f5-lKs" secondAttribute="centerY" id="vIv-Zn-IbB"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addButton" destination="cR0-YO-mRR" id="Wfl-rg-O0T"/>
+            </connections>
             <point key="canvasLocation" x="187.5" y="-958"/>
         </tableViewCell>
     </objects>

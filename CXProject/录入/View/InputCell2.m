@@ -10,7 +10,8 @@
 
 @implementation InputCell2
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
     
     UIView *lineView = [UIView newAutoLayoutView];

@@ -10,4 +10,6 @@
 
 @interface InputCell2 : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+
 @end
