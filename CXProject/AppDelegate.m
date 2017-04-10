@@ -43,7 +43,8 @@
     
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
-
+    
+    [DataProvider loadData];
     return YES;
 }
 

@@ -22,6 +22,9 @@
 #import "BaseViewController.h"
 #import "User.h"
 #import "NetworkAPI.h"
+//读取本地文件
+#import "DataProvider.h"
+#import "Data.h"
 
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define DEF_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height

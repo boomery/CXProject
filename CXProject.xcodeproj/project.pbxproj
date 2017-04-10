@@ -61,6 +61,9 @@
 		908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C824E1E9B73B90086EDCD /* DetailMeasureViewController.xib */; };
 		908C82541E9B784E0086EDCD /* LabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82521E9B784E0086EDCD /* LabelCell.m */; };
 		908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C82531E9B784E0086EDCD /* LabelCell.xib */; };
+		908C82571E9B7D500086EDCD /* Measure.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 908C82561E9B7D500086EDCD /* Measure.geojson */; };
+		908C825A1E9B817B0086EDCD /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82591E9B817B0086EDCD /* DataProvider.m */; };
+		908C825D1E9B829D0086EDCD /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C825C1E9B829D0086EDCD /* Data.m */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
@@ -195,6 +198,11 @@
 		908C82511E9B784E0086EDCD /* LabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelCell.h; sourceTree = "<group>"; };
 		908C82521E9B784E0086EDCD /* LabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelCell.m; sourceTree = "<group>"; };
 		908C82531E9B784E0086EDCD /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		908C82561E9B7D500086EDCD /* Measure.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Measure.geojson; sourceTree = "<group>"; };
+		908C82581E9B817B0086EDCD /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
+		908C82591E9B817B0086EDCD /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
+		908C825B1E9B829D0086EDCD /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		908C825C1E9B829D0086EDCD /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
 		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -329,6 +337,10 @@
 				90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */,
 				90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */,
 				90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */,
+				908C82581E9B817B0086EDCD /* DataProvider.h */,
+				908C82591E9B817B0086EDCD /* DataProvider.m */,
+				908C825B1E9B829D0086EDCD /* Data.h */,
+				908C825C1E9B829D0086EDCD /* Data.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -378,6 +390,7 @@
 				901781351E82754600D6E8A1 /* 我的 */,
 				901780EB1E82626600D6E8A1 /* Assets.xcassets */,
 				901780F01E82626600D6E8A1 /* Info.plist */,
+				908C82561E9B7D500086EDCD /* Measure.geojson */,
 				901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */,
 				901780DC1E82626600D6E8A1 /* Supporting Files */,
 			);
@@ -774,6 +787,7 @@
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
 				908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */,
+				908C82571E9B7D500086EDCD /* Measure.geojson in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
@@ -866,6 +880,7 @@
 				908BFE3A1E96054E00937372 /* MHKeyboardObjects.m in Sources */,
 				908C823F1E9B31720086EDCD /* InputCell4.m in Sources */,
 				9016C7B01E8C948A00B19056 /* TabBarController.m in Sources */,
+				908C825A1E9B817B0086EDCD /* DataProvider.m in Sources */,
 				90CB98921E8F9CA4000FB2BC /* PhotoViewController.m in Sources */,
 				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
@@ -880,6 +895,7 @@
 				908BFE371E96054E00937372 /* MHKeyboard+AccessObject.m in Sources */,
 				90CB98A21E8FA18C000FB2BC /* Project.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
+				908C825D1E9B829D0086EDCD /* Data.m in Sources */,
 				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
