@@ -8,6 +8,7 @@
 
 #import "ProjecListtViewController.h"
 #import "NewProjectViewController.h"
+#import "ProjectViewController.h"
 #import "AddProjectCell.h"
 #import "Project.h"
 #import "ProjectCell.h"
@@ -99,7 +100,13 @@ static NSString *projectCell = @"ProjectCell";
     if (indexPath.section == 0)
     {
         NewProjectViewController *newVC = [[NewProjectViewController alloc] init];
+        newVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:newVC animated:YES];
+    }
+    else
+    {
+        ProjectViewController *projectVC = [[ProjectViewController alloc] init];
+        [self.navigationController pushViewController:projectVC animated:YES];
     }
 }
     

@@ -10,15 +10,19 @@
 #import "InputCell.h"
 #import "InputCell2.h"
 #import "InputCell3.h"
+#import "InputCell4.h"
+
 #import "MHKeyboard.h"
 #import "UIMyDatePicker.h"
 #import "ConstructionCompany.h"
+#import "Member.h"
 @interface NewProjectViewController () <UITableViewDataSource, UITableViewDelegate, UIMyDatePickerDelegate, UITextFieldDelegate>
 {
     UIMyDatePicker *_datePicker;
     UITextField *_activeTextField;
 
     NSArray *_titleArray;
+    NSMutableArray *_memberArray;
     NSMutableArray *_constructionCompany;
 }
 @property (nonatomic, strong) UITableView *tableView;
@@ -40,12 +44,18 @@
     ConstructionCompany *company = [[ConstructionCompany alloc] init];
     [_constructionCompany addObject:company];
     
-    _titleArray = @[@"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估人员"];
+    
+    _memberArray = [[NSMutableArray alloc] init];
+    Member *member = [[Member alloc] init];
+    [_memberArray addObject:member];
+    
+    _titleArray = @[@"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估组长"];
 }
 
 static NSString *inputCell = @"InputCell";
 static NSString *inputCell2 = @"InputCell2";
 static NSString *inputCell3 = @"InputCell3";
+static NSString *inputCell4 = @"InputCell4";
 - (void)initViews
 {
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
@@ -62,6 +72,7 @@ static NSString *inputCell3 = @"InputCell3";
     [self.tableView registerNib:[UINib nibWithNibName:@"InputCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"InputCell2" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell2];
     [self.tableView registerNib:[UINib nibWithNibName:@"InputCell3" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell3];
+    [self.tableView registerNib:[UINib nibWithNibName:@"InputCell4" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell4];
 
     
     [MHKeyboard addRegisterTheViewNeedMHKeyboard:self.view];
@@ -89,7 +100,7 @@ static NSString *inputCell3 = @"InputCell3";
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 4;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -99,9 +110,12 @@ static NSString *inputCell3 = @"InputCell3";
             return _titleArray.count;
             break;
         case 1:
-            return _constructionCompany.count;
+            return _memberArray.count;
             break;
         case 2:
+            return _constructionCompany.count;
+            break;
+        case 3:
             return 1;
             break;
         default:
@@ -129,19 +143,24 @@ static NSString *inputCell3 = @"InputCell3";
             break;
         case 1:
         {
-            InputCell2 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell2 forIndexPath:indexPath];
-            cell.tag = indexPath.row;
-            cell.addButton.tag = indexPath.row;
-            [cell.addButton addTarget:self action:@selector(addButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+            InputCell4 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell4 forIndexPath:indexPath];
+            [cell.addButton addTarget:self action:@selector(addMember:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
-           
         }
             break;
         case 2:
         {
+            InputCell2 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell2 forIndexPath:indexPath];
+            [cell.addButton addTarget:self action:@selector(addCompany:) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+        }
+            break;
+        case 3:
+        {
             InputCell3 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell3 forIndexPath:indexPath];
             return cell;
         }
+            break;
         default:
         {
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@""];
@@ -159,10 +178,14 @@ static NSString *inputCell3 = @"InputCell3";
             return 44;
             break;
         case 1:
-            return 160;
+            return 44;
             break;
         case 2:
+            return 160;
+            break;
+        case 3:
             return 240;
+            break;
         default:
             return 0;
             break;
@@ -188,16 +211,26 @@ static NSString *inputCell3 = @"InputCell3";
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_constructionCompany.count == 1)
+    if (indexPath.section == 1)
     {
-        return NO;
+        if (_memberArray.count == 1)
+        {
+            return NO;
+        }
+    }
+    if (indexPath.section == 2)
+    {
+        if (_constructionCompany.count == 1)
+        {
+            return NO;
+        }
     }
     return YES;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 1)
+    if (indexPath.section == 1 || indexPath.section == 2)
     {
         return UITableViewCellEditingStyleDelete;
     }
@@ -208,7 +241,14 @@ static NSString *inputCell3 = @"InputCell3";
 {
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        [_constructionCompany removeObjectAtIndex:indexPath.row];
+        if (indexPath.section == 1)
+        {
+             [_memberArray removeObjectAtIndex:indexPath.row];
+        }
+        if (indexPath.section == 2)
+        {
+             [_constructionCompany removeObjectAtIndex:indexPath.row];
+        }
         [self.tableView beginUpdates];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
@@ -217,15 +257,23 @@ static NSString *inputCell3 = @"InputCell3";
 
 
 #pragma mark - 添加施工单位
-- (void)addButtonClick:(UIButton *)button
+- (void)addCompany:(UIButton *)button
 {
     ConstructionCompany *company = [[ConstructionCompany alloc] init];
     [_constructionCompany addObject:company];
     [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
 }
 
+- (void)addMember:(UIButton *)button
+{
+    Member *member = [[Member alloc] init];
+    [_memberArray addObject:member];
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
