@@ -57,6 +57,10 @@
 		908C82431E9B33290086EDCD /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82421E9B33290086EDCD /* Member.m */; };
 		908C82471E9B4DEE0086EDCD /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82451E9B4DEE0086EDCD /* MeasureViewController.m */; };
 		908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C82461E9B4DEE0086EDCD /* MeasureViewController.xib */; };
+		908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C824D1E9B73B90086EDCD /* DetailMeasureViewController.m */; };
+		908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C824E1E9B73B90086EDCD /* DetailMeasureViewController.xib */; };
+		908C82541E9B784E0086EDCD /* LabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82521E9B784E0086EDCD /* LabelCell.m */; };
+		908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C82531E9B784E0086EDCD /* LabelCell.xib */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
@@ -185,6 +189,12 @@
 		908C82441E9B4DEE0086EDCD /* MeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		908C82451E9B4DEE0086EDCD /* MeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		908C82461E9B4DEE0086EDCD /* MeasureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureViewController.xib; sourceTree = "<group>"; };
+		908C824C1E9B73B90086EDCD /* DetailMeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMeasureViewController.h; sourceTree = "<group>"; };
+		908C824D1E9B73B90086EDCD /* DetailMeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMeasureViewController.m; sourceTree = "<group>"; };
+		908C824E1E9B73B90086EDCD /* DetailMeasureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailMeasureViewController.xib; sourceTree = "<group>"; };
+		908C82511E9B784E0086EDCD /* LabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelCell.h; sourceTree = "<group>"; };
+		908C82521E9B784E0086EDCD /* LabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelCell.m; sourceTree = "<group>"; };
+		908C82531E9B784E0086EDCD /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
 		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -600,6 +610,9 @@
 				908C823C1E9B31720086EDCD /* InputCell4.h */,
 				908C823D1E9B31720086EDCD /* InputCell4.m */,
 				908C823E1E9B31720086EDCD /* InputCell4.xib */,
+				908C82511E9B784E0086EDCD /* LabelCell.h */,
+				908C82521E9B784E0086EDCD /* LabelCell.m */,
+				908C82531E9B784E0086EDCD /* LabelCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -618,6 +631,9 @@
 				908C82441E9B4DEE0086EDCD /* MeasureViewController.h */,
 				908C82451E9B4DEE0086EDCD /* MeasureViewController.m */,
 				908C82461E9B4DEE0086EDCD /* MeasureViewController.xib */,
+				908C824C1E9B73B90086EDCD /* DetailMeasureViewController.h */,
+				908C824D1E9B73B90086EDCD /* DetailMeasureViewController.m */,
+				908C824E1E9B73B90086EDCD /* DetailMeasureViewController.xib */,
 				90CB988A1E8F9CA4000FB2BC /* PhotoViewController.h */,
 				90CB98891E8F9CA4000FB2BC /* PhotoViewController.m */,
 				90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */,
@@ -754,7 +770,9 @@
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				908C82401E9B31720086EDCD /* InputCell4.xib in Resources */,
+				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
+				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
 				908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
@@ -839,6 +857,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CB98781E8F7F55000FB2BC /* NSObject+YYModel.m in Sources */,
+				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
 				908BFE421E96269600937372 /* UIMyDatePicker.m in Sources */,
@@ -875,6 +894,7 @@
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				908C82431E9B33290086EDCD /* Member.m in Sources */,
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
+				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
 				908C823A1E9B28060086EDCD /* ProjectViewController.m in Sources */,

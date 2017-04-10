@@ -7,7 +7,7 @@
 //
 
 #import "MeasureViewController.h"
-
+#import "DetailMeasureViewController.h"
 @interface MeasureViewController ()
 {
     NSArray *_titleArray;
@@ -44,7 +44,6 @@ static NSString *cellIndentifier = @"UITableViewCell";
     return _titleArray.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier forIndexPath:indexPath];
@@ -57,7 +56,9 @@ static NSString *cellIndentifier = @"UITableViewCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  
+    DetailMeasureViewController *detail = [[DetailMeasureViewController alloc] init];
+    detail.title = _titleArray[indexPath.row];
+    [self.navigationController pushViewController:detail animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
