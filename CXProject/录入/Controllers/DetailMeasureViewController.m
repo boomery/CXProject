@@ -72,6 +72,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewIdentifier forIndexPath:indexPath];
     cell.textLabel.font = LABEL_FONT;
+    cell.textLabel.numberOfLines = 0;
     Event *event = _event.events[indexPath.row];
     cell.textLabel.text = event.name;
     return cell;
