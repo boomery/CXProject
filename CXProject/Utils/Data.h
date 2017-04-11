@@ -10,8 +10,15 @@
 
 @interface Data : NSObject
 
-@property (nonatomic,copy) NSString *name;
-@property (nonatomic, strong) NSArray *subItem;
-@property (nonatomic, strong) Data *data;
+@property (nonatomic,copy) NSString *version;
+@property (nonatomic,copy) NSString *Measuretype;
+@property (nonatomic,copy) NSString *houseType;
+@property (nonatomic,copy) NSString *unit;
+
+@property (nonatomic, strong) NSMutableArray *events;
+
+@property (nonatomic,copy) NSString *key;
+
++ (Data *)dataWithDict:(NSDictionary *)dict;
 
 @end

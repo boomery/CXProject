@@ -35,7 +35,8 @@ static NSString *cellIndentifier = @"UITableViewCell";
 
 - (void)initData
 {
-    _titleArray = @[@"钢筋工程", @"模板工程", @"混凝土结构工程", @"砌筑工程", @"抹灰工程", @"涂饰工程", @"墙面饰面砖", @"地面饰面砖", @"木地板", @"门窗工程", @"防水工程", @"设备安装工程"];
+//    _titleArray = @[@"钢筋工程", @"模板工程", @"混凝土结构工程", @"砌筑工程", @"抹灰工程", @"涂饰工程", @"墙面饰面砖", @"地面饰面砖", @"木地板", @"门窗工程", @"防水工程", @"设备安装工程"];
+    _titleArray = [DataProvider items];
 }
 
 #pragma mark - UITableViewDataSource
@@ -48,7 +49,8 @@ static NSString *cellIndentifier = @"UITableViewCell";
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = _titleArray[indexPath.row];
+    Event *event = _titleArray[indexPath.row];
+    cell.textLabel.text = event.name;
     return cell;
 }
 
@@ -57,7 +59,9 @@ static NSString *cellIndentifier = @"UITableViewCell";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     DetailMeasureViewController *detail = [[DetailMeasureViewController alloc] init];
-    detail.title = _titleArray[indexPath.row];
+    Event *event = _titleArray[indexPath.row];
+    detail.event = event;
+    detail.title = event.name;
     [self.navigationController pushViewController:detail animated:YES];
 }
 

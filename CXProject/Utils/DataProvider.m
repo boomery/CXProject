@@ -28,23 +28,44 @@ static DataProvider *provider = nil;
     NSString *strPath = [[NSBundle mainBundle] pathForResource:@"Measure" ofType:@"geojson"];
     if (!strPath)
     {
-        [SVProgressHUD showErrorWithStatus:@"本地数据文件读取失败"];
+        [SVProgressHUD showErrorWithStatus:@"本地数据文件丢失"];
         return NO;
     }
     else
     {
 //        NSString *parseJson = [[NSString alloc] initWithContentsOfFile:strPath encoding:NSUTF8StringEncoding error:nil];
-        NSData *jsonData = [[NSData alloc] initWithContentsOfFile:strPath];
-        [self parseJsonWithString:jsonData];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSData *jsonData = [[NSData alloc] initWithContentsOfFile:strPath];
+            DataProvider *sharedProvider = [self sharedProvider];
+            sharedProvider.data = [self parseJsonWithString:jsonData];
+        });
         return YES;
     }
 }
 
 + (Data *)parseJsonWithString:(NSData *)jsonData
 {
-    Data *data = [[Data alloc] init];
-    id obj = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
-    return data;
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
+    if (dict)
+    {
+        Data *data = [Data dataWithDict:dict];
+        return data;
+    }
+    return nil;
+}
+
++ (NSArray *)items
+{
+    return provider.data.events;
+}
+
++ (NSArray *)subItemForName:(NSString *)name
+{
+    for (NSDictionary *subItemDict in provider.data.events)
+    {
+        
+    }
+    return nil;
 }
 
 + (NSArray *)standardForName:(NSString *)name

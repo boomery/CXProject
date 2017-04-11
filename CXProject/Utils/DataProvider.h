@@ -14,5 +14,8 @@
 
 + (BOOL)loadData;
 
-+ (NSArray *)standardForName:(NSString *)name;
++ (NSArray *)items;
+
++ (NSArray *)subItemForName:(NSString *)name;
+
 @end

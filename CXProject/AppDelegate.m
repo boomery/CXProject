@@ -91,6 +91,10 @@
         _logNav = logNav;
         return NO;
     }
+    if (viewController == tabBarController.selectedViewController)
+    {
+        return NO;
+    }
     return YES;
 }
 

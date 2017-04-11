@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface DetailMeasureViewController : BaseViewController
-
+@property (nonatomic, strong) Event *event;
 @end

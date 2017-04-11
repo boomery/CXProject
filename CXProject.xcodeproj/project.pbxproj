@@ -64,6 +64,7 @@
 		908C82571E9B7D500086EDCD /* Measure.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 908C82561E9B7D500086EDCD /* Measure.geojson */; };
 		908C825A1E9B817B0086EDCD /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82591E9B817B0086EDCD /* DataProvider.m */; };
 		908C825D1E9B829D0086EDCD /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C825C1E9B829D0086EDCD /* Data.m */; };
+		908C82601E9C9DE10086EDCD /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C825F1E9C9DE10086EDCD /* Event.m */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
@@ -203,6 +204,8 @@
 		908C82591E9B817B0086EDCD /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
 		908C825B1E9B829D0086EDCD /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		908C825C1E9B829D0086EDCD /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		908C825E1E9C9DE10086EDCD /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		908C825F1E9C9DE10086EDCD /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				908C82591E9B817B0086EDCD /* DataProvider.m */,
 				908C825B1E9B829D0086EDCD /* Data.h */,
 				908C825C1E9B829D0086EDCD /* Data.m */,
+				908C825E1E9C9DE10086EDCD /* Event.h */,
+				908C825F1E9C9DE10086EDCD /* Event.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -876,6 +881,7 @@
 				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
 				908BFE421E96269600937372 /* UIMyDatePicker.m in Sources */,
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
+				908C82601E9C9DE10086EDCD /* Event.m in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				908BFE3A1E96054E00937372 /* MHKeyboardObjects.m in Sources */,
 				908C823F1E9B31720086EDCD /* InputCell4.m in Sources */,

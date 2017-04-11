@@ -23,9 +23,15 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _titleArray = @[@"钢筋工程", @"模板工程", @"混凝土结构工程", @"砌筑工程", @"抹灰工程", @"涂饰工程", @"墙面饰面砖", @"地面饰面砖", @"木地板", @"门窗工程", @"防水工程", @"设备安装工程"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"LabelCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:labelCellIdentifier];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    self.collectionView.layer.borderWidth = 0.5;
+    self.collectionView.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    self.tableView.layer.borderWidth = 0.5;
+    self.tableView.layer.borderColor = [UIColor blackColor].CGColor;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -37,7 +43,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:labelCellIdentifier forIndexPath:indexPath];
-//    cell.label.text = @"0";
     return cell;
 }
 
@@ -50,14 +55,15 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _titleArray.count;
+    return _event.events.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewIdentifier forIndexPath:indexPath];
     cell.textLabel.font = LABEL_FONT;
-    cell.textLabel.text = _titleArray[indexPath.row];
+    Event *event = _event.events[indexPath.row];
+    cell.textLabel.text = event.name;
     return cell;
 }
 
