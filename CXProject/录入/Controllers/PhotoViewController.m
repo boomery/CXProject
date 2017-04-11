@@ -91,7 +91,6 @@
     editor.image = image;
 
     editor.imageBlock = ^(UIImage *image){
-        NSLog(@"%d",[NSThread isMainThread]);
         [_photoButton setImage:image forState:UIControlStateNormal];
         [picker dismissViewControllerAnimated:YES completion:nil];
     };
@@ -128,7 +127,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectedRow = indexPath.row;
-    [_questionView reloadData];
+    [tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,7 @@
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) NSInteger selectedRow;
 @end
 
 @implementation DetailMeasureViewController
@@ -64,13 +65,23 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     cell.textLabel.font = LABEL_FONT;
     Event *event = _event.events[indexPath.row];
     cell.textLabel.text = event.name;
+    if (indexPath.row == _selectedRow)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    _selectedRow = indexPath.row;
+    [tableView reloadData];
 }
 
 

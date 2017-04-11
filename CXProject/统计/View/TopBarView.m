@@ -106,8 +106,6 @@
 - (void)setOffSet:(CGFloat)offSet
 {
     _offSet = offSet;
-//    NSLog(@"setoffSet : top = %.f", 44 + _offSet);
-
     [self.tableView setTop:(self.height + _offSet)];
 }
 
@@ -198,7 +196,6 @@
 - (void)tableViewAnimateShouldShow:(BOOL)shouldShow
 {
     _shouldShowTab = shouldShow;
-    NSLog(@"animation : tab.height = %.f   tab.top = %.f", self.tableView.height,self.tableView.top);
     UIViewController *vc = (UIViewController *)[[self nextResponder] nextResponder];
     UITableView *bTabView = (UITableView *)vc.view;
     if ([bTabView isKindOfClass:[UITableView class]])

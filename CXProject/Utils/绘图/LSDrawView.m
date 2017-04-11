@@ -385,7 +385,7 @@
             NSString *now = [dateformatter stringFromDate:date];
             
             NSString *picPath = [NSString stringWithFormat:@"%@%@",[NSHomeDirectory() stringByAppendingFormat:@"/tmp/"], now];
-            NSLog(@"存贮于   = %@",picPath);
+//            NSLog(@"存贮于   = %@",picPath);
             
             BOOL bSucc = NO;
             NSData *imgData = UIImagePNGRepresentation(img);
