@@ -11,6 +11,7 @@
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     NSArray *_titleArray;
+    __weak IBOutlet UITextField *_standardTextField;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -33,8 +34,16 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     
     self.tableView.layer.borderWidth = 0.5;
     self.tableView.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    [self setUpViewsWithIndex:0];
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    
 }
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [MHKeyboard addRegisterTheViewNeedMHKeyboard:self.view];
+}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -65,15 +74,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     cell.textLabel.font = LABEL_FONT;
     Event *event = _event.events[indexPath.row];
     cell.textLabel.text = event.name;
-    if (indexPath.row == _selectedRow)
-    {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        
-    }
-    else
-    {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
     return cell;
 }
 
@@ -81,10 +81,23 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectedRow = indexPath.row;
-    [tableView reloadData];
+    [self setUpViewsWithIndex:_selectedRow];
 }
 
+- (void)setUpViewsWithIndex:(NSInteger)index
+{
+    if (_event.events.count > index)
+    {
+        Event *event = _event.events[index];
+        _standardTextField.text = [NSString stringWithFormat:@"{%ld~%ld}mm",(long)event.min,(long)event.max];
+    }
+}
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

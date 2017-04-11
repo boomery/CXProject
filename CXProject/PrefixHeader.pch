@@ -17,6 +17,7 @@
 #import "PureLayout.h"
 #import "AFNetwork.h"
 #import "MJRefresh.h"
+#import "MHKeyboard.h"
 
 #import "AppDelegate.h"
 #import "BaseViewController.h"
