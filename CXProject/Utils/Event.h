@@ -22,6 +22,7 @@
 
 @property (nonatomic,assign) NSInteger min;
 @property (nonatomic,assign) NSInteger max;
+@property (nonatomic,assign) NSInteger max2;
 @property (nonatomic,copy) NSString *explain;
 
 @property (nonatomic, strong) NSMutableArray *events;
