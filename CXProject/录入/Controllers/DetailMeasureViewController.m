@@ -11,7 +11,7 @@
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextViewDelegate>
 {
     NSArray *_titleArray;
-    __weak IBOutlet UITextView *_standardTextField;
+    __weak IBOutlet UITextField *_standardTextField;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
