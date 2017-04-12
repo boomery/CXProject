@@ -8,7 +8,7 @@
 
 #import "DetailMeasureViewController.h"
 #import "LabelCell.h"
-@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextViewDelegate>
 {
     NSArray *_titleArray;
     __weak IBOutlet UITextView *_standardTextField;
@@ -29,11 +29,14 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] init];
     
-    self.collectionView.layer.borderWidth = 0.5;
-    self.collectionView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.collectionView.layer.borderWidth = 0.3;
+    self.collectionView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
-    self.tableView.layer.borderWidth = 0.5;
-    self.tableView.layer.borderColor = [UIColor blackColor].CGColor;
+    self.tableView.layer.borderWidth = 0.3;
+    self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    _standardTextField.layer.borderWidth = 0.3;
+    _standardTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     [self setUpViewsWithIndex:0];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
@@ -113,6 +116,16 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self.view endEditing:YES];
 }
 
+#pragma mark - UITextViewDelegate
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    ALERT(textView.text);
+    return NO;
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

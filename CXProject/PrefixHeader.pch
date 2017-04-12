@@ -39,11 +39,8 @@
 
 
 #define ALERT(Message) \
-static UIAlertView *alert = nil;\
-static dispatch_once_t onceToken;\
-dispatch_once(&onceToken, ^{\
+UIAlertView *alert = nil;\
 alert = [[UIAlertView alloc] initWithTitle:@"提示" message:Message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];\
-});\
 [alert show];
 
 
