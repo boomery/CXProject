@@ -11,7 +11,7 @@
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 {
     NSArray *_titleArray;
-    __weak IBOutlet UITextField *_standardTextField;
+    __weak IBOutlet UITextView *_standardTextField;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -90,7 +90,20 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     if (_event.events.count > index)
     {
         Event *event = _event.events[index];
-        _standardTextField.text = [NSString stringWithFormat:@"{%ld~%ld}mm",(long)event.min,(long)event.max];
+        
+        if (event.textStandard)
+        {
+            _standardTextField.text = event.textStandard;
+            return;
+        }
+        NSNumberFormatter *fo = [[NSNumberFormatter alloc] init];
+        fo.numberStyle = NSNumberFormatterDecimalStyle;
+        NSNumber *minNum = [NSNumber numberWithFloat:event.min];
+        NSNumber *maxNum = [NSNumber numberWithFloat:event.max];
+        
+        NSString *min = [fo stringFromNumber:minNum];
+        NSString *max = [fo stringFromNumber:maxNum];
+        _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
     }
 }
 
