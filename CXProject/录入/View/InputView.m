@@ -25,7 +25,7 @@
     [measureTextField autoSetDimension:ALDimensionHeight toSize:40];
     
     NSMutableArray *views = [[NSMutableArray alloc] init];
-    for (int i = 0; i < measurePoint; i ++)
+    for (int i = 0; i < group*measurePoint; i ++)
     {
         UITextField *text = [self textFieldEditable:YES text:@""];
         [views addObject:text];
@@ -45,9 +45,23 @@
         [desginTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:40];
         [desginTextField autoSetDimension:ALDimensionHeight toSize:40];
         
-//        for (NSString *designName in <#collection#>) {
-//            <#statements#>
-//        }
+        NSMutableArray *subViews = [[NSMutableArray alloc] init];
+        for (int i = 0; i < designName.count; i ++)
+        {
+            UILabel *label = [[UILabel alloc] initForAutoLayout];
+            [subViews addObject:label];
+            [self addSubview:label];
+            label.textAlignment = NSTextAlignmentCenter;
+            label.text = designName[i];
+            [label autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:80];
+
+            UITextField *text = [self textFieldEditable:YES text:@""];
+            [subViews addObject:text];
+            [self addSubview:text];
+            [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:80];
+        }
+        [subViews autoSetViewsDimension:ALDimensionHeight toSize:40];
+        [subViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
     }
 }
 

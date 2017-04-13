@@ -131,7 +131,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         [view autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view];
         [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_standardTextField];
         [view autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view];
-        [view setUpViewsWithMeasureGroup:1 MeasurePoint:2 haveDesign:1 designName:@[@"宽",@"高"]];
+        [view setUpViewsWithMeasureGroup:2 MeasurePoint:2 haveDesign:1 designName:@[@"宽",@"高"]];
     }
 }
 
