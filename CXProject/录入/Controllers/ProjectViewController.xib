@@ -23,7 +23,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WC4-Dv-Sa3" userLabel="实测实量">
                     <rect key="frame" x="20" y="84" width="150" height="150"/>
-                    <color key="backgroundColor" red="1" green="0.58616451469999997" blue="0.88029855109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="WC4-Dv-Sa3" secondAttribute="height" multiplier="1:1" id="uHp-ga-4Vv"/>
                     </constraints>
@@ -34,7 +34,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A92-Q1-Iz7" userLabel="自动抽取">
                     <rect key="frame" x="20" y="254" width="150" height="150"/>
-                    <color key="backgroundColor" red="1" green="0.58616451469999997" blue="0.88029855109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="抽取结果"/>
                     <connections>
                         <action selector="extractionResult:" destination="-1" eventType="touchUpInside" id="fMH-Al-ltQ"/>
@@ -42,7 +42,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N61-OE-EIZ" userLabel="风险评估">
                     <rect key="frame" x="205" y="84" width="150" height="150"/>
-                    <color key="backgroundColor" red="1" green="0.58616451469999997" blue="0.88029855109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="风险评估"/>
                     <connections>
                         <action selector="riskEvaluate:" destination="-1" eventType="touchUpInside" id="hL0-Vw-f7H"/>
@@ -50,7 +50,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Af-Dnq" userLabel="编辑项目">
                     <rect key="frame" x="205" y="254" width="150" height="150"/>
-                    <color key="backgroundColor" red="1" green="0.58616451469999997" blue="0.88029855109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="编辑项目"/>
                     <connections>
                         <action selector="editProject:" destination="-1" eventType="touchUpInside" id="h2g-W3-6xW"/>
@@ -58,7 +58,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-gc-vJD">
                     <rect key="frame" x="20" y="427" width="150" height="150"/>
-                    <color key="backgroundColor" red="1" green="0.58616451469999997" blue="0.88029855109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <state key="normal" title="团队互评"/>
                     <connections>
                         <action selector="groupEvaluate:" destination="-1" eventType="touchUpInside" id="q5q-MQ-xAV"/>
@@ -89,7 +89,7 @@
                 <constraint firstItem="WC4-Dv-Sa3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.4" id="xeT-o4-qgI"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-366" y="-536"/>
+            <point key="canvasLocation" x="-481" y="-581"/>
         </view>
         <navigationBar contentMode="scaleToFill" id="vge-zw-GG8">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

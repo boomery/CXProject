@@ -9,6 +9,9 @@
                            {
                            "截面尺寸": {
                            "needDesign": "1",
+                           "designName": [
+                                          "墙/柱截面尺寸"
+                                          ],
                            "measurePoint": "2",
                            "min": "-5",
                            "max": "8",
@@ -48,6 +51,9 @@
                            {
                            "楼板厚度": {
                            "needDesign": "1",
+                           "designName": [
+                                          "楼板厚度"
+                                          ],
                            "measurePoint": "1",
                            "min": "-5",
                            "max": "8",
@@ -90,6 +96,10 @@
                         {
                         "外门窗洞口尺寸": {
                         "needDesign": "1",
+                        "designName": [
+                                       "宽",
+                                       "高"
+                                       ],
                         "measurePoint": "2",
                         "min": "-10",
                         "max": "10",
@@ -103,6 +113,9 @@
                         {
                         "座便坑距偏差": {
                         "needDesign": "1",
+                        "designName": [
+                                       "预留洞离墙边距离"
+                                       ],
                         "measurePoint": "1",
                         "min": "0",
                         "max": "15",
@@ -152,6 +165,9 @@
                         {
                         "净高": {
                         "needDesign": "1",
+                        "designName": [
+                                       "净高"
+                                       ],
                         "measurePoint": "5",
                         "min": "-15",
                         "max": "15",
@@ -188,6 +204,10 @@
                         {
                         "开间/进深": {
                         "needDesign": "1",
+                        "designName": [
+                                       "开间",
+                                       "进深"
+                                       ],
                         "measurePoint": "2",
                         "min": "-10",
                         "max": "10",
@@ -197,6 +217,10 @@
                         {
                         "户内门洞尺寸偏差": {
                         "needDesign": "1",
+                        "designName": [
+                                       "宽",
+                                       "高"
+                                       ],
                         "measurePoint": "2",
                         "min": "-10",
                         "max": "10",

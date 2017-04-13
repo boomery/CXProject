@@ -39,13 +39,14 @@
             {
                 NSDictionary *dicObj = (NSDictionary *)obj;
                 subEvent.needDesgin = [dicObj[@"needDesign"] boolValue];
+                subEvent.designName = dicObj[@"designName"];
                 subEvent.measurePoint = [dicObj[@"measurePoint"] integerValue];
                 subEvent.min = [dicObj[@"min"] floatValue];
-                subEvent.textStandard = dicObj[@"textStandard"];
                 subEvent.max = [dicObj[@"max"] floatValue];
-                subEvent.max2 = [dicObj[@"max2"] floatValue];
-                subEvent.explain = dicObj[@"explain"];
                 subEvent.condition = dicObj[@"condition"];
+                subEvent.max2 = [dicObj[@"max2"] floatValue];
+                subEvent.textStandard = dicObj[@"textStandard"];
+                subEvent.explain = dicObj[@"explain"];
                 [event.events addObject:subEvent];
             }
         }

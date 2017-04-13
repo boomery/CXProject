@@ -13,6 +13,7 @@
 {
     NSArray *_titleArray;
     __weak IBOutlet UITextField *_standardTextField;
+    InputView *_inputView;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -113,25 +114,34 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         if (event.textStandard)
         {
             _standardTextField.text = event.textStandard;
-            return;
         }
-        NSNumberFormatter *fo = [[NSNumberFormatter alloc] init];
-        fo.numberStyle = NSNumberFormatterDecimalStyle;
-        NSNumber *minNum = [NSNumber numberWithFloat:event.min];
-        NSNumber *maxNum = [NSNumber numberWithFloat:event.max];
+        else
+        {
+            NSNumberFormatter *fo = [[NSNumberFormatter alloc] init];
+            fo.numberStyle = NSNumberFormatterDecimalStyle;
+            NSNumber *minNum = [NSNumber numberWithFloat:event.min];
+            NSNumber *maxNum = [NSNumber numberWithFloat:event.max];
+            
+            NSString *min = [fo stringFromNumber:minNum];
+            NSString *max = [fo stringFromNumber:maxNum];
+            _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
+        }
         
-        NSString *min = [fo stringFromNumber:minNum];
-        NSString *max = [fo stringFromNumber:maxNum];
-        _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
+        if (!_inputView)
+        {
+            InputView *view = [[InputView alloc] initForAutoLayout];
+            _inputView = view;
+            [self.view addSubview:view];
+            [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.tableView];
+            [view autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view];
+            [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_standardTextField];
+            [view autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view];
+            _inputView.saveBlock = ^{
+                [SVProgressHUD showSuccessWithStatus:@"保存完成，开始下一个"];
+            };
+        }
         
-        //
-        InputView *view = [[InputView alloc] initForAutoLayout];
-        [self.view addSubview:view];
-        [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.tableView];
-        [view autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view];
-        [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_standardTextField];
-        [view autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view];
-        [view setUpViewsWithMeasureGroup:2 MeasurePoint:2 haveDesign:1 designName:@[@"宽",@"高"]];
+        [_inputView setUpViewsWithMeasurePoint:event.measurePoint haveDesign:event.needDesgin designName:event.designName];
     }
 }
 

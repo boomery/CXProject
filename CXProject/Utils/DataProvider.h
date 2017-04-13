@@ -16,6 +16,6 @@
 
 + (NSArray *)items;
 
-+ (NSArray *)subItemForName:(NSString *)name;
+//+ (NSArray *)subItemForName:(NSString *)name;
 
 @end

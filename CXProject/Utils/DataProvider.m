@@ -59,18 +59,18 @@ static DataProvider *provider = nil;
     return provider.data.events;
 }
 
-+ (NSArray *)subItemForName:(NSString *)name
-{
-    for (NSDictionary *subItemDict in provider.data.events)
-    {
-        
-    }
-    return nil;
-}
-
-+ (NSArray *)standardForName:(NSString *)name
-{
-    return nil;
-}
+////+ (NSArray *)subItemForName:(NSString *)name
+////{
+////    for (NSDictionary *subItemDict in provider.data.events)
+////    {
+////        
+////    }
+////    return nil;
+////}
+//
+//+ (NSArray *)standardForName:(NSString *)name
+//{
+//    return nil;
+//}
 
 @end
