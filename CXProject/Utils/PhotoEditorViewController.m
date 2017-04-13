@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor blackColor];
     
     _drawView = [[LSDrawView alloc] initForAutoLayout];
     [self.view addSubview:_drawView];

@@ -92,7 +92,11 @@
 
     editor.imageBlock = ^(UIImage *image){
         [_photoButton setImage:image forState:UIControlStateNormal];
-        [picker dismissViewControllerAnimated:YES completion:nil];
+        [picker dismissViewControllerAnimated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarHidden:NO];
+            // 改变状态栏的颜色  改变为白色
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }];
     };
 }
 
