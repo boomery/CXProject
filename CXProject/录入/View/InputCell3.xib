@@ -144,6 +144,13 @@
                     <constraint firstItem="Mfn-1v-f7N" firstAttribute="top" secondItem="RuC-tM-pn2" secondAttribute="bottom" constant="15" id="vZD-C7-WC2"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addressTextField" destination="a7I-0a-lQD" id="vDi-BA-ZDA"/>
+                <outlet property="areaTextField" destination="83x-SZ-hwu" id="2im-l0-f8T"/>
+                <outlet property="chargemanTextField" destination="hfi-tK-84r" id="7yM-NK-bQh"/>
+                <outlet property="end_dateTextField" destination="xYb-SZ-gvf" id="V9K-fi-5Oa"/>
+                <outlet property="progressTextField" destination="gaD-2c-6zP" id="S3c-U7-gWf"/>
+            </connections>
             <point key="canvasLocation" x="-406" y="-1022"/>
         </tableViewCell>
     </objects>

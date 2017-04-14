@@ -10,4 +10,12 @@
 
 @interface ProjectCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@property (weak, nonatomic) IBOutlet UILabel *districtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *siteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *measureDataLabel;
+
+@property (nonatomic, strong) Project *project;
 @end

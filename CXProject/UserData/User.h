@@ -7,18 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Project;
 typedef void(^completion)(BOOL loginStatus);
 @interface User : NSObject
 
 + (instancetype)sharedUser;
 
-+ (BOOL)userLoginStatus;
-
-+ (BOOL)isOurStaff;
-
 + (void)loginWithBlock:(completion)completionBlock;
 
 + (void)logoutWithBlock:(completion)completionBlock;
 
++ (BOOL)userLoginStatus;
 
++ (BOOL)isOurStaff;
+
++ (NSMutableArray *)projectList;
+
++ (BOOL)saveProject:(Project *)project;
 @end

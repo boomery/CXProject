@@ -67,8 +67,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addButton" destination="DDa-Xf-asI" id="Djy-wp-7U0"/>
+                <outlet property="memberTextField" destination="vNJ-Aw-6Dg" id="5Nt-Al-saj"/>
             </connections>
-            <point key="canvasLocation" x="-160" y="-779"/>
+            <point key="canvasLocation" x="-291" y="-874"/>
         </tableViewCell>
     </objects>
     <resources>

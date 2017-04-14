@@ -34,8 +34,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [super viewDidLoad];
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
-    self.navigationItem.rightBarButtonItem = item;
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
+//    self.navigationItem.rightBarButtonItem = item;
 
     [self initViews];
     [self setUpViewsWithIndex:0];
@@ -59,10 +59,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 }
 
 #pragma mark - 保存到本地
-- (void)save
-{
-    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-}
+//- (void)save
+//{
+//    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+//}
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

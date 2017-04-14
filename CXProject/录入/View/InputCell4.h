@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface InputCell4 : UITableViewCell
+@property (weak, nonatomic) IBOutlet UITextField *memberTextField;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @end

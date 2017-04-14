@@ -11,5 +11,8 @@
 @interface InputCell2 : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+@property (weak, nonatomic) IBOutlet UITextField *contractNatureTextField;
+@property (weak, nonatomic) IBOutlet UITextField *unitName;
+@property (weak, nonatomic) IBOutlet UITextField *contractArea;
 
 @end

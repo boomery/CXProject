@@ -15,6 +15,16 @@
     // Initialization code
 }
 
+- (void)setProject:(Project *)project
+{
+    _project = project;
+    _districtLabel.text = project.district;
+    _nameLabel.text = project.name;
+    _addressLabel.text = project.address;
+    _siteLabel.text = project.site;
+    _measureDataLabel.text = project.measure_date;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

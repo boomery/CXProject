@@ -23,6 +23,7 @@
     NSArray *_titleArray;
     NSMutableArray *_memberArray;
     NSMutableArray *_constructionCompany;
+    Project *_project;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @end
@@ -38,7 +39,7 @@
     [self initViews];
 }
 - (void)initData
-{
+{    
     _constructionCompany = [[NSMutableArray alloc] init];
     ConstructionCompany *company = [[ConstructionCompany alloc] init];
     [_constructionCompany addObject:company];
@@ -83,6 +84,7 @@ static NSString *inputCell4 = @"InputCell4";
 #pragma mark - 保存到本地
 - (void)save
 {
+    [User saveProject:_project];
     [SVProgressHUD showSuccessWithStatus:@"保存完成"];
 }
 
@@ -199,6 +201,50 @@ static NSString *inputCell4 = @"InputCell4";
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self.view endEditing:YES];
+    return YES;
+}
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    UITableViewCell *cell = (UITableViewCell *)[[textField nextResponder] nextResponder];
+    if (cell)
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        switch (indexPath.section)
+        {
+            case 0:
+            {
+                /*natomic, copy) NSString *name;
+                 @property (nonatomic, copy) NSString *district;
+                 @property (nonatomic, copy) NSString *site;
+                 @property (nonatomic, copy) NSString *turn;
+                 @property (nonatomic, strong) NSArray *supervisory;
+                 @property (nonatomic, copy) NSString *measure_date;
+                 @property (nonatomic, copy) NSString *captain;*/
+                NSArray *propertiesArray = @[@"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
+                InputCell *c = (InputCell *)cell;
+                [_project setValue:c.textField.text forKey:propertiesArray[indexPath.row]];
+            }
+                break;
+            case 1:
+            {
+                InputCell4 *c = (InputCell4 *)cell;
+
+            }
+                break;
+            case 2:
+            {
+                InputCell2 *c = (InputCell2 *)cell;
+            }
+                break;
+            case 3:
+            {
+                InputCell3 *c = (InputCell3 *)cell;
+            }
+                break;
+            default:
+                break;
+        }
+    }
     return YES;
 }
 #pragma mark - UITableViewDelegate

@@ -6,18 +6,17 @@
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#define USER_LOGIN_STATUS @"USER_LOGIN_STATUS"
 #import "User.h"
+#define USER_LOGIN_STATUS @"USER_LOGIN_STATUS"
 @interface User ()
-{
-    BOOL _hasLogin;
-}
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) BOOL isOurStaff;
 @end
+static User *sharedUser = nil;
 @implementation User
 + (instancetype)sharedUser
 {
     static dispatch_once_t onceToken;
-    static id sharedUser;
     dispatch_once(&onceToken, ^{
         sharedUser = [self new];
     });
@@ -41,6 +40,8 @@
         [SVProgressHUD dismissWithCompletion:^{
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
             [self setUserLoginStatus:YES];
+            sharedUser.isOurStaff = YES;
+            
             completionBlock(YES);
         }];
     });
@@ -58,10 +59,9 @@
     });
 }
 
-
-+ (void)setUserLoginStatus:(BOOL)hasLogin
++ (BOOL)isOurStaff
 {
-    [[NSUserDefaults standardUserDefaults] setBool:hasLogin forKey:USER_LOGIN_STATUS];
+    return sharedUser.isOurStaff;
 }
 
 + (BOOL)userLoginStatus
@@ -69,9 +69,57 @@
     return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS];
 }
 
-+ (BOOL)isOurStaff
++ (void)setUserLoginStatus:(BOOL)hasLogin
 {
-    return YES;
+    [[NSUserDefaults standardUserDefaults] setBool:hasLogin forKey:USER_LOGIN_STATUS];
 }
 
+#define KEY_PROJECT_LIST @"projectList"
+
++ (NSMutableArray *)projectList
+{
+    NSMutableArray *listArray = [[NSMutableArray alloc] init];
+    
+    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSArray *projectArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentPath error:nil];
+    [projectArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[NSString class]])
+        {
+            NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[documentPath stringByAppendingPathComponent:obj]];
+            NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+            Project *project = [unarchiver decodeObjectForKey:KEY_PROJECT_LIST];
+            [unarchiver finishDecoding];
+            if (project)
+            {
+                [listArray addObject:project];
+            }
+        }
+    }];
+    return listArray;
+}
++ (BOOL)saveProject:(Project *)project
+{
+    NSMutableData *data = [NSMutableData data];
+    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+    [archiver encodeObject:project forKey:KEY_PROJECT_LIST];
+    [archiver finishEncoding];
+    if (!project.filePath)
+    {
+        project.filePath = [self filePath];
+    }
+    return [data writeToFile:project.filePath atomically:YES];
+}
+
++ (NSString *)filePath
+{
+    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-hh:mm:ss"];
+    NSString *dateString = [formatter stringFromDate:date];
+    NSString *fileName = [NSString stringWithFormat:@"project_create_at:%@",dateString];
+    NSString *filePath = [documentPath stringByAppendingPathComponent:fileName];
+    return filePath;
+}
 @end

@@ -10,4 +10,10 @@
 
 @interface InputCell3 : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UITextField *addressTextField;
+@property (weak, nonatomic) IBOutlet UITextField *chargemanTextField;
+@property (weak, nonatomic) IBOutlet UITextField *areaTextField;
+@property (weak, nonatomic) IBOutlet UITextField *progressTextField;
+@property (weak, nonatomic) IBOutlet UITextField *end_dateTextField;
+
 @end

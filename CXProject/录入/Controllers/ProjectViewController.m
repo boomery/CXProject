@@ -9,6 +9,7 @@
 #import "ProjectViewController.h"
 #import "MeasureViewController.h"
 #import "PhotoViewController.h"
+#import "NewProjectViewController.h"
 @interface ProjectViewController ()
 
 @end
@@ -57,8 +58,10 @@
 #pragma mark - 编辑项目
 - (IBAction)editProject:(id)sender
 {
-    
-}
+    NewProjectViewController *newVC = [[NewProjectViewController alloc] init];
+    newVC.project = self.project;
+    newVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:newVC animated:YES];}
 
 #pragma mark - 团队互评
 - (IBAction)groupEvaluate:(id)sender

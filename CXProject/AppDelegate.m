@@ -44,7 +44,12 @@
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     
-    [DataProvider loadData];
+    if ([User userLoginStatus])
+    {
+        [DataProvider loadData];
+    }
+    //初始化用户单例
+    [User sharedUser];
     return YES;
 }
 

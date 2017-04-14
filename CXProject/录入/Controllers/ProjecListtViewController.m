@@ -26,24 +26,17 @@ static NSString *projectCell = @"ProjectCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
-    [self initData];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"AddProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:newProjectCell];
     [self.tableView registerNib:[UINib nibWithNibName:@"ProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:projectCell];
     
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
-- (void)initData
+
+- (void)viewWillAppear:(BOOL)animated
 {
-    _projectArray = [NSMutableArray new];
-    for (int i = 0; i < 20; i++)
-    {
-        Project *model = [[Project alloc] init];
-        model.name = [NSString stringWithFormat:@"项目名:%d",i];
-        model.area = [NSString stringWithFormat:@"地区:%d",i];
-        [_projectArray addObject:model];
-    }
+    _projectArray = [User projectList];;
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -71,6 +64,9 @@ static NSString *projectCell = @"ProjectCell";
     else
     {
         cell = [tableView dequeueReusableCellWithIdentifier:projectCell forIndexPath:indexPath];
+        ProjectCell *c = (ProjectCell* )cell;
+        Project *model = _projectArray[indexPath.row];
+        c.project = model;
     }
     
     return cell;
@@ -97,6 +93,7 @@ static NSString *projectCell = @"ProjectCell";
     else
     {
         ProjectViewController *projectVC = [[ProjectViewController alloc] init];
+        projectVC.project = _projectArray[indexPath.row];
         [self.navigationController pushViewController:projectVC animated:YES];
     }
 }

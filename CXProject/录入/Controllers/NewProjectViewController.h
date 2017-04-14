@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface NewProjectViewController : UIViewController
-
+@property (nonatomic, strong) Project *project;
 @end

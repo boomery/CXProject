@@ -107,6 +107,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addButton" destination="cR0-YO-mRR" id="Wfl-rg-O0T"/>
+                <outlet property="contractArea" destination="ooh-og-1jE" id="Xw2-fA-jfj"/>
+                <outlet property="contractNatureTextField" destination="vfd-b0-L5P" id="zT7-Nu-atI"/>
+                <outlet property="unitName" destination="vPv-w2-EvQ" id="Fvw-UH-12q"/>
             </connections>
             <point key="canvasLocation" x="187.5" y="-958"/>
         </tableViewCell>

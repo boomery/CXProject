@@ -10,4 +10,6 @@
 
 @interface ProjectViewController : BaseViewController
 
+@property (nonatomic, strong) Project *project;
+
 @end

@@ -33,7 +33,6 @@ static DataProvider *provider = nil;
     }
     else
     {
-//        NSString *parseJson = [[NSString alloc] initWithContentsOfFile:strPath encoding:NSUTF8StringEncoding error:nil];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSData *jsonData = [[NSData alloc] initWithContentsOfFile:strPath];
             DataProvider *sharedProvider = [self sharedProvider];
@@ -58,19 +57,4 @@ static DataProvider *provider = nil;
 {
     return provider.data.events;
 }
-
-////+ (NSArray *)subItemForName:(NSString *)name
-////{
-////    for (NSDictionary *subItemDict in provider.data.events)
-////    {
-////        
-////    }
-////    return nil;
-////}
-//
-//+ (NSArray *)standardForName:(NSString *)name
-//{
-//    return nil;
-//}
-
 @end
