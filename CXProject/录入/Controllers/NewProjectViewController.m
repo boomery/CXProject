@@ -24,6 +24,8 @@
     NSMutableArray *_memberArray;
     NSMutableArray *_constructionCompany;
     Project *_project;
+    //存放project类的属性名称 方便赋值
+    NSArray *_propertiesArray;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @end
@@ -39,17 +41,22 @@
     [self initViews];
 }
 - (void)initData
-{    
+{
+    if (!_project)
+    {
+        _project = [[Project alloc] init];
+    }
     _constructionCompany = [[NSMutableArray alloc] init];
     ConstructionCompany *company = [[ConstructionCompany alloc] init];
     [_constructionCompany addObject:company];
-    
     
     _memberArray = [[NSMutableArray alloc] init];
     Member *member = [[Member alloc] init];
     [_memberArray addObject:member];
     
     _titleArray = @[@"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估组长"];
+    _propertiesArray = @[@"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
+
 }
 
 static NSString *inputCell = @"InputCell";
@@ -84,8 +91,14 @@ static NSString *inputCell4 = @"InputCell4";
 #pragma mark - 保存到本地
 - (void)save
 {
-    [User saveProject:_project];
-    [SVProgressHUD showSuccessWithStatus:@"保存完成"];
+    if([User saveProject:_project])
+    {
+        [SVProgressHUD showSuccessWithStatus:@"保存完成"];
+    }
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:@"保存失败"];
+    }
 }
 
 #pragma mark - UIMyDatePickerDelegate
@@ -138,6 +151,7 @@ static NSString *inputCell4 = @"InputCell4";
             {
                 cell.textField.inputView = _datePicker;
             }
+            cell.textField.text = [_project valueForKey:_propertiesArray[indexPath.row]];
             return cell;
            
         }
@@ -220,9 +234,8 @@ static NSString *inputCell4 = @"InputCell4";
                  @property (nonatomic, strong) NSArray *supervisory;
                  @property (nonatomic, copy) NSString *measure_date;
                  @property (nonatomic, copy) NSString *captain;*/
-                NSArray *propertiesArray = @[@"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
                 InputCell *c = (InputCell *)cell;
-                [_project setValue:c.textField.text forKey:propertiesArray[indexPath.row]];
+                [_project setValue:c.textField.text forKey:_propertiesArray[indexPath.row]];
             }
                 break;
             case 1:
