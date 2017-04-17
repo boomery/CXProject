@@ -18,10 +18,12 @@
 @interface NewProjectViewController () <UITableViewDataSource, UITableViewDelegate, UIMyDatePickerDelegate, UITextFieldDelegate>
 {
     UIMyDatePicker *_datePicker;
+    //记录当前编辑的输入框
     UITextField *_activeTextField;
-
+    //记录编辑前输入框的值
+    NSString *_originalText;
+    
     NSArray *_titleArray;
-    NSMutableArray *_memberArray;
     NSMutableArray *_constructionCompany;
     Project *_project;
     //存放project类的属性名称 方便赋值
@@ -49,10 +51,6 @@
     _constructionCompany = [[NSMutableArray alloc] init];
     ConstructionCompany *company = [[ConstructionCompany alloc] init];
     [_constructionCompany addObject:company];
-    
-    _memberArray = [[NSMutableArray alloc] init];
-    Member *member = [[Member alloc] init];
-    [_memberArray addObject:member];
     
     _titleArray = @[@"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估组长"];
     _propertiesArray = @[@"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
@@ -91,6 +89,7 @@ static NSString *inputCell4 = @"InputCell4";
 #pragma mark - 保存到本地
 - (void)save
 {
+    [self.view endEditing:YES];
     if([User saveProject:_project])
     {
         [SVProgressHUD showSuccessWithStatus:@"保存完成"];
@@ -124,7 +123,7 @@ static NSString *inputCell4 = @"InputCell4";
             return _titleArray.count;
             break;
         case 1:
-            return _memberArray.count;
+            return _project.members.count > 0? _project.members.count : 1;
             break;
         case 2:
             return _constructionCompany.count;
@@ -145,27 +144,34 @@ static NSString *inputCell4 = @"InputCell4";
         case 0:
         {
             InputCell *cell = [tableView dequeueReusableCellWithIdentifier:inputCell forIndexPath:indexPath];
-            cell.nameLabel.text = _titleArray[indexPath.row];
             cell.textField.delegate = self;
             if (indexPath.row == 5)
             {
                 cell.textField.inputView = _datePicker;
             }
+            cell.nameLabel.text = _titleArray[indexPath.row];
             cell.textField.text = [_project valueForKey:_propertiesArray[indexPath.row]];
             return cell;
-           
         }
             break;
         case 1:
         {
             InputCell4 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell4 forIndexPath:indexPath];
+            cell.memberTextField.delegate = self;
             [cell.addButton addTarget:self action:@selector(addMember:) forControlEvents:UIControlEventTouchUpInside];
+            if (_project.members.count > 0)
+            {
+                cell.memberTextField.text = _project.members[indexPath.row];
+            }
             return cell;
         }
             break;
         case 2:
         {
             InputCell2 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell2 forIndexPath:indexPath];
+            cell.contractNatureTextField.delegate = self;
+            cell.unitName.delegate = self;
+            cell.contractArea.delegate = self;
             [cell.addButton addTarget:self action:@selector(addCompany:) forControlEvents:UIControlEventTouchUpInside];
             return cell;
         }
@@ -173,6 +179,11 @@ static NSString *inputCell4 = @"InputCell4";
         case 3:
         {
             InputCell3 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell3 forIndexPath:indexPath];
+            cell.addressTextField.delegate = self;
+            cell.chargemanTextField.delegate = self;
+            cell.areaTextField.delegate = self;
+            cell.progressTextField.delegate = self;
+            cell.end_dateTextField.delegate = self;
             return cell;
         }
             break;
@@ -211,12 +222,15 @@ static NSString *inputCell4 = @"InputCell4";
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
     _activeTextField = textField;
+    _originalText = _activeTextField.text;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self.view endEditing:YES];
+    [textField endEditing:YES];
     return YES;
 }
+
+#pragma mark - 向对象赋值
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
     UITableViewCell *cell = (UITableViewCell *)[[textField nextResponder] nextResponder];
@@ -241,7 +255,7 @@ static NSString *inputCell4 = @"InputCell4";
             case 1:
             {
                 InputCell4 *c = (InputCell4 *)cell;
-
+                [_project.members insertObject:c.memberTextField.text atIndex:indexPath.row];
             }
                 break;
             case 2:
@@ -258,6 +272,7 @@ static NSString *inputCell4 = @"InputCell4";
                 break;
         }
     }
+    _activeTextField = nil;
     return YES;
 }
 #pragma mark - UITableViewDelegate
@@ -271,7 +286,7 @@ static NSString *inputCell4 = @"InputCell4";
 {
     if (indexPath.section == 1)
     {
-        if (_memberArray.count == 1)
+        if (_project.members.count == 0)
         {
             return NO;
         }
@@ -301,7 +316,7 @@ static NSString *inputCell4 = @"InputCell4";
     {
         if (indexPath.section == 1)
         {
-             [_memberArray removeObjectAtIndex:indexPath.row];
+             [_project.members removeObjectAtIndex:indexPath.row];
         }
         if (indexPath.section == 2)
         {
@@ -326,8 +341,7 @@ static NSString *inputCell4 = @"InputCell4";
 
 - (void)addMember:(UIButton *)button
 {
-    Member *member = [[Member alloc] init];
-    [_memberArray addObject:member];
+    [_project.members addObject:@""];
     [self.tableView beginUpdates];
     [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
