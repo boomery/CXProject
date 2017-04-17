@@ -33,10 +33,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
-//    self.navigationItem.rightBarButtonItem = item;
-
     [self initViews];
     [self setUpViewsWithIndex:0];
     [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
@@ -59,10 +55,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 }
 
 #pragma mark - 保存到本地
-//- (void)save
-//{
-//    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-//}
+- (void)save
+{
+    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+}
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -136,8 +132,21 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             [view autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view];
             [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_standardTextField];
             [view autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view];
+            __weak typeof(self) weakSelf = self;;
             _inputView.saveBlock = ^{
+                [weakSelf save];
                 [SVProgressHUD showSuccessWithStatus:@"保存完成，开始下一个"];
+            };
+            _inputView.showBlock = ^{
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                    textField.text = @"二楼阳台顶板";
+                }];
+                [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+                [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+                   
+                }]];
+                [weakSelf presentViewController:alert animated:YES completion:nil];
             };
         }
         

@@ -13,8 +13,6 @@
 #import "InputCell4.h"
 
 #import "UIMyDatePicker.h"
-#import "ConstructionCompany.h"
-#import "Member.h"
 @interface NewProjectViewController () <UITableViewDataSource, UITableViewDelegate, UIMyDatePickerDelegate, UITextFieldDelegate>
 {
     UIMyDatePicker *_datePicker;
@@ -24,7 +22,6 @@
     NSString *_originalText;
     
     NSArray *_titleArray;
-    NSMutableArray *_constructionCompany;
     Project *_project;
     //存放project类的属性名称 方便赋值
     NSArray *_propertiesArray;
@@ -48,13 +45,8 @@
     {
         _project = [[Project alloc] init];
     }
-    _constructionCompany = [[NSMutableArray alloc] init];
-    ConstructionCompany *company = [[ConstructionCompany alloc] init];
-    [_constructionCompany addObject:company];
-    
     _titleArray = @[@"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估组长"];
     _propertiesArray = @[@"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
-
 }
 
 static NSString *inputCell = @"InputCell";
@@ -79,7 +71,6 @@ static NSString *inputCell4 = @"InputCell4";
     [self.tableView registerNib:[UINib nibWithNibName:@"InputCell3" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell3];
     [self.tableView registerNib:[UINib nibWithNibName:@"InputCell4" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell4];
 
-    
     [MHKeyboard addRegisterTheViewNeedMHKeyboard:self.view];
     
     _datePicker = [[UIMyDatePicker alloc] initWithDelegate:self];
@@ -90,24 +81,17 @@ static NSString *inputCell4 = @"InputCell4";
 - (void)save
 {
     [self.view endEditing:YES];
-    if([User saveProject:_project])
-    {
-        [SVProgressHUD showSuccessWithStatus:@"保存完成"];
-    }
-    else
-    {
-        [SVProgressHUD showErrorWithStatus:@"保存失败"];
-    }
+    [User saveProject:_project];
 }
 
 #pragma mark - UIMyDatePickerDelegate
 -(void)myDatePickerDidClickSure:(UIMyDatePicker *)picker
 {
-    [self.view endEditing:YES];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *str = [formatter stringFromDate:picker.datePicker.date];
     _activeTextField.text = str;
+    [self.view endEditing:YES];
 }
 
 #pragma mark - UITableViewDataSource
@@ -123,10 +107,10 @@ static NSString *inputCell4 = @"InputCell4";
             return _titleArray.count;
             break;
         case 1:
-            return _project.members.count > 0? _project.members.count : 1;
+            return _project.members.count;
             break;
         case 2:
-            return _constructionCompany.count;
+            return _project.builders.count;
             break;
         case 3:
             return 1;
@@ -159,10 +143,7 @@ static NSString *inputCell4 = @"InputCell4";
             InputCell4 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell4 forIndexPath:indexPath];
             cell.memberTextField.delegate = self;
             [cell.addButton addTarget:self action:@selector(addMember:) forControlEvents:UIControlEventTouchUpInside];
-            if (_project.members.count > 0)
-            {
-                cell.memberTextField.text = _project.members[indexPath.row];
-            }
+            cell.memberTextField.text = _project.members[indexPath.row];
             return cell;
         }
             break;
@@ -173,6 +154,10 @@ static NSString *inputCell4 = @"InputCell4";
             cell.unitName.delegate = self;
             cell.contractArea.delegate = self;
             [cell.addButton addTarget:self action:@selector(addCompany:) forControlEvents:UIControlEventTouchUpInside];
+            NSDictionary *dict = _project.builders[indexPath.row];
+            cell.contractNatureTextField.text = dict[@"承包性质"];
+            cell.unitName.text = dict[@"单位名称"];
+            cell.contractArea.text = dict[@"承包范围"];
             return cell;
         }
             break;
@@ -184,6 +169,12 @@ static NSString *inputCell4 = @"InputCell4";
             cell.areaTextField.delegate = self;
             cell.progressTextField.delegate = self;
             cell.end_dateTextField.delegate = self;
+            cell.end_dateTextField.inputView = _datePicker;
+            cell.addressTextField.text = _project.address;
+            cell.chargemanTextField.text = _project.chargeman;
+            cell.areaTextField.text = _project.area;
+            cell.progressTextField.text = _project.progress;
+            cell.end_dateTextField.text = _project.end_date;
             return cell;
         }
             break;
@@ -241,13 +232,6 @@ static NSString *inputCell4 = @"InputCell4";
         {
             case 0:
             {
-                /*natomic, copy) NSString *name;
-                 @property (nonatomic, copy) NSString *district;
-                 @property (nonatomic, copy) NSString *site;
-                 @property (nonatomic, copy) NSString *turn;
-                 @property (nonatomic, strong) NSArray *supervisory;
-                 @property (nonatomic, copy) NSString *measure_date;
-                 @property (nonatomic, copy) NSString *captain;*/
                 InputCell *c = (InputCell *)cell;
                 [_project setValue:c.textField.text forKey:_propertiesArray[indexPath.row]];
             }
@@ -255,17 +239,28 @@ static NSString *inputCell4 = @"InputCell4";
             case 1:
             {
                 InputCell4 *c = (InputCell4 *)cell;
-                [_project.members insertObject:c.memberTextField.text atIndex:indexPath.row];
+                [_project.members replaceObjectAtIndex:indexPath.row withObject:c.memberTextField.text];
             }
                 break;
             case 2:
             {
                 InputCell2 *c = (InputCell2 *)cell;
+                NSMutableDictionary *dict = _project.builders[indexPath.row];
+                NSMutableDictionary *dict2 = [[NSMutableDictionary alloc] initWithDictionary:dict];
+                [dict2 setValue:c.contractNatureTextField.text forKey:@"承包性质"];
+                [dict2 setValue:c.unitName.text forKey:@"单位名称"];
+                [dict2 setValue:c.contractArea.text forKey:@"承包范围"];
+                [_project.builders replaceObjectAtIndex:indexPath.row withObject:dict2];
             }
                 break;
             case 3:
             {
                 InputCell3 *c = (InputCell3 *)cell;
+                _project.address = c.addressTextField.text;
+                _project.chargeman = c.chargemanTextField.text;
+                _project.area = c.areaTextField.text;
+                _project.progress = c.progressTextField.text;
+                _project.end_date = c.end_dateTextField.text;
             }
                 break;
             default:
@@ -286,14 +281,14 @@ static NSString *inputCell4 = @"InputCell4";
 {
     if (indexPath.section == 1)
     {
-        if (_project.members.count == 0)
+        if (_project.members.count == 1)
         {
             return NO;
         }
     }
     if (indexPath.section == 2)
     {
-        if (_constructionCompany.count == 1)
+        if (_project.builders.count == 1)
         {
             return NO;
         }
@@ -320,7 +315,7 @@ static NSString *inputCell4 = @"InputCell4";
         }
         if (indexPath.section == 2)
         {
-             [_constructionCompany removeObjectAtIndex:indexPath.row];
+             [_project.builders removeObjectAtIndex:indexPath.row];
         }
         [self.tableView beginUpdates];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -332,10 +327,10 @@ static NSString *inputCell4 = @"InputCell4";
 #pragma mark - 添加施工单位
 - (void)addCompany:(UIButton *)button
 {
-    ConstructionCompany *company = [[ConstructionCompany alloc] init];
-    [_constructionCompany addObject:company];
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [_project.builders addObject:dict];
     [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:2]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_project.builders.count - 1 inSection:2]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
 }
 
@@ -343,7 +338,7 @@ static NSString *inputCell4 = @"InputCell4";
 {
     [_project.members addObject:@""];
     [self.tableView beginUpdates];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_project.members.count-1 inSection:1]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

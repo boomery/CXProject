@@ -13,6 +13,7 @@
 #import "ProjecListtViewController.h"
 #import "MineViewController.h"
 #import "LoginViewController.h"
+#import "CXDataBaseUtil.h"
 @interface AppDelegate () <UITabBarControllerDelegate>
 
 @property (nonatomic, strong) BaseNavigationController *logNav;
@@ -50,6 +51,10 @@
     }
     //初始化用户单例
     [User sharedUser];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, NULL), ^{
+        [CXDataBaseUtil creatTable];
+    });
     return YES;
 }
 

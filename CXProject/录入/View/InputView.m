@@ -77,10 +77,21 @@
     }
     UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:saveButton];
-    [saveButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-59];
-    [saveButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [saveButton autoSetDimensionsToSize:CGSizeMake(60, 40)];
+    [saveButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-69];
     
+    UIButton *placeButton = [[UIButton alloc] initForAutoLayout];
+    [self addSubview:placeButton];
+    
+    NSArray *array = @[saveButton,placeButton];
+    
+    [array autoSetViewsDimension:ALDimensionHeight toSize:40];
+    [array autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:20.0 insetSpacing:YES matchedSizes:YES];
+    
+    placeButton.layer.cornerRadius = 10;
+    placeButton.clipsToBounds = YES;
+    placeButton.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+    [placeButton setTitle:@"地点" forState:UIControlStateNormal];
+    [placeButton addTarget:self action:@selector(showPlace) forControlEvents:UIControlEventTouchUpInside];
     
     saveButton.layer.cornerRadius = 10;
     saveButton.clipsToBounds = YES;
@@ -90,9 +101,20 @@
     
 }
 
+- (void)showPlace
+{
+    if (self.showBlock)
+    {
+        self.showBlock();
+    }
+}
+
 - (void)save
 {
-    self.saveBlock();
+    if (self.saveBlock)
+    {
+        self.saveBlock();
+    }
 }
 
 - (UITextField *)textFieldEditable:(BOOL)editable  text:(NSString *)text

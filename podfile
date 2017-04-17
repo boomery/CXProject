@@ -12,4 +12,6 @@ pod 'AFNetwork', '~> 0.1.0'
 
 pod 'MJRefresh', '~> 3.1.12'
 
+pod 'FMDB', '~> 2.6.2'
+
 end

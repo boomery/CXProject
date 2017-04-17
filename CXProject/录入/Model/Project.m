@@ -7,8 +7,8 @@
 //
 
 #import "Project.h"
-//文件路径
-#define KEY_FILE_PATH @"filePath"
+//文件名称
+#define KEY_FILE_NAME @"fileName"
 //项目名称
 #define KEY_NAME @"name"
 //项目区域
@@ -42,13 +42,16 @@
 {
     if (self = [super init]) {
         _members = [[NSMutableArray alloc] init];
+        [_members addObject:@""];
         _builders = [[NSMutableArray alloc] init];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [_builders addObject:dict];
     }
     return self;
 }
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self.filePath = [aDecoder decodeObjectForKey:KEY_FILE_PATH];
+    self.fileName = [aDecoder decodeObjectForKey:KEY_FILE_NAME];
     
     self.name = [aDecoder decodeObjectForKey:KEY_NAME];
     self.district = [aDecoder decodeObjectForKey:KEY_DISTRICT];
@@ -74,7 +77,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:self.filePath forKey:KEY_FILE_PATH];
+    [aCoder encodeObject:self.fileName forKey:KEY_FILE_NAME];
     
     [aCoder encodeObject:self.name forKey:KEY_NAME];
     [aCoder encodeObject:self.district forKey:KEY_DISTRICT];

@@ -32,6 +32,12 @@
 		901781601E8276C600D6E8A1 /* CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9017815D1E8276C600D6E8A1 /* CountCell.m */; };
 		901781611E8276C600D6E8A1 /* CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9017815E1E8276C600D6E8A1 /* CountCell.xib */; };
 		901781621E8276C600D6E8A1 /* CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9017815E1E8276C600D6E8A1 /* CountCell.xib */; };
+		9028C9391EA4B8CB003DA545 /* CXDataBaseUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9341EA4B8CB003DA545 /* CXDataBaseUtil.m */; };
+		9028C93A1EA4B8CB003DA545 /* NoticeRoomMessage+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9361EA4B8CB003DA545 /* NoticeRoomMessage+Addition.m */; };
+		9028C93B1EA4B8CB003DA545 /* NoticeRoomMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9381EA4B8CB003DA545 /* NoticeRoomMessage.m */; };
+		9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9028C93C1EA4BC6A003DA545 /* measure.sqlite */; };
+		9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C93F1EA4BF47003DA545 /* MeasureResult.m */; };
+		9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -49,12 +55,10 @@
 		908BFE471E97264600937372 /* InputCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE451E97264600937372 /* InputCell2.xib */; };
 		908BFE4B1E97265400937372 /* InputCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE491E97265400937372 /* InputCell3.m */; };
 		908BFE4C1E97265400937372 /* InputCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE4A1E97265400937372 /* InputCell3.xib */; };
-		908C82311E9B1C1F0086EDCD /* ConstructionCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82301E9B1C1F0086EDCD /* ConstructionCompany.m */; };
 		908C823A1E9B28060086EDCD /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82381E9B28060086EDCD /* ProjectViewController.m */; };
 		908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C82391E9B28060086EDCD /* ProjectViewController.xib */; };
 		908C823F1E9B31720086EDCD /* InputCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C823D1E9B31720086EDCD /* InputCell4.m */; };
 		908C82401E9B31720086EDCD /* InputCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C823E1E9B31720086EDCD /* InputCell4.xib */; };
-		908C82431E9B33290086EDCD /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82421E9B33290086EDCD /* Member.m */; };
 		908C82471E9B4DEE0086EDCD /* MeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82451E9B4DEE0086EDCD /* MeasureViewController.m */; };
 		908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C82461E9B4DEE0086EDCD /* MeasureViewController.xib */; };
 		908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C824D1E9B73B90086EDCD /* DetailMeasureViewController.m */; };
@@ -152,6 +156,17 @@
 		9017815C1E8276C600D6E8A1 /* CountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountCell.h; sourceTree = "<group>"; };
 		9017815D1E8276C600D6E8A1 /* CountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountCell.m; sourceTree = "<group>"; };
 		9017815E1E8276C600D6E8A1 /* CountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountCell.xib; sourceTree = "<group>"; };
+		9028C9331EA4B8CB003DA545 /* CXDataBaseUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXDataBaseUtil.h; sourceTree = "<group>"; };
+		9028C9341EA4B8CB003DA545 /* CXDataBaseUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXDataBaseUtil.m; sourceTree = "<group>"; };
+		9028C9351EA4B8CB003DA545 /* NoticeRoomMessage+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NoticeRoomMessage+Addition.h"; sourceTree = "<group>"; };
+		9028C9361EA4B8CB003DA545 /* NoticeRoomMessage+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NoticeRoomMessage+Addition.m"; sourceTree = "<group>"; };
+		9028C9371EA4B8CB003DA545 /* NoticeRoomMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeRoomMessage.h; sourceTree = "<group>"; };
+		9028C9381EA4B8CB003DA545 /* NoticeRoomMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeRoomMessage.m; sourceTree = "<group>"; };
+		9028C93C1EA4BC6A003DA545 /* measure.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = measure.sqlite; sourceTree = "<group>"; };
+		9028C93E1EA4BF47003DA545 /* MeasureResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureResult.h; sourceTree = "<group>"; };
+		9028C93F1EA4BF47003DA545 /* MeasureResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureResult.m; sourceTree = "<group>"; };
+		9028C9411EA4BFE0003DA545 /* MeasureResult+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeasureResult+Addtion.h"; sourceTree = "<group>"; };
+		9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeasureResult+Addtion.m"; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -181,16 +196,12 @@
 		908BFE481E97265400937372 /* InputCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell3.h; sourceTree = "<group>"; };
 		908BFE491E97265400937372 /* InputCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCell3.m; sourceTree = "<group>"; };
 		908BFE4A1E97265400937372 /* InputCell3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputCell3.xib; sourceTree = "<group>"; };
-		908C822F1E9B1C1F0086EDCD /* ConstructionCompany.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstructionCompany.h; sourceTree = "<group>"; };
-		908C82301E9B1C1F0086EDCD /* ConstructionCompany.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstructionCompany.m; sourceTree = "<group>"; };
 		908C82371E9B28060086EDCD /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
 		908C82381E9B28060086EDCD /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
 		908C82391E9B28060086EDCD /* ProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectViewController.xib; sourceTree = "<group>"; };
 		908C823C1E9B31720086EDCD /* InputCell4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell4.h; sourceTree = "<group>"; };
 		908C823D1E9B31720086EDCD /* InputCell4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputCell4.m; sourceTree = "<group>"; };
 		908C823E1E9B31720086EDCD /* InputCell4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputCell4.xib; sourceTree = "<group>"; };
-		908C82411E9B33290086EDCD /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
-		908C82421E9B33290086EDCD /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		908C82441E9B4DEE0086EDCD /* MeasureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureViewController.h; sourceTree = "<group>"; };
 		908C82451E9B4DEE0086EDCD /* MeasureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureViewController.m; sourceTree = "<group>"; };
 		908C82461E9B4DEE0086EDCD /* MeasureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureViewController.xib; sourceTree = "<group>"; };
@@ -337,6 +348,7 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9028C9321EA4B8CB003DA545 /* FMDB */,
 				908BFE3C1E96269500937372 /* 时间选择器 */,
 				908BFE2C1E96054E00937372 /* MHKeyboard */,
 				90CB986B1E8F7F0F000FB2BC /* 绘图 */,
@@ -393,6 +405,7 @@
 				901781351E82754600D6E8A1 /* 我的 */,
 				901780EB1E82626600D6E8A1 /* Assets.xcassets */,
 				901780F01E82626600D6E8A1 /* Info.plist */,
+				9028C93C1EA4BC6A003DA545 /* measure.sqlite */,
 				908C82561E9B7D500086EDCD /* Measure.geojson */,
 				901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */,
 				901780DC1E82626600D6E8A1 /* Supporting Files */,
@@ -536,6 +549,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9028C9321EA4B8CB003DA545 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				9028C9331EA4B8CB003DA545 /* CXDataBaseUtil.h */,
+				9028C9341EA4B8CB003DA545 /* CXDataBaseUtil.m */,
+				9028C9351EA4B8CB003DA545 /* NoticeRoomMessage+Addition.h */,
+				9028C9361EA4B8CB003DA545 /* NoticeRoomMessage+Addition.m */,
+				9028C9371EA4B8CB003DA545 /* NoticeRoomMessage.h */,
+				9028C9381EA4B8CB003DA545 /* NoticeRoomMessage.m */,
+				9028C93E1EA4BF47003DA545 /* MeasureResult.h */,
+				9028C93F1EA4BF47003DA545 /* MeasureResult.m */,
+				9028C9411EA4BFE0003DA545 /* MeasureResult+Addtion.h */,
+				9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
 		904340091E89F78E00D33ED9 /* 录入 */ = {
 			isa = PBXGroup;
 			children = (
@@ -677,10 +707,6 @@
 			children = (
 				90CB98A01E8FA18C000FB2BC /* Project.h */,
 				90CB98A11E8FA18C000FB2BC /* Project.m */,
-				908C822F1E9B1C1F0086EDCD /* ConstructionCompany.h */,
-				908C82301E9B1C1F0086EDCD /* ConstructionCompany.m */,
-				908C82411E9B33290086EDCD /* Member.h */,
-				908C82421E9B33290086EDCD /* Member.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -802,6 +828,7 @@
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				908C82401E9B31720086EDCD /* InputCell4.xib in Resources */,
 				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
+				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
 				908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */,
@@ -889,6 +916,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CB98781E8F7F55000FB2BC /* NSObject+YYModel.m in Sources */,
+				9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */,
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
@@ -910,9 +938,11 @@
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
+				9028C9391EA4B8CB003DA545 /* CXDataBaseUtil.m in Sources */,
 				908BFE371E96054E00937372 /* MHKeyboard+AccessObject.m in Sources */,
 				90CB98A21E8FA18C000FB2BC /* Project.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
+				9028C93B1EA4B8CB003DA545 /* NoticeRoomMessage.m in Sources */,
 				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
 				908C826B1EA0A5080086EDCD /* Data.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
@@ -921,14 +951,13 @@
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */,
 				908C82631E9F0CAB0086EDCD /* InputView.m in Sources */,
+				9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
 				908C82471E9B4DEE0086EDCD /* MeasureViewController.m in Sources */,
 				908C826C1EA0A5080086EDCD /* DataProvider.m in Sources */,
-				908C82311E9B1C1F0086EDCD /* ConstructionCompany.m in Sources */,
 				908BFE381E96054E00937372 /* MHKeyboard+Animation.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
-				908C82431E9B33290086EDCD /* Member.m in Sources */,
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
@@ -939,6 +968,7 @@
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
+				9028C93A1EA4B8CB003DA545 /* NoticeRoomMessage+Addition.m in Sources */,
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

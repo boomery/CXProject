@@ -23,5 +23,5 @@ typedef void(^completion)(BOOL loginStatus);
 
 + (NSMutableArray *)projectList;
 
-+ (BOOL)saveProject:(Project *)project;
++ (void)saveProject:(Project *)project;
 @end

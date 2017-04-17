@@ -97,29 +97,44 @@ static User *sharedUser = nil;
     }];
     return listArray;
 }
-+ (BOOL)saveProject:(Project *)project
++ (void)saveProject:(Project *)project
 {
+    if (!project.fileName)
+    {
+        project.fileName = [self fileName];
+    }
     NSMutableData *data = [NSMutableData data];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
     [archiver encodeObject:project forKey:KEY_PROJECT_LIST];
     [archiver finishEncoding];
-    if (!project.filePath)
+    NSError *error = nil;
+    NSString *filePath = [self filePathForFileName:project.fileName];
+    if ([data writeToFile:filePath options:NSDataWritingAtomic error:&error
+         ])
     {
-        project.filePath = [self filePath];
+        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
     }
-    return [data writeToFile:project.filePath atomically:YES];
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:error.description];
+    }
 }
 
-+ (NSString *)filePath
++ (NSString *)filePathForFileName:(NSString *)fileName
 {
+    //documentPath 模拟器中运行后会发生变动，因此每次动态获取路径
     NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd-hh:mm:ss"];
-    NSString *dateString = [formatter stringFromDate:date];
-    NSString *fileName = [NSString stringWithFormat:@"project_create_at:%@",dateString];
     NSString *filePath = [documentPath stringByAppendingPathComponent:fileName];
     return filePath;
+}
+
++ (NSString *)fileName
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-hh_mm_ss"];
+    NSString *dateString = [formatter stringFromDate:date];
+    NSString *fileName = [NSString stringWithFormat:@"project_create_at_%@",dateString];
+    return fileName;
 }
 @end

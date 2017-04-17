@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Project : NSObject <NSCoding>
-//文件路径
-@property (nonatomic, copy) NSString *filePath;
+//文件名称
+@property (nonatomic, copy) NSString *fileName;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *district;
