@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CXProject/&#x5f55;&#x5165;/Controllers/DetailMeasureViewController.m"
-            timestampString = "514195304.071957"
+            timestampString = "514198138.516322"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "-haveData"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-nowResult"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
