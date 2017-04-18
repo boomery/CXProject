@@ -170,6 +170,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     if ([self haveData])
     {
+        [self.collectionView reloadData];
         [self setValueWithResult:_resultsArray[_indexPath.row]];
     }
     else
@@ -192,6 +193,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)clearText
 {
     [_inputView setMeasureValues:@""];
+}
+
+- (void)saveMeasureResult:(MeasureResult *)result
+{
+    [MeasureResult insertNewMeasureResult:result];
+    [self.collectionView reloadData];
 }
 
 #pragma mark - 点击地点显示弹框
