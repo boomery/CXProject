@@ -94,22 +94,46 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     };
 }
 
-- (void)showPlace
+#pragma mark - 为控件布局
+- (void)setUpViewsWithIndex:(NSInteger)index
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        MeasureResult *res = _resultsArray[_indexPath.row];
-        textField.text = res.measurePlace;
-    }];
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self saveHaveMeasurePlace:alert.textFields[0].text];
-        
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    if (_event.events.count > index)
+    {
+        Event *subEvent = _event.events[index];
+        //有文字标准的情况
+        if (subEvent.textStandard)
+        {
+            _standardTextField.text = subEvent.textStandard;
+        }
+        //数字标准
+        else
+        {
+            NSNumberFormatter *fo = [[NSNumberFormatter alloc] init];
+            fo.numberStyle = NSNumberFormatterDecimalStyle;
+            NSNumber *minNum = [NSNumber numberWithFloat:subEvent.min];
+            NSNumber *maxNum = [NSNumber numberWithFloat:subEvent.max];
+            
+            NSString *min = [fo stringFromNumber:minNum];
+            NSString *max = [fo stringFromNumber:maxNum];
+            _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
+        }
+        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName];
+    }
 }
 
-#pragma mark - 保存到本地
+#pragma mark - 从数据库查询本地分项录入点记录
+- (NSArray *)loadMeasureResults
+{
+    if (_event.events.count > 0)
+    {
+        Event *subEvent = _event.events[_indexPath.section];
+        NSArray *results = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+        _resultsArray = results;
+    }
+    return nil;
+}
+
+#pragma mark - 录入点保存到本地
 - (void)saveHaveMeasurePlace:(NSString *)measurePlace
 {
     Event *subEvent = _event.events[_indexPath.section];
@@ -135,6 +159,57 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [MeasureResult insertNewMeasureResult:result];
 }
 
+#pragma mark - 判断数据记录是否存在
+- (BOOL)haveData
+{
+    return _resultsArray.count > _indexPath.row;
+}
+
+#pragma mark - 选择大项分项时执行记录是否存在的判断 若存在则赋值
+- (void)setViews
+{
+    if ([self haveData])
+    {
+        [self setValueWithResult:_resultsArray[_indexPath.row]];
+    }
+    else
+    {
+        [self clearText];
+        [SVProgressHUD showInfoWithStatus:@"无数据记录"];
+    }
+}
+
+- (void)setValueWithResult:(MeasureResult *)result
+{
+    [self clearText];
+    _measureArea.text = result.measureArea;
+    _measurePoint.text = result.measurePoint;
+    [_inputView setMeasureValues:result.measureValues];
+    [_inputView setDesignValues:result.designValues];
+}
+
+#pragma mark - 清空录入框
+- (void)clearText
+{
+    [_inputView setMeasureValues:@""];
+}
+
+#pragma mark - 点击地点显示弹框
+- (void)showPlace
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        MeasureResult *res = _resultsArray[_indexPath.row];
+        textField.text = res.measurePlace;
+    }];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self saveHaveMeasurePlace:alert.textFields[0].text];
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -157,52 +232,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     _indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:_indexPath.section];
     [self loadMeasureResults];
     [self setViews];
-}
-
-- (BOOL)haveData
-{
-    return _resultsArray.count > _indexPath.row;
-}
-
-- (void)setViews
-{
-    if ([self haveData])
-    {
-        [self setValueWithResult:_resultsArray[_indexPath.row]];
-    }
-    else
-    {
-        [self clearText];
-        [SVProgressHUD showInfoWithStatus:@"无数据记录"];
-    }
-}
-
-- (NSArray *)loadMeasureResults
-{
-    if (_event.events.count > 0)
-    {
-        Event *subEvent = _event.events[_indexPath.section];
-        NSArray *results = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
-        _resultsArray = results;
-    }
-    return nil;
-}
-
-- (void)setValueWithResult:(MeasureResult *)result
-{
-    [self clearText];
-    _measureArea.text = result.measureArea;
-    _measurePoint.text = result.measurePoint;
-    [_inputView setMeasureValues:result.measureValues];
-    [_inputView setDesignValues:result.designValues];
-}
-
-- (void)clearText
-{
-//    _measureArea.text = @"";
-//    _measurePoint.text = @"";
-    [_inputView setMeasureValues:@""];
-//    [_inputView setDesignValues:@""];
 }
 
 #pragma mark - UITableViewDataSource
@@ -230,38 +259,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self setViews];
 }
 
-- (void)setUpViewsWithIndex:(NSInteger)index
-{
-    if (_event.events.count > index)
-    {
-        Event *subEvent = _event.events[index];
-        //有文字标准的情况
-        if (subEvent.textStandard)
-        {
-            _standardTextField.text = subEvent.textStandard;
-        }
-        //数字标准
-        else
-        {
-            NSNumberFormatter *fo = [[NSNumberFormatter alloc] init];
-            fo.numberStyle = NSNumberFormatterDecimalStyle;
-            NSNumber *minNum = [NSNumber numberWithFloat:subEvent.min];
-            NSNumber *maxNum = [NSNumber numberWithFloat:subEvent.max];
-            
-            NSString *min = [fo stringFromNumber:minNum];
-            NSString *max = [fo stringFromNumber:maxNum];
-            _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
-        }
-        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName];
-    }
-}
-
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.view endEditing:YES];
-}
-
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -278,6 +275,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     }
     return YES;
 }
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
