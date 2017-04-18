@@ -93,14 +93,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         }
     };
 }
-- (MeasureResult *)nowResult
-{
-    if ([self haveData])
-    {
-        return _resultsArray[_indexPath.row];
-    }
-    return [[MeasureResult alloc] init];
-}
+
 #pragma mark - 为控件布局
 - (void)setUpViewsWithIndex:(NSInteger)index
 {
@@ -128,14 +121,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     }
 }
 
-#pragma mark - 判断数据记录是否存在
-- (BOOL)haveData
-{
-    return _resultsArray.count > _indexPath.row;
-}
-
 #pragma mark - 从数据库查询本地分项录入点记录
-- (void)loadMeasureResults
+- (NSArray *)loadMeasureResults
 {
     if (_event.events.count > 0)
     {
@@ -143,13 +130,46 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         NSArray *results = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
         _resultsArray = results;
     }
+    return nil;
 }
+
+#pragma mark - 录入点保存到本地
+- (void)saveHaveMeasurePlace:(NSString *)measurePlace
+{
+    Event *subEvent = _event.events[_indexPath.section];
+    MeasureResult *result = nil;
+    if ([self haveData])
+    {
+        result  = _resultsArray[_indexPath.row];
+    }
+    else
+    {
+        result = [[MeasureResult alloc] init];
+    }
+    result.projectID = [User editingProject].fileName;
+    result.itemName = _event.name;
+    result.subItemName = subEvent.name;
+    result.measureArea = _measureArea.text;
+    result.measurePoint = _measurePoint.text;
+    result.measureValues = _inputView.measureValues;
+    result.designValues = _inputView.designValues;
+    result.measureResult = @"1";
+    result.measurePlace = measurePlace;
+    result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+    [MeasureResult insertNewMeasureResult:result];
+}
+
+#pragma mark - 判断数据记录是否存在
+- (BOOL)haveData
+{
+    return _resultsArray.count > _indexPath.row;
+}
+
 #pragma mark - 选择大项分项时执行记录是否存在的判断 若存在则赋值
 - (void)setViews
 {
     if ([self haveData])
     {
-        [self.collectionView reloadData];
         [self setValueWithResult:_resultsArray[_indexPath.row]];
     }
     else
@@ -166,39 +186,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     _measurePoint.text = result.measurePoint;
     [_inputView setMeasureValues:result.measureValues];
     [_inputView setDesignValues:result.designValues];
-}
-
-#pragma mark - 录入点保存到本地
-- (void)saveHaveMeasurePlace:(NSString *)measurePlace
-{
-    Event *subEvent = _event.events[_indexPath.section];
-    MeasureResult *result = [self nowResult];
-
-    result.projectID = [User editingProject].fileName;
-    result.itemName = _event.name;
-    result.subItemName = subEvent.name;
-    result.measureArea = _measureArea.text;
-    
-    result.measureValues = _inputView.measureValues;
-    result.designValues = _inputView.designValues;
-    result.measureResult = @"1";
-    result.measurePlace = measurePlace;
-    result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
-    if ([result.measurePoint integerValue] > [_measurePoint.text integerValue])
-    {
-        [self showAlert];
-    }
-    else
-    {
-        result.measurePoint = _measurePoint.text;
-        [self saveMeasureResult:result];
-    }
-}
-
-- (void)saveMeasureResult:(MeasureResult *)result
-{
-    [MeasureResult insertNewMeasureResult:result];
-    [self.collectionView reloadData];
 }
 
 #pragma mark - 清空录入框
@@ -223,23 +210,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - 保存时检测点小于原有检测点提示
-- (void)showAlert
-{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"新的检测点数小于原有检测点，保存可能会丢失超出设置点数的录入数据" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self nowResult].measurePoint = _measurePoint.text;
-        [self saveMeasureResult:[self nowResult]];
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
-
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [[self nowResult].measurePoint integerValue];
+    return 100;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
