@@ -20,11 +20,12 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          MEASURE_TABLE, @"projectID", @"itemName", @"subItemName", @"measureArea", @"measurePoint", @"MeasureValues", @"designValues", @"measureResult", @"mesaureIndex", result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues,result.designValues, result.measureResult, result.mesaureIndex];
+                          @"Insert Or Replace Into '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          MEASURE_TABLE, @"projectID", @"itemName", @"subItemName", @"measureArea", @"measurePoint", @"MeasureValues", @"designValues", @"measureResult",  @"measurePlace", @"mesaureIndex", result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues, result.measureResult, result.measurePlace, result.mesaureIndex];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
+        [self updateMeasureAreaMeasurePointDesignValuesWithMeasureResult:result];
         [SVProgressHUD showSuccessWithStatus:@"数据保存成功"];
     }
     else
@@ -34,6 +35,65 @@
     [db close];
 }
 
++ (BOOL)updateMeasureAreaMeasurePointDesignValuesWithMeasureResult:(MeasureResult *)result
+{
+    FMDatabase *db = [CXDataBaseUtil database];
+    if (![db open])
+    {
+        [db close];
+        NSAssert([db open], @"数据库打开失败");
+    }
+    [db setShouldCacheStatements:YES];
+    NSString *updateSql= [NSString stringWithFormat:
+                          @"update '%@' set %@ = '%@',%@='%@',%@='%@'  where %@ = '%@' and %@ = '%@' and %@ = '%@'",
+                          MEASURE_TABLE,@"measureArea",result.measureArea,@"measurePoint",result.measurePoint,@"designValues",result.designValues,@"projectID",result.projectID,@"itemName",result.itemName,@"subItemName",result.subItemName];
+    BOOL res = [db executeUpdate:updateSql];
+    if (res)
+    {
+        NSLog(@"分项检测区，检测点，设计值更新成功");
+    }
+    else
+    {
+        NSLog(@"分项检测区，检测点，设计值更新失败");
+    }
+    [db close];
+    return res;
+}
+
++ (NSArray *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
+{
+    NSMutableArray *resultsArray = [[NSMutableArray alloc] init];
+    FMDatabase *db = [CXDataBaseUtil database];
+    if (![db open])
+    {
+        [db close];
+        NSAssert([db open], @"数据库打开失败");
+    }
+    [db setShouldCacheStatements:YES];
+    
+    NSString *querySql= [NSString stringWithFormat:
+                         @"select distinct *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@'",MEASURE_TABLE,projectID,itemName,subItemName];
+    FMResultSet *res = [db executeQuery:querySql];
+    NSLog(@"%@",querySql);
+    while ([res next])
+    {
+        MeasureResult *result = [[MeasureResult alloc] init];
+        result.projectID = [res stringForColumn:@"projectID"];
+        result.itemName = [res stringForColumn:@"itemName"];
+        result.subItemName = [res stringForColumn:@"subItemName"];
+        result.measureArea = [res stringForColumn:@"measureArea"];
+        result.measurePoint = [res stringForColumn:@"measurePoint"];
+        result.measureValues = [res stringForColumn:@"measureValues"];
+        result.designValues = [res stringForColumn:@"designValues"];
+        result.measureResult = [res stringForColumn:@"measureResult"];
+        result.measurePlace = [res stringForColumn:@"measurePlace"];
+        result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
+        [resultsArray addObject:result];
+    }
+    [res close];
+    [db close];
+    return resultsArray;
+}
 //使用了replace into 语句 现在暂时不需要判断是否已经存在
 #pragma mark - 判断如果收到的是已经存储过的录入点
 + (BOOL)isExistThisMeaureResult:(MeasureResult *)result

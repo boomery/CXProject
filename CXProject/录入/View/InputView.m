@@ -140,6 +140,43 @@
     return textField;
 }
 
+- (void)setMeasureValues:(NSString *)measureValues
+{
+    if (measureValues.length == 0)
+    {
+        for (int i = 0; i < _measureTextfieldArray.count; i++)
+        {
+            UITextField *text = _measureTextfieldArray[i];
+            text.text = @"";
+        }
+        return;
+    }
+    NSArray *stringArray = [measureValues componentsSeparatedByString:@";"];
+    for (int i = 0; i < _measureTextfieldArray.count; i++)
+    {
+        UITextField *text = _measureTextfieldArray[i];
+        text.text = stringArray[i];
+    }
+}
+- (void)setDesignValues:(NSString *)designValues
+{
+    if (designValues.length == 0)
+    {
+        for (int i = 0; i < _designTextfieldArray.count; i++)
+        {
+            UITextField *text = _designTextfieldArray[i];
+            text.text = @"";
+        }
+        return;
+    }
+    NSArray *stringArray = [designValues componentsSeparatedByString:@";"];
+    for (int i = 0; i < _designTextfieldArray.count; i++)
+    {
+        UITextField *text = _designTextfieldArray[i];
+        text.text = stringArray[i];
+    }
+}
+
 //多个值用分号隔开
 - (NSString *)measureValues
 {

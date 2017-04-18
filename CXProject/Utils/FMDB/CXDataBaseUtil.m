@@ -42,7 +42,7 @@ static FMDatabase *_db = nil;
    	//判断数据库中是否已经存在这个表，如果不存在则创建该表
     if(![db tableExists:MEASURE_TABLE])
     {
-        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT,measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, mesaureIndex TEXT,PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",MEASURE_TABLE];
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT,measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT,mesaureIndex TEXT,PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",MEASURE_TABLE];
         if ([db executeUpdate:createSql])
         {
             NSLog(@"建表成功");

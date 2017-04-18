@@ -11,4 +11,5 @@
 
 + (void)insertNewMeasureResult:(MeasureResult *)result;
 
++ (NSArray *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
 @end

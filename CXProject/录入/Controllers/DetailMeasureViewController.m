@@ -15,8 +15,11 @@
     NSArray *_titleArray;
     __weak IBOutlet UITextField *_standardTextField;
     InputView *_inputView;
+    
     //记录选中的行与点
     NSIndexPath *_indexPath;
+    //一个分项的录入点数组
+    NSArray *_resultsArray;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -38,8 +41,15 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [super viewDidLoad];
     [self initViews];
-    _indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self setUpViewsWithIndex:0];
+    [self initData];
+}
+
+- (void)initData
+{
+    [self loadMeasureResults];
+    [self setViews];
+    _indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView selectRowAtIndexPath:_indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
 }
@@ -58,13 +68,60 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     
     _standardTextField.layer.borderWidth = 0.3;
     _standardTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    InputView *view = [[InputView alloc] initForAutoLayout];
+    _inputView = view;
+    [self.view addSubview:view];
+    [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.tableView];
+    [view autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view];
+    [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_standardTextField];
+    [view autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view];
+    
+    __weak typeof(self) weakSelf = self;;
+    _inputView.saveBlock = ^{
+        [weakSelf saveHaveMeasurePlace:@""];
+    };
+    _inputView.showBlock = ^{
+        [weakSelf loadMeasureResults];
+        if ([weakSelf haveData])
+        {
+            [weakSelf showPlace];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"请先保存录入数据后再保存地点"];
+        }
+    };
+}
+
+- (void)showPlace
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        MeasureResult *res = _resultsArray[_indexPath.row];
+        textField.text = res.measurePlace;
+    }];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self saveHaveMeasurePlace:alert.textFields[0].text];
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - 保存到本地
-- (void)save
+- (void)saveHaveMeasurePlace:(NSString *)measurePlace
 {
     Event *subEvent = _event.events[_indexPath.section];
-    MeasureResult *result = [[MeasureResult alloc] init];
+    MeasureResult *result = nil;
+    if ([self haveData])
+    {
+        result  = _resultsArray[_indexPath.row];
+    }
+    else
+    {
+        result = [[MeasureResult alloc] init];
+    }
     result.projectID = [User editingProject].fileName;
     result.itemName = _event.name;
     result.subItemName = subEvent.name;
@@ -73,6 +130,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measureValues = _inputView.measureValues;
     result.designValues = _inputView.designValues;
     result.measureResult = @"1";
+    result.measurePlace = measurePlace;
     result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
     [MeasureResult insertNewMeasureResult:result];
 }
@@ -89,14 +147,62 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIView *selectedBackgroundView = [[UIView alloc] init];
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
     cell.selectedBackgroundView = selectedBackgroundView;
+    
     return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     _indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:_indexPath.section];
+    [self loadMeasureResults];
+    [self setViews];
+}
+
+- (BOOL)haveData
+{
+    return _resultsArray.count > _indexPath.row;
+}
+
+- (void)setViews
+{
+    if ([self haveData])
+    {
+        [self setValueWithResult:_resultsArray[_indexPath.row]];
+    }
+    else
+    {
+        [self clearText];
+        [SVProgressHUD showInfoWithStatus:@"无数据记录"];
+    }
+}
+
+- (NSArray *)loadMeasureResults
+{
+    if (_event.events.count > 0)
+    {
+        Event *subEvent = _event.events[_indexPath.section];
+        NSArray *results = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+        _resultsArray = results;
+    }
+    return nil;
+}
+
+- (void)setValueWithResult:(MeasureResult *)result
+{
+    [self clearText];
+    _measureArea.text = result.measureArea;
+    _measurePoint.text = result.measurePoint;
+    [_inputView setMeasureValues:result.measureValues];
+    [_inputView setDesignValues:result.designValues];
+}
+
+- (void)clearText
+{
+//    _measureArea.text = @"";
+//    _measurePoint.text = @"";
+    [_inputView setMeasureValues:@""];
+//    [_inputView setDesignValues:@""];
 }
 
 #pragma mark - UITableViewDataSource
@@ -120,59 +226,33 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:indexPath.row];
     [self setUpViewsWithIndex:_indexPath.section];
+    [self loadMeasureResults];
+    [self setViews];
 }
 
 - (void)setUpViewsWithIndex:(NSInteger)index
 {
     if (_event.events.count > index)
     {
-        Event *event = _event.events[index];
-        
-        if (event.textStandard)
+        Event *subEvent = _event.events[index];
+        //有文字标准的情况
+        if (subEvent.textStandard)
         {
-            _standardTextField.text = event.textStandard;
+            _standardTextField.text = subEvent.textStandard;
         }
+        //数字标准
         else
         {
             NSNumberFormatter *fo = [[NSNumberFormatter alloc] init];
             fo.numberStyle = NSNumberFormatterDecimalStyle;
-            NSNumber *minNum = [NSNumber numberWithFloat:event.min];
-            NSNumber *maxNum = [NSNumber numberWithFloat:event.max];
+            NSNumber *minNum = [NSNumber numberWithFloat:subEvent.min];
+            NSNumber *maxNum = [NSNumber numberWithFloat:subEvent.max];
             
             NSString *min = [fo stringFromNumber:minNum];
             NSString *max = [fo stringFromNumber:maxNum];
             _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
         }
-        
-        if (!_inputView)
-        {
-            InputView *view = [[InputView alloc] initForAutoLayout];
-            _inputView = view;
-            [self.view addSubview:view];
-            [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.tableView];
-            [view autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self.view];
-            [view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_standardTextField];
-            [view autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view];
-            __weak typeof(self) weakSelf = self;;
-            _inputView.saveBlock = ^{
-                [weakSelf save];
-//                _indexPath = [NSIndexPath indexPathForRow:(_indexPath.row+1) inSection:_indexPath.section];
-//                NSLog(@"")
-            };
-            _inputView.showBlock = ^{
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                    textField.text = @"二楼阳台顶板";
-                }];
-                [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-                [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-                   
-                }]];
-                [weakSelf presentViewController:alert animated:YES completion:nil];
-            };
-        }
-        
-        [_inputView setUpViewsWithMeasurePoint:event.measurePoint haveDesign:event.needDesgin designName:event.designName];
+        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName];
     }
 }
 
@@ -202,6 +282,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [self.view endEditing:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
