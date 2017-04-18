@@ -122,7 +122,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 }
 
 #pragma mark - 从数据库查询本地分项录入点记录
-- (NSArray *)loadMeasureResults
+- (void)loadMeasureResults
 {
     if (_event.events.count > 0)
     {
@@ -130,7 +130,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         NSArray *results = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
         _resultsArray = results;
     }
-    return nil;
 }
 
 #pragma mark - 录入点保存到本地
@@ -170,7 +169,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     if ([self haveData])
     {
-        [self.collectionView reloadData];
         [self setValueWithResult:_resultsArray[_indexPath.row]];
     }
     else
