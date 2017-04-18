@@ -125,7 +125,7 @@
                         {
                         "同一室内的底盒标高差": {
                         "needDesign": "0",
-                        "measurePoint": "3",
+                        "measurePoint": ">=3",
                         "min": "0",
                         "max": "5",
                         "explain": "每三个或三个以上录入点的极差与标准值比较,计算一个合格点"

@@ -48,8 +48,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)initData
 {
     [self loadMeasureResults];
-    [self tableViewSetViews];
-    [self CollectionViewSetViews];
+    [self setViews];
     _indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView selectRowAtIndexPath:_indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
     [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
@@ -145,41 +144,24 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         _resultsArray = results;
     }
 }
-#pragma mark - 选择大项时执行操作
-- (void)tableViewSetViews
+#pragma mark - 选择大项分项时执行记录是否存在的判断 若存在则赋值
+- (void)setViews
 {
-    [self.collectionView reloadData];
-    [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-
     if ([self haveData])
     {
+        [self.collectionView reloadData];
         [self setValueWithResult:_resultsArray[_indexPath.row]];
     }
     else
     {
-        _measureArea.text = @"";
-        _measurePoint.text = @"";
-        [_inputView setMeasureValues:@""];
-        [_inputView setDesignValues:@""];
-        [SVProgressHUD showInfoWithStatus:@"无数据记录"];
-    }
-}
-#pragma mark - 选择分项时执行操作
-- (void)CollectionViewSetViews
-{
-    if ([self haveData])
-    {
-        [self setValueWithResult:_resultsArray[_indexPath.row]];
-    }
-    else
-    {
-        [_inputView setMeasureValues:@""];
+        [self clearText];
         [SVProgressHUD showInfoWithStatus:@"无数据记录"];
     }
 }
 
 - (void)setValueWithResult:(MeasureResult *)result
 {
+    [self clearText];
     _measureArea.text = result.measureArea;
     _measurePoint.text = result.measurePoint;
     [_inputView setMeasureValues:result.measureValues];
@@ -195,20 +177,20 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.projectID = [User editingProject].fileName;
     result.itemName = _event.name;
     result.subItemName = subEvent.name;
-    result.measurePoint = _measurePoint.text;
+    result.measureArea = _measureArea.text;
     
     result.measureValues = _inputView.measureValues;
     result.designValues = _inputView.designValues;
     result.measureResult = @"1";
     result.measurePlace = measurePlace;
-    result.mesaureIndex = [NSString stringWithFormat:@"%ld",(long)_indexPath.row];
-    if ([result.measureArea integerValue] > [_measureArea.text integerValue])
+    result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+    if ([result.measurePoint integerValue] > [_measurePoint.text integerValue])
     {
         [self showAlert];
     }
     else
     {
-        result.measureArea = _measureArea.text;
+        result.measurePoint = _measurePoint.text;
         [self saveMeasureResult:result];
     }
 }
@@ -216,8 +198,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)saveMeasureResult:(MeasureResult *)result
 {
     [MeasureResult insertNewMeasureResult:result];
-    [self loadMeasureResults];
     [self.collectionView reloadData];
+}
+
+#pragma mark - 清空录入框
+- (void)clearText
+{
+    [_inputView setMeasureValues:@""];
 }
 
 #pragma mark - 点击地点显示弹框
@@ -236,13 +223,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - 保存时检测区小于原有检测区提示
+#pragma mark - 保存时检测点小于原有检测点提示
 - (void)showAlert
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"新的检测区数少于原有检测区，保存会丢失超出设置区数的录入数据" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"警告" message:@"新的检测点数小于原有检测点，保存可能会丢失超出设置点数的录入数据" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self nowResult].measureArea = _measureArea.text;
+        [self nowResult].measurePoint = _measurePoint.text;
         [self saveMeasureResult:[self nowResult]];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
@@ -252,8 +239,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    NSLog(@"刷新时有 %ld 个区",(long)[[self nowResult].measureArea integerValue]);
-    return [[self nowResult].measureArea integerValue];
+    return [[self nowResult].measurePoint integerValue];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -271,7 +257,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     _indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:_indexPath.section];
     [self loadMeasureResults];
-    [self CollectionViewSetViews];
+    [self setViews];
 }
 
 #pragma mark - UITableViewDataSource
@@ -296,7 +282,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:indexPath.row];
     [self setUpViewsWithIndex:_indexPath.section];
     [self loadMeasureResults];
-    [self tableViewSetViews];
+    [self setViews];
 }
 
 #pragma mark - UITextFieldDelegate
