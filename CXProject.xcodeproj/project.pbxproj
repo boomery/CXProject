@@ -554,14 +554,14 @@
 			children = (
 				9028C9331EA4B8CB003DA545 /* CXDataBaseUtil.h */,
 				9028C9341EA4B8CB003DA545 /* CXDataBaseUtil.m */,
-				9028C9351EA4B8CB003DA545 /* NoticeRoomMessage+Addition.h */,
-				9028C9361EA4B8CB003DA545 /* NoticeRoomMessage+Addition.m */,
-				9028C9371EA4B8CB003DA545 /* NoticeRoomMessage.h */,
-				9028C9381EA4B8CB003DA545 /* NoticeRoomMessage.m */,
 				9028C93E1EA4BF47003DA545 /* MeasureResult.h */,
 				9028C93F1EA4BF47003DA545 /* MeasureResult.m */,
 				9028C9411EA4BFE0003DA545 /* MeasureResult+Addtion.h */,
 				9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */,
+				9028C9351EA4B8CB003DA545 /* NoticeRoomMessage+Addition.h */,
+				9028C9361EA4B8CB003DA545 /* NoticeRoomMessage+Addition.m */,
+				9028C9371EA4B8CB003DA545 /* NoticeRoomMessage.h */,
+				9028C9381EA4B8CB003DA545 /* NoticeRoomMessage.m */,
 			);
 			path = FMDB;
 			sourceTree = "<group>";

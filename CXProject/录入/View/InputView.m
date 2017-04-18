@@ -7,13 +7,20 @@
 //
 
 #import "InputView.h"
-
+@interface InputView ()
+{
+    NSMutableArray *_measureTextfieldArray;
+    NSMutableArray *_designTextfieldArray;
+}
+@end
 @implementation InputView
 
 - (void)setUpViewsWithMeasurePoint:(NSInteger)measurePoint//每一组测量值有几个点
                         haveDesign:(BOOL)haveDesign//是否有设计值
                         designName:(NSArray *)designName//测量值名称数组，元素个数与测量值组数相同
 {
+    _measureTextfieldArray = [[NSMutableArray alloc] init];
+    _designTextfieldArray = [[NSMutableArray alloc] init];
     [self removeAllSubviews];
     
     UITextField *measureTextField = [self textFieldEditable:NO text:@"测量值"];
@@ -34,6 +41,7 @@
     for (int i = 0; i < measureGroup*measurePoint; i ++)
     {
         UITextField *text = [self textFieldEditable:YES text:@""];
+        [_measureTextfieldArray addObject:text];
         [views addObject:text];
         [self addSubview:text];
         [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField];
@@ -66,6 +74,7 @@
 
             UITextField *text = [self textFieldEditable:YES text:@""];
             [subViews addObject:text];
+            [_designTextfieldArray addObject:text];
             [self addSubview:text];
             [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:80];
             if (i == designName.count - 1)
@@ -129,5 +138,25 @@
     
     textField.text = text;
     return textField;
+}
+
+//多个值用分号隔开
+- (NSString *)measureValues
+{
+    NSString *values = @"";
+    for (UITextField *text in _measureTextfieldArray)
+    {
+        values = [values stringByAppendingString:[NSString stringWithFormat:@"%@;",text.text]];
+    }
+    return values;
+}
+- (NSString *)designValues
+{
+    NSString *values = @"";
+    for (UITextField *text in _designTextfieldArray)
+    {
+        values = [values stringByAppendingString:[NSString stringWithFormat:@"%@;",text.text]];
+    }
+    return values;
 }
 @end

@@ -14,6 +14,8 @@
             <connections>
                 <outlet property="_standardTextField" destination="f1y-n3-8ao" id="LiI-0N-8UH"/>
                 <outlet property="collectionView" destination="Phr-HM-Z0l" id="YR5-zy-ehF"/>
+                <outlet property="measureArea" destination="DTj-R6-AK3" id="DtP-dJ-qdW"/>
+                <outlet property="measurePoint" destination="Cav-kh-tXV" id="lVh-mh-LAa"/>
                 <outlet property="tableView" destination="9qX-8U-GFe" id="iRo-KG-5CY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

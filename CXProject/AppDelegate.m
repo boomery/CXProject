@@ -32,7 +32,21 @@
     [window makeKeyAndVisible];
     self.window = window;
     [self setupControllers];
-    
+    [self setTheme];
+    [self initData];
+    return YES;
+}
+- (void)initData
+{
+    [DataProvider loadData];
+    //初始化用户单例
+    [User sharedUser];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [CXDataBaseUtil creatTable];
+    });
+}
+- (void)setTheme
+{
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     //背景颜色
     [[UINavigationBar appearance] setBarTintColor:THEME_COLOR];
@@ -44,20 +58,7 @@
     
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
-    
-    if ([User userLoginStatus])
-    {
-        [DataProvider loadData];
-    }
-    //初始化用户单例
-    [User sharedUser];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, NULL), ^{
-        [CXDataBaseUtil creatTable];
-    });
-    return YES;
 }
-
 - (void)setupControllers
 {
     MainViewController *mainVC = [[MainViewController alloc] init];
@@ -101,6 +102,7 @@
         _logNav = logNav;
         return NO;
     }
+    //点击当前选中页面无操作
     if (viewController == tabBarController.selectedViewController)
     {
         return NO;
@@ -112,6 +114,7 @@
 {
     [_logNav dismissViewControllerAnimated:self completion:nil];
 }
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

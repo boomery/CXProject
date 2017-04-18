@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSString *subItemName;
 @property (nonatomic, copy) NSString *measureArea;
 @property (nonatomic, copy) NSString *measurePoint;
-@property (nonatomic, copy) NSString *MeasureValues;
+@property (nonatomic, copy) NSString *measureValues;
 @property (nonatomic, copy) NSString *designValues;
 @property (nonatomic, copy) NSString *measureResult;
 @property (nonatomic, copy) NSString *mesaureIndex;

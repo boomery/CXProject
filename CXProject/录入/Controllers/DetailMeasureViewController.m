@@ -9,15 +9,19 @@
 #import "DetailMeasureViewController.h"
 #import "LabelCell.h"
 #import "InputView.h"
+#import "MeasureResult+Addtion.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
 {
     NSArray *_titleArray;
     __weak IBOutlet UITextField *_standardTextField;
     InputView *_inputView;
+    //记录选中的行与点
+    NSIndexPath *_indexPath;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, assign) NSInteger selectedRow;
+@property (weak, nonatomic) IBOutlet UITextField *measureArea;
+@property (weak, nonatomic) IBOutlet UITextField *measurePoint;
 @end
 
 @implementation DetailMeasureViewController
@@ -34,8 +38,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [super viewDidLoad];
     [self initViews];
+    _indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self setUpViewsWithIndex:0];
-    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self.tableView selectRowAtIndexPath:_indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
 }
 
 - (void)initViews
@@ -57,7 +63,18 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - 保存到本地
 - (void)save
 {
-    [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+    Event *subEvent = _event.events[_indexPath.section];
+    MeasureResult *result = [[MeasureResult alloc] init];
+    result.projectID = [User editingProject].fileName;
+    result.itemName = _event.name;
+    result.subItemName = subEvent.name;
+    result.measureArea = _measureArea.text;
+    result.measurePoint = _measurePoint.text;
+    result.measureValues = _inputView.measureValues;
+    result.designValues = _inputView.designValues;
+    result.measureResult = @"1";
+    result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+    [MeasureResult insertNewMeasureResult:result];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -69,6 +86,9 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     LabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:labelCellIdentifier forIndexPath:indexPath];
+    UIView *selectedBackgroundView = [[UIView alloc] init];
+    selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
+    cell.selectedBackgroundView = selectedBackgroundView;
     return cell;
 }
 
@@ -76,6 +96,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    _indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:_indexPath.section];
 }
 
 #pragma mark - UITableViewDataSource
@@ -97,8 +118,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _selectedRow = indexPath.row;
-    [self setUpViewsWithIndex:_selectedRow];
+    _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:indexPath.row];
+    [self setUpViewsWithIndex:_indexPath.section];
 }
 
 - (void)setUpViewsWithIndex:(NSInteger)index
@@ -135,7 +156,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             __weak typeof(self) weakSelf = self;;
             _inputView.saveBlock = ^{
                 [weakSelf save];
-                [SVProgressHUD showSuccessWithStatus:@"保存完成，开始下一个"];
+//                _indexPath = [NSIndexPath indexPathForRow:(_indexPath.row+1) inSection:_indexPath.section];
+//                NSLog(@"")
             };
             _inputView.showBlock = ^{
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];

@@ -7,7 +7,6 @@
 //
 
 #import "LoginViewController.h"
-
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;

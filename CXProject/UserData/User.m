@@ -11,6 +11,7 @@
 @interface User ()
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isOurStaff;
+@property (nonatomic, strong) Project *editingProject;
 @end
 static User *sharedUser = nil;
 @implementation User
@@ -136,5 +137,14 @@ static User *sharedUser = nil;
     NSString *dateString = [formatter stringFromDate:date];
     NSString *fileName = [NSString stringWithFormat:@"project_create_at_%@",dateString];
     return fileName;
+}
+
++ (void)setEditingProject:(Project *)project
+{
+    sharedUser.editingProject = project;
+}
++ (Project *)editingProject
+{
+    return sharedUser.editingProject;
 }
 @end

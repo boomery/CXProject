@@ -9,15 +9,7 @@
 #import "MeasureResult+Addtion.h"
 #import "CXDataBaseUtil.h"
 @implementation MeasureResult (Addtion)
-+ (void)insertMeasureResultWithProjectID:(NSString *)projectID
-                                itemName:(NSString *)itemName
-                             subItemName:(NSString *)subItemName
-                             measureArea:(NSString *)measureArea
-                            measurePoint:(NSString *)measurePoint
-                           MeasureValues:(NSString *)MeasureValues
-                            designValues:(NSString *)designValues
-                           measureResult:(NSString *)measureResult
-                            mesaureIndex:(NSString *)mesaureIndex
++ (void)insertNewMeasureResult:(MeasureResult *)result
 {
     FMDatabase *db = [CXDataBaseUtil database];
     if (![db open])
@@ -26,32 +18,23 @@
         NSAssert([db open], @"数据库打开失败");
     }
     [db setShouldCacheStatements:YES];
-    MeasureResult *result = [[MeasureResult alloc] init];
-    result.projectID = projectID;
-    result.itemName = itemName;
-    result.subItemName = subItemName;
-    if (![self isExistThisMeaureResult:result])
+    
+    NSString *insertSql= [NSString stringWithFormat:
+                          @"Insert Or Replace Into '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          MEASURE_TABLE, @"projectID", @"itemName", @"subItemName", @"measureArea", @"measurePoint", @"MeasureValues", @"designValues", @"measureResult", @"mesaureIndex", result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues,result.designValues, result.measureResult, result.mesaureIndex];
+    BOOL res = [db executeUpdate:insertSql];
+    if (res)
     {
-        NSString *insertSql= [NSString stringWithFormat:
-                              @"INSERT INTO '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                              MEASURE_TABLE, @"projectID", @"itemName", @"subItemName", @"measureArea", @"measurePoint", @"MeasureValues", @"designValues", @"measureResult", @"mesaureIndex", projectID, itemName, subItemName, measureArea, measurePoint, MeasureValues,designValues, measureResult, mesaureIndex];
-        BOOL res = [db executeUpdate:insertSql];
-        if (res)
-        {
-            NSLog(@"数据插入成功");
-        }
-        else
-        {
-            NSLog(@"数据插入失败");
-        }
-        [db close];
+        [SVProgressHUD showSuccessWithStatus:@"数据保存成功"];
     }
     else
     {
-        //        [self updateMessageWithTitle:title content:content insertTime:insertTime roomID:roomID messageID:messageID userHrid:userHrid];
+        [SVProgressHUD showErrorWithStatus:@"数据保存失败"];
     }
+    [db close];
 }
 
+//使用了replace into 语句 现在暂时不需要判断是否已经存在
 #pragma mark - 判断如果收到的是已经存储过的录入点
 + (BOOL)isExistThisMeaureResult:(MeasureResult *)result
 {
@@ -64,7 +47,7 @@
     }
     [db setShouldCacheStatements:YES];
     NSString *querySql= [NSString stringWithFormat:
-                         @"select *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@'",MEASURE_TABLE,result.projectID,result.itemName,result.subItemName];
+                         @"select *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@' and mesaureIndex = '%@'",MEASURE_TABLE,result.projectID,result.itemName,result.subItemName,result.mesaureIndex];
     FMResultSet *resultSet = [db executeQuery:querySql];
     while ([resultSet next])
     {
