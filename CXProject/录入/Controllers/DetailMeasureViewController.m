@@ -164,6 +164,16 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
     [self.collectionView reloadData];
     [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (_event.events.count > 0)
+        {
+            NSLog(@"保存完成后延迟0.5秒重新读取");
+            Event *subEvent = _event.events[_indexPath.section];
+            NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+            _resultsDict = resultsDict;
+        }
+    });
 }
 
 #pragma mark - 判断数据记录是否存在
