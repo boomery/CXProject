@@ -19,7 +19,7 @@
     //记录选中的行与点
     NSIndexPath *_indexPath;
     //一个分项的录入点数组
-    NSArray *_resultsArray;
+    NSDictionary *_resultsDict;
 }
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -79,10 +79,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     
     __weak typeof(self) weakSelf = self;;
     _inputView.saveBlock = ^{
-        [weakSelf saveHaveMeasurePlace:@""];
+        [weakSelf saveHaveMeasurePlace:nil];
     };
     _inputView.showBlock = ^{
-        [weakSelf loadMeasureResults];
+//        [weakSelf loadMeasureResults];
         if ([weakSelf haveData])
         {
             [weakSelf showPlace];
@@ -127,8 +127,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     if (_event.events.count > 0)
     {
         Event *subEvent = _event.events[_indexPath.section];
-        NSArray *results = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
-        _resultsArray = results;
+        NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+        _resultsDict = resultsDict;
+        [self.collectionView reloadData];
+        [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     }
 }
 
@@ -139,7 +141,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     MeasureResult *result = nil;
     if ([self haveData])
     {
-        result  = _resultsArray[_indexPath.row];
+        result  = _resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]];
     }
     else
     {
@@ -153,15 +155,21 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measureValues = _inputView.measureValues;
     result.designValues = _inputView.designValues;
     result.measureResult = @"1";
-    result.measurePlace = measurePlace;
+    if (measurePlace)
+    {
+        result.measurePlace = measurePlace;
+    }
     result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
     [MeasureResult insertNewMeasureResult:result];
+    [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
+    [self.collectionView reloadData];
+    [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
 }
 
 #pragma mark - 判断数据记录是否存在
 - (BOOL)haveData
 {
-    return _resultsArray.count > _indexPath.row;
+    return _resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]];
 }
 
 #pragma mark - 选择大项分项时执行记录是否存在的判断 若存在则赋值
@@ -169,7 +177,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     if ([self haveData])
     {
-        [self setValueWithResult:_resultsArray[_indexPath.row]];
+        [self setValueWithResult:_resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]]];
     }
     else
     {
@@ -193,18 +201,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [_inputView setMeasureValues:@""];
 }
 
-- (void)saveMeasureResult:(MeasureResult *)result
-{
-    [MeasureResult insertNewMeasureResult:result];
-    [self.collectionView reloadData];
-}
-
 #pragma mark - 点击地点显示弹框
 - (void)showPlace
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        MeasureResult *res = _resultsArray[_indexPath.row];
+        MeasureResult *res = _resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]];
         textField.text = res.measurePlace;
     }];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
@@ -227,7 +229,15 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIView *selectedBackgroundView = [[UIView alloc] init];
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
     cell.selectedBackgroundView = selectedBackgroundView;
-    
+    MeasureResult *res = _resultsDict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    if (res)
+    {
+        cell.label.text = res.measureResult;
+    }
+    else
+    {
+        cell.label.text = @"-";
+    }
     return cell;
 }
 
@@ -235,7 +245,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     _indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:_indexPath.section];
-    [self loadMeasureResults];
+//    [self loadMeasureResults];
     [self setViews];
 }
 
@@ -258,7 +268,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:indexPath.row];
+    _indexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
     [self setUpViewsWithIndex:_indexPath.section];
     [self loadMeasureResults];
     [self setViews];

@@ -60,9 +60,9 @@
     return res;
 }
 
-+ (NSArray *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
++ (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
 {
-    NSMutableArray *resultsArray = [[NSMutableArray alloc] init];
+    NSMutableDictionary *resultsDict = [[NSMutableDictionary alloc] init];
     FMDatabase *db = [CXDataBaseUtil database];
     if (![db open])
     {
@@ -74,7 +74,7 @@
     NSString *querySql= [NSString stringWithFormat:
                          @"select distinct *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@'",MEASURE_TABLE,projectID,itemName,subItemName];
     FMResultSet *res = [db executeQuery:querySql];
-    NSLog(@"%@",querySql);
+//    NSLog(@"%@",querySql);
     while ([res next])
     {
         MeasureResult *result = [[MeasureResult alloc] init];
@@ -88,11 +88,11 @@
         result.measureResult = [res stringForColumn:@"measureResult"];
         result.measurePlace = [res stringForColumn:@"measurePlace"];
         result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
-        [resultsArray addObject:result];
+        [resultsDict setValue:result forKey:result.mesaureIndex];
     }
     [res close];
     [db close];
-    return resultsArray;
+    return resultsDict;
 }
 //使用了replace into 语句 现在暂时不需要判断是否已经存在
 #pragma mark - 判断如果收到的是已经存储过的录入点
