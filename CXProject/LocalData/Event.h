@@ -38,8 +38,8 @@
 //文字描述标准
 @property (nonatomic, copy) NSString *textStandard;
 
-//合格点计算说明
-@property (nonatomic,copy) NSString *explain;
+//合格点计算方法
+@property (nonatomic,copy) NSString *method;
 
 //大项里的分项
 @property (nonatomic, strong) NSMutableArray *events;

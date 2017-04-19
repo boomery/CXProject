@@ -10,6 +10,7 @@
 #import "LabelCell.h"
 #import "InputView.h"
 #import "MeasureResult+Addtion.h"
+#import "BridgeUtil.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
 {
     NSArray *_titleArray;
@@ -82,14 +83,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         [weakSelf saveHaveMeasurePlace:nil];
     };
     _inputView.showBlock = ^{
-//        [weakSelf loadMeasureResults];
         if ([weakSelf haveData])
         {
             [weakSelf showPlace];
         }
         else
         {
-            [SVProgressHUD showErrorWithStatus:@"请先保存录入数据后再保存地点"];
+            [SVProgressHUD showErrorWithStatus:@"请先保存录入数据后再输入地点"];
         }
     };
 }
@@ -137,6 +137,11 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - 录入点保存到本地
 - (void)saveHaveMeasurePlace:(NSString *)measurePlace
 {
+    if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue])
+    {
+        [SVProgressHUD showErrorWithStatus:@"请先填写完整数据"];
+        return;
+    }
     Event *subEvent = _event.events[_indexPath.section];
     MeasureResult *result = nil;
     if ([self haveData])
@@ -154,6 +159,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measurePoint = _measurePoint.text;
     result.measureValues = _inputView.measureValues;
     result.designValues = _inputView.designValues;
+    NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues method:subEvent.method];
     result.measureResult = @"1";
     if (measurePlace)
     {

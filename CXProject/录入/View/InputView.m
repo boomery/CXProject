@@ -140,6 +140,25 @@
     return textField;
 }
 
+- (BOOL)haveSetValue
+{
+    for (UITextField *text in _measureTextfieldArray)
+    {
+        if (text.text.length == 0)
+        {
+            return NO;
+        }
+    }
+    for (UITextField *text in _designTextfieldArray)
+    {
+        if (text.text.length == 0)
+        {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (void)setMeasureValues:(NSString *)measureValues
 {
     if (measureValues.length == 0)

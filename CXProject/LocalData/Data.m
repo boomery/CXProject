@@ -46,7 +46,7 @@
                 subEvent.condition = dicObj[@"condition"];
                 subEvent.max2 = [dicObj[@"max2"] floatValue];
                 subEvent.textStandard = dicObj[@"textStandard"];
-                subEvent.explain = dicObj[@"explain"];
+                subEvent.method = dicObj[@"method"];
                 [event.events addObject:subEvent];
             }
         }

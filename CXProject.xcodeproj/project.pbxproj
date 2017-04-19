@@ -36,6 +36,9 @@
 		9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9028C93C1EA4BC6A003DA545 /* measure.sqlite */; };
 		9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C93F1EA4BF47003DA545 /* MeasureResult.m */; };
 		9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */; };
+		9028C9491EA75064003DA545 /* CountUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9471EA75064003DA545 /* CountUtil.c */; };
+		9028C94C1EA750B4003DA545 /* BridgeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C94B1EA750B4003DA545 /* BridgeUtil.m */; };
+		9028C94E1EA75566003DA545 /* MeasureMethodExplain in Resources */ = {isa = PBXBuildFile; fileRef = 9028C94D1EA75566003DA545 /* MeasureMethodExplain */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -161,6 +164,11 @@
 		9028C93F1EA4BF47003DA545 /* MeasureResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureResult.m; sourceTree = "<group>"; };
 		9028C9411EA4BFE0003DA545 /* MeasureResult+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeasureResult+Addtion.h"; sourceTree = "<group>"; };
 		9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeasureResult+Addtion.m"; sourceTree = "<group>"; };
+		9028C9471EA75064003DA545 /* CountUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CountUtil.c; sourceTree = "<group>"; };
+		9028C9481EA75064003DA545 /* CountUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountUtil.h; sourceTree = "<group>"; };
+		9028C94A1EA750B4003DA545 /* BridgeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeUtil.h; sourceTree = "<group>"; };
+		9028C94B1EA750B4003DA545 /* BridgeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeUtil.m; sourceTree = "<group>"; };
+		9028C94D1EA75566003DA545 /* MeasureMethodExplain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MeasureMethodExplain; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -401,6 +409,7 @@
 				901780F01E82626600D6E8A1 /* Info.plist */,
 				9028C93C1EA4BC6A003DA545 /* measure.sqlite */,
 				908C82561E9B7D500086EDCD /* Measure.geojson */,
+				9028C94D1EA75566003DA545 /* MeasureMethodExplain */,
 				901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */,
 				901780DC1E82626600D6E8A1 /* Supporting Files */,
 			);
@@ -610,6 +619,10 @@
 				908C82681EA0A5080086EDCD /* DataProvider.m */,
 				908C82691EA0A5080086EDCD /* Event.h */,
 				908C826A1EA0A5080086EDCD /* Event.m */,
+				9028C9471EA75064003DA545 /* CountUtil.c */,
+				9028C9481EA75064003DA545 /* CountUtil.h */,
+				9028C94A1EA750B4003DA545 /* BridgeUtil.h */,
+				9028C94B1EA750B4003DA545 /* BridgeUtil.m */,
 			);
 			path = LocalData;
 			sourceTree = "<group>";
@@ -832,6 +845,7 @@
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
+				9028C94E1EA75566003DA545 /* MeasureMethodExplain in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -910,6 +924,7 @@
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
+				9028C9491EA75064003DA545 /* CountUtil.c in Sources */,
 				908BFE421E96269600937372 /* UIMyDatePicker.m in Sources */,
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
@@ -951,6 +966,7 @@
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
+				9028C94C1EA750B4003DA545 /* BridgeUtil.m in Sources */,
 				908C823A1E9B28060086EDCD /* ProjectViewController.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
