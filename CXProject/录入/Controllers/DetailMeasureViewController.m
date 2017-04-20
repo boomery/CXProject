@@ -153,12 +153,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         return;
     }
     Event *subEvent = _event.events[_indexPath.section];
-    MeasureResult *result = nil;
-    if ([self exsistMeasureResultForIndexPath:_indexPath])
-    {
-        result  = _resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]];
-    }
-    else
+    MeasureResult *result = [self exsistMeasureResultForIndexPath:_indexPath];
+    if (!result)
     {
         result = [[MeasureResult alloc] init];
     }
@@ -168,6 +164,19 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measureArea = _measureArea.text;
     result.measurePoint = _measurePoint.text;
     result.measureValues = _inputView.measureValues;
+    if (![_inputView.designValues isEqualToString:result.designValues])
+    {
+        [SVProgressHUD showWithStatus:@"更改设计值，重新计算结果中"];
+        NSArray *a = [_resultsDict allValues];
+        for (MeasureResult *res in a)
+        {
+             NSString *countResult = [BridgeUtil resultForMeasureValues:res.measureValues designValues:_inputView.designValues event:subEvent];
+            res.measureResult = countResult;
+            NSLog(@"测量值：%@，设计值：%@，结果：%@",res.measureValues,res.designValues,countResult);
+            [MeasureResult insertNewMeasureResult:res];
+        }
+        [SVProgressHUD dismiss];
+    }
     result.designValues = _inputView.designValues;
     //根据算法得出结果
     NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
@@ -188,8 +197,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [MeasureResult insertNewMeasureResult:result];
     
     [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
-    [self.collectionView reloadData];
-    [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (_event.events.count > 0)
@@ -198,6 +205,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             Event *subEvent = _event.events[_indexPath.section];
             NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
             _resultsDict = resultsDict;
+            [self.collectionView reloadData];
+            [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
     });
 }
@@ -307,7 +316,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
   }
     return cell;
 }
-
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
