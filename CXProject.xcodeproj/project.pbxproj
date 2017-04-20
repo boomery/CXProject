@@ -38,6 +38,7 @@
 		9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */; };
 		9028C9491EA75064003DA545 /* CountUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9471EA75064003DA545 /* CountUtil.c */; };
 		9028C94C1EA750B4003DA545 /* BridgeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C94B1EA750B4003DA545 /* BridgeUtil.m */; };
+		9028C9541EA88E62003DA545 /* NSString+isValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9531EA88E62003DA545 /* NSString+isValid.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -167,6 +168,8 @@
 		9028C9481EA75064003DA545 /* CountUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountUtil.h; sourceTree = "<group>"; };
 		9028C94A1EA750B4003DA545 /* BridgeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeUtil.h; sourceTree = "<group>"; };
 		9028C94B1EA750B4003DA545 /* BridgeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeUtil.m; sourceTree = "<group>"; };
+		9028C9521EA88E62003DA545 /* NSString+isValid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+isValid.h"; sourceTree = "<group>"; };
+		9028C9531EA88E62003DA545 /* NSString+isValid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+isValid.m"; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -620,6 +623,8 @@
 				9028C9481EA75064003DA545 /* CountUtil.h */,
 				9028C94A1EA750B4003DA545 /* BridgeUtil.h */,
 				9028C94B1EA750B4003DA545 /* BridgeUtil.m */,
+				9028C9521EA88E62003DA545 /* NSString+isValid.h */,
+				9028C9531EA88E62003DA545 /* NSString+isValid.m */,
 			);
 			path = LocalData;
 			sourceTree = "<group>";
@@ -951,6 +956,7 @@
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */,
 				908C82631E9F0CAB0086EDCD /* InputView.m in Sources */,
+				9028C9541EA88E62003DA545 /* NSString+isValid.m in Sources */,
 				9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,

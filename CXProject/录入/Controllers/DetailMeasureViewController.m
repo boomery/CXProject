@@ -11,6 +11,7 @@
 #import "InputView.h"
 #import "MeasureResult+Addtion.h"
 #import "BridgeUtil.h"
+#import "NSString+isValid.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
 {
     NSArray *_titleArray;
@@ -127,7 +128,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             NSString *max = [fo stringFromNumber:maxNum];
             _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
         }
-        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName needGuidingValue:subEvent.needGuidingValue];
+        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName];
     }
 }
 
@@ -147,7 +148,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - 录入点保存到本地
 - (void)saveHaveMeasurePlace:(NSString *)measurePlace
 {
-    if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue] || _inputView.guidingValueTextField.text.length == 0)
+    
+    if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue])
     {
         [SVProgressHUD showErrorWithStatus:@"请先填写完整数据"];
         return;
@@ -169,7 +171,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measurePoint = _measurePoint.text;
     result.measureValues = _inputView.measureValues;
     result.designValues = _inputView.designValues;
-    result.guidingValue = _inputView.guidingValueTextField.text;
+    //根据算法得出结果
     NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
     result.measureResult = countResult;
     if (measurePlace)
@@ -177,7 +179,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         result.measurePlace = measurePlace;
     }
     result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
-    
+    //插入数据库
     [MeasureResult insertNewMeasureResult:result];
     
     [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
@@ -220,7 +222,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self clearText];
     _measureArea.text = result.measureArea;
     _measurePoint.text = result.measurePoint;
-    _inputView.guidingValueTextField.text = result.guidingValue;
     [_inputView setMeasureValues:result.measureValues];
     [_inputView setDesignValues:result.designValues];
 }

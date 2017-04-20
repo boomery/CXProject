@@ -18,7 +18,6 @@
 - (void)setUpViewsWithMeasurePoint:(NSInteger)measurePoint//每一组测量值有几个点
                         haveDesign:(BOOL)haveDesign//是否有设计值
                         designName:(NSArray *)designName//测量值名称数组，元素个数与测量值组数相同
-                      needGuidingValue:(BOOL)needGuidingValue//是否有设计值
 {
     BOOL is5 = IS_IPHONE_5;
     CGFloat height = is5 ? 30 : 40;
@@ -90,34 +89,6 @@
         }
     }
     
-    /*规定值布局*/
-    if (needGuidingValue)
-    {
-        NSMutableArray *subViews = [[NSMutableArray alloc] init];
-        UITextField *label = [self textFieldEditable:NO text:@"规定值"];
-        [subViews addObject:label];
-        [self addSubview:label];
-        label.font = [UIFont systemFontOfSize:13];
-        label.textAlignment = NSTextAlignmentCenter;
-       
-        UITextField *text = [self textFieldEditable:YES text:@""];
-        [subViews addObject:text];
-        _guidingValueTextField = text;
-        [self addSubview:text];
-        
-        if (haveDesign)
-        {
-            [label autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height*3];
-            [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height*3];
-        }
-        else
-        {
-            [label autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height];
-            [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height];
-        }
-        [subViews autoSetViewsDimension:ALDimensionHeight toSize:height];
-        [subViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
-    }
     /*保存按钮布局*/
     UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:saveButton];

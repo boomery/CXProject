@@ -20,8 +20,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          MEASURE_TABLE, @"projectID", @"itemName", @"subItemName", @"measureArea", @"measurePoint", @"MeasureValues", @"designValues", @"guidingValue",@"measureResult",  @"measurePlace", @"mesaureIndex", result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues, result.guidingValue,result.measureResult, result.measurePlace, result.mesaureIndex];
+                          @"Insert Or Replace Into '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          MEASURE_TABLE, @"projectID", @"itemName", @"subItemName", @"measureArea", @"measurePoint", @"MeasureValues", @"designValues", @"measureResult", @"measurePlace", @"mesaureIndex", result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace, result.mesaureIndex];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -85,7 +85,6 @@
         result.measurePoint = [res stringForColumn:@"measurePoint"];
         result.measureValues = [res stringForColumn:@"measureValues"];
         result.designValues = [res stringForColumn:@"designValues"];
-        result.guidingValue = [res stringForColumn:@"guidingValue"];
         result.measureResult = [res stringForColumn:@"measureResult"];
         result.measurePlace = [res stringForColumn:@"measurePlace"];
         result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];

@@ -22,19 +22,18 @@
     {
         case 1:
         {
-            result = count1([measureArray[0] intValue], [measureArray[1] intValue], [designArray[0] intValue], s);
+            result = count1([measureArray[0] floatValue], [measureArray[1] floatValue], [designArray[0] floatValue], s);
         }
             break;
         case 2:
         {
            
-            result = count2([measureArray[0] intValue], s);
+            result = count2([measureArray[0] floatValue], s);
         }
             break;
         case 3:
         {
-            
-            result = count3([measureArray[0] intValue], [measureArray[1] intValue], [measureArray[2] intValue], [measureArray[3] intValue], [measureArray[4] intValue], [designArray[0] intValue], s);
+            result = count3([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], s);
         }
             break;
         default:

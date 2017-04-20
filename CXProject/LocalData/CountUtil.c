@@ -9,35 +9,71 @@
 #include "CountUtil.h"
 /* 算法中0表示合格 1表示不合格 */
 //算法1:每两个录入点数与设计值相差大的的差值与标准值比较，计算一个合格点;
-int count1(int value1,int value2, int design,struct standard s)
+int count1(float value1,float value2, float design,struct standard s)
 {
-    printf("%d,%d,%d,%f,%f",value1, value2, design , s.min, s.max);
-    int a = abs(value1 - design);
-    int b = abs(value2 - design);
-    int largerDiffrence = a > b ? a : b;
-    if (largerDiffrence >= s.min && largerDiffrence <= s.max)
+    float a = fabsf(value1 - design);
+    float b = fabsf(value2 - design);
+    float largerDiffrence = a > b ? (value1 - design) : (value2 - design);
+    if (largerDiffrence < s.min || largerDiffrence > s.max)
     {
-        return 0;
+        return 1;
     }
     else
-        return 1;
+        return 0;
 }
 
 /* 算法中0表示合格 1表示不合格 */
 //算法2:每个录入点直接与标准值比较，计算一个合格点;
-int count2(int value1, struct standard s)
+int count2(float value1, struct standard s)
 {
-    if (value1 >= s.min && value1 <= s.max)
+    if (value1 < s.min || value1 > s.max)
     {
-        return 0;
+        return 1;
     }
     else
-        return 1;
+        return 0;
 }
+
 /* 算法中0表示合格 1表示不合格 */
 //算法3:每五个录入点数，以最小值为基准，其余点数差值与标准值比较相差在规定值内的，不合格点有一个算一个。如果有任意一个差值在规定值外的这五个值都算不合格点，并且五个点均按最大偏差值计
-int count3(int value1, int value2, int value3, int value4, int value5, int guidingValue, struct standard s)
+int count3(float value1, float value2, float value3, float value4, float value5, struct standard s)
 {
-    
-        return 1;
+    float a[5] = {value1, value2, value3, value4, value5};
+    float min = a[0];
+    for (int i = 0; i<4; i++)
+    {
+        min = min < a[i+1]? min:a[i+1];
+    }
+    for (int i = 0; i<4; i++)
+    {
+        float diffrence = fabs(min - a[i]);
+        
+        float v = fabs(diffrence - s.max);
+       
+    }
+    return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
