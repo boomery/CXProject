@@ -202,7 +202,14 @@
     NSString *values = @"";
     for (UITextField *text in _measureTextfieldArray)
     {
-        values = [values stringByAppendingString:[NSString stringWithFormat:@"%@;",text.text]];
+        if (text == [_measureTextfieldArray lastObject])
+        {
+            values = [values stringByAppendingString:[NSString stringWithFormat:@"%@",text.text]];
+        }
+        else
+        {
+            values = [values stringByAppendingString:[NSString stringWithFormat:@"%@;",text.text]];
+        }
     }
     return values;
 }
@@ -211,7 +218,14 @@
     NSString *values = @"";
     for (UITextField *text in _designTextfieldArray)
     {
-        values = [values stringByAppendingString:[NSString stringWithFormat:@"%@;",text.text]];
+        if (text == [_designTextfieldArray lastObject])
+        {
+            values = [values stringByAppendingString:[NSString stringWithFormat:@"%@",text.text]];
+        }
+        else
+        {
+            values = [values stringByAppendingString:[NSString stringWithFormat:@"%@;",text.text]];
+        }
     }
     return values;
 }

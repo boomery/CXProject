@@ -10,6 +10,6 @@
 
 @interface BridgeUtil : NSObject
 
-+ (NSString *)resultForMeasureValues:(NSString *)values method:(NSString *)method;
++ (NSString *)resultForMeasureValues:(NSString *)values designValues:(NSString *)designValues event:(Event *)event;
 
 @end

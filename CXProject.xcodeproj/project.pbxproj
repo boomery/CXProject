@@ -38,7 +38,6 @@
 		9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */; };
 		9028C9491EA75064003DA545 /* CountUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9471EA75064003DA545 /* CountUtil.c */; };
 		9028C94C1EA750B4003DA545 /* BridgeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C94B1EA750B4003DA545 /* BridgeUtil.m */; };
-		9028C94E1EA75566003DA545 /* MeasureMethodExplain in Resources */ = {isa = PBXBuildFile; fileRef = 9028C94D1EA75566003DA545 /* MeasureMethodExplain */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -168,7 +167,6 @@
 		9028C9481EA75064003DA545 /* CountUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountUtil.h; sourceTree = "<group>"; };
 		9028C94A1EA750B4003DA545 /* BridgeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeUtil.h; sourceTree = "<group>"; };
 		9028C94B1EA750B4003DA545 /* BridgeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeUtil.m; sourceTree = "<group>"; };
-		9028C94D1EA75566003DA545 /* MeasureMethodExplain */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MeasureMethodExplain; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -409,7 +407,6 @@
 				901780F01E82626600D6E8A1 /* Info.plist */,
 				9028C93C1EA4BC6A003DA545 /* measure.sqlite */,
 				908C82561E9B7D500086EDCD /* Measure.geojson */,
-				9028C94D1EA75566003DA545 /* MeasureMethodExplain */,
 				901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */,
 				901780DC1E82626600D6E8A1 /* Supporting Files */,
 			);
@@ -845,7 +842,6 @@
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
-				9028C94E1EA75566003DA545 /* MeasureMethodExplain in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

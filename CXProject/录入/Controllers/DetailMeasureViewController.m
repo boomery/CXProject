@@ -159,8 +159,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measurePoint = _measurePoint.text;
     result.measureValues = _inputView.measureValues;
     result.designValues = _inputView.designValues;
-    NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues method:subEvent.method];
-    result.measureResult = @"1";
+    NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
+    result.measureResult = countResult;
     if (measurePlace)
     {
         result.measurePlace = measurePlace;
@@ -243,11 +243,17 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     LabelCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:labelCellIdentifier forIndexPath:indexPath];
     UIView *selectedBackgroundView = [[UIView alloc] init];
-    selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
     cell.selectedBackgroundView = selectedBackgroundView;
+    selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
+    cell.backgroundColor = [UIColor whiteColor];
     MeasureResult *res = _resultsDict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
     if (res)
     {
+        if ([res.measureResult isEqualToString:@"1"])
+        {
+            selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+            cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+        }
         cell.label.text = res.measureResult;
     }
     else
@@ -261,7 +267,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     _indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:_indexPath.section];
-//    [self loadMeasureResults];
     [self setViews];
 }
 
