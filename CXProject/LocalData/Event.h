@@ -12,19 +12,18 @@
 
 //分项名称
 @property (nonatomic, copy) NSString *name;
+
 //是否有设计值
 @property (nonatomic, assign) BOOL needDesgin;
+
 //设计值名称
 @property (nonatomic, strong) NSArray *designName;
 
-//每组的点数
-@property (nonatomic, assign) NSInteger measurePoint;
-
-/*
 //是否有规定值
 @property (nonatomic, assign) BOOL needStandard;
-@property (nonatomic, assign) NSInteger standard;
- */
+
+//每组的点数
+@property (nonatomic, assign) NSInteger measurePoint;
 
 //存放最小值或最大值
 @property (nonatomic, assign) CGFloat min;

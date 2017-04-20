@@ -18,6 +18,7 @@
 - (void)setUpViewsWithMeasurePoint:(NSInteger)measurePoint//每一组测量值有几个点
                         haveDesign:(BOOL)haveDesign//是否有设计值
                         designName:(NSArray *)designName//测量值名称数组，元素个数与测量值组数相同
+                      needStandard:(BOOL)needStandard//是否有设计值
 {
     _measureTextfieldArray = [[NSMutableArray alloc] init];
     _designTextfieldArray = [[NSMutableArray alloc] init];
@@ -51,9 +52,10 @@
             [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
         }
     }
-    //设计值与设计值输入框
-    if (haveDesign)
+    //设计值与标签设计值输入框 || 规定值
+    if (haveDesign || needStandard)
     {
+        /*设计值布局*/
         UITextField *desginTextField = [self textFieldEditable:NO text:@"设计值"];
         [self addSubview:desginTextField];
         [desginTextField autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self];
@@ -84,6 +86,25 @@
             }
         }
     }
+    
+    /*规定值布局*/
+//    if (!haveDesign)
+//    {
+//        UILabel *label = [[UILabel alloc] initForAutoLayout];
+//        [subViews addObject:label];
+//        [self addSubview:label];
+//        label.font = [UIFont systemFontOfSize:13];
+//        label.textAlignment = NSTextAlignmentCenter;
+//        label.text = designName[i];
+//        [label autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:80];
+//        
+//        UITextField *text = [self textFieldEditable:YES text:@""];
+//        [subViews addObject:text];
+//        [_designTextfieldArray addObject:text];
+//        [self addSubview:text];
+//        [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:80];
+//    }
+    /*保存按钮布局*/
     UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:saveButton];
     [saveButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-69];

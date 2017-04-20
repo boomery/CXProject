@@ -17,5 +17,6 @@ struct standard{
 };
 
 int count1(int value1,int value2, int design,struct standard s);
-
+int count2(int value1, struct standard s);
+int count3(int value1, int value2, int value3, int value4, int value5, int design, struct standard s);
 #endif /* CountUtil_h */

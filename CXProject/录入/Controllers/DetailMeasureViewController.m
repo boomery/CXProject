@@ -117,7 +117,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             NSString *max = [fo stringFromNumber:maxNum];
             _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
         }
-        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName];
+        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName needStandard:subEvent.needStandard];
     }
 }
 

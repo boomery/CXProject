@@ -14,18 +14,29 @@
 {
     NSArray *measureArray = [values componentsSeparatedByString:@";"];
     NSArray *designArray = [designValues componentsSeparatedByString:@";"];
+    struct standard s;
+    s.min = event.min;
+    s.max = event.max;
     int result;
     switch ([event.method integerValue])
     {
         case 1:
         {
-            struct standard s;
-            s.min = event.min;
-            s.max = event.max;
-            result = count1([measureArray[0] intValue],[measureArray[1] intValue],[designArray[0] intValue],s);
+            result = count1([measureArray[0] intValue], [measureArray[1] intValue], [designArray[0] intValue], s);
         }
             break;
+        case 2:
+        {
+           
+            result = count2([measureArray[0] intValue], s);
+        }
+            break;
+        case 3:
+        {
             
+            result = count3([measureArray[0] intValue], [measureArray[1] intValue], [measureArray[2] intValue], [measureArray[3] intValue], [measureArray[4] intValue], [designArray[0] intValue], s);
+        }
+            break;
         default:
             result = 1;
             break;
