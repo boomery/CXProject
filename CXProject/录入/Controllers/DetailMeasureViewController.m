@@ -176,7 +176,14 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     {
         result.measurePlace = measurePlace;
     }
-    result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+    if ([self isSpecial])
+    {
+        result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row/5];
+    }
+    else
+    {
+        result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+    }
     //插入数据库
     [MeasureResult insertNewMeasureResult:result];
     
