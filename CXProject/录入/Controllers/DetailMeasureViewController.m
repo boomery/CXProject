@@ -166,7 +166,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measureValues = _inputView.measureValues;
     if (![_inputView.designValues isEqualToString:result.designValues])
     {
-        [SVProgressHUD showWithStatus:@"更改设计值，重新计算结果中"];
         NSArray *a = [_resultsDict allValues];
         for (MeasureResult *res in a)
         {
@@ -175,7 +174,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             NSLog(@"测量值：%@，设计值：%@，结果：%@",res.measureValues,res.designValues,countResult);
             [MeasureResult insertNewMeasureResult:res];
         }
-        [SVProgressHUD dismiss];
     }
     result.designValues = _inputView.designValues;
     //根据算法得出结果
