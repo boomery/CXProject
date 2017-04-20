@@ -54,7 +54,18 @@ int count3(float value1, float value2, float value3, float value4, float value5,
     return 0;
 }
 
-
+/* 算法中0表示合格 1表示不合格 */
+//算法4:每个录入点与设计值之差直接与标准值比较,计算一个合格点
+int count4(float value1, float design,struct standard s)
+{
+    float diffrence = value1 - design;
+    if (diffrence < s.min || diffrence > s.max)
+    {
+        return 1;
+    }
+    else
+        return 0;
+}
 
 
 
