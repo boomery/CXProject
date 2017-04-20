@@ -42,7 +42,7 @@
                            "顶板水平度": {
                            "needDesign": "0",
                            "measurePoint": "5",
-                           "needStandard": "1",
+                           "needGuidingValue": "1",
                            "min": "0",
                            "max": "15",
                            "method": "3"
@@ -249,7 +249,7 @@
                         "地面水平度极差": {
                         "needDesign": "0",
                         "measurePoint": "5",
-                        "needStandard": "1",
+                        "needGuidingValue": "1",
                         "min": "0",
                         "max": "10",
                         "method": "3"

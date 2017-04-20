@@ -22,6 +22,7 @@
     //一个分项的录入点数组
     NSDictionary *_resultsDict;
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *measureArea;
@@ -57,6 +58,15 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)initViews
 {
+    if (IS_IPHONE_5)
+    {
+        _viewHeightConstraint.constant = 30;
+    }
+    else
+    {
+        _viewHeightConstraint.constant = 40;
+    }
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"LabelCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:labelCellIdentifier];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -117,7 +127,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             NSString *max = [fo stringFromNumber:maxNum];
             _standardTextField.text = [NSString stringWithFormat:@"{%@~%@}mm",min,max];
         }
-        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName needStandard:subEvent.needStandard];
+        [_inputView setUpViewsWithMeasurePoint:subEvent.measurePoint haveDesign:subEvent.needDesgin designName:subEvent.designName needGuidingValue:subEvent.needGuidingValue];
     }
 }
 
@@ -137,7 +147,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - 录入点保存到本地
 - (void)saveHaveMeasurePlace:(NSString *)measurePlace
 {
-    if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue])
+    if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue] || _inputView.guidingValueTextField.text.length == 0)
     {
         [SVProgressHUD showErrorWithStatus:@"请先填写完整数据"];
         return;
@@ -159,6 +169,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     result.measurePoint = _measurePoint.text;
     result.measureValues = _inputView.measureValues;
     result.designValues = _inputView.designValues;
+    result.guidingValue = _inputView.guidingValueTextField.text;
     NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
     result.measureResult = countResult;
     if (measurePlace)
@@ -166,7 +177,9 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         result.measurePlace = measurePlace;
     }
     result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+    
     [MeasureResult insertNewMeasureResult:result];
+    
     [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
     [self.collectionView reloadData];
     [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
@@ -207,6 +220,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self clearText];
     _measureArea.text = result.measureArea;
     _measurePoint.text = result.measurePoint;
+    _inputView.guidingValueTextField.text = result.guidingValue;
     [_inputView setMeasureValues:result.measureValues];
     [_inputView setDesignValues:result.designValues];
 }

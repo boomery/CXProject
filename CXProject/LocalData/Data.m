@@ -40,6 +40,7 @@
                 NSDictionary *dicObj = (NSDictionary *)obj;
                 subEvent.needDesgin = [dicObj[@"needDesign"] boolValue];
                 subEvent.designName = dicObj[@"designName"];
+                subEvent.needGuidingValue = [dicObj[@"needGuidingValue"] boolValue];
                 subEvent.measurePoint = [dicObj[@"measurePoint"] integerValue];
                 subEvent.min = [dicObj[@"min"] floatValue];
                 subEvent.max = [dicObj[@"max"] floatValue];

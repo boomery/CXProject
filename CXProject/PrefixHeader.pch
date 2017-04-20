@@ -39,56 +39,10 @@
 #define THEME_COLOR [UIColor blackColor]
 #define LABEL_FONT [UIFont systemFontOfSize:14]
 
-
-
-
 #define ALERT(Message) \
 UIAlertView *alert = nil;\
 alert = [[UIAlertView alloc] initWithTitle:@"提示" message:Message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];\
 [alert show];
 
-
-
-/**
- *	生成RGB颜色
- *
- *	@param 	red 	red值（0~255）
- *	@param 	green 	green值（0~255）
- *	@param 	blue 	blue值（0~255）
- *
- *	@return	UIColor对象
- */
-#define DEF_RGB_COLOR(_red, _green, _blue) [UIColor colorWithRed:(_red)/255.0f green:(_green)/255.0f blue:(_blue)/255.0f alpha:1]
-
-/**
- *	生成RGBA颜色
- *
- *	@param 	red 	red值（0~255）
- *	@param 	green 	green值（0~255）
- *	@param 	blue 	blue值（0~255）
- *	@param 	alpha 	blue值（0~1）
- *
- *	@return	UIColor对象
- */
-#define DEF_RGBA_COLOR(_red, _green, _blue, _alpha) [UIColor colorWithRed:(_red)/255.0f green:(_green)/255.0f blue:(_blue)/255.0f alpha:(_alpha)]
-
-/**
- *	生成RGB颜色
- *
- *	@param 	rgb 	RGB颜色值（必须0x开头，例如:0xffffff）
- *
- *	@return	UIColor对象
- */
-#define DEF_RGB_INT_COLOR(rgb) [UIColor colorWithRGB:rgb]
-
-/**
- *	生成RGBA颜色
- *
- *	@param 	string 	颜色描述字符串，带“＃”开头
- *
- *	@return	UIColor对象
- */
-#define DEF_STRING_COLOR(string) [UIColor colorWithString:string]
-
-
+#define IS_IPHONE_5 [[UIScreen mainScreen] bounds].size.width==320 ? YES: NO
 #endif /* PrefixHeader_pch */

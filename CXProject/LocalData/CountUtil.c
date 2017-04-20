@@ -36,12 +36,8 @@ int count2(int value1, struct standard s)
 }
 /* 算法中0表示合格 1表示不合格 */
 //算法3:每五个录入点数，以最小值为基准，其余点数差值与标准值比较相差在规定值内的，不合格点有一个算一个。如果有任意一个差值在规定值外的这五个值都算不合格点，并且五个点均按最大偏差值计
-int count3(int value1, int value2, int value3, int value4, int value5, int design, struct standard s)
+int count3(int value1, int value2, int value3, int value4, int value5, int guidingValue, struct standard s)
 {
-    if (value1 >= s.min && value1 <= s.max)
-    {
-        return 0;
-    }
-    else
+    
         return 1;
 }

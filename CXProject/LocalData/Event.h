@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSArray *designName;
 
 //是否有规定值
-@property (nonatomic, assign) BOOL needStandard;
+@property (nonatomic, assign) BOOL needGuidingValue;
 
 //每组的点数
 @property (nonatomic, assign) NSInteger measurePoint;
