@@ -36,22 +36,68 @@ int count2(float value1, struct standard s)
 
 /* 算法中0表示合格 1表示不合格 */
 //算法3:每五个录入点数，以最小值为基准，其余点数差值与标准值比较相差在规定值内的，不合格点有一个算一个。如果有任意一个差值在规定值外的这五个值都算不合格点，并且五个点均按最大偏差值计
-int count3(float value1, float value2, float value3, float value4, float value5, struct standard s)
+struct results count3(float value1, float value2, float value3, float value4, float value5, float limit,struct standard s)
 {
+    struct results res;
+    res.result1 = 0;
+    res.result2 = 0;
+    res.result3 = 0;
+    res.result4 = 0;
+    res.result5 = 0;
+    
     float a[5] = {value1, value2, value3, value4, value5};
     float min = a[0];
     for (int i = 0; i<4; i++)
     {
         min = min < a[i+1]? min:a[i+1];
     }
-    for (int i = 0; i<4; i++)
+    for (int i = 0; i<5; i++)
     {
-        float diffrence = fabs(min - a[i]);
-        
-        float v = fabs(diffrence - s.max);
-       
+        float diffrence = a[i] - min;
+        if(diffrence > limit)
+        {
+            res.result1 = 1;
+            res.result2 = 1;
+            res.result3 = 1;
+            res.result4 = 1;
+            res.result5 = 1;
+            return res;
+        }
+        else
+        {
+            switch (i)
+            {
+                case 0:
+                {
+                    res.result1 = diffrence <= s.max ? 0 : 1;
+                }
+                    break;
+                case 1:
+                {
+                    res.result2 = diffrence <= s.max ? 0 : 1;
+                }
+                    break;
+                case 2:
+                {
+                    res.result3 = diffrence <= s.max ? 0 : 1;
+                }
+                    break;
+                case 3:
+                {
+                    res.result4 = diffrence <= s.max ? 0 : 1;
+                }
+                    break;
+                case 4:
+                {
+                    res.result5 = diffrence <= s.max ? 0 : 1;
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
-    return 0;
+    return res;
 }
 
 /* 算法中0表示合格 1表示不合格 */

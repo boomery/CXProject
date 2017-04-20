@@ -17,7 +17,7 @@
     struct standard s;
     s.min = event.min;
     s.max = event.max;
-    int result;
+    int result = 0;
     switch ([event.method integerValue])
     {
         case 1:
@@ -33,7 +33,9 @@
             break;
         case 3:
         {
-            result = count3([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], s);
+            struct results _results = count3([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], [event.limit floatValue],s);
+            NSString *str = [NSString stringWithFormat:@"%d;%d;%d;%d;%d", _results.result1, _results.result2, _results.result3, _results.result4, _results.result5];
+            return str;
         }
             break;
         case 4:

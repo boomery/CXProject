@@ -34,6 +34,9 @@
 //文字描述标准
 @property (nonatomic, copy) NSString *textStandard;
 
+//爆板判断点
+@property (nonatomic,copy) NSString *limit;
+
 //合格点计算方法
 @property (nonatomic,copy) NSString *method;
 

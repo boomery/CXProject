@@ -93,7 +93,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         [weakSelf saveHaveMeasurePlace:nil];
     };
     _inputView.showBlock = ^{
-        if ([weakSelf haveData])
+        if ([weakSelf exsistMeasureResultForIndexPath:_indexPath])
         {
             [weakSelf showPlace];
         }
@@ -154,7 +154,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     }
     Event *subEvent = _event.events[_indexPath.section];
     MeasureResult *result = nil;
-    if ([self haveData])
+    if ([self exsistMeasureResultForIndexPath:_indexPath])
     {
         result  = _resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]];
     }
@@ -194,19 +194,34 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         }
     });
 }
+#pragma mark - 是否是算法三的数据
+- (BOOL)isSpecial
+{
+    Event *subEvent = _event.events[_indexPath.section];
+    if ([subEvent.method isEqualToString:@"3"])
+        return YES;
+    else
+        return NO;
+}
+
 
 #pragma mark - 判断数据记录是否存在
-- (BOOL)haveData
+- (MeasureResult *)exsistMeasureResultForIndexPath:(NSIndexPath *)indexPath
 {
-    return _resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]];
+    if ([self isSpecial])
+    {
+        return _resultsDict[[NSString stringWithFormat:@"%ld",(long)indexPath.row/5]];
+    }
+    return _resultsDict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
 }
 
 #pragma mark - 选择大项分项时执行记录是否存在的判断 若存在则赋值
 - (void)setViews
 {
-    if ([self haveData])
+    MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
+    if (res)
     {
-        [self setValueWithResult:_resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]]];
+        [self setValueWithResult:res];
     }
     else
     {
@@ -259,26 +274,37 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     cell.selectedBackgroundView = selectedBackgroundView;
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
     cell.backgroundColor = [UIColor whiteColor];
-    MeasureResult *res = _resultsDict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    
+    MeasureResult *res = [self exsistMeasureResultForIndexPath:indexPath];
     if (res)
     {
-        if ([res.measureResult isEqualToString:@"1"])
+        NSArray *results = [res.measureResult componentsSeparatedByString:@";"];
+        if (results.count > 1)
+        {
+            cell.label.text = results[indexPath.row%5];
+        }
+        else
+        {
+            cell.label.text = res.measureResult;
+        }
+        
+        if ([cell.label.text isEqualToString:@"1"])
         {
             selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
             cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
         }
-        cell.label.text = res.measureResult;
     }
-    else
-    {
-        cell.label.text = @"-";
-    }
+  else
+  {
+      cell.label.text = @"-";
+  }
     return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.view endEditing:YES];
     _indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:_indexPath.section];
     [self setViews];
 }
@@ -302,6 +328,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.view endEditing:YES];
     _indexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
     [self setUpViewsWithIndex:_indexPath.section];
     [self loadMeasureResults];
