@@ -12,7 +12,9 @@
 
 - (BOOL)isValidNumber
 {
-    return YES;
+    NSString *patter = @"^[0-9]+([.]{0,1}[0-9]+){0,1}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",patter];
+    return [predicate evaluateWithObject:self];
 }
 
 @end

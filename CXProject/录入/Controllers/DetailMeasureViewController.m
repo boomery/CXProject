@@ -11,7 +11,6 @@
 #import "InputView.h"
 #import "MeasureResult+Addtion.h"
 #import "BridgeUtil.h"
-#import "NSString+isValid.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
 {
     NSArray *_titleArray;
@@ -148,10 +147,9 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - 录入点保存到本地
 - (void)saveHaveMeasurePlace:(NSString *)measurePlace
 {
-    
     if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue])
     {
-        [SVProgressHUD showErrorWithStatus:@"请先填写完整数据"];
+        [SVProgressHUD showErrorWithStatus:@"请填写正确完整的数据"];
         return;
     }
     Event *subEvent = _event.events[_indexPath.section];

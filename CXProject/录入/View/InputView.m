@@ -7,6 +7,7 @@
 //
 
 #import "InputView.h"
+#import "NSString+isValid.h"
 @interface InputView ()
 {
     NSMutableArray *_measureTextfieldArray;
@@ -151,14 +152,14 @@
 {
     for (UITextField *text in _measureTextfieldArray)
     {
-        if (text.text.length == 0)
+        if (text.text.length == 0 || ![text.text isValidNumber])
         {
             return NO;
         }
     }
     for (UITextField *text in _designTextfieldArray)
     {
-        if (text.text.length == 0)
+        if (text.text.length == 0 || ![text.text isValidNumber])
         {
             return NO;
         }
