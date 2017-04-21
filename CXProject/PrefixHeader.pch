@@ -48,7 +48,13 @@ alert = [[UIAlertView alloc] initWithTitle:@"提示" message:Message delegate:ni
 
 #if DEBUG
 
-#define NSLog(FORMAT, ...) fprintf(stderr,"[方法名:%s~第%d行] %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#define NSLog(format, ...) do {                                             \
+fprintf(stderr, "<%s : %d> %s\n",                                           \
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+__LINE__, __func__);                                                        \
+(NSLog)((format), ##__VA_ARGS__);                                           \
+fprintf(stderr, "------------------------------------------------------------------------------\n");                                               \
+} while (0)
 
 #else
 

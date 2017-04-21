@@ -232,6 +232,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - 选择大项分项时执行记录是否存在的判断 若存在则赋值
 - (void)setViews
 {
+    [self clearMeasureValues];
     MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
     if (res)
     {
@@ -239,14 +240,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     }
     else
     {
-        [self clearText];
         [SVProgressHUD showInfoWithStatus:@"无数据记录"];
     }
 }
 
 - (void)setValueWithResult:(MeasureResult *)result
 {
-    [self clearText];
     _measureArea.text = result.measureArea;
     _measurePoint.text = result.measurePoint;
     [_inputView setMeasureValues:result.measureValues];
@@ -254,9 +253,14 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 }
 
 #pragma mark - 清空录入框
-- (void)clearText
+- (void)clearMeasureValues
 {
     [_inputView setMeasureValues:@""];
+}
+- (void)clearMeasureAreaAndPoint
+{
+    _measureArea.text = @"";
+    _measurePoint.text = @"";
 }
 
 #pragma mark - 点击地点显示弹框
@@ -349,6 +353,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     _indexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
     [self setUpViewsWithIndex:_indexPath.section];
     [self loadMeasureResults];
+    [self clearMeasureAreaAndPoint];
     [self setViews];
 }
 
