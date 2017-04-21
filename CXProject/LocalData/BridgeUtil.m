@@ -33,7 +33,7 @@
             break;
         case 3:
         {
-            struct results _results = count3([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], [event.limit floatValue],s);
+            struct results _results = count3([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], [event.limit floatValue], s);
             NSString *str = [NSString stringWithFormat:@"%d;%d;%d;%d;%d", _results.result1, _results.result2, _results.result3, _results.result4, _results.result5];
             return str;
         }
@@ -51,6 +51,28 @@
         case 6:
         {
             result = count6([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], s);
+        }
+            break;
+        case 7:
+        {
+            result = count7([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], [measureArray[5] floatValue], s);
+        }
+            break;
+        case 8:
+        {
+            struct results _results = count8([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], [designArray[0] floatValue], [event.limit floatValue], s);
+            NSString *str = [NSString stringWithFormat:@"%d;%d;%d;%d;%d", _results.result1, _results.result2, _results.result3, _results.result4, _results.result5];
+            return str;
+        }
+            break;
+        case 9:
+        {
+            result = count9([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], s);
+        }
+            break;
+        case 10:
+        {
+            result = count10([measureArray[0] floatValue], [measureArray[1] floatValue], s);
         }
             break;
         default:
