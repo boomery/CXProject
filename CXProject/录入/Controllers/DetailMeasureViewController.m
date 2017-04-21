@@ -16,12 +16,11 @@
     NSArray *_titleArray;
     __weak IBOutlet UITextField *_standardTextField;
     InputView *_inputView;
-    
-    //记录选中的行与点
-    NSIndexPath *_indexPath;
     //一个分项的录入点数组
     NSDictionary *_resultsDict;
 }
+//记录选中的行与点
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -93,7 +92,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         [weakSelf saveHaveMeasurePlace:@""];
     };
     _inputView.showBlock = ^{
-        if ([weakSelf exsistMeasureResultForIndexPath:_indexPath])
+        if ([weakSelf exsistMeasureResultForIndexPath:weakSelf.indexPath])
         {
             [weakSelf showPlace];
         }
