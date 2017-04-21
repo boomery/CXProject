@@ -93,6 +93,7 @@ static NSString *projectCell = @"ProjectCell";
     else
     {
         ProjectViewController *projectVC = [[ProjectViewController alloc] init];
+        projectVC.hidesBottomBarWhenPushed = YES;
         [User setEditingProject:_projectArray[indexPath.row]];
         projectVC.project = _projectArray[indexPath.row];
         [self.navigationController pushViewController:projectVC animated:YES];
