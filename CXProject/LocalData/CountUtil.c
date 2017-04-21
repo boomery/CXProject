@@ -114,6 +114,13 @@ int count4(float value1, float design,struct standard s)
 }
 
 /* 算法中0表示合格 1表示不合格 */
+//算法5:输入点数为1或者0，1为不合格0为合格
+int count5(float value1)
+{
+    return value1;
+}
+
+/* 算法中0表示合格 1表示不合格 */
 //算法6:每三个录入点数的极差与标准值比较，计算一个合格点
 int count6(float value1, float value2, float value3, struct standard s)
 {
@@ -133,8 +140,37 @@ int count6(float value1, float value2, float value3, struct standard s)
     return 0;
 }
 
+/* 算法中0表示合格 1表示不合格 */
+//算法7:每三个或三个以上录入点的极差与标准值比较,计算一个合格点
+int count7(float value1, float value2, float value3, float value4, float value5, float value6, struct standard s)
+{
+    float a[6] = {value1, value2, value3, value4, value5, value6};
+    float min = a[0];
+    float max = a[0];
+    for (int i = 0; i<5; i++)
+    {
+        min = min < a[i+1]? min:a[i+1];
+        max = max > a[i+1]? max:a[i+1];
+    }
+    float diffrence = fabsf(min - max);
+    if (diffrence < s.min || diffrence > s.max)
+    {
+        return 1;
+    }
+    return 0;
+}
 
-
+/* 算法中0表示合格 1表示不合格 */
+//算法10:每两个录入点的大值与标准值比较，计算一个合格点
+int count10(float value1, float value2, struct standard s)
+{
+    float larger = value1 > value2 ? value1 : value2;
+    if (larger < s.min || larger > s.max)
+    {
+        return 1;
+    }
+    return 0;
+}
 
 
 
