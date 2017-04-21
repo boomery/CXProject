@@ -43,6 +43,11 @@
             result = count4([measureArray[0] floatValue], [designArray[0] floatValue], s);
         }
             break;
+        case 6:
+        {
+            result = count6([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], s);
+        }
+            break;
         default:
             result = 1;
             break;

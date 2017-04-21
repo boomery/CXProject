@@ -201,7 +201,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
             _resultsDict = resultsDict;
             [self.collectionView reloadData];
-            [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
         }
     });
 }

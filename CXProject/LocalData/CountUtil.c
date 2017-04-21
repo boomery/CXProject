@@ -113,8 +113,25 @@ int count4(float value1, float design,struct standard s)
         return 0;
 }
 
-
-
+/* 算法中0表示合格 1表示不合格 */
+//算法6:每三个录入点数的极差与标准值比较，计算一个合格点
+int count6(float value1, float value2, float value3, struct standard s)
+{
+    float a[3] = {value1, value2, value3};
+    float min = a[0];
+    float max = a[0];
+    for (int i = 0; i<2; i++)
+    {
+        min = min < a[i+1]? min:a[i+1];
+        max = max > a[i+1]? max:a[i+1];
+    }
+    float diffrence = fabsf(min - max);
+    if (diffrence < s.min || diffrence > s.max)
+    {
+        return 1;
+    }
+    return 0;
+}
 
 
 
