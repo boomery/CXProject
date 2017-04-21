@@ -90,7 +90,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     
     __weak typeof(self) weakSelf = self;;
     _inputView.saveBlock = ^{
-        [weakSelf saveHaveMeasurePlace:nil];
+        [weakSelf saveHaveMeasurePlace:@""];
     };
     _inputView.showBlock = ^{
         if ([weakSelf exsistMeasureResultForIndexPath:_indexPath])
@@ -179,10 +179,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     //根据算法得出结果
     NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
     result.measureResult = countResult;
-    if (measurePlace)
-    {
-        result.measurePlace = measurePlace;
-    }
+    result.measurePlace = measurePlace;
     if ([self isSpecial])
     {
         result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row/5];
@@ -269,10 +266,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
-        if (res.measurePlace)
-        {
-            textField.text = res.measurePlace;
-        }
+        textField.text = res.measurePlace;
     }];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
