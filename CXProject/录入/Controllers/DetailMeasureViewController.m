@@ -308,7 +308,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         
         if ([cell.label.text isEqualToString:@"1"])
         {
-            selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+            selectedBackgroundView.backgroundColor = [UIColor purpleColor];
             cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
         }
     }
