@@ -268,8 +268,11 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"录入点位置" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        MeasureResult *res = _resultsDict[[NSString stringWithFormat:@"%ld",(long)_indexPath.row]];
-        textField.text = res.measurePlace;
+        MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
+        if (res.measurePlace)
+        {
+            textField.text = res.measurePlace;
+        }
     }];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
