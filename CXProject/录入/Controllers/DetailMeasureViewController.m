@@ -170,8 +170,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         for (MeasureResult *res in a)
         {
              NSString *countResult = [BridgeUtil resultForMeasureValues:res.measureValues designValues:_inputView.designValues event:subEvent];
+            NSLog(@"测量值：%@，设计值：%@，原始结果：%@，重新计算结果：%@",res.measureValues,res.designValues,res.measureResult,countResult);
             res.measureResult = countResult;
-            NSLog(@"测量值：%@，设计值：%@，结果：%@",res.measureValues,res.designValues,countResult);
             [MeasureResult insertNewMeasureResult:res];
         }
     }
