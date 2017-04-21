@@ -427,25 +427,257 @@
                         "max": "10",
                         "max2": "5",
                         "max3": "4",
-                        "method": ""
+                        "limit": "15",
+                        "method": "3"
                         }
                         }
                         ]
                },
                {
-               "墙面饰面砖": []
+               "墙面饰面砖": [
+                         {
+                         "墙面表面平整度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "condition": "瓷砖墙面;光面石材墙面",
+                         "min": "0",
+                         "max": "3",
+                         "max2": "2",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "墙面垂直度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "condition": "瓷砖墙面;光面石材墙面",
+                         "min": "0",
+                         "max": "2",
+                         "max2": "2",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "阴阳角方正": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "condition": "瓷砖墙面;光面石材墙面",
+                         "min": "0",
+                         "max": "3",
+                         "max2": "2",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "接缝高低差": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "condition": "瓷砖墙面;光面石材墙面",
+                         "min": "0",
+                         "max": "0.05",
+                         "max2": "0.05",
+                         "method": "5"
+                         }
+                         },
+                         {
+                         "墙砖接缝宽度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "1",
+                         "method": "5"
+                         }
+                         },
+                         {
+                         "瓷砖/石材踢脚线出墙厚度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "12",
+                         "method": "2"
+                         }
+                         }
+                         ]
                },
                {
-               "地面饰面砖": []
+               "地面饰面砖": [
+                         {
+                         "接缝宽度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "condition": "瓷砖墙面;光面石材墙面",
+                         "min": "0",
+                         "max": "2",
+                         "max2": "1",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "接缝高低差": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "0.05",
+                         "method": "5"
+                         }
+                         },
+                         {
+                         "踢脚线直线度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "3",
+                         "method": "2"
+                         }
+                         }
+                         ]
                },
                {
-               "木饰面工程": []
+               "木饰面工程": [
+                         {
+                         "基层板平整度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "3",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "基层板垂直度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "3",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "面层表面平整度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "1",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "面层垂直度": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "1.5",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "面层阴阳角方正": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "1.5",
+                         "method": "2"
+                         }
+                         },
+                         {
+                         "面层接缝高低差": {
+                         "needDesign": "0",
+                         "measurePoint": "1",
+                         "min": "0",
+                         "max": "0.5",
+                         "method": "5"
+                         }
+                         }
+                         ]
                },
                {
-               "软包工程": []
+               "软包工程": [
+                        {
+                        "面层垂直度": {
+                        "needDesign": "0",
+                        "measurePoint": "1",
+                        "min": "0",
+                        "max": "3",
+                        "method": "2"
+                        }
+                        },
+                        {
+                        "面层裁口、线条接缝高低差": {
+                        "needDesign": "0",
+                        "measurePoint": "1",
+                        "min": "0",
+                        "max": "1",
+                        "method": "5"
+                        }
+                        }
+                        ]
                },
                {
-               "木门及门窗套安装": []
+               "木门及门窗套安装": [
+                            {
+                            "门套基层板侧面垂直度": {
+                            "needDesign": "0",
+                            "measurePoint": "1",
+                            "min": "0",
+                            "max": "4",
+                            "method": "2"
+                            }
+                            },
+                            {
+                            "门窗套基层板上口水平度": {
+                            "needDesign": "0",
+                            "measurePoint": "1",
+                            "min": "0",
+                            "max": "3",
+                            "method": "2"
+                            }
+                            },
+                            {
+                            "门窗套正侧面垂直度": {
+                            "needDesign": "0",
+                            "measurePoint": "2",
+                            "min": "0",
+                            "max": "4",
+                            "method": "10"
+                            }
+                            },
+                            {
+                            "门窗套上口水平度": {
+                            "needDesign": "0",
+                            "measurePoint": "2",
+                            "min": "0",
+                            "max": "1",
+                            "method": "10"
+                            }
+                            },
+                            {
+                            "门窗扇与侧框间留缝": {
+                            "needDesign": "0",
+                            "measurePoint": "1",
+                            "min": "1",
+                            "max": "2.5",
+                            "method": "2"
+                            }
+                            },
+                            {
+                            "门扇与地面留缝宽度（留缝）": {
+                            "needDesign": "0",
+                            "measurePoint": "1",
+                            "min": "5",
+                            "max": "8",
+                            "method": "2"
+                            }
+                            },
+                            {
+                            "厨卫门窗与地面留缝宽度": {
+                            "needDesign": "0",
+                            "measurePoint": "1",
+                            "min": "8",
+                            "max": "12",
+                            "method": "2"
+                            }
+                            }
+                            ]
                },
                {
                "收纳": []
