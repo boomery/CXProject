@@ -680,10 +680,121 @@
                             ]
                },
                {
-               "收纳": []
+               "收纳": [
+                      {
+                      "门板水平高低差": {
+                      "needDesign": "0",
+                      "measurePoint": "1",
+                      "min": "0",
+                      "max": "1",
+                      "method": "2"
+                      }
+                      },
+                      {
+                      "柜体与墙面缝隙": {
+                      "needDesign": "0",
+                      "measurePoint": "1",
+                      "min": "0",
+                      "max": "15",
+                      "method": "2"
+                      }
+                      },
+                      {
+                      "门贴脸与踢脚线间隙": {
+                      "needDesign": "0",
+                      "measurePoint": "1",
+                      "min": "0",
+                      "max": "2",
+                      "method": "2"
+                      }
+                      },
+                      {
+                      "门板平整度": {
+                      "needDesign": "0",
+                      "measurePoint": "1",
+                      "min": "0",
+                      "max": "2",
+                      "method": "2"
+                      }
+                      },
+                      {
+                      "门板缝宽": {
+                      "needDesign": "0",
+                      "measurePoint": "1",
+                      "min": "0",
+                      "max": "1.5",
+                      "method": "2"
+                      }
+                      },
+                      {
+                      "门贴脸与墙面缝隙": {
+                      "needDesign": "0",
+                      "measurePoint": "1",
+                      "min": "0",
+                      "max": "1",
+                      "method": "2"
+                      }
+                      }
+                      ]
                },
                {
-               "木地板": []
+               "木地板": [
+                       {
+                       "面层平整度": {
+                       "needDesign": "0",
+                       "measurePoint": "1",
+                       "min": "0",
+                       "max": "2",
+                       "method": "2"
+                       }
+                       },
+                       {
+                       "面层地板水平度": {
+                       "needDesign": "0",
+                       "measurePoint": "5",
+                       "min": "0",
+                       "max": "10",
+                       "limit": "15",
+                       "method": "10"
+                       }
+                       },
+                       {
+                       "地板缝隙宽度": {
+                       "needDesign": "0",
+                       "measurePoint": "1",
+                       "min": "0",
+                       "max": "0.5",
+                       "method": "5"
+                       }
+                       },
+                       {
+                       "地板接缝高低差": {
+                       "needDesign": "0",
+                       "measurePoint": "1",
+                       "min": "0",
+                       "max": "0.5",
+                       "method": "5"
+                       }
+                       },
+                       {
+                       "踢脚线上口直线度": {
+                       "needDesign": "0",
+                       "measurePoint": "1",
+                       "min": "0",
+                       "max": "3",
+                       "method": "2"
+                       }
+                       },
+                       {
+                       "踢脚线与面层间隙": {
+                       "needDesign": "0",
+                       "measurePoint": "1",
+                       "min": "0",
+                       "max": "1",
+                       "method": "2"
+                       }
+                       }
+                       ]
                }
                ]
 }
