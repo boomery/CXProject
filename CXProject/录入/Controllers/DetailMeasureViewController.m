@@ -21,7 +21,6 @@
 }
 //记录选中的行与点
 @property (nonatomic, strong) NSIndexPath *indexPath;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *measureArea;
@@ -57,14 +56,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)initViews
 {
-    if (IS_IPHONE_5)
-    {
-        _viewHeightConstraint.constant = 30;
-    }
-    else
-    {
-        _viewHeightConstraint.constant = 40;
-    }
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStylePlain target:self action:@selector(upload)];
+    self.navigationItem.rightBarButtonItem = item;
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"LabelCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:labelCellIdentifier];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
