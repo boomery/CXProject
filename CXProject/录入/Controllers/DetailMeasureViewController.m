@@ -154,6 +154,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     {
         if (!_showPhoto)
         {
+            [self.view endEditing:YES];
             UIView *view = [[UIView alloc] initForAutoLayout];
             view.backgroundColor = [UIColor blackColor];
             view.alpha = 0.4;
