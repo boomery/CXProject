@@ -103,6 +103,11 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)takePhoto
 {
+    if (![self exsistMeasureResultForIndexPath:_indexPath])
+    {
+        [SVProgressHUD showErrorWithStatus:@"请先保存录入数据后再拍照"];
+        return;
+    }
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action){
         
