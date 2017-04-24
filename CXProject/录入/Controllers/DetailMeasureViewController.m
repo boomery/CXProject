@@ -114,7 +114,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         NSString *mediaType = AVMediaTypeVideo;
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
         if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
-            [SVProgressHUD showInfoWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
+            [SVProgressHUD showErrorWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
             return;
         }
         
@@ -167,7 +167,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     }
     else
     {
-        [SVProgressHUD showInfoWithStatus:@"请先拍照后查看"];
+        [SVProgressHUD showErrorWithStatus:@"请先拍照后查看"];
     }
 }
 
