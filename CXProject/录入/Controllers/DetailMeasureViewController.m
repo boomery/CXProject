@@ -264,7 +264,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     {
         if ([_inputView.measureValues isEqualToString:@"1"] || [_inputView.measureValues isEqualToString:@"0"])
         {
-            [SVProgressHUD showInfoWithStatus:@"请直接输入1或0"];
+            [SVProgressHUD showErrorWithStatus:@"请直接输入1或0"];
             return;
         }
     }
