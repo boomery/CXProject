@@ -20,8 +20,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@') VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil tableName], @"projectID", @"itemName", @"subItemName", @"measureArea", @"measurePoint", @"MeasureValues", @"designValues", @"measureResult", @"measurePlace", @"mesaureIndex", result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace, result.mesaureIndex];
+                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          [CXDataBaseUtil tableName], result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace,  result.measurePhoto, result.mesaureIndex];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -87,7 +87,7 @@
         result.designValues = [res stringForColumn:@"designValues"];
         result.measureResult = [res stringForColumn:@"measureResult"];
         result.measurePlace = [res stringForColumn:@"measurePlace"];
-        result.measurePlace = [res stringForColumn:@"measurePhoto"];
+        result.measurePhoto = [res stringForColumn:@"measurePhoto"];
         result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
         [resultsDict setValue:result forKey:result.mesaureIndex];
     }
