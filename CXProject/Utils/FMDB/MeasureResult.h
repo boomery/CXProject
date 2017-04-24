@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *designValues;
 @property (nonatomic, copy) NSString *measureResult;
 @property (nonatomic, copy) NSString *measurePlace;
+@property (nonatomic, copy) NSString *measurePhoto;
 @property (nonatomic, copy) NSString *mesaureIndex;
 
 @end

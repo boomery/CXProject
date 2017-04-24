@@ -36,9 +36,12 @@
 		9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 9028C93C1EA4BC6A003DA545 /* measure.sqlite */; };
 		9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C93F1EA4BF47003DA545 /* MeasureResult.m */; };
 		9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */; };
-		9028C9491EA75064003DA545 /* CountUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9471EA75064003DA545 /* CountUtil.c */; };
-		9028C94C1EA750B4003DA545 /* BridgeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C94B1EA750B4003DA545 /* BridgeUtil.m */; };
-		9028C9541EA88E62003DA545 /* NSString+isValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9531EA88E62003DA545 /* NSString+isValid.m */; };
+		9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C95A1EADC6C2003DA545 /* BridgeUtil.m */; };
+		9028C9661EADC6C2003DA545 /* CountUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 9028C95B1EADC6C2003DA545 /* CountUtil.c */; };
+		9028C9671EADC6C2003DA545 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C95E1EADC6C2003DA545 /* Data.m */; };
+		9028C9681EADC6C2003DA545 /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9601EADC6C2003DA545 /* DataProvider.m */; };
+		9028C9691EADC6C2003DA545 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9621EADC6C2003DA545 /* Event.m */; };
+		9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9641EADC6C2003DA545 /* NSString+isValid.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -68,9 +71,6 @@
 		908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908C82531E9B784E0086EDCD /* LabelCell.xib */; };
 		908C82571E9B7D500086EDCD /* Measure.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 908C82561E9B7D500086EDCD /* Measure.geojson */; };
 		908C82631E9F0CAB0086EDCD /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82621E9F0CAB0086EDCD /* InputView.m */; };
-		908C826B1EA0A5080086EDCD /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82661EA0A5080086EDCD /* Data.m */; };
-		908C826C1EA0A5080086EDCD /* DataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82681EA0A5080086EDCD /* DataProvider.m */; };
-		908C826D1EA0A5080086EDCD /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C826A1EA0A5080086EDCD /* Event.m */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
@@ -164,12 +164,18 @@
 		9028C93F1EA4BF47003DA545 /* MeasureResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureResult.m; sourceTree = "<group>"; };
 		9028C9411EA4BFE0003DA545 /* MeasureResult+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MeasureResult+Addtion.h"; sourceTree = "<group>"; };
 		9028C9421EA4BFE0003DA545 /* MeasureResult+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MeasureResult+Addtion.m"; sourceTree = "<group>"; };
-		9028C9471EA75064003DA545 /* CountUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CountUtil.c; sourceTree = "<group>"; };
-		9028C9481EA75064003DA545 /* CountUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountUtil.h; sourceTree = "<group>"; };
-		9028C94A1EA750B4003DA545 /* BridgeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeUtil.h; sourceTree = "<group>"; };
-		9028C94B1EA750B4003DA545 /* BridgeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeUtil.m; sourceTree = "<group>"; };
-		9028C9521EA88E62003DA545 /* NSString+isValid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+isValid.h"; sourceTree = "<group>"; };
-		9028C9531EA88E62003DA545 /* NSString+isValid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+isValid.m"; sourceTree = "<group>"; };
+		9028C9591EADC6C2003DA545 /* BridgeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeUtil.h; sourceTree = "<group>"; };
+		9028C95A1EADC6C2003DA545 /* BridgeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeUtil.m; sourceTree = "<group>"; };
+		9028C95B1EADC6C2003DA545 /* CountUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = CountUtil.c; sourceTree = "<group>"; };
+		9028C95C1EADC6C2003DA545 /* CountUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountUtil.h; sourceTree = "<group>"; };
+		9028C95D1EADC6C2003DA545 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		9028C95E1EADC6C2003DA545 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		9028C95F1EADC6C2003DA545 /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
+		9028C9601EADC6C2003DA545 /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
+		9028C9611EADC6C2003DA545 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		9028C9621EADC6C2003DA545 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		9028C9631EADC6C2003DA545 /* NSString+isValid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+isValid.h"; sourceTree = "<group>"; };
+		9028C9641EADC6C2003DA545 /* NSString+isValid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+isValid.m"; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -217,12 +223,6 @@
 		908C82561E9B7D500086EDCD /* Measure.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Measure.geojson; sourceTree = "<group>"; };
 		908C82611E9F0CAB0086EDCD /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
 		908C82621E9F0CAB0086EDCD /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
-		908C82651EA0A5080086EDCD /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
-		908C82661EA0A5080086EDCD /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
-		908C82671EA0A5080086EDCD /* DataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataProvider.h; sourceTree = "<group>"; };
-		908C82681EA0A5080086EDCD /* DataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataProvider.m; sourceTree = "<group>"; };
-		908C82691EA0A5080086EDCD /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		908C826A1EA0A5080086EDCD /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		908D03751E835EB600F0C0C1 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
@@ -351,6 +351,7 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9028C9581EADC6C2003DA545 /* LocalData */,
 				9028C9321EA4B8CB003DA545 /* FMDB */,
 				908BFE3C1E96269500937372 /* 时间选择器 */,
 				908BFE2C1E96054E00937372 /* MHKeyboard */,
@@ -400,7 +401,6 @@
 				904340141E89FAA400D33ED9 /* LoginViewController.xib */,
 				9016C79B1E8A564F00B19056 /* Utils */,
 				9016C7461E8A53D500B19056 /* Network */,
-				908C82641EA0A5080086EDCD /* LocalData */,
 				904340171E8A018E00D33ED9 /* UserData */,
 				9017811B1E82653200D6E8A1 /* Main */,
 				901781301E82753D00D6E8A1 /* 统计 */,
@@ -565,6 +565,25 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		9028C9581EADC6C2003DA545 /* LocalData */ = {
+			isa = PBXGroup;
+			children = (
+				9028C9591EADC6C2003DA545 /* BridgeUtil.h */,
+				9028C95A1EADC6C2003DA545 /* BridgeUtil.m */,
+				9028C95B1EADC6C2003DA545 /* CountUtil.c */,
+				9028C95C1EADC6C2003DA545 /* CountUtil.h */,
+				9028C95D1EADC6C2003DA545 /* Data.h */,
+				9028C95E1EADC6C2003DA545 /* Data.m */,
+				9028C95F1EADC6C2003DA545 /* DataProvider.h */,
+				9028C9601EADC6C2003DA545 /* DataProvider.m */,
+				9028C9611EADC6C2003DA545 /* Event.h */,
+				9028C9621EADC6C2003DA545 /* Event.m */,
+				9028C9631EADC6C2003DA545 /* NSString+isValid.h */,
+				9028C9641EADC6C2003DA545 /* NSString+isValid.m */,
+			);
+			path = LocalData;
+			sourceTree = "<group>";
+		};
 		904340091E89F78E00D33ED9 /* 录入 */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,25 +627,6 @@
 				908BFE401E96269500937372 /* UIMyDatePicker.m */,
 			);
 			path = "时间选择器";
-			sourceTree = "<group>";
-		};
-		908C82641EA0A5080086EDCD /* LocalData */ = {
-			isa = PBXGroup;
-			children = (
-				908C82651EA0A5080086EDCD /* Data.h */,
-				908C82661EA0A5080086EDCD /* Data.m */,
-				908C82671EA0A5080086EDCD /* DataProvider.h */,
-				908C82681EA0A5080086EDCD /* DataProvider.m */,
-				908C82691EA0A5080086EDCD /* Event.h */,
-				908C826A1EA0A5080086EDCD /* Event.m */,
-				9028C9471EA75064003DA545 /* CountUtil.c */,
-				9028C9481EA75064003DA545 /* CountUtil.h */,
-				9028C94A1EA750B4003DA545 /* BridgeUtil.h */,
-				9028C94B1EA750B4003DA545 /* BridgeUtil.m */,
-				9028C9521EA88E62003DA545 /* NSString+isValid.h */,
-				9028C9531EA88E62003DA545 /* NSString+isValid.m */,
-			);
-			path = LocalData;
 			sourceTree = "<group>";
 		};
 		90CB986B1E8F7F0F000FB2BC /* 绘图 */ = {
@@ -925,8 +925,8 @@
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
-				9028C9491EA75064003DA545 /* CountUtil.c in Sources */,
 				908BFE421E96269600937372 /* UIMyDatePicker.m in Sources */,
+				9028C9671EADC6C2003DA545 /* Data.m in Sources */,
 				901780EA1E82626600D6E8A1 /* CXProject.xcdatamodeld in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				908BFE3A1E96054E00937372 /* MHKeyboardObjects.m in Sources */,
@@ -938,37 +938,37 @@
 				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
-				908C826D1EA0A5080086EDCD /* Event.m in Sources */,
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
 				908BFE391E96054E00937372 /* MHKeyboard.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
+				9028C9691EADC6C2003DA545 /* Event.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
 				9028C9391EA4B8CB003DA545 /* CXDataBaseUtil.m in Sources */,
 				908BFE371E96054E00937372 /* MHKeyboard+AccessObject.m in Sources */,
 				90CB98A21E8FA18C000FB2BC /* Project.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
 				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
-				908C826B1EA0A5080086EDCD /* Data.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
 				908BFE461E97264600937372 /* InputCell2.m in Sources */,
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */,
 				908C82631E9F0CAB0086EDCD /* InputView.m in Sources */,
-				9028C9541EA88E62003DA545 /* NSString+isValid.m in Sources */,
 				9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */,
+				9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
 				908C82471E9B4DEE0086EDCD /* MeasureViewController.m in Sources */,
-				908C826C1EA0A5080086EDCD /* DataProvider.m in Sources */,
 				908BFE381E96054E00937372 /* MHKeyboard+Animation.m in Sources */,
+				9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
+				9028C9681EADC6C2003DA545 /* DataProvider.m in Sources */,
+				9028C9661EADC6C2003DA545 /* CountUtil.c in Sources */,
 				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
-				9028C94C1EA750B4003DA545 /* BridgeUtil.m in Sources */,
 				908C823A1E9B28060086EDCD /* ProjectViewController.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,

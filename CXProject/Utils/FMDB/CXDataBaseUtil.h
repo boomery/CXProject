@@ -10,12 +10,17 @@
 #import "FMDatabase.h"
 #import "FMDatabaseQueue.h"
 
-#define MEASURE_TABLE @"MEASURE_TABLE"
 @interface CXDataBaseUtil : NSObject
 
 + (FMDatabase *)database;
 
-+(void)creatTable;
++ (void)creatTable;
+
++ (NSString *)tableName;
+
++ (NSString *)imageName;
+
++ (NSString *)imagePathForName:(NSString *)imageName;
 
 + (NSString *)getDatabasePath;
 

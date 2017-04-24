@@ -11,7 +11,10 @@
 #import "InputView.h"
 #import "MeasureResult+Addtion.h"
 #import "BridgeUtil.h"
-@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
+#import <Photos/Photos.h>
+#import "PhotoEditorViewController.h"
+#import "CXDataBaseUtil.h"
+@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     NSArray *_titleArray;
     __weak IBOutlet UITextField *_standardTextField;
@@ -56,8 +59,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)initViews
 {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStylePlain target:self action:@selector(upload)];
-    self.navigationItem.rightBarButtonItem = item;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"拍照" style:UIBarButtonItemStylePlain target:self action:@selector(takePhoto)];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStylePlain target:self action:@selector(viewPhoto)];
+
+    self.navigationItem.rightBarButtonItems = @[item, item2];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"LabelCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:labelCellIdentifier];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
@@ -93,6 +98,111 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         {
             [SVProgressHUD showErrorWithStatus:@"请先保存录入数据后再输入地点"];
         }
+    };
+}
+
+- (void)takePhoto
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action){
+        
+        NSString *mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+            [SVProgressHUD showInfoWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
+            return;
+        }
+        
+        //先判断相机是否可用
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        {
+            UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = NO;
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"从相册选取" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //选择图片
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+        {
+            UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = NO;
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)viewPhoto
+{
+    UIView *view = [[UIView alloc] initForAutoLayout];
+    [self.view addSubview:view];
+    [view autoPinEdgesToSuperviewEdges];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+    tap.numberOfTapsRequired = 1;
+    
+    [view addGestureRecognizer:tap];
+    
+    UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
+    [view addSubview:imageView];
+    [imageView autoCenterInSuperview];
+    [imageView autoSetDimensionsToSize:CGSizeMake(300, 300)];
+    MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
+    if (res.measurePhoto)
+    {
+        imageView.image = [UIImage imageWithContentsOfFile:[CXDataBaseUtil imagePathForName:res.measurePhoto]];
+    }
+    else
+    {
+        [SVProgressHUD showInfoWithStatus:@"请先拍照后查看"];
+    }
+}
+
+- (void)tap:(UITapGestureRecognizer *)tap
+{
+    [tap.view removeFromSuperview];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    
+    PhotoEditorViewController *editor = [[PhotoEditorViewController alloc] init];
+    [picker pushViewController:editor animated:YES];
+    editor.image = image;
+    
+    editor.imageBlock = ^(UIImage *image){
+        
+        NSString *imageName = [CXDataBaseUtil imageName];
+        //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
+        if ( [UIImageJPEGRepresentation(image, 0.5) writeToFile:[CXDataBaseUtil imagePathForName:imageName]  atomically:YES])
+        {
+            MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
+            if (res.measurePhoto)
+            {
+                [[NSFileManager defaultManager] removeItemAtPath:[CXDataBaseUtil imagePathForName:res.measurePhoto] error:nil];
+                NSLog(@"移除旧照片");
+            }
+            res.measurePhoto = imageName;
+            [MeasureResult insertNewMeasureResult:res];
+            [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
+        }
+        
+        [picker dismissViewControllerAnimated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarHidden:NO];
+            // 改变状态栏的颜色  改变为白色
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }];
     };
 }
 
@@ -145,6 +255,14 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         return;
     }
     Event *subEvent = _event.events[_indexPath.section];
+    if ([subEvent.method isEqualToString:@"5"])
+    {
+        if ([_inputView.measureValues isEqualToString:@"1"] || [_inputView.measureValues isEqualToString:@"0"])
+        {
+            [SVProgressHUD showInfoWithStatus:@"请直接输入1或0"];
+            return;
+        }
+    }
     MeasureResult *result = [self exsistMeasureResultForIndexPath:_indexPath];
     if (!result)
     {

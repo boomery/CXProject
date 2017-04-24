@@ -12,4 +12,6 @@
 + (void)insertNewMeasureResult:(MeasureResult *)result;
 
 + (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
+
+//+ (BOOL)updateMeasurePhotoName:(NSString *)photoName forMeasureResult:(MeasureResult *)result;
 @end

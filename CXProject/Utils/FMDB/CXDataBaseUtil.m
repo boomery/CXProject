@@ -40,14 +40,39 @@ static FMDatabase *_db = nil;
     [db setShouldCacheStatements:YES];
     
    	//判断数据库中是否已经存在这个表，如果不存在则创建该表
-    if(![db tableExists:MEASURE_TABLE])
+    if(![db tableExists:[CXDataBaseUtil tableName]])
     {
-        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT,measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT,mesaureIndex TEXT,PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",MEASURE_TABLE];
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT,measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT, measurePhoto TEXT,mesaureIndex TEXT,PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",[CXDataBaseUtil tableName]];
         if ([db executeUpdate:createSql])
         {
             NSLog(@"建表成功");
         }
     }
+}
+
+#warning 表的名称要根据登录用户名来生成，现在暂时固定
++ (NSString *)tableName
+{
+    return @"MEASURE_TABLE";
+}
+
++ (NSString *)imageName
+{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd-hh_mm_ss"];
+    NSString *dateString = [formatter stringFromDate:date];
+    NSString *imageName = [NSString stringWithFormat:@"image_create_at_%@",dateString];
+    return imageName;
+}
+
++ (NSString *)imagePathForName:(NSString *)imageName
+{
+    //首先,需要获取沙盒路径
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    // 拼接图片名为"currentImage.png"的路径
+    NSString *imageFilePath = [path stringByAppendingPathComponent:imageName];
+    return imageFilePath;
 }
 
 + (NSString *)getDatabasePath
