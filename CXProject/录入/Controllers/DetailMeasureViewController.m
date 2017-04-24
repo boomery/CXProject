@@ -21,6 +21,8 @@
     InputView *_inputView;
     //一个分项的录入点数组
     NSDictionary *_resultsDict;
+    BOOL _showPhoto;
+    UIImageView *_imageView;
 }
 //记录选中的行与点
 @property (nonatomic, strong) NSIndexPath *indexPath;
@@ -147,23 +149,30 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)viewPhoto
 {
-    UIView *view = [[UIView alloc] initForAutoLayout];
-    [self.view addSubview:view];
-    [view autoPinEdgesToSuperviewEdges];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    tap.numberOfTapsRequired = 1;
-    
-    [view addGestureRecognizer:tap];
-    
-    UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
-    [view addSubview:imageView];
-    [imageView autoCenterInSuperview];
-    [imageView autoSetDimensionsToSize:CGSizeMake(300, 300)];
     MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
-    if (res.measurePhoto)
+    if (res.measurePhoto.length != 0)
     {
-        imageView.image = [UIImage imageWithContentsOfFile:[CXDataBaseUtil imagePathForName:res.measurePhoto]];
+        if (!_showPhoto)
+        {
+            UIView *view = [[UIView alloc] initForAutoLayout];
+            view.backgroundColor = [UIColor blackColor];
+            view.alpha = 0.4;
+            [self.view addSubview:view];
+            [view autoPinEdgesToSuperviewEdges];
+            
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+            tap.numberOfTapsRequired = 1;
+            
+            [view addGestureRecognizer:tap];
+            
+            UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
+            [self.view addSubview:imageView];
+            _imageView = imageView;
+            [imageView autoCenterInSuperview];
+            [imageView autoSetDimensionsToSize:CGSizeMake(300, 300)];
+            imageView.image = [UIImage imageWithContentsOfFile:[CXDataBaseUtil imagePathForName:res.measurePhoto]];
+            _showPhoto = !_showPhoto;
+        }
     }
     else
     {
@@ -173,6 +182,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)tap:(UITapGestureRecognizer *)tap
 {
+    _showPhoto = NO;
+    [_imageView removeFromSuperview];
     [tap.view removeFromSuperview];
 }
 
@@ -193,7 +204,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         if ( [UIImageJPEGRepresentation(image, 0.5) writeToFile:[CXDataBaseUtil imagePathForName:imageName]  atomically:YES])
         {
             MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
-            if (res.measurePhoto)
+            if (res.measurePhoto.length != 0)
             {
                 [[NSFileManager defaultManager] removeItemAtPath:[CXDataBaseUtil imagePathForName:res.measurePhoto] error:nil];
                 NSLog(@"移除旧照片");
@@ -272,6 +283,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     if (!result)
     {
         result = [[MeasureResult alloc] init];
+        result.measurePhoto = @"";
     }
     result.projectID = [User editingProject].fileName;
     result.itemName = _event.name;
