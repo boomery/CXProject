@@ -287,7 +287,32 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIView *selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView = selectedBackgroundView;
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
-    cell.backgroundColor = [UIColor whiteColor];
+    if ([self isSpecial])
+    {
+        if ([_measurePoint.text floatValue] > indexPath.row)
+        {
+            cell.backgroundColor = [UIColor whiteColor];
+            cell.userInteractionEnabled = YES;
+        }
+        else
+        {
+            cell.backgroundColor = [UIColor grayColor];
+            cell.userInteractionEnabled = NO;
+        }
+    }
+    else
+    {
+        if ([_measureArea.text floatValue] > indexPath.row)
+        {
+            cell.backgroundColor = [UIColor whiteColor];
+            cell.userInteractionEnabled = YES;
+        }
+        else
+        {
+            cell.backgroundColor = [UIColor grayColor];
+            cell.userInteractionEnabled = NO;
+        }
+    }
     
     MeasureResult *res = [self exsistMeasureResultForIndexPath:indexPath];
     if (res)
@@ -308,10 +333,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
         }
     }
-  else
-  {
-      cell.label.text = @"-";
-  }
+    else
+    {
+        cell.label.text = @"-";
+    }
     return cell;
 }
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath

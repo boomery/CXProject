@@ -56,6 +56,11 @@ struct results count3(float value1, float value2, float value3, float value4, fl
         float diffrence = a[i] - min;
         if(diffrence > limit)
         {
+            res.result1 = 1;
+            res.result2 = 1;
+            res.result3 = 1;
+            res.result4 = 1;
+            res.result5 = 1;
             return res;
         }
         else
