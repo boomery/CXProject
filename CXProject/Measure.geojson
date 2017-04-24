@@ -119,7 +119,7 @@
                         "measurePoint": "1",
                         "min": "0",
                         "max": "15",
-                        "method": "2"
+                        "method": "4"
                         }
                         },
                         {
@@ -755,7 +755,7 @@
                        "min": "0",
                        "max": "10",
                        "limit": "15",
-                       "method": "10"
+                       "method": "3"
                        }
                        },
                        {
