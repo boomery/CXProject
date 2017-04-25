@@ -22,8 +22,11 @@
     InputView *_inputView;
     //一个分项的录入点数组
     NSDictionary *_resultsDict;
+    
+    //拍照相关变量
     BOOL _showPhoto;
     UIImageView *_imageView;
+    UIView *_backView;
 }
 //记录选中的行与点
 @property (nonatomic, strong) NSIndexPath *indexPath;
@@ -112,6 +115,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         [SVProgressHUD showErrorWithStatus:@"请先保存录入数据后再拍照"];
         return;
     }
+    _showPhoto = NO;
+    [_imageView removeFromSuperview];
+    [_backView removeFromSuperview];
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action){
         
@@ -160,6 +167,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             UIView *view = [[UIView alloc] initForAutoLayout];
             view.backgroundColor = [UIColor blackColor];
             view.alpha = 0.4;
+            _backView = view;
             [self.view addSubview:view];
             [view autoPinEdgesToSuperviewEdges];
             
