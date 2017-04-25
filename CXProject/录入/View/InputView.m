@@ -8,10 +8,11 @@
 
 #import "InputView.h"
 #import "NSString+isValid.h"
-@interface InputView ()
+@interface InputView () <UITextFieldDelegate>
 {
     NSMutableArray *_measureTextfieldArray;
     NSMutableArray *_designTextfieldArray;
+    NSMutableArray *_allTextfieldArray;
 }
 @end
 @implementation InputView
@@ -25,6 +26,7 @@
     
     _measureTextfieldArray = [[NSMutableArray alloc] init];
     _designTextfieldArray = [[NSMutableArray alloc] init];
+    _allTextfieldArray = [[NSMutableArray alloc] init];
     [self removeAllSubviews];
     
     UITextField *measureTextField = [self textFieldEditable:NO text:@"测量值"];
@@ -46,6 +48,7 @@
     {
         UITextField *text = [self textFieldEditable:YES text:@""];
         [_measureTextfieldArray addObject:text];
+        [_allTextfieldArray addObject:text];
         [views addObject:text];
         [self addSubview:text];
         [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField];
@@ -80,6 +83,7 @@
             UITextField *text = [self textFieldEditable:YES text:@""];
             [subViews addObject:text];
             [_designTextfieldArray addObject:text];
+            [_allTextfieldArray addObject:text];
             [self addSubview:text];
             [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height*2];
             if (i == designName.count - 1)
@@ -89,7 +93,7 @@
             }
         }
     }
-    
+
     /*保存按钮布局*/
     UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:saveButton];
@@ -117,6 +121,27 @@
     
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSInteger index = [_allTextfieldArray indexOfObject:textField];
+    index++;
+    if (_allTextfieldArray.count > index)
+    {
+        UITextField *text = _allTextfieldArray[index];
+        [text becomeFirstResponder];
+        NSLog(@"切换到下一个输入框");
+    }
+    else
+    {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(lastTextFieldWillReturn)])
+        {
+            [self.delegate lastTextFieldWillReturn];
+        }
+    }
+    return YES;
+}
+
 - (void)showPlace
 {
     if (self.showBlock)
@@ -137,16 +162,25 @@
 {
     UITextField *textField = [[UITextField alloc] initForAutoLayout];
     textField.enabled = editable;
+    textField.delegate = self;
     textField.font = [UIFont systemFontOfSize:13];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textAlignment = NSTextAlignmentCenter;
     textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-    textField.returnKeyType = UIReturnKeyDone;
+    textField.returnKeyType = UIReturnKeyNext;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.text = text;
     return textField;
 }
 
+- (void)beinEditing
+{
+    if (_measureTextfieldArray.count > 0)
+    {
+        UITextField *text = _measureTextfieldArray[0];
+        [text becomeFirstResponder];
+    }
+}
 
 - (BOOL)haveSetValue
 {

@@ -15,7 +15,7 @@
 #import "PhotoEditorViewController.h"
 #import "CXDataBaseUtil.h"
 #import "NSString+isValid.h"
-@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
 {
     NSArray *_titleArray;
     __weak IBOutlet UITextField *_standardTextField;
@@ -81,6 +81,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     _standardTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     InputView *view = [[InputView alloc] initForAutoLayout];
+    view.delegate = self;
     _inputView = view;
     [self.view addSubview:view];
     [view autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:self.tableView];
@@ -187,6 +188,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     _showPhoto = NO;
     [_imageView removeFromSuperview];
     [tap.view removeFromSuperview];
+}
+
+#pragma mark - InputViewDelegate
+- (void)lastTextFieldWillReturn
+{
+    [_measureArea becomeFirstResponder];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -511,7 +518,14 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [SVProgressHUD showInfoWithStatus:@"切换到下一个"];
+    if (textField == _measureArea)
+    {
+        [_measurePoint becomeFirstResponder];
+    }
+    else
+    {
+        [_inputView beinEditing];
+    }
     return YES;
 }
 
