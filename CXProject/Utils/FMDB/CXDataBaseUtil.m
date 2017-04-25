@@ -50,7 +50,6 @@ static FMDatabase *_db = nil;
     }
 }
 
-#warning 表的名称要根据登录用户名来生成，现在暂时固定
 + (NSString *)tableName
 {
     return @"MEASURE_TABLE";

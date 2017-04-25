@@ -140,9 +140,9 @@
     textField.font = [UIFont systemFontOfSize:13];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textAlignment = NSTextAlignmentCenter;
-    textField.keyboardType = UIKeyboardTypeDecimalPad;
+    textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     textField.returnKeyType = UIReturnKeyDone;
-    
+    textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.text = text;
     return textField;
 }

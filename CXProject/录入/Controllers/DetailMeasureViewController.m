@@ -14,6 +14,7 @@
 #import <Photos/Photos.h>
 #import "PhotoEditorViewController.h"
 #import "CXDataBaseUtil.h"
+#import "NSString+isValid.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     NSArray *_titleArray;
@@ -274,7 +275,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     Event *subEvent = _event.events[_indexPath.section];
     if ([subEvent.method isEqualToString:@"5"])
     {
-        if ([_inputView.measureValues isEqualToString:@"1"] || [_inputView.measureValues isEqualToString:@"0"])
+        if (!([_inputView.measureValues isEqualToString:@"1"] || [_inputView.measureValues isEqualToString:@"0"]))
         {
             [SVProgressHUD showErrorWithStatus:@"请直接输入1或0"];
             return;
@@ -510,7 +511,17 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
+    [SVProgressHUD showInfoWithStatus:@"切换到下一个"];
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (string.length > 0 && ![string isValidInt])
+    {
+        [SVProgressHUD showInfoWithStatus:@"请输入正整数"];
+        return NO;
+    }
     return YES;
 }
 

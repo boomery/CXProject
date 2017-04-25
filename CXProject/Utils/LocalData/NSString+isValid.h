@@ -10,6 +10,10 @@
 
 @interface NSString (isValid)
 
+//包含整数与小数
 - (BOOL)isValidNumber;
+
+//只包含整数
+- (BOOL)isValidInt;
 
 @end
