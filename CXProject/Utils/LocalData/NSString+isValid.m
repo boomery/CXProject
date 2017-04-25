@@ -19,7 +19,7 @@
 
 - (BOOL)isValidInt
 {
-    NSString *patter = @"^[1-9]\\d*$";
+    NSString *patter = @"^[0-9]\\d*$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",patter];
     return [predicate evaluateWithObject:self];
 }
