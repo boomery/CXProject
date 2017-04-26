@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *userView;
 @property (weak, nonatomic) IBOutlet UIView *passView;
 @property (weak, nonatomic) IBOutlet UIButton *remberButton;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -72,6 +73,14 @@
 - (IBAction)viewPassword:(UIButton *)sender
 {
     sender.selected = !sender.selected;
+    if (sender.selected)
+    {
+        _imageView.image = [UIImage imageNamed:@"eye_selected"];
+    }
+    else
+    {
+        _imageView.image = [UIImage imageNamed:@"eye_"];
+    }
     _passwordTextField.secureTextEntry = !sender.selected;
 }
 

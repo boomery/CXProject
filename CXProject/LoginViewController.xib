@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="imageView" destination="Ogd-Y2-ewE" id="tBa-bM-5yJ"/>
                 <outlet property="nameTextField" destination="uZY-Oy-Q7c" id="iTS-ES-46J"/>
                 <outlet property="passView" destination="D0m-pW-MnX" id="0Ea-wh-1U6"/>
                 <outlet property="passwordTextField" destination="wDB-HB-hjE" id="bXW-nw-kSB"/>
@@ -66,28 +67,34 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-JP-9KQ">
-                            <rect key="frame" x="270" y="15" width="15" height="15"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="rFr-JP-9KQ" secondAttribute="height" multiplier="1:1" id="S20-U6-HdJ"/>
-                                <constraint firstAttribute="height" constant="15" id="y7V-Gn-Op2"/>
-                            </constraints>
-                            <state key="normal" backgroundImage="eye_"/>
-                            <state key="selected" backgroundImage="eye_selected"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFr-JP-9KQ">
+                            <rect key="frame" x="255" y="0.0" width="40" height="45"/>
                             <connections>
                                 <action selector="viewPassword:" destination="-1" eventType="touchUpInside" id="wfa-EC-NAk"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye_" translatesAutoresizingMaskIntoConstraints="NO" id="Ogd-Y2-ewE">
+                            <rect key="frame" x="268" y="15" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="pIC-ek-uxC"/>
+                                <constraint firstAttribute="width" secondItem="Ogd-Y2-ewE" secondAttribute="height" multiplier="1:1" id="rgP-r2-rkn"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="Ogd-Y2-ewE" firstAttribute="centerY" secondItem="D0m-pW-MnX" secondAttribute="centerY" id="6sd-9x-c0m"/>
                         <constraint firstAttribute="trailing" secondItem="wDB-HB-hjE" secondAttribute="trailing" constant="40" id="92O-Ju-X6S"/>
+                        <constraint firstItem="Ogd-Y2-ewE" firstAttribute="centerX" secondItem="rFr-JP-9KQ" secondAttribute="centerX" id="E4D-Nb-i5f"/>
                         <constraint firstItem="lnr-XW-HzV" firstAttribute="leading" secondItem="D0m-pW-MnX" secondAttribute="leading" constant="10" id="Gaz-rv-Und"/>
                         <constraint firstItem="wDB-HB-hjE" firstAttribute="height" secondItem="D0m-pW-MnX" secondAttribute="height" id="MnH-R1-vmJ"/>
-                        <constraint firstAttribute="trailing" secondItem="rFr-JP-9KQ" secondAttribute="trailing" constant="10" id="SwM-yi-3Rf"/>
+                        <constraint firstAttribute="trailing" secondItem="rFr-JP-9KQ" secondAttribute="trailing" id="SwM-yi-3Rf"/>
+                        <constraint firstItem="rFr-JP-9KQ" firstAttribute="leading" secondItem="wDB-HB-hjE" secondAttribute="trailing" id="VTy-G6-QYq"/>
                         <constraint firstItem="wDB-HB-hjE" firstAttribute="leading" secondItem="lnr-XW-HzV" secondAttribute="trailing" constant="10" id="bRl-nA-ugX"/>
                         <constraint firstItem="lnr-XW-HzV" firstAttribute="centerY" secondItem="D0m-pW-MnX" secondAttribute="centerY" id="feq-tf-Nvf"/>
                         <constraint firstItem="wDB-HB-hjE" firstAttribute="centerY" secondItem="D0m-pW-MnX" secondAttribute="centerY" id="gT5-KN-29p"/>
+                        <constraint firstItem="rFr-JP-9KQ" firstAttribute="height" secondItem="D0m-pW-MnX" secondAttribute="height" id="gnq-R2-rIa"/>
                         <constraint firstItem="rFr-JP-9KQ" firstAttribute="centerY" secondItem="D0m-pW-MnX" secondAttribute="centerY" id="qzt-Ut-d5H"/>
+                        <constraint firstItem="Ogd-Y2-ewE" firstAttribute="centerY" secondItem="rFr-JP-9KQ" secondAttribute="centerY" id="v40-7h-HXF"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xp-oh-ngd">
@@ -157,7 +164,6 @@
     </objects>
     <resources>
         <image name="eye_" width="14" height="20"/>
-        <image name="eye_selected" width="14" height="14"/>
         <image name="login" width="300" height="40"/>
         <image name="logo" width="184" height="94"/>
         <image name="pass_icon" width="25" height="25"/>
