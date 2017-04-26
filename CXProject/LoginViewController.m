@@ -31,6 +31,9 @@
     
     self.title = @"快速登录";
     
+    [_nameTextField addTarget:self action:@selector(pressReturn) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [_passwordTextField addTarget:self action:@selector(pressReturn) forControlEvents:UIControlEventEditingDidEndOnExit];
+    
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cancelButton.frame = CGRectMake(0, 0, 15, 15);
     [cancelButton addTarget:self action:@selector(cancelButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -43,6 +46,11 @@
 - (void)cancelButtonClick:(UIButton *)button
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)pressReturn
+{
+    [self.view endEditing:YES];
 }
 //忽略过期方法警告
 #pragma clang diagnostic push
