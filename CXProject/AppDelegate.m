@@ -47,6 +47,10 @@
 }
 - (void)setTheme
 {
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [SVProgressHUD setInfoImage:[UIImage imageNamed:@"smile"]];
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     //背景颜色
     [[UINavigationBar appearance] setBarTintColor:THEME_COLOR];

@@ -61,12 +61,12 @@
     }
     else
     {
-        ALERT(@"请检查用户名或密码");
+        [SVProgressHUD showInfoWithStatus:@"请检查用户名或密码"];
     }
 }
 - (IBAction)forgetPassword:(id)sender
 {
-    ALERT(@"请联系电话：xxxxxxx");
+    [SVProgressHUD showInfoWithStatus:@"请联系管理员找回"];
 }
 
 - (IBAction)viewPassword:(UIButton *)sender
