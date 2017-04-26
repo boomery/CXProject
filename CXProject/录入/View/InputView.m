@@ -102,20 +102,20 @@
     UIButton *placeButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:placeButton];
     
-    NSArray *array = @[saveButton,placeButton];
+    NSArray *array = @[placeButton, saveButton];
     
     [array autoSetViewsDimension:ALDimensionHeight toSize:height];
     [array autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:20.0 insetSpacing:YES matchedSizes:YES];
     
     placeButton.layer.cornerRadius = 10;
     placeButton.clipsToBounds = YES;
-    placeButton.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+    placeButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
     [placeButton setTitle:@"地点" forState:UIControlStateNormal];
     [placeButton addTarget:self action:@selector(showPlace) forControlEvents:UIControlEventTouchUpInside];
     
     saveButton.layer.cornerRadius = 10;
     saveButton.clipsToBounds = YES;
-    saveButton.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+    saveButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
     [saveButton setTitle:@"保存" forState:UIControlStateNormal];
     [saveButton addTarget:self action:@selector(save) forControlEvents:UIControlEventTouchUpInside];
     
