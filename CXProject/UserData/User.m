@@ -8,6 +8,8 @@
 
 #import "User.h"
 #define USER_LOGIN_STATUS @"USER_LOGIN_STATUS"
+#define USER_IS_OURSTAFF @"USER_IS_OURSTAFF"
+
 @interface User ()
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isOurStaff;
@@ -45,6 +47,7 @@ static User *sharedUser = nil;
             {
                 [self setUserLoginStatus:YES];
             }
+            [self setuserIsOurStaff:YES];
             sharedUser.loginStatus = YES;
             sharedUser.isOurStaff = YES;
             
@@ -59,9 +62,12 @@ static User *sharedUser = nil;
     [SVProgressHUD showWithStatus:@"退出登录"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [SVProgressHUD dismissWithCompletion:^{
+            [self setUserLoginStatus:NO];
+            [self setuserIsOurStaff:NO];
             
             sharedUser.loginStatus = NO;
-            [self setUserLoginStatus:NO];
+            sharedUser.isOurStaff = NO;
+            
             completionBlock(YES);
         }];
     });
@@ -69,9 +75,21 @@ static User *sharedUser = nil;
 
 + (BOOL)isOurStaff
 {
-    return sharedUser.isOurStaff;
+    return sharedUser.isOurStaff || [self userIsOurStaff];
 }
 
+#pragma mark - 用户信息
++ (BOOL)userIsOurStaff
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_IS_OURSTAFF] || sharedUser.isOurStaff;
+}
+
++ (void)setuserIsOurStaff:(BOOL)isOurStaff
+{
+    [[NSUserDefaults standardUserDefaults] setBool:isOurStaff forKey:USER_IS_OURSTAFF];
+}
+
+#pragma mark - 用户登录状态
 + (BOOL)userLoginStatus
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS] || sharedUser.loginStatus;

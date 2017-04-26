@@ -68,22 +68,22 @@
     MainViewController *mainVC = [[MainViewController alloc] init];
     mainVC.title = @"首页";
     BaseNavigationController *mainNav = [[BaseNavigationController alloc] initWithRootViewController:mainVC];
-    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"home"] selectedImage:[UIImage imageNamed:@""]];
     
     ProjecListtViewController *inputVC = [[ProjecListtViewController alloc] init];
     inputVC.title = @"数据录入";
     BaseNavigationController *inputNav = [[BaseNavigationController alloc] initWithRootViewController:inputVC];
-    inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[UIImage imageNamed:@"measure"] selectedImage:[UIImage imageNamed:@""]];
     
     CountViewController *countVC = [[CountViewController alloc] init];
     countVC.title = @"数据查询";
     BaseNavigationController *countNav = [[BaseNavigationController alloc] initWithRootViewController:countVC];
-    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[UIImage imageNamed:@"search"] selectedImage:[UIImage imageNamed:@""]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
     mineVC.title = @"我的";
     BaseNavigationController *mineNav = [[BaseNavigationController alloc] initWithRootViewController:mineVC];
-    mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@""] selectedImage:[UIImage imageNamed:@""]];
+    mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"my"] selectedImage:[UIImage imageNamed:@""]];
     
     TabBarController *tab = [[TabBarController alloc] init];
     tab.delegate = self;

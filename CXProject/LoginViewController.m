@@ -41,8 +41,8 @@
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
     self.navigationItem.leftBarButtonItem = item;
-    // Do any additional setup after loading the view from its nib.
 }
+
 - (void)cancelButtonClick:(UIButton *)button
 {
     [self dismissViewControllerAnimated:YES completion:nil];
