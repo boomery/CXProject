@@ -11,6 +11,7 @@
 @interface User ()
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isOurStaff;
+@property (nonatomic, assign) BOOL loginStatus;
 @property (nonatomic, strong) Project *editingProject;
 @end
 static User *sharedUser = nil;
@@ -34,13 +35,17 @@ static User *sharedUser = nil;
 }
 
 #pragma mark - 登录
-+ (void)loginWithBlock:(completion)completionBlock
++ (void)loginWithRemberPassword:(BOOL)remberPassword completionBlock:(completion)completionBlock
 {
     [SVProgressHUD show];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [SVProgressHUD dismissWithCompletion:^{
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
-            [self setUserLoginStatus:YES];
+            if (remberPassword)
+            {
+                [self setUserLoginStatus:YES];
+            }
+            sharedUser.loginStatus = YES;
             sharedUser.isOurStaff = YES;
             
             completionBlock(YES);
@@ -67,7 +72,7 @@ static User *sharedUser = nil;
 
 + (BOOL)userLoginStatus
 {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS];
+    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS] || sharedUser.loginStatus;
 }
 
 + (void)setUserLoginStatus:(BOOL)hasLogin

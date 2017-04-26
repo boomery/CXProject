@@ -13,7 +13,7 @@ typedef void(^completion)(BOOL loginStatus);
 
 + (instancetype)sharedUser;
 
-+ (void)loginWithBlock:(completion)completionBlock;
++ (void)loginWithRemberPassword:(BOOL)remberPassword completionBlock:(completion)completionBlock;
 
 + (void)logoutWithBlock:(completion)completionBlock;
 

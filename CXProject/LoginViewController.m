@@ -32,23 +32,27 @@
     
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
     cancelButton.frame = CGRectMake(0, 0, 15, 15);
+    [cancelButton addTarget:self action:@selector(cancelButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [cancelButton setBackgroundImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
     self.navigationItem.leftBarButtonItem = item;
     // Do any additional setup after loading the view from its nib.
 }
-
+- (void)cancelButtonClick:(UIButton *)button
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 //忽略过期方法警告
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 - (IBAction)login:(id)sender
 {
-    if (![self isValidLogin])
+    if ([self isValidLogin])
     {
         //执行登录
-        [User loginWithBlock:^(BOOL loginStatus) {
+        [User loginWithRemberPassword:_remberButton.selected completionBlock:^(BOOL loginStatus) {
             if (loginStatus)
             {
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -68,6 +72,7 @@
 - (IBAction)viewPassword:(UIButton *)sender
 {
     sender.selected = !sender.selected;
+    _passwordTextField.secureTextEntry = !sender.selected;
 }
 
 - (IBAction)remberPassword:(UIButton *)sender
