@@ -10,6 +10,9 @@
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIView *userView;
+@property (weak, nonatomic) IBOutlet UIView *passView;
+@property (weak, nonatomic) IBOutlet UIButton *remberButton;
 
 @end
 
@@ -18,7 +21,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    _userView.layer.borderWidth = 0.5;
+    _userView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _userView.layer.cornerRadius = 5;
+    _passView.layer.borderWidth = 0.5;
+    _passView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _passView.layer.cornerRadius = 5;
+    
+    self.title = @"快速登录";
+    
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelButton.frame = CGRectMake(0, 0, 15, 15);
+    [cancelButton setBackgroundImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+    self.navigationItem.leftBarButtonItem = item;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -48,9 +65,17 @@
     ALERT(@"请联系电话：xxxxxxx");
 }
 
+- (IBAction)viewPassword:(UIButton *)sender
+{
+    sender.selected = !sender.selected;
+}
+
+- (IBAction)remberPassword:(UIButton *)sender
+{
+    sender.selected = !sender.selected;
+}
+
 #pragma clang diagnostic pop
-
-
 - (BOOL)isValidLogin
 {
     if (_nameTextField.text.length == 0 || _passwordTextField.text.length == 0)
@@ -60,7 +85,10 @@
     return YES;
 }
 
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
