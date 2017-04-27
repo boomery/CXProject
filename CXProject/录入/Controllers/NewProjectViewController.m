@@ -269,6 +269,7 @@ static NSString *inputCell4 = @"InputCell4";
     _activeTextField = nil;
     return YES;
 }
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -5,7 +5,6 @@
 //  Created by zhangchaoxin on 2017/3/23.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
-#define LINE_COLOR [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.00]
 #define BUTTON_SELECTED_COLOR [UIColor colorWithRed:0.93 green:0.36 blue:0.16 alpha:1.00]
 #import "TopBarView.h"
 #import "CountViewController.h"
