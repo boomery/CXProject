@@ -48,42 +48,43 @@
 - (void)setTheme
 {
     [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
-    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+    [SVProgressHUD setForegroundColor:THEME_COLOR];
     [SVProgressHUD setInfoImage:[UIImage imageNamed:@"smile"]];
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     //背景颜色
-    [[UINavigationBar appearance] setBarTintColor:THEME_COLOR];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
     //标题颜色
-    NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:THEME_COLOR};
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     //左右侧字体颜色
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:THEME_COLOR];
     
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
-    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.90 green:0.20 blue:0.14 alpha:1.00]];
 }
 - (void)setupControllers
 {
     MainViewController *mainVC = [[MainViewController alloc] init];
     mainVC.title = @"首页";
     BaseNavigationController *mainNav = [[BaseNavigationController alloc] initWithRootViewController:mainVC];
-    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage imageNamed:@"home"] selectedImage:[UIImage imageNamed:@""]];
+    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@""]];
     
     ProjecListtViewController *inputVC = [[ProjecListtViewController alloc] init];
     inputVC.title = @"数据录入";
     BaseNavigationController *inputNav = [[BaseNavigationController alloc] initWithRootViewController:inputVC];
-    inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[UIImage imageNamed:@"measure"] selectedImage:[UIImage imageNamed:@""]];
+    inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[[UIImage imageNamed:@"measure"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@""]];
     
     CountViewController *countVC = [[CountViewController alloc] init];
     countVC.title = @"数据查询";
     BaseNavigationController *countNav = [[BaseNavigationController alloc] initWithRootViewController:countVC];
-    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[UIImage imageNamed:@"search"] selectedImage:[UIImage imageNamed:@""]];
+    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[[UIImage imageNamed:@"search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@""]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
     mineVC.title = @"我的";
     BaseNavigationController *mineNav = [[BaseNavigationController alloc] initWithRootViewController:mineVC];
-    mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"my"] selectedImage:[UIImage imageNamed:@""]];
+    
+    mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[[UIImage imageNamed:@"my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  selectedImage:[UIImage imageNamed:@"my_selected"]];
     
     TabBarController *tab = [[TabBarController alloc] init];
     tab.delegate = self;

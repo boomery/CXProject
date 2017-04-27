@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blackColor];
     self.navigationController.navigationBar.hidden = YES;
     
     UIImageView *headerView = [[UIImageView alloc] init];
@@ -48,7 +49,7 @@
     tableView.tableFooterView = [[UIView alloc] init];
     tableView.dataSource = self;
     tableView.delegate = self;
-    [tableView autoPinEdgesToSuperviewEdges];
+    [tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(20, 0, 0, 0)];
     self.tableView = tableView;
 
     self.tableView.tableHeaderView = headerView;
