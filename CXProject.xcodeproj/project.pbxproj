@@ -44,6 +44,10 @@
 		9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9641EADC6C2003DA545 /* NSString+isValid.m */; };
 		9028C96D1EB1C623003DA545 /* MeasureRiskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */; };
 		9028C96F1EB1CB8C003DA545 /* MeasureRiskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */; };
+		9028C9781EB1DF18003DA545 /* ExtractionResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9761EB1DF18003DA545 /* ExtractionResultViewController.m */; };
+		9028C9791EB1DF18003DA545 /* ExtractionResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9771EB1DF18003DA545 /* ExtractionResultViewController.xib */; };
+		9028C97D1EB1DF81003DA545 /* GroupEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C97B1EB1DF81003DA545 /* GroupEvaluateViewController.m */; };
+		9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C97C1EB1DF81003DA545 /* GroupEvaluateViewController.xib */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -181,6 +185,12 @@
 		9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureRiskViewController.h; sourceTree = "<group>"; };
 		9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureRiskViewController.m; sourceTree = "<group>"; };
 		9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureRiskViewController.xib; sourceTree = "<group>"; };
+		9028C9751EB1DF18003DA545 /* ExtractionResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtractionResultViewController.h; sourceTree = "<group>"; };
+		9028C9761EB1DF18003DA545 /* ExtractionResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtractionResultViewController.m; sourceTree = "<group>"; };
+		9028C9771EB1DF18003DA545 /* ExtractionResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtractionResultViewController.xib; sourceTree = "<group>"; };
+		9028C97A1EB1DF81003DA545 /* GroupEvaluateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupEvaluateViewController.h; sourceTree = "<group>"; };
+		9028C97B1EB1DF81003DA545 /* GroupEvaluateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupEvaluateViewController.m; sourceTree = "<group>"; };
+		9028C97C1EB1DF81003DA545 /* GroupEvaluateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupEvaluateViewController.xib; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -708,6 +718,12 @@
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
+				9028C9751EB1DF18003DA545 /* ExtractionResultViewController.h */,
+				9028C9761EB1DF18003DA545 /* ExtractionResultViewController.m */,
+				9028C9771EB1DF18003DA545 /* ExtractionResultViewController.xib */,
+				9028C97A1EB1DF81003DA545 /* GroupEvaluateViewController.h */,
+				9028C97B1EB1DF81003DA545 /* GroupEvaluateViewController.m */,
+				9028C97C1EB1DF81003DA545 /* GroupEvaluateViewController.xib */,
 				90CB988A1E8F9CA4000FB2BC /* PhotoViewController.h */,
 				90CB98891E8F9CA4000FB2BC /* PhotoViewController.m */,
 				90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */,
@@ -837,6 +853,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */,
+				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				908C82401E9B31720086EDCD /* InputCell4.xib in Resources */,
@@ -849,6 +866,7 @@
 				908C82571E9B7D500086EDCD /* Measure.geojson in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
+				9028C9791EB1DF18003DA545 /* ExtractionResultViewController.xib in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
@@ -933,6 +951,7 @@
 				9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */,
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
+				9028C9781EB1DF18003DA545 /* ExtractionResultViewController.m in Sources */,
 				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
 				908BFE421E96269600937372 /* UIMyDatePicker.m in Sources */,
 				9028C9671EADC6C2003DA545 /* Data.m in Sources */,
@@ -944,6 +963,7 @@
 				9016C7B01E8C948A00B19056 /* TabBarController.m in Sources */,
 				90CB98921E8F9CA4000FB2BC /* PhotoViewController.m in Sources */,
 				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
+				9028C97D1EB1DF81003DA545 /* GroupEvaluateViewController.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,

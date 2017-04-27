@@ -29,7 +29,6 @@
 }
 - (void)requestData
 {
-    self.title = @"风险评估";
     _questionArray = @[@"渗漏问题", @"室内质量问题", @"公共部位问题", @"其他问题"];
 }
 - (IBAction)photoButtonClicked:(id)sender

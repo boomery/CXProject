@@ -1,31 +1,23 @@
 //
-//  BaseViewController.m
+//  ExtractionResultViewController.m
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/3/23.
+//  Created by zhangchaoxin on 2017/4/27.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "ExtractionResultViewController.h"
 
-@interface BaseViewController ()
+@interface ExtractionResultViewController ()
 
 @end
 
-@implementation BaseViewController
+@implementation ExtractionResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.view.backgroundColor = [UIColor whiteColor];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

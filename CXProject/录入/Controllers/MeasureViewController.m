@@ -19,9 +19,7 @@
 static NSString *cellIndentifier = @"UITableViewCell";
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.title = @"实测实量";
-    
+    [super viewDidLoad];    
     UIButton *uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
     uploadButton.frame = CGRectMake(0, 0, 40, 40);
     uploadButton.titleLabel.font = [UIFont systemFontOfSize:10];

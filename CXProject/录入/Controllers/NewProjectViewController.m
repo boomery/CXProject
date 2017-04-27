@@ -35,7 +35,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"新建项目";
     [self initData];
     [self initViews];
 }

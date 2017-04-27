@@ -87,6 +87,7 @@ static NSString *projectCell = @"ProjectCell";
     if (indexPath.section == 0)
     {
         NewProjectViewController *newVC = [[NewProjectViewController alloc] init];
+        newVC.title = @"新建项目";
         newVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:newVC animated:YES];
     }

@@ -10,6 +10,8 @@
 #import "MeasureViewController.h"
 #import "MeasureRiskViewController.h"
 #import "NewProjectViewController.h"
+#import "ExtractionResultViewController.h"
+#import "GroupEvaluateViewController.h"
 @interface ProjectViewController ()
 
 @end
@@ -38,8 +40,9 @@
 #pragma mark - 实测实量
 - (IBAction)measure:(id)sender
 {
-    MeasureViewController *measure = [[MeasureViewController alloc] init];
-    [self.navigationController pushViewController:measure animated:YES];
+    MeasureViewController *measureVC = [[MeasureViewController alloc] init];
+    measureVC.title = @"实测实量";
+    [self.navigationController pushViewController:measureVC animated:YES];
 }
 
 #pragma mark - 风险评估
@@ -52,21 +55,26 @@
 #pragma mark - 抽取结果
 - (IBAction)extractionResult:(id)sender
 {
-    
+    ExtractionResultViewController *newVC = [[ExtractionResultViewController alloc] init];
+    newVC.title = @"抽取结果";
+    [self.navigationController pushViewController:newVC animated:YES];
 }
 
 #pragma mark - 编辑项目
 - (IBAction)editProject:(id)sender
 {
     NewProjectViewController *newVC = [[NewProjectViewController alloc] init];
+    newVC.title = @"编辑项目";
     newVC.project = self.project;
-    newVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:newVC animated:YES];}
+    [self.navigationController pushViewController:newVC animated:YES];
+}
 
 #pragma mark - 团队互评
 - (IBAction)groupEvaluate:(id)sender
 {
-    
+    GroupEvaluateViewController *newVC = [[GroupEvaluateViewController alloc] init];
+    newVC.title = @"团队互评";
+    [self.navigationController pushViewController:newVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
