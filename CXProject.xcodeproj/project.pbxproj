@@ -43,6 +43,7 @@
 		9028C9691EADC6C2003DA545 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9621EADC6C2003DA545 /* Event.m */; };
 		9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9641EADC6C2003DA545 /* NSString+isValid.m */; };
 		9028C96D1EB1C623003DA545 /* MeasureRiskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */; };
+		9028C96F1EB1CB8C003DA545 /* MeasureRiskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -179,6 +180,7 @@
 		9028C9641EADC6C2003DA545 /* NSString+isValid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+isValid.m"; sourceTree = "<group>"; };
 		9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeasureRiskViewController.h; sourceTree = "<group>"; };
 		9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeasureRiskViewController.m; sourceTree = "<group>"; };
+		9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeasureRiskViewController.xib; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 				908C824E1E9B73B90086EDCD /* DetailMeasureViewController.xib */,
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
+				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
 				90CB988A1E8F9CA4000FB2BC /* PhotoViewController.h */,
 				90CB98891E8F9CA4000FB2BC /* PhotoViewController.m */,
 				90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */,
@@ -837,6 +840,7 @@
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				908C82401E9B31720086EDCD /* InputCell4.xib in Resources */,
+				9028C96F1EB1CB8C003DA545 /* MeasureRiskViewController.xib in Resources */,
 				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
 				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,

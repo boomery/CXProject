@@ -8,7 +8,7 @@
 
 #import "ProjectViewController.h"
 #import "MeasureViewController.h"
-#import "PhotoViewController.h"
+#import "MeasureRiskViewController.h"
 #import "NewProjectViewController.h"
 @interface ProjectViewController ()
 
@@ -45,8 +45,8 @@
 #pragma mark - 风险评估
 - (IBAction)riskEvaluate:(id)sender
 {
-    PhotoViewController *photoVC = [[PhotoViewController alloc] init];
-    [self.navigationController pushViewController:photoVC animated:YES];
+    MeasureRiskViewController *riskVC = [[MeasureRiskViewController alloc] init];
+    [self.navigationController pushViewController:riskVC animated:YES];
 }
 
 #pragma mark - 抽取结果

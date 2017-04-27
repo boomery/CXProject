@@ -55,12 +55,12 @@
     self.tableView.tableHeaderView = headerView;
     
     UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
-    [self.view addSubview:logoutButton];
+    [self.tableView addSubview:logoutButton];
     logoutButton.backgroundColor = [UIColor colorWithRed:0.32 green:0.33 blue:0.33 alpha:1.00];
     logoutButton.layer.cornerRadius = 5;
     logoutButton.clipsToBounds = YES;
     [logoutButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [logoutButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view withOffset:-99];
+    [logoutButton autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.tableView withOffset:DEF_SCREEN_HEIGHT - 140];
     [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
     [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
     [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
