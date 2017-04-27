@@ -18,6 +18,22 @@
 
 @implementation MineViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if ([User isOurStaff])
+    {
+        _imageNameArray = @[@"attence", @"my_project", @"feedback", @"contact", @"version", @"key_dict"];
+        _titleArray = @[@"现场考勤", @"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典"];
+    }
+    else
+    {
+        _imageNameArray = @[@"my_project", @"feedback", @"contact", @"version"];
+        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息"];
+    }
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -36,35 +52,39 @@
     self.tableView = tableView;
 
     self.tableView.tableHeaderView = headerView;
+    
+    UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
+    [self.view addSubview:logoutButton];
+    logoutButton.backgroundColor = [UIColor colorWithRed:0.32 green:0.33 blue:0.33 alpha:1.00];
+    logoutButton.layer.cornerRadius = 5;
+    logoutButton.clipsToBounds = YES;
+    [logoutButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [logoutButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view withOffset:-99];
+    [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 35)];
+    [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)logout
 {
-    [super viewWillAppear:animated];
-    if ([User isOurStaff])
-    {
-        _imageNameArray = @[@"attence", @"my_project", @"feedback", @"contact", @"version", @"keyword"];
-        _titleArray = @[@"现场考勤", @"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典"];
-    }
-    else
-    {
-        _imageNameArray = @[@"my_project", @"feedback", @"contact", @"version"];
-        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息"];
-    }
-    [self.tableView reloadData];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出吗？" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [User logoutWithBlock:^(BOOL loginStatus) {
+            AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            [delegate.tab setSelectedIndex:0];
+        }];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1)
-    {
-        return 1;
-    }
     return _titleArray.count;
 }
 
@@ -78,15 +98,8 @@
         cell.textLabel.textAlignment = NSTextAlignmentLeft;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    if (indexPath.section == 0)
-    {
-        cell.textLabel.text = _titleArray[indexPath.row];
-        cell.imageView.image = [UIImage imageNamed:_imageNameArray[indexPath.row]];
-    }
-    else
-    {
-        cell.textLabel.text = @"退出登录";
-    }
+    cell.textLabel.text = _titleArray[indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:_imageNameArray[indexPath.row]];
     return cell;
 }
 
@@ -94,18 +107,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 1)
-    {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"确定要退出吗？" preferredStyle:UIAlertControllerStyleActionSheet];
-        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            [User logoutWithBlock:^(BOOL loginStatus) {
-                AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                [delegate.tab setSelectedIndex:0];
-            }];
-        }]];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
