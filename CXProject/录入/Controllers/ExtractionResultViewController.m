@@ -12,7 +12,7 @@
 {
     NSArray *_titleArray;
     NSArray *_titleArray2;
-    NSArray *_titleArray3;
+    NSMutableArray *_titleArray3;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @end
@@ -26,7 +26,9 @@ static NSString *extactResultCell = @"extactResultCell";
     [super viewDidLoad];
     _titleArray = @[@"抽取标段", @"所属项目", @"所属城市", @"所属区域", @"所属集团", @"抽签轮次", @"抽检责任人"];
     _titleArray2 = @[@"抽检名称", @"抽检范围", @"抽取样本", @"抽取结果", @"抽取时间"];
-    _titleArray3 = @[@"抽检范围", @"备注"];
+    _titleArray3 = [[NSMutableArray alloc] init];
+    [_titleArray3 addObject:@"抽检范围"];
+    [_titleArray3 addObject:@"备注"];
 
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT-64) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
@@ -39,6 +41,15 @@ static NSString *extactResultCell = @"extactResultCell";
     
     [MHKeyboard addRegisterTheViewNeedMHKeyboard:self.view];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)addResult
+{
+    [_titleArray3 addObject:@"抽检范围"];
+    [_titleArray3 addObject:@"备注"];
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_titleArray3.count-2 inSection:2],[NSIndexPath indexPathForRow:_titleArray3.count-1 inSection:2]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
 }
 
 #pragma mark - UITableViewDataSource
@@ -84,6 +95,7 @@ static NSString *extactResultCell = @"extactResultCell";
         if (indexPath.row == 0)
         {
             cell.addButton.hidden = NO;
+            [cell.addButton addTarget:self action:@selector(addResult) forControlEvents:UIControlEventTouchUpInside];
         }
         cell.nameLabel.text = _titleArray3[indexPath.row];
         cell.textField.enabled = YES;
@@ -118,10 +130,12 @@ static NSString *extactResultCell = @"extactResultCell";
     return YES;
 }
 
+#pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
