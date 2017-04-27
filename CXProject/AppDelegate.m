@@ -68,17 +68,17 @@
     MainViewController *mainVC = [[MainViewController alloc] init];
     mainVC.title = @"首页";
     BaseNavigationController *mainNav = [[BaseNavigationController alloc] initWithRootViewController:mainVC];
-    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@""]];
+    mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"home_selected"]];
     
     ProjecListtViewController *inputVC = [[ProjecListtViewController alloc] init];
     inputVC.title = @"数据录入";
     BaseNavigationController *inputNav = [[BaseNavigationController alloc] initWithRootViewController:inputVC];
-    inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[[UIImage imageNamed:@"measure"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@""]];
+    inputNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据录入" image:[[UIImage imageNamed:@"measure"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"measure_selected"]];
     
     CountViewController *countVC = [[CountViewController alloc] init];
     countVC.title = @"数据查询";
     BaseNavigationController *countNav = [[BaseNavigationController alloc] initWithRootViewController:countVC];
-    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[[UIImage imageNamed:@"search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@""]];
+    countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[[UIImage imageNamed:@"search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"search_selected"]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
     mineVC.title = @"我的";

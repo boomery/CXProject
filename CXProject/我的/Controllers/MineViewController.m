@@ -61,7 +61,7 @@
     logoutButton.clipsToBounds = YES;
     [logoutButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
     [logoutButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self.view withOffset:-99];
-    [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 35)];
+    [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
     [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
     [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
 }
