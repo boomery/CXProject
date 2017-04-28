@@ -38,6 +38,11 @@
 
 @implementation DetailMeasureViewController
 
+- (void)dealloc
+{
+    [MHKeyboard removeRegisterTheViewNeedMHKeyboard];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];

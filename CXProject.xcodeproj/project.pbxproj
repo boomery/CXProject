@@ -49,6 +49,11 @@
 		9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C97C1EB1DF81003DA545 /* GroupEvaluateViewController.xib */; };
 		9028C9821EB1EBE1003DA545 /* ExtactResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9801EB1EBE1003DA545 /* ExtactResultCell.m */; };
 		9028C9831EB1EBE1003DA545 /* ExtactResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9811EB1EBE1003DA545 /* ExtactResultCell.xib */; };
+		9028C98B1EB2D937003DA545 /* star_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9851EB2D937003DA545 /* star_gray.png */; };
+		9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9861EB2D937003DA545 /* star_gray@2x.png */; };
+		9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9871EB2D937003DA545 /* star_yellow.png */; };
+		9028C98E1EB2D937003DA545 /* star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9881EB2D937003DA545 /* star_yellow@2x.png */; };
+		9028C98F1EB2D937003DA545 /* WSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C98A1EB2D937003DA545 /* WSStarRatingView.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -194,6 +199,12 @@
 		9028C97F1EB1EBE1003DA545 /* ExtactResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtactResultCell.h; sourceTree = "<group>"; };
 		9028C9801EB1EBE1003DA545 /* ExtactResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtactResultCell.m; sourceTree = "<group>"; };
 		9028C9811EB1EBE1003DA545 /* ExtactResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtactResultCell.xib; sourceTree = "<group>"; };
+		9028C9851EB2D937003DA545 /* star_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_gray.png; sourceTree = "<group>"; };
+		9028C9861EB2D937003DA545 /* star_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_gray@2x.png"; sourceTree = "<group>"; };
+		9028C9871EB2D937003DA545 /* star_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_yellow.png; sourceTree = "<group>"; };
+		9028C9881EB2D937003DA545 /* star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_yellow@2x.png"; sourceTree = "<group>"; };
+		9028C9891EB2D937003DA545 /* WSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSStarRatingView.h; sourceTree = "<group>"; };
+		9028C98A1EB2D937003DA545 /* WSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSStarRatingView.m; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -369,6 +380,7 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9028C9841EB2D937003DA545 /* WSStarRating */,
 				9028C9581EADC6C2003DA545 /* LocalData */,
 				9028C9321EA4B8CB003DA545 /* FMDB */,
 				908BFE3C1E96269500937372 /* 时间选择器 */,
@@ -600,6 +612,19 @@
 				9028C9641EADC6C2003DA545 /* NSString+isValid.m */,
 			);
 			path = LocalData;
+			sourceTree = "<group>";
+		};
+		9028C9841EB2D937003DA545 /* WSStarRating */ = {
+			isa = PBXGroup;
+			children = (
+				9028C9851EB2D937003DA545 /* star_gray.png */,
+				9028C9861EB2D937003DA545 /* star_gray@2x.png */,
+				9028C9871EB2D937003DA545 /* star_yellow.png */,
+				9028C9881EB2D937003DA545 /* star_yellow@2x.png */,
+				9028C9891EB2D937003DA545 /* WSStarRatingView.h */,
+				9028C98A1EB2D937003DA545 /* WSStarRatingView.m */,
+			);
+			path = WSStarRating;
 			sourceTree = "<group>";
 		};
 		904340091E89F78E00D33ED9 /* 录入 */ = {
@@ -858,10 +883,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */,
+				9028C98B1EB2D937003DA545 /* star_gray.png in Resources */,
 				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				908C82401E9B31720086EDCD /* InputCell4.xib in Resources */,
+				9028C98E1EB2D937003DA545 /* star_yellow@2x.png in Resources */,
 				9028C96F1EB1CB8C003DA545 /* MeasureRiskViewController.xib in Resources */,
 				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
 				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
@@ -872,7 +899,9 @@
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				9028C9831EB1EBE1003DA545 /* ExtactResultCell.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
+				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
+				9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
@@ -1004,6 +1033,7 @@
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				9028C9681EADC6C2003DA545 /* DataProvider.m in Sources */,
 				9028C9661EADC6C2003DA545 /* CountUtil.c in Sources */,
+				9028C98F1EB2D937003DA545 /* WSStarRatingView.m in Sources */,
 				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
 				908C823A1E9B28060086EDCD /* ProjectViewController.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,

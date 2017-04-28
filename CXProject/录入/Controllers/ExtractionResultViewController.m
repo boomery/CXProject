@@ -21,6 +21,11 @@
 
 static NSString *extactResultCell = @"extactResultCell";
 
+- (void)dealloc
+{
+    [MHKeyboard removeRegisterTheViewNeedMHKeyboard];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

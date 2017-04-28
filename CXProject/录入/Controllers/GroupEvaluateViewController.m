@@ -9,14 +9,33 @@
 #import "GroupEvaluateViewController.h"
 
 @interface GroupEvaluateViewController ()
+@property (weak, nonatomic) IBOutlet UIView *view1;
+@property (weak, nonatomic) IBOutlet UIView *view2;
+@property (weak, nonatomic) IBOutlet UIView *view3;
+@property (weak, nonatomic) IBOutlet UIView *view4;
 
 @end
 
 @implementation GroupEvaluateViewController
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [MHKeyboard removeRegisterTheViewNeedMHKeyboard];
+}
 
-- (void)viewDidLoad {
+- (void)viewDidAppear:(BOOL)animated
+{
+    [MHKeyboard addRegisterTheViewNeedMHKeyboard:self.view];
+}
+
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    NSArray *array = @[_view1, _view2, _view3, _view4];
+    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        UIView *view = obj;
+        view.layer.borderWidth = 0.5;
+        view.layer.borderColor = [LINE_COLOR CGColor];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
