@@ -65,6 +65,8 @@
 		9028C9AB1EB30A17003DA545 /* WMPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9A11EB30A17003DA545 /* WMPhotoCollectionViewCell.m */; };
 		9028C9AC1EB30A17003DA545 /* WMPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9A31EB30A17003DA545 /* WMPhotoPickerController.m */; };
 		9028C9AF1EB30A41003DA545 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */; };
+		9028C9B31EB3203B003DA545 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9B11EB3203B003DA545 /* ContactViewController.m */; };
+		9028C9B41EB3203B003DA545 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9B21EB3203B003DA545 /* ContactViewController.xib */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -235,6 +237,9 @@
 		9028C9A31EB30A17003DA545 /* WMPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPhotoPickerController.m; sourceTree = "<group>"; };
 		9028C9AD1EB30A41003DA545 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		9028C9B01EB3203B003DA545 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		9028C9B11EB3203B003DA545 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		9028C9B21EB3203B003DA545 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -575,6 +580,9 @@
 				901781461E8275E000D6E8A1 /* MineViewController.m */,
 				9028C9AD1EB30A41003DA545 /* FeedbackViewController.h */,
 				9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */,
+				9028C9B01EB3203B003DA545 /* ContactViewController.h */,
+				9028C9B11EB3203B003DA545 /* ContactViewController.m */,
+				9028C9B21EB3203B003DA545 /* ContactViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -948,6 +956,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */,
+				9028C9B41EB3203B003DA545 /* ContactViewController.xib in Resources */,
 				9028C98B1EB2D937003DA545 /* star_gray.png in Resources */,
 				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
@@ -1084,6 +1093,7 @@
 				90CB98A21E8FA18C000FB2BC /* Project.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
 				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
+				9028C9B31EB3203B003DA545 /* ContactViewController.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
 				908BFE461E97264600937372 /* InputCell2.m in Sources */,

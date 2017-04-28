@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "FeedbackViewController.h"
+#import "ContactViewController.h"
 @interface MineViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_titleArray;
@@ -112,6 +113,13 @@
     if ([_titleArray[indexPath.row] isEqualToString:@"意见反馈"])
     {
         FeedbackViewController *vc = [[FeedbackViewController alloc] init];
+        vc.title = _titleArray[indexPath.row];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([_titleArray[indexPath.row] isEqualToString:@"联系我们"])
+    {
+        ContactViewController *vc = [[ContactViewController alloc] init];
         vc.title = _titleArray[indexPath.row];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
