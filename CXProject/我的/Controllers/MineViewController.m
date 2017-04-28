@@ -9,6 +9,7 @@
 #import "MineViewController.h"
 #import "FeedbackViewController.h"
 #import "ContactViewController.h"
+#import "VersionViewController.h"
 @interface MineViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_titleArray;
@@ -132,6 +133,14 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else if ([_titleArray[indexPath.row] isEqualToString:@"版本信息"])
+    {
+        VersionViewController *vc = [[VersionViewController alloc] init];
+        vc.title = _titleArray[indexPath.row];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

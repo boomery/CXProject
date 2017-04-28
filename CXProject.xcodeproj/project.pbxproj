@@ -67,6 +67,8 @@
 		9028C9AF1EB30A41003DA545 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */; };
 		9028C9B31EB3203B003DA545 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9B11EB3203B003DA545 /* ContactViewController.m */; };
 		9028C9B41EB3203B003DA545 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9B21EB3203B003DA545 /* ContactViewController.xib */; };
+		9028C9B81EB32B2A003DA545 /* VersionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9B61EB32B2A003DA545 /* VersionViewController.m */; };
+		9028C9B91EB32B2A003DA545 /* VersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9B71EB32B2A003DA545 /* VersionViewController.xib */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -240,6 +242,9 @@
 		9028C9B01EB3203B003DA545 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		9028C9B11EB3203B003DA545 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		9028C9B21EB3203B003DA545 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
+		9028C9B51EB32B2A003DA545 /* VersionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionViewController.h; sourceTree = "<group>"; };
+		9028C9B61EB32B2A003DA545 /* VersionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionViewController.m; sourceTree = "<group>"; };
+		9028C9B71EB32B2A003DA545 /* VersionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VersionViewController.xib; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -583,6 +588,9 @@
 				9028C9B01EB3203B003DA545 /* ContactViewController.h */,
 				9028C9B11EB3203B003DA545 /* ContactViewController.m */,
 				9028C9B21EB3203B003DA545 /* ContactViewController.xib */,
+				9028C9B51EB32B2A003DA545 /* VersionViewController.h */,
+				9028C9B61EB32B2A003DA545 /* VersionViewController.m */,
+				9028C9B71EB32B2A003DA545 /* VersionViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -983,6 +991,7 @@
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
+				9028C9B91EB32B2A003DA545 /* VersionViewController.xib in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
 			);
@@ -1075,6 +1084,7 @@
 				90CB98921E8F9CA4000FB2BC /* PhotoViewController.m in Sources */,
 				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
 				9028C97D1EB1DF81003DA545 /* GroupEvaluateViewController.m in Sources */,
+				9028C9B81EB32B2A003DA545 /* VersionViewController.m in Sources */,
 				9028C9AF1EB30A41003DA545 /* FeedbackViewController.m in Sources */,
 				9028C9931EB30936003DA545 /* UIPlaceHolderTextView.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
