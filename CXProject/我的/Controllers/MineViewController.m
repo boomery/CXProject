@@ -7,7 +7,7 @@
 //
 
 #import "MineViewController.h"
-
+#import "FeedbackViewController.h"
 @interface MineViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_titleArray;
@@ -21,6 +21,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.999 green:0.03 blue:0.005 alpha:1.00];
+
     if ([User isOurStaff])
     {
         _imageNameArray = @[@"attence", @"my_project", @"feedback", @"contact", @"version", @"key_dict"];
@@ -38,8 +41,6 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    self.navigationController.navigationBar.hidden = YES;
-    
     UIImageView *headerView = [[UIImageView alloc] init];
     headerView.image = [UIImage imageNamed:@"pd"];
     headerView.frame = CGRectMake(0, 0, self.view.width, self.view.height*0.25);
@@ -49,7 +50,7 @@
     tableView.tableFooterView = [[UIView alloc] init];
     tableView.dataSource = self;
     tableView.delegate = self;
-    [tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(20, 0, 0, 0)];
+    [tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 49, 0)];
     self.tableView = tableView;
 
     self.tableView.tableHeaderView = headerView;
@@ -60,7 +61,7 @@
     logoutButton.layer.cornerRadius = 5;
     logoutButton.clipsToBounds = YES;
     [logoutButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [logoutButton autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.tableView withOffset:DEF_SCREEN_HEIGHT - 140];
+    [logoutButton autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.tableView withOffset:DEF_SCREEN_HEIGHT - 180];
     [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
     [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
     [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
@@ -108,6 +109,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([_titleArray[indexPath.row] isEqualToString:@"意见反馈"])
+    {
+        FeedbackViewController *vc = [[FeedbackViewController alloc] init];
+        vc.title = _titleArray[indexPath.row];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

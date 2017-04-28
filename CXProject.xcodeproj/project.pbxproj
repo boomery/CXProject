@@ -54,6 +54,17 @@
 		9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9871EB2D937003DA545 /* star_yellow.png */; };
 		9028C98E1EB2D937003DA545 /* star_yellow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9881EB2D937003DA545 /* star_yellow@2x.png */; };
 		9028C98F1EB2D937003DA545 /* WSStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C98A1EB2D937003DA545 /* WSStarRatingView.m */; };
+		9028C9931EB30936003DA545 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9921EB30936003DA545 /* UIPlaceHolderTextView.m */; };
+		9028C9A41EB30A17003DA545 /* AddImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9961EB30A17003DA545 /* AddImageView.m */; };
+		9028C9A51EB30A17003DA545 /* image_count_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9971EB30A17003DA545 /* image_count_bg.png */; };
+		9028C9A61EB30A17003DA545 /* image_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9981EB30A17003DA545 /* image_select.png */; };
+		9028C9A71EB30A17003DA545 /* image_unselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9991EB30A17003DA545 /* image_unselect.png */; };
+		9028C9A81EB30A17003DA545 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C99B1EB30A17003DA545 /* ImageModel.m */; };
+		9028C9A91EB30A17003DA545 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C99D1EB30A17003DA545 /* PhotoCell.m */; };
+		9028C9AA1EB30A17003DA545 /* UploadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C99F1EB30A17003DA545 /* UploadImageView.m */; };
+		9028C9AB1EB30A17003DA545 /* WMPhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9A11EB30A17003DA545 /* WMPhotoCollectionViewCell.m */; };
+		9028C9AC1EB30A17003DA545 /* WMPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9A31EB30A17003DA545 /* WMPhotoPickerController.m */; };
+		9028C9AF1EB30A41003DA545 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -205,6 +216,25 @@
 		9028C9881EB2D937003DA545 /* star_yellow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_yellow@2x.png"; sourceTree = "<group>"; };
 		9028C9891EB2D937003DA545 /* WSStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSStarRatingView.h; sourceTree = "<group>"; };
 		9028C98A1EB2D937003DA545 /* WSStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSStarRatingView.m; sourceTree = "<group>"; };
+		9028C9911EB30936003DA545 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		9028C9921EB30936003DA545 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		9028C9951EB30A17003DA545 /* AddImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddImageView.h; sourceTree = "<group>"; };
+		9028C9961EB30A17003DA545 /* AddImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddImageView.m; sourceTree = "<group>"; };
+		9028C9971EB30A17003DA545 /* image_count_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_count_bg.png; sourceTree = "<group>"; };
+		9028C9981EB30A17003DA545 /* image_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_select.png; sourceTree = "<group>"; };
+		9028C9991EB30A17003DA545 /* image_unselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_unselect.png; sourceTree = "<group>"; };
+		9028C99A1EB30A17003DA545 /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		9028C99B1EB30A17003DA545 /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		9028C99C1EB30A17003DA545 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		9028C99D1EB30A17003DA545 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		9028C99E1EB30A17003DA545 /* UploadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImageView.h; sourceTree = "<group>"; };
+		9028C99F1EB30A17003DA545 /* UploadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImageView.m; sourceTree = "<group>"; };
+		9028C9A01EB30A17003DA545 /* WMPhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		9028C9A11EB30A17003DA545 /* WMPhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		9028C9A21EB30A17003DA545 /* WMPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPhotoPickerController.h; sourceTree = "<group>"; };
+		9028C9A31EB30A17003DA545 /* WMPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPhotoPickerController.m; sourceTree = "<group>"; };
+		9028C9AD1EB30A41003DA545 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -380,6 +410,8 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9028C9941EB30A17003DA545 /* 图片选择器 */,
+				9028C9901EB30936003DA545 /* 自定义UITextView */,
 				9028C9841EB2D937003DA545 /* WSStarRating */,
 				9028C9581EADC6C2003DA545 /* LocalData */,
 				9028C9321EA4B8CB003DA545 /* FMDB */,
@@ -541,6 +573,8 @@
 			children = (
 				901781451E8275E000D6E8A1 /* MineViewController.h */,
 				901781461E8275E000D6E8A1 /* MineViewController.m */,
+				9028C9AD1EB30A41003DA545 /* FeedbackViewController.h */,
+				9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -625,6 +659,37 @@
 				9028C98A1EB2D937003DA545 /* WSStarRatingView.m */,
 			);
 			path = WSStarRating;
+			sourceTree = "<group>";
+		};
+		9028C9901EB30936003DA545 /* 自定义UITextView */ = {
+			isa = PBXGroup;
+			children = (
+				9028C9911EB30936003DA545 /* UIPlaceHolderTextView.h */,
+				9028C9921EB30936003DA545 /* UIPlaceHolderTextView.m */,
+			);
+			path = "自定义UITextView";
+			sourceTree = "<group>";
+		};
+		9028C9941EB30A17003DA545 /* 图片选择器 */ = {
+			isa = PBXGroup;
+			children = (
+				9028C9951EB30A17003DA545 /* AddImageView.h */,
+				9028C9961EB30A17003DA545 /* AddImageView.m */,
+				9028C9971EB30A17003DA545 /* image_count_bg.png */,
+				9028C9981EB30A17003DA545 /* image_select.png */,
+				9028C9991EB30A17003DA545 /* image_unselect.png */,
+				9028C99A1EB30A17003DA545 /* ImageModel.h */,
+				9028C99B1EB30A17003DA545 /* ImageModel.m */,
+				9028C99C1EB30A17003DA545 /* PhotoCell.h */,
+				9028C99D1EB30A17003DA545 /* PhotoCell.m */,
+				9028C99E1EB30A17003DA545 /* UploadImageView.h */,
+				9028C99F1EB30A17003DA545 /* UploadImageView.m */,
+				9028C9A01EB30A17003DA545 /* WMPhotoCollectionViewCell.h */,
+				9028C9A11EB30A17003DA545 /* WMPhotoCollectionViewCell.m */,
+				9028C9A21EB30A17003DA545 /* WMPhotoPickerController.h */,
+				9028C9A31EB30A17003DA545 /* WMPhotoPickerController.m */,
+			);
+			path = "图片选择器";
 			sourceTree = "<group>";
 		};
 		904340091E89F78E00D33ED9 /* 录入 */ = {
@@ -899,10 +964,13 @@
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				9028C9831EB1EBE1003DA545 /* ExtactResultCell.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
+				9028C9A71EB30A17003DA545 /* image_unselect.png in Resources */,
+				9028C9A61EB30A17003DA545 /* image_select.png in Resources */,
 				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
 				9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
+				9028C9A51EB30A17003DA545 /* image_count_bg.png in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
@@ -998,10 +1066,13 @@
 				90CB98921E8F9CA4000FB2BC /* PhotoViewController.m in Sources */,
 				9016C7981E8A53D600B19056 /* GCDAsyncSocket.m in Sources */,
 				9028C97D1EB1DF81003DA545 /* GroupEvaluateViewController.m in Sources */,
+				9028C9AF1EB30A41003DA545 /* FeedbackViewController.m in Sources */,
+				9028C9931EB30936003DA545 /* UIPlaceHolderTextView.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
+				9028C9AB1EB30A17003DA545 /* WMPhotoCollectionViewCell.m in Sources */,
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
 				908BFE391E96054E00937372 /* MHKeyboard.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
@@ -1016,6 +1087,8 @@
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
 				908BFE461E97264600937372 /* InputCell2.m in Sources */,
+				9028C9A91EB30A17003DA545 /* PhotoCell.m in Sources */,
+				9028C9AA1EB30A17003DA545 /* UploadImageView.m in Sources */,
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */,
 				9028C9821EB1EBE1003DA545 /* ExtactResultCell.m in Sources */,
@@ -1027,17 +1100,20 @@
 				908C82471E9B4DEE0086EDCD /* MeasureViewController.m in Sources */,
 				908BFE381E96054E00937372 /* MHKeyboard+Animation.m in Sources */,
 				9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */,
+				9028C9A41EB30A17003DA545 /* AddImageView.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
 				9028C9681EADC6C2003DA545 /* DataProvider.m in Sources */,
+				9028C9AC1EB30A17003DA545 /* WMPhotoPickerController.m in Sources */,
 				9028C9661EADC6C2003DA545 /* CountUtil.c in Sources */,
 				9028C98F1EB2D937003DA545 /* WSStarRatingView.m in Sources */,
 				90CB98771E8F7F55000FB2BC /* LJBaseModel.m in Sources */,
 				908C823A1E9B28060086EDCD /* ProjectViewController.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
+				9028C9A81EB30A17003DA545 /* ImageModel.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,

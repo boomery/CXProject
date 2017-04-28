@@ -59,6 +59,8 @@
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     //左右侧字体颜色
     [[UINavigationBar appearance] setTintColor:THEME_COLOR];
+    [UINavigationBar appearance].barStyle = UIBaselineAdjustmentNone;
+
     
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.90 green:0.20 blue:0.14 alpha:1.00]];
