@@ -28,12 +28,12 @@
     if ([User isOurStaff])
     {
         _imageNameArray = @[@"attence", @"my_project", @"feedback", @"contact", @"version", @"key_dict"];
-        _titleArray = @[@"现场考勤", @"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典"];
+        _titleArray = @[@"现场考勤", @"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典", @"退出登录"];
     }
     else
     {
         _imageNameArray = @[@"my_project", @"feedback", @"contact", @"version"];
-        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息"];
+        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"退出登录"];
     }
     [self.tableView reloadData];
 }
@@ -56,16 +56,16 @@
 
     self.tableView.tableHeaderView = headerView;
     
-    UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
-    [self.tableView addSubview:logoutButton];
-    logoutButton.backgroundColor = [UIColor colorWithRed:0.32 green:0.33 blue:0.33 alpha:1.00];
-    logoutButton.layer.cornerRadius = 5;
-    logoutButton.clipsToBounds = YES;
-    [logoutButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [logoutButton autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.tableView withOffset:DEF_SCREEN_HEIGHT - 180];
-    [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
-    [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
-    [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+//    UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
+//    [self.tableView addSubview:logoutButton];
+//    logoutButton.backgroundColor = [UIColor colorWithRed:0.32 green:0.33 blue:0.33 alpha:1.00];
+//    logoutButton.layer.cornerRadius = 5;
+//    logoutButton.clipsToBounds = YES;
+//    [logoutButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+//    [logoutButton autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.tableView withOffset:DEF_SCREEN_HEIGHT - 170];
+//    [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
+//    [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
+//    [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)logout
@@ -99,10 +99,18 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.textLabel.textAlignment = NSTextAlignmentLeft;
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     cell.textLabel.text = _titleArray[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:_imageNameArray[indexPath.row]];
+    if (_imageNameArray.count > indexPath.row)
+    {
+        cell.imageView.image = [UIImage imageNamed:_imageNameArray[indexPath.row]];
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 

@@ -60,7 +60,7 @@
         cell.uploadImageView.image = [UIImage imageNamed:@"add_image"];
         cell.uploadImageView.maskView.hidden = YES;
         cell.deleteButton.hidden = YES;
-        cell.uploadImageView.contentMode = UIViewContentModeCenter;
+        cell.uploadImageView.contentMode = UIViewContentModeScaleToFill;
         cell.deleteButton.model = nil;
     }
     else
