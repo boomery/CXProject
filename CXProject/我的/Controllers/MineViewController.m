@@ -137,6 +137,7 @@
             UIViewController *vc = [[BaseViewController alloc] init];
             [searchViewController.navigationController pushViewController:vc animated:YES];
         }];
+        searchViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:searchViewController animated:YES];
     }
 }
