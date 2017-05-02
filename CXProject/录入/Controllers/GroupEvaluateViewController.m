@@ -30,12 +30,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIButton *uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    uploadButton.frame = CGRectMake(0, 0, 40, 40);
+    uploadButton.titleLabel.font = [UIFont systemFontOfSize:10];
+    [uploadButton addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
+    [uploadButton setImage:[UIImage imageNamed:@"upload"] forState:UIControlStateNormal];
+    [uploadButton setTitle:@"上传" forState:UIControlStateNormal];
+    [uploadButton setTitleEdgeInsets:UIEdgeInsetsMake(25, -10, 0, -10)];
+    [uploadButton setImageEdgeInsets:UIEdgeInsetsMake(5, 20, 15, -10)];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:uploadButton];
+    self.navigationItem.rightBarButtonItem = item;
+
     NSArray *array = @[_view1, _view2, _view3, _view4];
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIView *view = obj;
         view.layer.borderWidth = 0.5;
         view.layer.borderColor = [LINE_COLOR CGColor];
     }];
+}
+
+- (void)upload
+{
+    [SVProgressHUD showSuccessWithStatus:@"上传完成"];
 }
 
 - (void)didReceiveMemoryWarning {

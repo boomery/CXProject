@@ -35,6 +35,7 @@ static NSString *cellIndentifier = @"UITableViewCell";
     [self initData];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIndentifier];
 }
+
 - (void)upload
 {
     [SVProgressHUD showSuccessWithStatus:@"上传完成"];

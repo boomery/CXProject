@@ -29,12 +29,12 @@
     if ([User isOurStaff])
     {
         _imageNameArray = @[@"attence", @"my_project", @"feedback", @"contact", @"version", @"key_dict"];
-        _titleArray = @[@"现场考勤", @"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典", @"退出登录"];
+        _titleArray = @[@"现场考勤", @"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典"];
     }
     else
     {
         _imageNameArray = @[@"my_project", @"feedback", @"contact", @"version"];
-        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"退出登录"];
+        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息"];
     }
     [self.tableView reloadData];
 }
@@ -47,26 +47,13 @@
     headerView.image = [UIImage imageNamed:@"pd"];
     headerView.frame = CGRectMake(0, 0, self.view.width, self.view.height*0.25);
     
-    UITableView *tableView = [[UITableView alloc] initForAutoLayout];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT - 49 - 64) style:UITableViewStyleGrouped];
     [self.view addSubview:tableView];
     tableView.tableFooterView = [[UIView alloc] init];
     tableView.dataSource = self;
     tableView.delegate = self;
-    [tableView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(0, 0, 49, 0)];
     self.tableView = tableView;
-
     self.tableView.tableHeaderView = headerView;
-    
-//    UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
-//    [self.tableView addSubview:logoutButton];
-//    logoutButton.backgroundColor = [UIColor colorWithRed:0.32 green:0.33 blue:0.33 alpha:1.00];
-//    logoutButton.layer.cornerRadius = 5;
-//    logoutButton.clipsToBounds = YES;
-//    [logoutButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-//    [logoutButton autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:self.tableView withOffset:DEF_SCREEN_HEIGHT - 170];
-//    [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
-//    [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
-//    [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)logout
@@ -140,7 +127,28 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] init];
     
+    UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
+    [view addSubview:logoutButton];
+    logoutButton.backgroundColor = [UIColor colorWithRed:0.32 green:0.33 blue:0.33 alpha:1.00];
+    logoutButton.layer.cornerRadius = 5;
+    logoutButton.clipsToBounds = YES;
+    [logoutButton autoCenterInSuperview];
+    [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
+    [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 88;
 }
 
 - (void)didReceiveMemoryWarning {

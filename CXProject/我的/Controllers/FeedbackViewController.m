@@ -30,7 +30,7 @@
     self.suggestionTextView.scrollEnabled = YES;
     self.suggestionTextView.font        = [UIFont systemFontOfSize:13.5];
     self.suggestionTextView.textColor   = [UIColor blackColor];
-    self.suggestionTextView.placeholder =@"详细描述，有益解答";
+    self.suggestionTextView.placeholder =@"输入您的建议";
     self.suggestionTextView.placeholderColor = LINE_COLOR;
     self.suggestionTextView.delegate    = self;
     self.suggestionTextView.layer.cornerRadius = 5;
