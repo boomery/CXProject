@@ -315,7 +315,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.baseSearchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle py_localizedStringForKey:PYSearchCancelButtonText] style:UIBarButtonItemStyleDone target:self action:@selector(cancelDidClick)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle py_localizedStringForKey:PYSearchCancelButtonText] style:UIBarButtonItemStyleDone target:self action:@selector(cancelDidClick)];
     
     /**
      * Initialize settings
