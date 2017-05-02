@@ -10,6 +10,7 @@
 #import "FeedbackViewController.h"
 #import "ContactViewController.h"
 #import "VersionViewController.h"
+#import "PYSearchViewController.h"
 @interface MineViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_titleArray;
@@ -126,6 +127,17 @@
         vc.title = _titleArray[indexPath.row];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([_titleArray[indexPath.row] isEqualToString:@"关键词字典"])
+    {
+        NSArray *hotSeaches = @[@"关键词1", @"关键词12", @"关键词13", @"关键词41", @"关键词12", @"关键词41", @"关键词15", @"关键词31", @"关键词122", ];
+        PYSearchViewController *searchViewController = [PYSearchViewController searchViewControllerWithHotSearches:hotSeaches searchBarPlaceholder:@"输入关键词" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+            // Call this Block when completion search automatically
+            // Such as: Push to a view controller
+            UIViewController *vc = [[BaseViewController alloc] init];
+            [searchViewController.navigationController pushViewController:vc animated:YES];
+        }];
+        [self.navigationController pushViewController:searchViewController animated:YES];
     }
 }
 
