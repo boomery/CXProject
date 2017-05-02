@@ -89,7 +89,7 @@
                                 <outlet property="delegate" destination="-1" id="bil-hT-E0b"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-n3-8ao">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-n3-8ao">
                             <rect key="frame" x="1" y="50" width="80.5" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
