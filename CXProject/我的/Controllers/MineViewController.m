@@ -29,13 +29,13 @@
 
     if ([User isOurStaff])
     {
-        _imageNameArray = @[@"attence", @"my_project", @"feedback", @"contact", @"version", @"key_dict"];
-        _titleArray = @[@"现场考勤", @"我的项目", @"意见反馈", @"联系我们", @"版本信息", @"关键词字典"];
+        _imageNameArray = @[@"my_project", @"attence", @"key_dict", @"feedback", @"version", @"contact"];
+        _titleArray = @[ @"我的项目", @"现场考勤", @"关键词字典", @"意见反馈", @"关于平大", @"联系我们"];
     }
     else
     {
-        _imageNameArray = @[@"my_project", @"feedback", @"contact", @"version"];
-        _titleArray = @[@"我的项目", @"意见反馈", @"联系我们", @"版本信息"];
+        _imageNameArray = @[@"my_project", @"feedback", @"version", @"contact"];
+        _titleArray = @[@"我的项目", @"意见反馈", @"关于平大", @"联系我们"];
     }
     [self.tableView reloadData];
 }
@@ -121,7 +121,7 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([_titleArray[indexPath.row] isEqualToString:@"版本信息"])
+    else if ([_titleArray[indexPath.row] isEqualToString:@"关于平大"])
     {
         VersionViewController *vc = [[VersionViewController alloc] init];
         vc.title = _titleArray[indexPath.row];
