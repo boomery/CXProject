@@ -133,7 +133,7 @@
 }
 - (void)topBarViewDidClickedSiftButton
 {
-    
+    NSLog(@"筛选");
 }
 
 #pragma mark - UISearchResultsUpdating
