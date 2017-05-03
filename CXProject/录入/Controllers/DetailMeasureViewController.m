@@ -99,7 +99,11 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     
     __weak typeof(self) weakSelf = self;;
     _inputView.saveBlock = ^{
-        [weakSelf saveHaveMeasurePlace:@""];
+        MeasureResult *result = [weakSelf exsistMeasureResultForIndexPath:weakSelf.indexPath];
+        if (result.measurePlace.length == 0)
+        {
+            [weakSelf saveHaveMeasurePlace:@""];
+        }
     };
     _inputView.showBlock = ^{
         if ([weakSelf exsistMeasureResultForIndexPath:weakSelf.indexPath])
@@ -206,7 +210,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - InputViewDelegate
 - (void)lastTextFieldWillReturn
 {
-    [_measureArea becomeFirstResponder];
+    [SVProgressHUD showInfoWithStatus:@"最后一个输入框"];
+//    [_measureArea becomeFirstResponder];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
