@@ -389,15 +389,15 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             
             if (measureNum > nextRow)
             {
-                _indexPath = [NSIndexPath indexPathForRow:nextRow*5 inSection:_indexPath.section];
+                _indexPath = [NSIndexPath indexPathForRow:[self isSpecial] ? nextRow*5 : nextRow inSection:_indexPath.section];
                 [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self isSpecial] ? nextRow*5 : nextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
                 [self setViews];
                 [_inputView beinEditing];
             }
             else
             {
-                _indexPath = [NSIndexPath indexPathForRow:nowRow inSection:_indexPath.section];
-                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:nowRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                _indexPath = [NSIndexPath indexPathForRow:[self isSpecial] ? nowRow*5 : nowRow inSection:_indexPath.section];
+                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self isSpecial] ? nowRow*5 : nowRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
                 [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
                 [self.view endEditing:YES];
             }
