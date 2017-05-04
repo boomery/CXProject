@@ -355,17 +355,19 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
         result.measureResult = countResult;
         result.measurePlace = measurePlace;
+        
+        NSInteger index = [self isSpecial] ? _indexPath.row/5 : _indexPath.row;
         if ([self isSpecial])
         {
-            result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row/5];
+            result.mesaureIndex = [NSString stringWithFormat:@"%ld",index];
         }
         else
         {
-            result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+            result.mesaureIndex = [NSString stringWithFormat:@"%ld",index];
         }
         //插入数据库
         [MeasureResult insertNewMeasureResult:result];
-        [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
+        [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",index]];
         [self reloadData];
     }
 }
@@ -381,13 +383,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             _resultsDict = resultsDict;
             [self.collectionView reloadData];
             
-            NSInteger nowRow = _indexPath.row;
+            NSInteger nowRow = [self isSpecial] ? _indexPath.row /5 : _indexPath.row;
             NSInteger nextRow = nowRow + 1;
             NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue]/5 : [_measureArea.text integerValue];
             
             if (measureNum > nextRow)
             {
-                _indexPath = [NSIndexPath indexPathForRow:nextRow inSection:_indexPath.section];
+                _indexPath = [NSIndexPath indexPathForRow:nextRow*5 inSection:_indexPath.section];
                 [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self isSpecial] ? nextRow*5 : nextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
                 [self setViews];
                 [_inputView beinEditing];
