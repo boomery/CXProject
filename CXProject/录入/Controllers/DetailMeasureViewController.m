@@ -104,6 +104,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         {
             [weakSelf saveHaveMeasurePlace:@""];
         }
+        else
+        {
+            [weakSelf saveHaveMeasurePlace:result.measurePlace];
+        }
     };
     _inputView.showBlock = ^{
         if ([weakSelf exsistMeasureResultForIndexPath:weakSelf.indexPath])
@@ -210,8 +214,15 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - InputViewDelegate
 - (void)lastTextFieldWillReturn
 {
-    [SVProgressHUD showInfoWithStatus:@"最后一个输入框"];
-//    [_measureArea becomeFirstResponder];
+    MeasureResult *result = [self exsistMeasureResultForIndexPath:self.indexPath];
+    if (result.measurePlace.length == 0)
+    {
+        [self saveHaveMeasurePlace:@""];
+    }
+    else
+    {
+        [self saveHaveMeasurePlace:result.measurePlace];
+    }
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -289,13 +300,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     }
 }
 
-#pragma mark - 录入点保存到本地
-- (void)saveHaveMeasurePlace:(NSString *)measurePlace
+- (BOOL)isValidInput
 {
     if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue])
     {
         [SVProgressHUD showErrorWithStatus:@"请填写正确完整的数据"];
-        return;
+        return NO;
     }
     Event *subEvent = _event.events[_indexPath.section];
     if ([subEvent.method isEqualToString:@"5"])
@@ -303,50 +313,65 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         if (!([_inputView.measureValues isEqualToString:@"1"] || [_inputView.measureValues isEqualToString:@"0"]))
         {
             [SVProgressHUD showErrorWithStatus:@"请直接输入1或0"];
-            return;
+            return NO;
         }
     }
-    MeasureResult *result = [self exsistMeasureResultForIndexPath:_indexPath];
-    if (!result)
+    return YES;
+}
+
+#pragma mark - 录入点保存到本地
+- (void)saveHaveMeasurePlace:(NSString *)measurePlace
+{
+    if ([self isValidInput])
     {
-        result = [[MeasureResult alloc] init];
-        result.measurePhoto = @"";
-    }
-    result.projectID = [User editingProject].fileName;
-    result.itemName = _event.name;
-    result.subItemName = subEvent.name;
-    result.measureArea = _measureArea.text;
-    result.measurePoint = _measurePoint.text;
-    result.measureValues = _inputView.measureValues;
-    if (![_inputView.designValues isEqualToString:result.designValues])
-    {
-        NSArray *a = [_resultsDict allValues];
-        for (MeasureResult *res in a)
+        Event *subEvent = _event.events[_indexPath.section];
+        MeasureResult *result = [self exsistMeasureResultForIndexPath:_indexPath];
+        if (!result)
         {
-             NSString *countResult = [BridgeUtil resultForMeasureValues:res.measureValues designValues:_inputView.designValues event:subEvent];
-            NSLog(@"测量值：%@，设计值：%@，原始结果：%@，重新计算结果：%@",res.measureValues,res.designValues,res.measureResult,countResult);
-            res.measureResult = countResult;
-            [MeasureResult insertNewMeasureResult:res];
+            result = [[MeasureResult alloc] init];
+            result.measurePhoto = @"";
         }
+        result.projectID = [User editingProject].fileName;
+        result.itemName = _event.name;
+        result.subItemName = subEvent.name;
+        result.measureArea = _measureArea.text;
+        result.measurePoint = _measurePoint.text;
+        result.measureValues = _inputView.measureValues;
+        
+        if (![_inputView.designValues isEqualToString:result.designValues])
+        {
+            NSArray *a = [_resultsDict allValues];
+            for (MeasureResult *res in a)
+            {
+                NSString *countResult = [BridgeUtil resultForMeasureValues:res.measureValues designValues:_inputView.designValues event:subEvent];
+                NSLog(@"测量值：%@，设计值：%@，原始结果：%@，重新计算结果：%@",res.measureValues,res.designValues,res.measureResult,countResult);
+                res.measureResult = countResult;
+                [MeasureResult insertNewMeasureResult:res];
+            }
+        }
+        
+        result.designValues = _inputView.designValues;
+        //根据算法得出结果
+        NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
+        result.measureResult = countResult;
+        result.measurePlace = measurePlace;
+        if ([self isSpecial])
+        {
+            result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row/5];
+        }
+        else
+        {
+            result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
+        }
+        //插入数据库
+        [MeasureResult insertNewMeasureResult:result];
+        [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
+        [self reloadData];
     }
-    result.designValues = _inputView.designValues;
-    //根据算法得出结果
-    NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
-    result.measureResult = countResult;
-    result.measurePlace = measurePlace;
-    if ([self isSpecial])
-    {
-        result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row/5];
-    }
-    else
-    {
-        result.mesaureIndex = [NSString stringWithFormat:@"%ld",_indexPath.row];
-    }
-    //插入数据库
-    [MeasureResult insertNewMeasureResult:result];
-    
-    [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",_indexPath.row]];
-    
+}
+
+- (void)reloadData
+{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (_event.events.count > 0)
         {
@@ -355,7 +380,25 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
             _resultsDict = resultsDict;
             [self.collectionView reloadData];
-            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            
+            NSInteger nowRow = _indexPath.row;
+            NSInteger nextRow = nowRow + 1;
+            NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue]/5 : [_measureArea.text integerValue];
+            
+            if (measureNum > nextRow)
+            {
+                _indexPath = [NSIndexPath indexPathForRow:nextRow inSection:_indexPath.section];
+                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self isSpecial] ? nextRow*5 : nextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                [self setViews];
+                [_inputView beinEditing];
+            }
+            else
+            {
+                _indexPath = [NSIndexPath indexPathForRow:nowRow inSection:_indexPath.section];
+                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:nowRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
+                [self.view endEditing:YES];
+            }
         }
     });
 }
@@ -408,6 +451,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [_inputView setMeasureValues:@""];
 }
+
 - (void)clearMeasureAreaAndPoint
 {
     _measureArea.text = @"";
@@ -442,31 +486,17 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIView *selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView = selectedBackgroundView;
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
-    if ([self isSpecial])
+    
+    NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
+    if (measureNum > indexPath.row)
     {
-        if ([_measurePoint.text floatValue] > indexPath.row)
-        {
-            cell.backgroundColor = [UIColor whiteColor];
-            cell.userInteractionEnabled = YES;
-        }
-        else
-        {
-            cell.backgroundColor = [UIColor grayColor];
-            cell.userInteractionEnabled = NO;
-        }
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.userInteractionEnabled = YES;
     }
     else
     {
-        if ([_measureArea.text floatValue] > indexPath.row)
-        {
-            cell.backgroundColor = [UIColor whiteColor];
-            cell.userInteractionEnabled = YES;
-        }
-        else
-        {
-            cell.backgroundColor = [UIColor grayColor];
-            cell.userInteractionEnabled = NO;
-        }
+        cell.backgroundColor = [UIColor grayColor];
+        cell.userInteractionEnabled = NO;
     }
     
     MeasureResult *res = [self exsistMeasureResultForIndexPath:indexPath];

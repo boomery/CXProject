@@ -12,7 +12,6 @@
 {
     NSMutableArray *_measureTextfieldArray;
     NSMutableArray *_designTextfieldArray;
-    NSMutableArray *_allTextfieldArray;
 }
 @end
 @implementation InputView
@@ -26,7 +25,6 @@
     
     _measureTextfieldArray = [[NSMutableArray alloc] init];
     _designTextfieldArray = [[NSMutableArray alloc] init];
-    _allTextfieldArray = [[NSMutableArray alloc] init];
     [self removeAllSubviews];
     
     UITextField *measureTextField = [self textFieldEditable:NO text:@"测量值"];
@@ -48,12 +46,12 @@
     {
         UITextField *text = [self textFieldEditable:YES text:@""];
         [_measureTextfieldArray addObject:text];
-        [_allTextfieldArray addObject:text];
         [views addObject:text];
         [self addSubview:text];
         [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField];
         if (i == measureGroup*measurePoint - 1)
         {
+            text.returnKeyType = UIReturnKeyDone;
             [views autoSetViewsDimension:ALDimensionHeight toSize:height];
             [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
         }
@@ -83,7 +81,6 @@
             UITextField *text = [self textFieldEditable:YES text:@""];
             [subViews addObject:text];
             [_designTextfieldArray addObject:text];
-            [_allTextfieldArray addObject:text];
             [self addSubview:text];
             [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height*2];
             if (i == designName.count - 1)
@@ -124,11 +121,11 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSInteger index = [_allTextfieldArray indexOfObject:textField];
+    NSInteger index = [_measureTextfieldArray indexOfObject:textField];
     index++;
-    if (_allTextfieldArray.count > index)
+    if (_measureTextfieldArray.count > index)
     {
-        UITextField *text = _allTextfieldArray[index];
+        UITextField *text = _measureTextfieldArray[index];
         [text becomeFirstResponder];
         NSLog(@"切换到下一个输入框");
     }
