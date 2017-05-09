@@ -44,8 +44,8 @@
     {
         _project = [[Project alloc] init];
     }
-    _titleArray = @[@"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估组长"];
-    _propertiesArray = @[@"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
+    _titleArray = @[@"地产名称", @"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估组长"];
+    _propertiesArray = @[@"realPropertyName", @"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
 }
 
 static NSString *inputCell = @"InputCell";
