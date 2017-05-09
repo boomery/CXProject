@@ -12,6 +12,7 @@
 //文件名称
 @property (nonatomic, copy) NSString *fileName;
 
+@property (nonatomic, copy) NSString *realPropertyName;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *district;
 @property (nonatomic, copy) NSString *site;

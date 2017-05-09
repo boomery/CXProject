@@ -9,6 +9,10 @@
 #import "Project.h"
 //文件名称
 #define KEY_FILE_NAME @"fileName"
+
+//地产商名称
+#define KEY_REALPROPERTY_NAME @"realPropertyName"
+
 //项目名称
 #define KEY_NAME @"name"
 //项目区域
@@ -53,6 +57,8 @@
 {
     self.fileName = [aDecoder decodeObjectForKey:KEY_FILE_NAME];
     
+    self.realPropertyName = [aDecoder decodeObjectForKey:KEY_REALPROPERTY_NAME];
+    
     self.name = [aDecoder decodeObjectForKey:KEY_NAME];
     self.district = [aDecoder decodeObjectForKey:KEY_DISTRICT];
     self.site = [aDecoder decodeObjectForKey:KEY_SITE];
@@ -78,6 +84,8 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeObject:self.fileName forKey:KEY_FILE_NAME];
+    
+    [aCoder encodeObject:self.realPropertyName forKey:KEY_REALPROPERTY_NAME];
     
     [aCoder encodeObject:self.name forKey:KEY_NAME];
     [aCoder encodeObject:self.district forKey:KEY_DISTRICT];
