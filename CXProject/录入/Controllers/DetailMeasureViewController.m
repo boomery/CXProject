@@ -338,18 +338,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         result.measurePoint = _measurePoint.text;
         result.measureValues = _inputView.measureValues;
         
-        if (![_inputView.designValues isEqualToString:result.designValues])
-        {
-            NSArray *a = [_resultsDict allValues];
-            for (MeasureResult *res in a)
-            {
-                NSString *countResult = [BridgeUtil resultForMeasureValues:res.measureValues designValues:_inputView.designValues event:subEvent];
-                NSLog(@"测量值：%@，设计值：%@，原始结果：%@，重新计算结果：%@",res.measureValues,res.designValues,res.measureResult,countResult);
-                res.measureResult = countResult;
-                [MeasureResult insertNewMeasureResult:res];
-            }
-        }
-        
         result.designValues = _inputView.designValues;
         //根据算法得出结果
         NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
