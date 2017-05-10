@@ -415,8 +415,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             }
             else
             {
-                _indexPath = [NSIndexPath indexPathForRow:countedNextRow inSection:_indexPath.section];
-                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:_indexPath.section];
+                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
                 [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
                 [self.view endEditing:YES];
             }
