@@ -131,7 +131,15 @@
     }
     else
     {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(lastTextFieldWillReturn)])
+        NSInteger index2 = [_designTextfieldArray indexOfObject:textField];
+        index2++;
+        if (_designTextfieldArray.count > index2)
+        {
+            UITextField *text = _designTextfieldArray[index2];
+            [text becomeFirstResponder];
+            NSLog(@"切换到下一个输入框");
+        }
+        else if (self.delegate && [self.delegate respondsToSelector:@selector(lastTextFieldWillReturn)])
         {
             [self.delegate lastTextFieldWillReturn];
         }
