@@ -51,7 +51,10 @@
         [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField];
         if (i == measureGroup*measurePoint - 1)
         {
-            text.returnKeyType = UIReturnKeyDone;
+            if (!haveDesign)
+            {
+                text.returnKeyType = UIReturnKeyDone;
+            }
             [views autoSetViewsDimension:ALDimensionHeight toSize:height];
             [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
         }
@@ -85,6 +88,7 @@
             [text autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height*2];
             if (i == designName.count - 1)
             {
+                text.returnKeyType = UIReturnKeyDone;
                 [subViews autoSetViewsDimension:ALDimensionHeight toSize:height];
                 [subViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
             }
@@ -132,14 +136,29 @@
     else
     {
         NSInteger index2 = [_designTextfieldArray indexOfObject:textField];
-        index2++;
-        if (_designTextfieldArray.count > index2)
+
+        //有设计值时
+        if (_designTextfieldArray.count > 0)
         {
-            UITextField *text = _designTextfieldArray[index2];
-            [text becomeFirstResponder];
-            NSLog(@"切换到下一个输入框");
+            if (labs(index2) > 100000)
+            {
+                UITextField *text = _designTextfieldArray[0];
+                [text becomeFirstResponder];
+                return YES;
+            }
+            else
+            {
+                index2 ++;
+                if (_designTextfieldArray.count > index2)
+                {
+                    UITextField *text = _designTextfieldArray[index2];
+                    [text becomeFirstResponder];
+                    NSLog(@"切换到下一个设计框");
+                    return YES;
+                }
+            }
         }
-        else if (self.delegate && [self.delegate respondsToSelector:@selector(lastTextFieldWillReturn)])
+        if (self.delegate && [self.delegate respondsToSelector:@selector(lastTextFieldWillReturn)])
         {
             [self.delegate lastTextFieldWillReturn];
         }

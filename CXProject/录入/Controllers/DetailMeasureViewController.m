@@ -390,7 +390,11 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             NSInteger nextRow = nowRow + 1;
             
             
-            NSInteger measureNum = [self countedNumberForOrignalNumber:[_measureArea.text integerValue]];
+            NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
+            if ([self haveMoreThanTwoDesign])
+            {
+                measureNum = measureNum * 2;
+            }
             
             NSInteger countedNextRow = nextRow;
             if ([self isSpecial])
@@ -402,7 +406,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
                 countedNextRow = nextRow*2;
             }
             
-            if (measureNum > nextRow)
+            if (measureNum > countedNextRow)
             {
                 _indexPath = [NSIndexPath indexPathForRow:countedNextRow inSection:_indexPath.section];
                 [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
