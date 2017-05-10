@@ -27,6 +27,9 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进入" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hU-2l-cVU">
                         <rect key="frame" x="5" y="42" width="37" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" priority="499" constant="37" id="5bm-yw-cWT"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,8 +42,8 @@
                 <constraint firstItem="5hU-2l-cVU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="RMK-Zc-w7e"/>
                 <constraint firstItem="a3A-kz-Ffy" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.3" id="bgS-b6-5xA"/>
                 <constraint firstItem="a3A-kz-Ffy" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="dGd-RJ-CUu"/>
-                <constraint firstItem="a3A-kz-Ffy" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" priority="800" id="fZi-pF-30e"/>
-                <constraint firstItem="a3A-kz-Ffy" firstAttribute="leading" secondItem="5hU-2l-cVU" secondAttribute="trailing" priority="999" constant="5" id="lWO-5Y-zsi"/>
+                <constraint firstItem="a3A-kz-Ffy" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" priority="500" id="fZi-pF-30e"/>
+                <constraint firstItem="a3A-kz-Ffy" firstAttribute="leading" secondItem="5hU-2l-cVU" secondAttribute="trailing" priority="501" constant="5" id="lWO-5Y-zsi"/>
             </constraints>
             <size key="customSize" width="134" height="99"/>
             <connections>
