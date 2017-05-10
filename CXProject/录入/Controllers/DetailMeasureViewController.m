@@ -508,6 +508,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIView *selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView = selectedBackgroundView;
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
+    cell.itemLabel.text = @"";
     
     NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
     if ([self haveMoreThanTwoDesign])
@@ -533,6 +534,16 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         {
             if ([self haveMoreThanTwoDesign])
             {
+                Event *subEvent = _event.events[_indexPath.section];
+                if (indexPath.row%2 == 0)
+                {
+                    cell.itemLabel.text = subEvent.designName[0];
+
+                }
+                else
+                {
+                    cell.itemLabel.text = subEvent.designName[1];
+                }
                 cell.label.text = results[indexPath.row%2];
             }
             else
