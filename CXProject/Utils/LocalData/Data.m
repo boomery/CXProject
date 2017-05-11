@@ -20,36 +20,23 @@
     for (NSDictionary *dict in eventsArray)
     {
         Event *event = [[Event alloc] init];
-        NSArray *keyArray = [dict allKeys];
-        if (keyArray.count > 0)
-        {
-            event.name = keyArray[0];
-        }
-        NSArray *dictArray = dict[event.name];
+        event.name = dict[@"name"];
+        NSArray *dictArray = dict[@"subEvents"];
         for (NSDictionary *subDict in dictArray)
         {
             Event *subEvent = [[Event alloc] init];
-            NSArray *keyArray = [subDict allKeys];
-            if (keyArray.count > 0)
-            {
-                subEvent.name = keyArray[0];
-            }
-            id obj = subDict[subEvent.name];
-            if ([obj isKindOfClass:[NSDictionary class]])
-            {
-                NSDictionary *dicObj = (NSDictionary *)obj;
-                subEvent.needDesgin = [dicObj[@"needDesign"] boolValue];
-                subEvent.designName = dicObj[@"designName"];
-                subEvent.measurePoint = [dicObj[@"measurePoint"] integerValue];
-                subEvent.min = [dicObj[@"min"] floatValue];
-                subEvent.max = [dicObj[@"max"] floatValue];
-                subEvent.condition = dicObj[@"condition"];
-                subEvent.max2 = [dicObj[@"max2"] floatValue];
-                subEvent.textStandard = dicObj[@"textStandard"];
-                subEvent.limit = dicObj[@"limit"];
-                subEvent.method = dicObj[@"method"];
-                [event.events addObject:subEvent];
-            }
+            subEvent.name = subDict[@"name"];
+            subEvent.needDesgin = [subDict[@"needDesign"] boolValue];
+            subEvent.designName = subDict[@"designName"];
+            subEvent.measurePoint = [subDict[@"measurePoint"] integerValue];
+            subEvent.min = [subDict[@"min"] floatValue];
+            subEvent.max = [subDict[@"max"] floatValue];
+            subEvent.condition = subDict[@"condition"];
+            subEvent.max2 = [subDict[@"max2"] floatValue];
+            subEvent.textStandard = subDict[@"textStandard"];
+            subEvent.limit = subDict[@"limit"];
+            subEvent.method = subDict[@"method"];
+            [event.events addObject:subEvent];
         }
         [eventArray addObject:event];
         data.events = eventArray;

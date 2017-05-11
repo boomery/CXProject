@@ -5,796 +5,737 @@
     "unit": "mm",
     "events": [
                {
-               "混凝土结构工程": [
-                           {
-                           "截面尺寸": {
-                           "needDesign": "1",
-                           "designName": [
-                                          "墙/柱截面尺寸"
-                                          ],
-                           "measurePoint": "2",
-                           "min": "-5",
-                           "max": "8",
-                           "method": "1"
-                           }
-                           },
-                           {
-                           "表面平整度": {
-                           "needDesign": "0",
-                           "measurePoint": "1",
-                           "min": "0",
-                           "max": "8",
-                           "method": "2"
-                           }
-                           },
-                           {
-                           "垂直度": {
-                           "needDesign": "0",
-                           "measurePoint": "1",
-                           "condition": "层高<=5m;层高>5m",
-                           "min": "0",
-                           "max": "8",
-                           "max2": "10",
-                           "method": "2"
-                           }
-                           },
-                           {
-                           "顶板水平度": {
-                           "needDesign": "0",
-                           "measurePoint": "5",
-                           "min": "0",
-                           "max": "15",
-                           "limit": "20",
-                           "method": "3"
-                           }
-                           },
-                           {
-                           "楼板厚度": {
-                           "needDesign": "1",
-                           "designName": [
-                                          "楼板厚度"
-                                          ],
-                           "measurePoint": "1",
-                           "min": "-5",
-                           "max": "8",
-                           "method": "4"
-                           }
-                           }
-                           ]
+               "name": "混凝土结构工程",
+               "subEvents": [
+                             {
+                             "name": "截面尺寸",
+                             "needDesign": "1",
+                             "designName": [
+                                            "墙/柱截面尺寸"
+                                            ],
+                             "measurePoint": "2",
+                             "min": "-5",
+                             "max": "8",
+                             "method": "1"
+                             },
+                             {
+                             "name": "表面平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "8",
+                             "method": "2"
+                             },
+                             {
+                             "name": "垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "层高<=5m;层高>5m",
+                             "min": "0",
+                             "max": "8",
+                             "max2": "10",
+                             "method": "2"
+                             },
+                             {
+                             "name": "顶板水平度",
+                             "needDesign": "0",
+                             "measurePoint": "5",
+                             "min": "0",
+                             "max": "15",
+                             "limit": "20",
+                             "method": "3"
+                             },
+                             {
+                             "name": "楼板厚度",
+                             "needDesign": "1",
+                             "designName": [
+                                            "楼板厚度"
+                                            ],
+                             "measurePoint": "1",
+                             "min": "-5",
+                             "max": "8",
+                             "method": "4"
+                             }
+                             ]
                },
                {
-               "砌筑工程": [
-                        {
-                        "表面平整度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "8",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "垂直度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "condition": "层高<=3m;层高>3m",
-                        "min": "0",
-                        "max": "5",
-                        "max2": "10",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "方正性": {
-                        "needDesign": "0",
-                        "measurePoint": "3",
-                        "min": "0",
-                        "max": "10",
-                        "method": "6"
-                        }
-                        },
-                        {
-                        "外门窗洞口尺寸": {
-                        "needDesign": "1",
-                        "designName": [
-                                       "宽",
-                                       "高"
-                                       ],
-                        "measurePoint": "2",
-                        "min": "-10",
-                        "max": "10",
-                        "method": "1"
-                        }
-                        }
-                        ]
+               "name": "砌筑工程",
+               "subEvents": [
+                             {
+                             "name": "表面平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "8",
+                             "method": "2"
+                             },
+                             {
+                             "name": "垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "层高<=3m;层高>3m",
+                             "min": "0",
+                             "max": "5",
+                             "max2": "10",
+                             "method": "2"
+                             },
+                             {
+                             "name": "方正性",
+                             "needDesign": "0",
+                             "measurePoint": "3",
+                             "min": "0",
+                             "max": "10",
+                             "method": "6"
+                             },
+                             {
+                             "name": "外门窗洞口尺寸",
+                             "needDesign": "1",
+                             "designName": [
+                                            "宽",
+                                            "高"
+                                            ],
+                             "measurePoint": "2",
+                             "min": "-10",
+                             "max": "10",
+                             "method": "1"
+                             }
+                             ]
                },
                {
-               "设备安装": [
-                        {
-                        "座便坑距偏差": {
-                        "needDesign": "1",
-                        "designName": [
-                                       "预留洞离墙边距离"
-                                       ],
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "15",
-                        "method": "4"
-                        }
-                        },
-                        {
-                        "同一室内的底盒标高差": {
-                        "needDesign": "0",
-                        "measurePoint": "6",
-                        "min": "0",
-                        "max": "5",
-                        "method": "7"
-                        }
-                        },
-                        {
-                        "并列插座开关面板高度差": {
-                        "needDesign": "0",
-                        "measurePoint": "3",
-                        "min": "0",
-                        "max": "0.5",
-                        "method": "6"
-                        }
-                        }
-                        ]
+               "name": "设备安装",
+               "subEvents": [
+                             {
+                             "name": "座便坑距偏差",
+                             "needDesign": "1",
+                             "designName": [
+                                            "预留洞离墙边距离"
+                                            ],
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "15",
+                             "method": "4"
+                             },
+                             {
+                             "name": "同一室内的底盒标高差",
+                             "needDesign": "0",
+                             "measurePoint": "6",
+                             "min": "0",
+                             "max": "5",
+                             "method": "7"
+                             },
+                             {
+                             "name": "并列插座开关面板高度差",
+                             "needDesign": "0",
+                             "measurePoint": "3",
+                             "min": "0",
+                             "max": "0.5",
+                             "method": "6"
+                             }
+                             ]
                },
                {
-               "抹灰工程": [
-                        {
-                        "墙面表面平整度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "4",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "墙面垂直度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "4",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "净高": {
-                        "needDesign": "1",
-                        "designName": [
-                                       "净高"
-                                       ],
-                        "measurePoint": "5",
-                        "min": "-15",
-                        "max": "15",
-                        "limit": "30",
-                        "method": "8"
-                        }
-                        },
-                        {
-                        "顶板水平度": {
-                        "needDesign": "0",
-                        "measurePoint": "5",
-                        "min": "0",
-                        "max": "10",
-                        "limit": "15",
-                        "method": "3"
-                        }
-                        },
-                        {
-                        "方正性": {
-                        "needDesign": "0",
-                        "measurePoint": "3",
-                        "min": "0",
-                        "max": "10",
-                        "method": "6"
-                        }
-                        },
-                        {
-                        "地面表面平整度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "4",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "开间/进深": {
-                        "needDesign": "1",
-                        "designName": [
-                                       "开间",
-                                       "进深"
-                                       ],
-                        "measurePoint": "2",
-                        "min": "-10",
-                        "max": "10",
-                        "method": "1"
-                        }
-                        },
-                        {
-                        "户内门洞尺寸偏差": {
-                        "needDesign": "1",
-                        "designName": [
-                                       "宽",
-                                       "高"
-                                       ],
-                        "measurePoint": "2",
-                        "min": "-10",
-                        "max": "10",
-                        "method": "1"
-                        }
-                        },
-                        {
-                        "外墙窗内侧墙体厚度极差": {
-                        "needDesign": "0",
-                        "measurePoint": "3",
-                        "min": "0",
-                        "max": "4",
-                        "method": "9"
-                        }
-                        },
-                        {
-                        "阴阳角方正": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "4",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "地面水平度极差": {
-                        "needDesign": "0",
-                        "measurePoint": "5",
-                        "min": "0",
-                        "max": "10",
-                        "limit": "15",
-                        "method": "3"
-                        }
-                        },
-                        {
-                        "裂缝/空鼓": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "-",
-                        "max": "-",
-                        "method": "5"
-                        }
-                        }
-                        ]
+               "name": "抹灰工程",
+               "subEvents": [
+                             {
+                             "name": "墙面表面平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "4",
+                             "method": "2"
+                             },
+                             {
+                             "墙面垂直度": {
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "4",
+                             "method": "2"
+                             }
+                             },
+                             {
+                             "净高": {
+                             "needDesign": "1",
+                             "designName": [
+                                            "净高"
+                                            ],
+                             "measurePoint": "5",
+                             "min": "-15",
+                             "max": "15",
+                             "limit": "30",
+                             "method": "8"
+                             }
+                             },
+                             {
+                             "name": "顶板水平度",
+                             "needDesign": "0",
+                             "measurePoint": "5",
+                             "min": "0",
+                             "max": "10",
+                             "limit": "15",
+                             "method": "3"
+                             },
+                             {
+                             "name": "方正性",
+                             "needDesign": "0",
+                             "measurePoint": "3",
+                             "min": "0",
+                             "max": "10",
+                             "method": "6"
+                             },
+                             {
+                             "name": "地面表面平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "4",
+                             "method": "2"
+                             },
+                             {
+                             "name": "开间/进深",
+                             "needDesign": "1",
+                             "designName": [
+                                            "开间",
+                                            "进深"
+                                            ],
+                             "measurePoint": "2",
+                             "min": "-10",
+                             "max": "10",
+                             "method": "1"
+                             },
+                             {
+                             "name": "户内门洞尺寸偏差",
+                             "needDesign": "1",
+                             "designName": [
+                                            "宽",
+                                            "高"
+                                            ],
+                             "measurePoint": "2",
+                             "min": "-10",
+                             "max": "10",
+                             "method": "1"
+                             },
+                             {
+                             "name": "外墙窗内侧墙体厚度极差",
+                             "needDesign": "0",
+                             "measurePoint": "3",
+                             "min": "0",
+                             "max": "4",
+                             "method": "9"
+                             },
+                             {
+                             "name": "阴阳角方正",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "4",
+                             "method": "2"
+                             },
+                             {
+                             "name": "地面水平度极差",
+                             "needDesign": "0",
+                             "measurePoint": "5",
+                             "min": "0",
+                             "max": "10",
+                             "limit": "15",
+                             "method": "3"
+                             },
+                             {
+                             "name": "裂缝/空鼓",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "-",
+                             "max": "-",
+                             "method": "5"
+                             }
+                             ]
                },
                {
-               "门窗工程": [
-                        {
-                        "型材拼缝宽度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "0.03",
-                        "method": "5"
-                        }
-                        },
-                        {
-                        "型材拼缝高低差": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "0.03",
-                        "method": "5"
-                        }
-                        },
-                        {
-                        "边框收口与塞缝": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "textStandard": "（1）窗框与洞口间无缠绕保护膜，临时固定木楔需取出。（2）门窗框四边塞缝采用发泡胶（严寒地区底缝为发泡胶）或干硬性水泥砂浆塞缝；填缝须密实（3）超出门窗框外的发泡胶应在其固化前用手或专用工具压入缝隙中；严禁固化后用刀片切割。（4）外门窗框滴水线、散水坡、鹰嘴角度和坡度正确；",
-                        "min": "",
-                        "max": "",
-                        "method": "5"
-                        }
-                        },
-                        {
-                        "窗框正面垂直度": {
-                        "needDesign": "0",
-                        "measurePoint": "2",
-                        "min": "0",
-                        "max": "2.5",
-                        "method": "10"
-                        }
-                        }
-                        ]
+               "name": "门窗工程",
+               "subEvents": [
+                             {
+                             "name": "型材拼缝宽度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "0.03",
+                             "method": "5"
+                             },
+                             {
+                             "name": "型材拼缝高低差",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "0.03",
+                             "method": "5"
+                             },
+                             {
+                             "name": "边框收口与塞缝",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "（1）窗框与洞口间无缠绕保护膜，临时固定木楔需取出。（2）门窗框四边塞缝采用发泡胶（严寒地区底缝为发泡胶）或干硬性水泥砂浆塞缝；填缝须密实（3）超出门窗框外的发泡胶应在其固化前用手或专用工具压入缝隙中；严禁固化后用刀片切割。（4）外门窗框滴水线、散水坡、鹰嘴角度和坡度正确；",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             },
+                             {
+                             "name": "窗框正面垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "2",
+                             "min": "0",
+                             "max": "2.5",
+                             "method": "10"
+                             }
+                             ]
                },
                {
-               "防渗漏工程": [
-                         {
-                         "卫生间涂膜厚度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "textStandard": "卫生间地面、墙面（非附加层部分）防水涂膜成膜良好，无分层。涂膜防水层平均厚度应符合设计，最小厚度大于设计厚度８０％。",
-                         "min": "",
-                         "max": "",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "卫生间附加防水层": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "textStandard": "设置部位：卫生间的侧排口、落水口、管道周边、阴阳角、烟道反坎、管井反坎、门框底等部位须设防水附加层。防水附加层材料与防水层相同；设置尺寸：防水附加层应从阴角开始上反和水平延伸各不小于250 mm。附加层四周上返高度超过地面完成面300mm，过门框向外延伸200mm。涂膜厚度：切片厚度不小于设计厚度的150％",
-                         "min": "",
-                         "max": "",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "外门窗边框外表面防水层": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "textStandard": "（1） 防水涂膜成膜良好，无分层。涂膜平均厚度应符合设计，且不小于0.6mm，最小厚度大于设计厚度８０％。（2） 采用JS防水涂料Ⅰ型产品；洞口外侧四周分多遍涂刷，防水必须压门窗框不小于5mm（3） 墙身为砌体时应先抹底层灰，对洞口四周粉刷收头，不能直接在砌块上涂刷JS防水；底灰不得空鼓、裂缝；涂膜无分层、起泡、裂缝现象。",
-                         "min": "",
-                         "max": "",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "卫生间地漏": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "textStandard": "沉箱式卫生间必须在降板最低处设侧墙式地漏。侧墙式地漏底边低于进水口底部的高度不小于15mm。",
-                         "min": "",
-                         "max": "",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "地下室防水厚度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "textStandard": "成膜良好，无分层，平均厚度应符合设计，最小厚度大于设计厚度80％",
-                         "min": "",
-                         "max": "",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "屋面防水卷材涂膜": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "textStandard": "成膜良好，无分层，平均厚度应符合设计，最小厚度大于设计厚度8０％。",
-                         "min": "",
-                         "max": "",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "屋面防水卷材搭接长度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "textStandard": "符合设计，且不小于100mm",
-                         "min": "",
-                         "max": "",
-                         "method": "5"
-                         }
-                         }
-                         ]
+               "name": "防渗漏工程",
+               "subEvents": [
+                             {
+                             "name": "卫生间涂膜厚度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "卫生间地面、墙面（非附加层部分）防水涂膜成膜良好，无分层。涂膜防水层平均厚度应符合设计，最小厚度大于设计厚度８０％。",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             },
+                             {
+                             "name": "卫生间附加防水层",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "设置部位：卫生间的侧排口、落水口、管道周边、阴阳角、烟道反坎、管井反坎、门框底等部位须设防水附加层。防水附加层材料与防水层相同；设置尺寸：防水附加层应从阴角开始上反和水平延伸各不小于250 mm。附加层四周上返高度超过地面完成面300mm，过门框向外延伸200mm。涂膜厚度：切片厚度不小于设计厚度的150％",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             },
+                             {
+                             "name": "外门窗边框外表面防水层",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "（1） 防水涂膜成膜良好，无分层。涂膜平均厚度应符合设计，且不小于0.6mm，最小厚度大于设计厚度８０％。（2） 采用JS防水涂料Ⅰ型产品；洞口外侧四周分多遍涂刷，防水必须压门窗框不小于5mm（3） 墙身为砌体时应先抹底层灰，对洞口四周粉刷收头，不能直接在砌块上涂刷JS防水；底灰不得空鼓、裂缝；涂膜无分层、起泡、裂缝现象。",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             },
+                             {
+                             "name": "卫生间地漏",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "沉箱式卫生间必须在降板最低处设侧墙式地漏。侧墙式地漏底边低于进水口底部的高度不小于15mm。",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             },
+                             {
+                             "name": "地下室防水厚度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "成膜良好，无分层，平均厚度应符合设计，最小厚度大于设计厚度80％",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             },
+                             {
+                             "name": "屋面防水卷材涂膜",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "成膜良好，无分层，平均厚度应符合设计，最小厚度大于设计厚度8０％。",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             },
+                             {
+                             "name": "屋面防水卷材搭接长度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "textStandard": "符合设计，且不小于100mm",
+                             "min": "",
+                             "max": "",
+                             "method": "5"
+                             }
+                             ]
                },
                {
-               "涂饰工程": [
-                        {
-                        "平整度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "condition": "已经打磨或上面漆;未打磨或上面漆",
-                        "min": "0",
-                        "max": "3",
-                        "max2": "4",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "垂直度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "condition": "已经打磨或上面漆;未打磨或上面漆",
-                        "min": "0",
-                        "max": "3",
-                        "max2": "4",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "阴阳角方正": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "condition": "已经打磨或上面漆;未打磨或上面漆",
-                        "min": "0",
-                        "max": "3",
-                        "max2": "4",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "吊板水平度": {
-                        "needDesign": "0",
-                        "measurePoint": "5",
-                        "condition": "结构顶;石膏板;金属板",
-                        "min": "0",
-                        "max": "10",
-                        "max2": "5",
-                        "max3": "4",
-                        "limit": "15",
-                        "method": "3"
-                        }
-                        }
-                        ]
+               "name": "涂饰工程",
+               "subEvents": [
+                             {
+                             "name": "平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "已经打磨或上面漆;未打磨或上面漆",
+                             "min": "0",
+                             "max": "3",
+                             "max2": "4",
+                             "method": "2"
+                             },
+                             {
+                             "name": "垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "已经打磨或上面漆;未打磨或上面漆",
+                             "min": "0",
+                             "max": "3",
+                             "max2": "4",
+                             "method": "2"
+                             },
+                             {
+                             "name": "阴阳角方正",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "已经打磨或上面漆;未打磨或上面漆",
+                             "min": "0",
+                             "max": "3",
+                             "max2": "4",
+                             "method": "2"
+                             },
+                             {
+                             "name": "吊板水平度",
+                             "needDesign": "0",
+                             "measurePoint": "5",
+                             "condition": "结构顶;石膏板;金属板",
+                             "min": "0",
+                             "max": "10",
+                             "max2": "5",
+                             "max3": "4",
+                             "limit": "15",
+                             "method": "3"
+                             }
+                             ]
                },
                {
-               "墙面饰面砖": [
-                         {
-                         "墙面表面平整度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "condition": "瓷砖墙面;光面石材墙面",
-                         "min": "0",
-                         "max": "3",
-                         "max2": "2",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "墙面垂直度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "condition": "瓷砖墙面;光面石材墙面",
-                         "min": "0",
-                         "max": "2",
-                         "max2": "2",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "阴阳角方正": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "condition": "瓷砖墙面;光面石材墙面",
-                         "min": "0",
-                         "max": "3",
-                         "max2": "2",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "接缝高低差": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "condition": "瓷砖墙面;光面石材墙面",
-                         "min": "0",
-                         "max": "0.05",
-                         "max2": "0.05",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "墙砖接缝宽度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "1",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "瓷砖/石材踢脚线出墙厚度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "12",
-                         "method": "2"
-                         }
-                         }
-                         ]
+               "name": "墙面饰面砖",
+               "subEvents": [
+                             {
+                             "name": "墙面表面平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "瓷砖墙面;光面石材墙面",
+                             "min": "0",
+                             "max": "3",
+                             "max2": "2",
+                             "method": "2"
+                             },
+                             {
+                             "name": "墙面垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "瓷砖墙面;光面石材墙面",
+                             "min": "0",
+                             "max": "2",
+                             "max2": "2",
+                             "method": "2"
+                             },
+                             {
+                             "name": "阴阳角方正",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "瓷砖墙面;光面石材墙面",
+                             "min": "0",
+                             "max": "3",
+                             "max2": "2",
+                             "method": "2"
+                             },
+                             {
+                             "name": "接缝高低差",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "瓷砖墙面;光面石材墙面",
+                             "min": "0",
+                             "max": "0.05",
+                             "max2": "0.05",
+                             "method": "5"
+                             },
+                             {
+                             "name": "墙砖接缝宽度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1",
+                             "method": "5"
+                             },
+                             {
+                             "name": "瓷砖/石材踢脚线出墙厚度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "12",
+                             "method": "2"
+                             }
+                             ]
                },
                {
-               "地面饰面砖": [
-                         {
-                         "接缝宽度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "condition": "瓷砖墙面;光面石材墙面",
-                         "min": "0",
-                         "max": "2",
-                         "max2": "1",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "接缝高低差": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "0.05",
-                         "method": "5"
-                         }
-                         },
-                         {
-                         "踢脚线直线度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "3",
-                         "method": "2"
-                         }
-                         }
-                         ]
+               "name": "地面饰面砖",
+               "subEvents": [
+                             {
+                             "name": "接缝宽度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "condition": "瓷砖墙面;光面石材墙面",
+                             "min": "0",
+                             "max": "2",
+                             "max2": "1",
+                             "method": "2"
+                             },
+                             {
+                             "name": "接缝高低差",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "0.05",
+                             "method": "5"
+                             },
+                             {
+                             "name": "踢脚线直线度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "3",
+                             "method": "2"
+                             }
+                             ]
                },
                {
-               "木饰面工程": [
-                         {
-                         "基层板平整度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "3",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "基层板垂直度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "3",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "面层表面平整度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "1",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "面层垂直度": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "1.5",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "面层阴阳角方正": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "1.5",
-                         "method": "2"
-                         }
-                         },
-                         {
-                         "面层接缝高低差": {
-                         "needDesign": "0",
-                         "measurePoint": "1",
-                         "min": "0",
-                         "max": "0.5",
-                         "method": "5"
-                         }
-                         }
-                         ]
+               "name": "木饰面工程",
+               "subEvents": [
+                             {
+                             "name": "基层板平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "3",
+                             "method": "2"
+                             },
+                             {
+                             "name": "基层板垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "3",
+                             "method": "2"
+                             },
+                             {
+                             "name": "面层表面平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1",
+                             "method": "2"
+                             },
+                             {
+                             "name": "面层垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1.5",
+                             "method": "2"
+                             },
+                             {
+                             "name": "面层阴阳角方正",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1.5",
+                             "method": "2"
+                             },
+                             {
+                             "name": "面层接缝高低差",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "0.5",
+                             "method": "5"
+                             }
+                             ]
                },
                {
-               "软包工程": [
-                        {
-                        "面层垂直度": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "3",
-                        "method": "2"
-                        }
-                        },
-                        {
-                        "面层裁口、线条接缝高低差": {
-                        "needDesign": "0",
-                        "measurePoint": "1",
-                        "min": "0",
-                        "max": "1",
-                        "method": "5"
-                        }
-                        }
-                        ]
+               "name": "软包工程",
+               "subEvents": [
+                             {
+                             "name": "面层垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "3",
+                             "method": "2"
+                             },
+                             {
+                             "name": "面层裁口、线条接缝高低差",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1",
+                             "method": "5"
+                             }
+                             ]
                },
                {
-               "木门及门窗套安装": [
-                            {
-                            "门套基层板侧面垂直度": {
-                            "needDesign": "0",
-                            "measurePoint": "1",
-                            "min": "0",
-                            "max": "4",
-                            "method": "2"
-                            }
-                            },
-                            {
-                            "门窗套基层板上口水平度": {
-                            "needDesign": "0",
-                            "measurePoint": "1",
-                            "min": "0",
-                            "max": "3",
-                            "method": "2"
-                            }
-                            },
-                            {
-                            "门窗套正侧面垂直度": {
-                            "needDesign": "0",
-                            "measurePoint": "2",
-                            "min": "0",
-                            "max": "4",
-                            "method": "10"
-                            }
-                            },
-                            {
-                            "门窗套上口水平度": {
-                            "needDesign": "0",
-                            "measurePoint": "2",
-                            "min": "0",
-                            "max": "1",
-                            "method": "10"
-                            }
-                            },
-                            {
-                            "门窗扇与侧框间留缝": {
-                            "needDesign": "0",
-                            "measurePoint": "1",
-                            "min": "1",
-                            "max": "2.5",
-                            "method": "2"
-                            }
-                            },
-                            {
-                            "门扇与地面留缝宽度（留缝）": {
-                            "needDesign": "0",
-                            "measurePoint": "1",
-                            "min": "5",
-                            "max": "8",
-                            "method": "2"
-                            }
-                            },
-                            {
-                            "厨卫门窗与地面留缝宽度": {
-                            "needDesign": "0",
-                            "measurePoint": "1",
-                            "min": "8",
-                            "max": "12",
-                            "method": "2"
-                            }
-                            }
-                            ]
+               "name": "木门及门窗套安装",
+               "subEvents": [
+                             {
+                             "name": "门套基层板侧面垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "4",
+                             "method": "2"
+                             },
+                             {
+                             "name": "门窗套基层板上口水平度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "3",
+                             "method": "2"
+                             },
+                             {
+                             "name": "门窗套正侧面垂直度",
+                             "needDesign": "0",
+                             "measurePoint": "2",
+                             "min": "0",
+                             "max": "4",
+                             "method": "10"
+                             },
+                             {
+                             "name": "门窗套上口水平度",
+                             "needDesign": "0",
+                             "measurePoint": "2",
+                             "min": "0",
+                             "max": "1",
+                             "method": "10"
+                             },
+                             {
+                             "name": "门窗扇与侧框间留缝",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "1",
+                             "max": "2.5",
+                             "method": "2"
+                             },
+                             {
+                             "name": "门扇与地面留缝宽度（留缝）",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "5",
+                             "max": "8",
+                             "method": "2"
+                             },
+                             {
+                             "name": "厨卫门窗与地面留缝宽度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "8",
+                             "max": "12",
+                             "method": "2"
+                             }
+                             ]
                },
                {
-               "收纳": [
-                      {
-                      "门板水平高低差": {
-                      "needDesign": "0",
-                      "measurePoint": "1",
-                      "min": "0",
-                      "max": "1",
-                      "method": "2"
-                      }
-                      },
-                      {
-                      "柜体与墙面缝隙": {
-                      "needDesign": "0",
-                      "measurePoint": "1",
-                      "min": "0",
-                      "max": "15",
-                      "method": "2"
-                      }
-                      },
-                      {
-                      "门贴脸与踢脚线间隙": {
-                      "needDesign": "0",
-                      "measurePoint": "1",
-                      "min": "0",
-                      "max": "2",
-                      "method": "2"
-                      }
-                      },
-                      {
-                      "门板平整度": {
-                      "needDesign": "0",
-                      "measurePoint": "1",
-                      "min": "0",
-                      "max": "2",
-                      "method": "2"
-                      }
-                      },
-                      {
-                      "门板缝宽": {
-                      "needDesign": "0",
-                      "measurePoint": "1",
-                      "min": "0",
-                      "max": "1.5",
-                      "method": "2"
-                      }
-                      },
-                      {
-                      "门贴脸与墙面缝隙": {
-                      "needDesign": "0",
-                      "measurePoint": "1",
-                      "min": "0",
-                      "max": "1",
-                      "method": "2"
-                      }
-                      }
-                      ]
+               "name": "收纳",
+               "subEvents": [
+                             {
+                             "name": "门板水平高低差",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1",
+                             "method": "2"
+                             },
+                             {
+                             "name": "柜体与墙面缝隙",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "15",
+                             "method": "2"
+                             },
+                             {
+                             "name": "门贴脸与踢脚线间隙",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "2",
+                             "method": "2"
+                             },
+                             {
+                             "name": "门板平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "2",
+                             "method": "2"
+                             },
+                             {
+                             "name": "门板缝宽",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1.5",
+                             "method": "2"
+                             },
+                             {
+                             "name": "门贴脸与墙面缝隙",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1",
+                             "method": "2"
+                             }
+                             ]
                },
                {
-               "木地板": [
-                       {
-                       "面层平整度": {
-                       "needDesign": "0",
-                       "measurePoint": "1",
-                       "min": "0",
-                       "max": "2",
-                       "method": "2"
-                       }
-                       },
-                       {
-                       "面层地板水平度": {
-                       "needDesign": "0",
-                       "measurePoint": "5",
-                       "min": "0",
-                       "max": "10",
-                       "limit": "15",
-                       "method": "3"
-                       }
-                       },
-                       {
-                       "地板缝隙宽度": {
-                       "needDesign": "0",
-                       "measurePoint": "1",
-                       "min": "0",
-                       "max": "0.5",
-                       "method": "5"
-                       }
-                       },
-                       {
-                       "地板接缝高低差": {
-                       "needDesign": "0",
-                       "measurePoint": "1",
-                       "min": "0",
-                       "max": "0.5",
-                       "method": "5"
-                       }
-                       },
-                       {
-                       "踢脚线上口直线度": {
-                       "needDesign": "0",
-                       "measurePoint": "1",
-                       "min": "0",
-                       "max": "3",
-                       "method": "2"
-                       }
-                       },
-                       {
-                       "踢脚线与面层间隙": {
-                       "needDesign": "0",
-                       "measurePoint": "1",
-                       "min": "0",
-                       "max": "1",
-                       "method": "2"
-                       }
-                       }
-                       ]
+               "name": "木地板",
+               "subEvents": [
+                             {
+                             "name": "面层平整度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "2",
+                             "method": "2"
+                             },
+                             {
+                             "name": "面层地板水平度",
+                             "needDesign": "0",
+                             "measurePoint": "5",
+                             "min": "0",
+                             "max": "10",
+                             "limit": "15",
+                             "method": "3"
+                             },
+                             {
+                             "name": "地板缝隙宽度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "0.5",
+                             "method": "5"
+                             },
+                             {
+                             "name": "地板接缝高低差",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "0.5",
+                             "method": "5"
+                             },
+                             {
+                             "name": "踢脚线上口直线度",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "3",
+                             "method": "2"
+                             },
+                             {
+                             "name": "踢脚线与面层间隙",
+                             "needDesign": "0",
+                             "measurePoint": "1",
+                             "min": "0",
+                             "max": "1",
+                             "method": "2"
+                             }
+                             ]
                }
                ]
 }
