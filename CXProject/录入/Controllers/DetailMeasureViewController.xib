@@ -72,7 +72,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-R6-AK3">
-                            <rect key="frame" x="82.5" y="50" width="80" height="40"/>
+                            <rect key="frame" x="82.5" y="45" width="80" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
@@ -81,7 +81,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cav-kh-tXV">
-                            <rect key="frame" x="163.5" y="50" width="80.5" height="40"/>
+                            <rect key="frame" x="163.5" y="45" width="80.5" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
@@ -90,7 +90,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-n3-8ao">
-                            <rect key="frame" x="1" y="50" width="80.5" height="40"/>
+                            <rect key="frame" x="1" y="45" width="80.5" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -123,7 +123,7 @@
                         <constraint firstItem="Cav-kh-tXV" firstAttribute="leading" secondItem="9tI-IC-GeY" secondAttribute="leading" id="ph8-Qc-FuK"/>
                         <constraint firstItem="GZ8-22-n99" firstAttribute="top" secondItem="VuA-JF-bWC" secondAttribute="top" id="qEB-zG-Igr"/>
                         <constraint firstItem="f1y-n3-8ao" firstAttribute="trailing" secondItem="VuA-JF-bWC" secondAttribute="trailing" id="qVK-d1-ei1"/>
-                        <constraint firstItem="f1y-n3-8ao" firstAttribute="top" secondItem="VuA-JF-bWC" secondAttribute="bottom" constant="5" id="xWc-o3-idD"/>
+                        <constraint firstItem="f1y-n3-8ao" firstAttribute="top" secondItem="VuA-JF-bWC" secondAttribute="bottom" id="xWc-o3-idD"/>
                     </constraints>
                 </view>
             </subviews>

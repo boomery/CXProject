@@ -56,7 +56,7 @@
                 text.returnKeyType = UIReturnKeyDone;
             }
             [views autoSetViewsDimension:ALDimensionHeight toSize:height];
-            [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
+            [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:0 insetSpacing:YES matchedSizes:YES];
         }
     }
     //设计值与标签设计值输入框
@@ -90,7 +90,7 @@
             {
                 text.returnKeyType = UIReturnKeyDone;
                 [subViews autoSetViewsDimension:ALDimensionHeight toSize:height];
-                [subViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5.0 insetSpacing:YES matchedSizes:YES];
+                [subViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:0 insetSpacing:YES matchedSizes:YES];
             }
         }
     }
