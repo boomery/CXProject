@@ -25,7 +25,6 @@
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
-        [self updateMeasureAreaMeasurePointDesignValuesWithMeasureResult:result];
         [SVProgressHUD showSuccessWithStatus:@"数据保存成功"];
     }
     else

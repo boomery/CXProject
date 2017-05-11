@@ -211,6 +211,25 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [tap.view removeFromSuperview];
 }
 
+#pragma mark - 根据不同情况返回数字
+- (NSInteger)countedNumberForOrignalNumber:(NSInteger)orignalNumber
+{
+    NSInteger countedNum = 0;
+    if ([self isSpecial])
+    {
+        countedNum = orignalNumber/5;
+    }
+    else if ([self haveMoreThanTwoDesign])
+    {
+        countedNum = orignalNumber/2;
+    }
+    else
+    {
+        countedNum = orignalNumber;
+    }
+    return countedNum;
+}
+
 #pragma mark - InputViewDelegate
 - (void)lastTextFieldWillReturn
 {
@@ -338,33 +357,16 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         result.measurePoint = _measurePoint.text;
         result.measureValues = _inputView.measureValues;
         
-        if (![_inputView.designValues isEqualToString:result.designValues])
-        {
-            NSArray *a = [_resultsDict allValues];
-            for (MeasureResult *res in a)
-            {
-                NSString *countResult = [BridgeUtil resultForMeasureValues:res.measureValues designValues:_inputView.designValues event:subEvent];
-                NSLog(@"测量值：%@，设计值：%@，原始结果：%@，重新计算结果：%@",res.measureValues,res.designValues,res.measureResult,countResult);
-                res.measureResult = countResult;
-                [MeasureResult insertNewMeasureResult:res];
-            }
-        }
-        
         result.designValues = _inputView.designValues;
         //根据算法得出结果
         NSString *countResult = [BridgeUtil resultForMeasureValues:result.measureValues designValues:result.designValues event:subEvent];
         result.measureResult = countResult;
         result.measurePlace = measurePlace;
         
-        NSInteger index = [self isSpecial] ? _indexPath.row/5 : _indexPath.row;
-        if ([self isSpecial])
-        {
-            result.mesaureIndex = [NSString stringWithFormat:@"%ld",index];
-        }
-        else
-        {
-            result.mesaureIndex = [NSString stringWithFormat:@"%ld",index];
-        }
+        NSInteger index = [self countedNumberForOrignalNumber:_indexPath.row];
+        
+        result.mesaureIndex = [NSString stringWithFormat:@"%ld",index];
+        
         //插入数据库
         [MeasureResult insertNewMeasureResult:result];
         [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",index]];
@@ -383,21 +385,38 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             _resultsDict = resultsDict;
             [self.collectionView reloadData];
             
-            NSInteger nowRow = [self isSpecial] ? _indexPath.row /5 : _indexPath.row;
+            NSInteger nowRow = [self countedNumberForOrignalNumber:_indexPath.row];
+    
             NSInteger nextRow = nowRow + 1;
-            NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue]/5 : [_measureArea.text integerValue];
             
-            if (measureNum > nextRow)
+            
+            NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
+            if ([self haveMoreThanTwoDesign])
             {
-                _indexPath = [NSIndexPath indexPathForRow:[self isSpecial] ? nextRow*5 : nextRow inSection:_indexPath.section];
-                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self isSpecial] ? nextRow*5 : nextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                measureNum = measureNum * 2;
+            }
+            
+            NSInteger countedNextRow = nextRow;
+            if ([self isSpecial])
+            {
+                countedNextRow = nextRow*5;
+            }
+            else if ([self haveMoreThanTwoDesign])
+            {
+                countedNextRow = nextRow*2;
+            }
+            
+            if (measureNum > countedNextRow)
+            {
+                _indexPath = [NSIndexPath indexPathForRow:countedNextRow inSection:_indexPath.section];
+                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
                 [self setViews];
                 [_inputView beinEditing];
             }
             else
             {
-                _indexPath = [NSIndexPath indexPathForRow:[self isSpecial] ? nowRow*5 : nowRow inSection:_indexPath.section];
-                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self isSpecial] ? nowRow*5 : nowRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:_indexPath.section];
+                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
                 [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
                 [self.view endEditing:YES];
             }
@@ -414,15 +433,20 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         return NO;
 }
 
+- (BOOL)haveMoreThanTwoDesign
+{
+    Event *subEvent = _event.events[_indexPath.section];
+    if (subEvent.designName.count > 1)
+    {
+        return YES;
+    }
+    return NO;
+}
 
 #pragma mark - 判断数据记录是否存在
 - (MeasureResult *)exsistMeasureResultForIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self isSpecial])
-    {
-        return _resultsDict[[NSString stringWithFormat:@"%ld",(long)indexPath.row/5]];
-    }
-    return _resultsDict[[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
+    return _resultsDict[[NSString stringWithFormat:@"%ld",[self countedNumberForOrignalNumber:indexPath.row]]];
 }
 
 #pragma mark - 选择大项分项时执行记录是否存在的判断 若存在则赋值
@@ -488,8 +512,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIView *selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView = selectedBackgroundView;
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
+    cell.itemLabel.text = @"";
     
     NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
+    if ([self haveMoreThanTwoDesign])
+    {
+        measureNum = [_measureArea.text integerValue] * 2;
+    }
     if (measureNum > indexPath.row)
     {
         cell.backgroundColor = [UIColor whiteColor];
@@ -507,7 +536,24 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         NSArray *results = [res.measureResult componentsSeparatedByString:@";"];
         if (results.count > 1)
         {
-            cell.label.text = results[indexPath.row%5];
+            if ([self haveMoreThanTwoDesign])
+            {
+                Event *subEvent = _event.events[_indexPath.section];
+                if (indexPath.row%2 == 0)
+                {
+                    cell.itemLabel.text = subEvent.designName[0];
+
+                }
+                else
+                {
+                    cell.itemLabel.text = subEvent.designName[1];
+                }
+                cell.label.text = results[indexPath.row%2];
+            }
+            else
+            {
+                cell.label.text = results[indexPath.row%5];
+            }
         }
         else
         {

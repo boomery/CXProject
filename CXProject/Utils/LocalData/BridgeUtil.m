@@ -22,6 +22,15 @@
     {
         case 1:
         {
+            if (designArray.count >1)
+            {
+                result = count1([measureArray[0] floatValue], [measureArray[1] floatValue], [designArray[0] floatValue], s);
+                int result2 = count1([measureArray[2] floatValue], [measureArray[3] floatValue], [designArray[1] floatValue], s);
+                
+                NSString *str = [NSString stringWithFormat:@"%d;%d", result, result2];
+                return str;
+            }
+            else
             result = count1([measureArray[0] floatValue], [measureArray[1] floatValue], [designArray[0] floatValue], s);
         }
             break;

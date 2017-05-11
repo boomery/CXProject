@@ -76,6 +76,8 @@
 		9028C9CD1EB87E3E003DA545 /* PYSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9C41EB87E3E003DA545 /* PYSearchViewController.m */; };
 		9028C9CE1EB87E3E003DA545 /* UIColor+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9C61EB87E3E003DA545 /* UIColor+PYSearchExtension.m */; };
 		9028C9CF1EB87E3E003DA545 /* UIView+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9C81EB87E3E003DA545 /* UIView+PYSearchExtension.m */; };
+		9028C9E31EC3F961003DA545 /* RiskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9E21EC3F961003DA545 /* RiskViewController.m */; };
+		9028C9E91EC3FB8B003DA545 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9E81EC3FB8B003DA545 /* ViewPagerController.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -266,6 +268,11 @@
 		9028C9C61EB87E3E003DA545 /* UIColor+PYSearchExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PYSearchExtension.m"; sourceTree = "<group>"; };
 		9028C9C71EB87E3E003DA545 /* UIView+PYSearchExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+PYSearchExtension.h"; sourceTree = "<group>"; };
 		9028C9C81EB87E3E003DA545 /* UIView+PYSearchExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+PYSearchExtension.m"; sourceTree = "<group>"; };
+		9028C9E11EC3F961003DA545 /* RiskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiskViewController.h; sourceTree = "<group>"; };
+		9028C9E21EC3F961003DA545 /* RiskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiskViewController.m; sourceTree = "<group>"; };
+		9028C9E41EC3FAFA003DA545 /* ICViewPager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ICViewPager.framework; path = "../../Library/Developer/Xcode/DerivedData/CXProject-fgbcffiafxzmbgbwynqpcslomiik/Build/Products/Debug-iphonesimulator/ICViewPager/ICViewPager.framework"; sourceTree = "<group>"; };
+		9028C9E71EC3FB8B003DA545 /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
+		9028C9E81EC3FB8B003DA545 /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -383,6 +390,7 @@
 		2781D770A6715334B5D287CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9028C9E41EC3FAFA003DA545 /* ICViewPager.framework */,
 				90CB98691E8F7527000FB2BC /* Photos.framework */,
 				9016C7A61E8B938400B19056 /* AVFoundation.framework */,
 				9016C79F1E8A583500B19056 /* libicucore.tbd */,
@@ -441,6 +449,7 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9028C9E61EC3FB8B003DA545 /* ICViewPager */,
 				9028C9BA1EB87E3E003DA545 /* PYSearch */,
 				9028C9941EB30A17003DA545 /* 图片选择器 */,
 				9028C9901EB30936003DA545 /* 自定义UITextView */,
@@ -751,6 +760,15 @@
 			path = PYSearch;
 			sourceTree = "<group>";
 		};
+		9028C9E61EC3FB8B003DA545 /* ICViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				9028C9E71EC3FB8B003DA545 /* ViewPagerController.h */,
+				9028C9E81EC3FB8B003DA545 /* ViewPagerController.m */,
+			);
+			path = ICViewPager;
+			sourceTree = "<group>";
+		};
 		904340091E89F78E00D33ED9 /* 录入 */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,6 +888,8 @@
 				908C824C1E9B73B90086EDCD /* DetailMeasureViewController.h */,
 				908C824D1E9B73B90086EDCD /* DetailMeasureViewController.m */,
 				908C824E1E9B73B90086EDCD /* DetailMeasureViewController.xib */,
+				9028C9E11EC3F961003DA545 /* RiskViewController.h */,
+				9028C9E21EC3F961003DA545 /* RiskViewController.m */,
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
@@ -1163,11 +1183,13 @@
 				908C82631E9F0CAB0086EDCD /* InputView.m in Sources */,
 				9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */,
 				9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */,
+				9028C9E91EC3FB8B003DA545 /* ViewPagerController.m in Sources */,
 				9028C9CD1EB87E3E003DA545 /* PYSearchViewController.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
 				908C82471E9B4DEE0086EDCD /* MeasureViewController.m in Sources */,
 				908BFE381E96054E00937372 /* MHKeyboard+Animation.m in Sources */,
+				9028C9E31EC3F961003DA545 /* RiskViewController.m in Sources */,
 				9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */,
 				9028C9A41EB30A17003DA545 /* AddImageView.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,

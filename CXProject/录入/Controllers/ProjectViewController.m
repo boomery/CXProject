@@ -8,7 +8,7 @@
 
 #import "ProjectViewController.h"
 #import "MeasureViewController.h"
-#import "MeasureRiskViewController.h"
+#import "RiskViewController.h"
 #import "NewProjectViewController.h"
 #import "ExtractionResultViewController.h"
 #import "GroupEvaluateViewController.h"
@@ -48,7 +48,8 @@
 #pragma mark - 风险评估
 - (IBAction)riskEvaluate:(id)sender
 {
-    MeasureRiskViewController *riskVC = [[MeasureRiskViewController alloc] init];
+    RiskViewController *riskVC = [[RiskViewController alloc] init];
+    riskVC.title = @"风险评估";
     [self.navigationController pushViewController:riskVC animated:YES];
 }
 
