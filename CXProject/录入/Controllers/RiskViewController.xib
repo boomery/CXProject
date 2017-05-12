@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xnP-5C-2Qt">
-                    <rect key="frame" x="20" y="128" width="157.5" height="539"/>
+                    <rect key="frame" x="10" y="118" width="173" height="539"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="4Ot-4w-mRx"/>
@@ -30,7 +30,7 @@
                     </connections>
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-Ea-uxS">
-                    <rect key="frame" x="197.5" y="128" width="157.5" height="539"/>
+                    <rect key="frame" x="192.5" y="118" width="172.5" height="539"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="QGH-5r-Odj"/>
@@ -41,15 +41,15 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xnP-5C-2Qt" firstAttribute="width" secondItem="cXS-Ea-uxS" secondAttribute="width" id="EI0-3g-H3u"/>
-                <constraint firstItem="xnP-5C-2Qt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="128" id="M4B-e5-QJg"/>
-                <constraint firstItem="xnP-5C-2Qt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="QMg-oI-QwQ"/>
+                <constraint firstItem="xnP-5C-2Qt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="118" id="M4B-e5-QJg"/>
+                <constraint firstItem="xnP-5C-2Qt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="QMg-oI-QwQ"/>
                 <constraint firstItem="cXS-Ea-uxS" firstAttribute="bottom" secondItem="xnP-5C-2Qt" secondAttribute="bottom" id="c8Q-hR-Lo2"/>
-                <constraint firstAttribute="bottom" secondItem="xnP-5C-2Qt" secondAttribute="bottom" id="cG8-ia-SWK"/>
+                <constraint firstAttribute="bottom" secondItem="xnP-5C-2Qt" secondAttribute="bottom" constant="10" id="cG8-ia-SWK"/>
                 <constraint firstItem="cXS-Ea-uxS" firstAttribute="top" secondItem="xnP-5C-2Qt" secondAttribute="top" id="gKj-SG-IJH"/>
-                <constraint firstItem="cXS-Ea-uxS" firstAttribute="leading" secondItem="xnP-5C-2Qt" secondAttribute="trailing" constant="20" id="hqa-Qc-bMY"/>
-                <constraint firstAttribute="trailing" secondItem="cXS-Ea-uxS" secondAttribute="trailing" constant="20" id="qYn-0A-HsF"/>
+                <constraint firstItem="cXS-Ea-uxS" firstAttribute="leading" secondItem="xnP-5C-2Qt" secondAttribute="trailing" constant="10" id="hqa-Qc-bMY"/>
+                <constraint firstAttribute="trailing" secondItem="cXS-Ea-uxS" secondAttribute="trailing" constant="10" id="qYn-0A-HsF"/>
             </constraints>
-            <point key="canvasLocation" x="17" y="78"/>
+            <point key="canvasLocation" x="16.5" y="77.5"/>
         </view>
     </objects>
 </document>
