@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *district;
 @property (nonatomic, copy) NSString *site;
+@property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *turn;
 @property (nonatomic, copy) NSString *supervisory;
 @property (nonatomic, copy) NSString *measure_date;
@@ -28,6 +29,7 @@
 //项目简介
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *chargeman;
+@property (nonatomic, copy) NSString *chargemanPhone;
 @property (nonatomic, copy) NSString *area;
 @property (nonatomic, copy) NSString *progress;
 @property (nonatomic, copy) NSString *end_date;

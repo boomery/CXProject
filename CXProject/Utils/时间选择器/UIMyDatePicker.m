@@ -8,7 +8,7 @@
 
 #import "UIMyDatePicker.h"
 //#import "UIView+Genie.h"
-
+#define BUTTON_COLOR [UIColor blackColor]
 @implementation UIMyDatePicker
 
 - (instancetype)initWithDelegate:(id<UIMyDatePickerDelegate>)delegate
@@ -36,7 +36,7 @@
         cancel.titleLabel.font = [UIFont systemFontOfSize:17.0];
         [cancel setTitleColor:[UIColor colorWithRed:0.37 green:0.73 blue:0.47 alpha:1] forState:UIControlStateNormal];
         [cancel setTitle:@"取消" forState:UIControlStateNormal];
-        [cancel setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+        [cancel setTitleColor:BUTTON_COLOR forState:UIControlStateNormal];
         cancel.layer.cornerRadius = 3.f;
         [cancel addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
         cancel.frame = CGRectMake(20, 12, 40, 17);
@@ -47,7 +47,7 @@
         today.titleLabel.font = [UIFont systemFontOfSize:17.0];
         [today setTitleColor:[UIColor colorWithRed:0.37 green:0.73 blue:0.47 alpha:1] forState:UIControlStateNormal];
         [today setTitle:@"今天" forState:UIControlStateNormal];
-        [today setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+        [today setTitleColor:BUTTON_COLOR forState:UIControlStateNormal];
         today.frame = CGRectMake(DEF_SCREEN_WIDTH - 120 , 12, 40, 17);
         today.layer.cornerRadius = 3.f;
         [today addTarget:self action:@selector(today) forControlEvents:UIControlEventTouchUpInside];
@@ -58,7 +58,7 @@
         sureButton.titleLabel.font = [UIFont systemFontOfSize:17.0];
         [sureButton setTitleColor:[UIColor colorWithRed:0.37 green:0.73 blue:0.47 alpha:1] forState:UIControlStateNormal];
         [sureButton setTitle:@"完成" forState:UIControlStateNormal];
-        [sureButton setTitleColor:THEME_COLOR forState:UIControlStateNormal];
+        [sureButton setTitleColor:BUTTON_COLOR forState:UIControlStateNormal];
         sureButton.frame = CGRectMake(DEF_SCREEN_WIDTH - 60 , 12, 40, 17);
         sureButton.layer.cornerRadius = 3.f;
         [sureButton addTarget:self action:@selector(secureButtonClick) forControlEvents:UIControlEventTouchUpInside];
