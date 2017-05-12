@@ -38,7 +38,8 @@
 }
 - (void)initData
 {
-    [DataProvider loadData];
+    [DataProvider loadDataWithJsonFileName:@"Measure"];
+    [DataProvider loadDataWithJsonFileName:@"Risk"];
     //初始化用户单例
     [User sharedUser];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

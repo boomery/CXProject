@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Event : NSObject
-
+/*------------------------实测实量-----------------------------*/
 //分项名称
 @property (nonatomic, copy) NSString *name;
 
@@ -42,5 +42,6 @@
 
 //大项里的分项
 @property (nonatomic, strong) NSMutableArray *events;
+/*------------------------风险评估-----------------------------*/
 
 @end

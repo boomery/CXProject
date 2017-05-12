@@ -1,6 +1,7 @@
 {
     "version": "1.0",
     "Measuretype": "过程评估",
+    "type":"实测实量",
     "houseType": "住宅精装类",
     "unit": "mm",
     "events": [

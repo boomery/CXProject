@@ -9,7 +9,8 @@
 #import "DataProvider.h"
 #import "Data.h"
 @interface DataProvider()
-@property (nonatomic, strong) Data *data;
+@property (nonatomic, strong) Data *measureData;
+@property (nonatomic, strong) Data *riskData;
 @end
 
 @implementation DataProvider
@@ -23,9 +24,9 @@ static DataProvider *provider = nil;
     return provider;
 }
 
-+ (BOOL)loadData
++ (BOOL)loadDataWithJsonFileName:(NSString *)name
 {
-    NSString *strPath = [[NSBundle mainBundle] pathForResource:@"Measure" ofType:@"geojson"];
+    NSString *strPath = [[NSBundle mainBundle] pathForResource:name ofType:@"geojson"];
     if (!strPath)
     {
         [SVProgressHUD showErrorWithStatus:@"本地数据文件丢失"];
@@ -36,25 +37,43 @@ static DataProvider *provider = nil;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSData *jsonData = [[NSData alloc] initWithContentsOfFile:strPath];
             DataProvider *sharedProvider = [self sharedProvider];
-            sharedProvider.data = [self parseJsonWithString:jsonData];
+            if ([name isEqualToString:@"Measure"])
+            {
+                sharedProvider.measureData = [self parseJsonWithString:jsonData type:1];
+            }else
+            {
+                sharedProvider.riskData = [self parseJsonWithString:jsonData type:2];
+            }
         });
         return YES;
     }
 }
 
-+ (Data *)parseJsonWithString:(NSData *)jsonData
++ (Data *)parseJsonWithString:(NSData *)jsonData type:(NSInteger)type
 {
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableLeaves error:nil];
     if (dict)
     {
-        Data *data = [Data dataWithDict:dict];
+        Data *data = nil;
+        if (type == 1)
+        {
+            data = [Data measureDataWithDict:dict];
+        }
+        else if (type ==2)
+        {
+            data = [Data riskDataWithDict:dict];
+        }
         return data;
     }
     return nil;
 }
 
-+ (NSArray *)items
++ (NSArray *)measureItems
 {
-    return provider.data.events;
+    return provider.measureData.events;
+}
++ (NSArray *)riskItems
+{
+    return provider.riskData.events;
 }
 @end

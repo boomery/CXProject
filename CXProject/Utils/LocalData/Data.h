@@ -19,6 +19,7 @@
 
 @property (nonatomic, copy) NSString *key;
 
-+ (Data *)dataWithDict:(NSDictionary *)dict;
++ (Data *)measureDataWithDict:(NSDictionary *)dict;
++ (Data *)riskDataWithDict:(NSDictionary *)dict;
 
 @end

@@ -43,7 +43,7 @@ static NSString *cellIndentifier = @"UITableViewCell";
 
 - (void)initData
 {
-    _titleArray = [DataProvider items];
+    _titleArray = [DataProvider measureItems];
 }
 
 #pragma mark - UITableViewDataSource
