@@ -35,6 +35,8 @@
 #define KEY_ADDRESS @"address"
 //项目负责人
 #define KEY_CHARGEMAN @"chargeman"
+//项目负责人电话
+#define KEY_CHARGEMAN_PHONE @"chargemanPhone"
 //项目面积
 #define KEY_AREA @"area"
 //项目进度
@@ -75,6 +77,7 @@
     
     self.address = [aDecoder decodeObjectForKey:KEY_ADDRESS];
     self.chargeman = [aDecoder decodeObjectForKey:KEY_CHARGEMAN];
+    self.chargemanPhone = [aDecoder decodeObjectForKey:KEY_CHARGEMAN_PHONE];
     self.area = [aDecoder decodeObjectForKey:KEY_AREA];
     self.progress = [aDecoder decodeObjectForKey:KEY_PROGRESS];
     self.end_date = [aDecoder decodeObjectForKey:KEY_ENDDATE];
@@ -100,6 +103,7 @@
     
     [aCoder encodeObject:self.address forKey:KEY_ADDRESS];
     [aCoder encodeObject:self.chargeman forKey:KEY_CHARGEMAN];
+    [aCoder encodeObject:self.chargemanPhone forKey:KEY_CHARGEMAN_PHONE];
     [aCoder encodeObject:self.area forKey:KEY_AREA];
     [aCoder encodeObject:self.progress forKey:KEY_PROGRESS];
     [aCoder encodeObject:self.end_date forKey:KEY_ENDDATE];

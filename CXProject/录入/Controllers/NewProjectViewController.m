@@ -44,8 +44,8 @@
     {
         _project = [[Project alloc] init];
     }
-    _titleArray = @[@"地产名称", @"项目名称", @"项目区域", @"项目标段", @"评估轮次", @"监理单位", @"评估日期", @"评估组长"];
-    _propertiesArray = @[@"realPropertyName", @"name", @"district", @"site", @"turn", @"supervisory", @"measure_date", @"captain"];
+    _titleArray = @[@"地产名称", @"项目名称", @"项目区域", @"项目标段", @"监理单位", @"评估类型",@"评估轮次", @"评估日期", @"评估组长"];
+    _propertiesArray = @[@"realPropertyName", @"name", @"district", @"site", @"supervisory",@"type", @"turn",  @"measure_date", @"captain"];
 }
 
 static NSString *inputCell = @"InputCell";
@@ -128,7 +128,7 @@ static NSString *inputCell4 = @"InputCell4";
         {
             InputCell *cell = [tableView dequeueReusableCellWithIdentifier:inputCell forIndexPath:indexPath];
             cell.textField.delegate = self;
-            if (indexPath.row == 5)
+            if (indexPath.row == 7)
             {
                 cell.textField.inputView = _datePicker;
             }
@@ -165,12 +165,14 @@ static NSString *inputCell4 = @"InputCell4";
             InputCell3 *cell = [tableView dequeueReusableCellWithIdentifier:inputCell3 forIndexPath:indexPath];
             cell.addressTextField.delegate = self;
             cell.chargemanTextField.delegate = self;
+            cell.chargemanPhone.delegate = self;
             cell.areaTextField.delegate = self;
             cell.progressTextField.delegate = self;
             cell.end_dateTextField.delegate = self;
             cell.end_dateTextField.inputView = _datePicker;
             cell.addressTextField.text = _project.address;
             cell.chargemanTextField.text = _project.chargeman;
+            cell.chargemanPhone.text = _project.chargemanPhone;
             cell.areaTextField.text = _project.area;
             cell.progressTextField.text = _project.progress;
             cell.end_dateTextField.text = _project.end_date;
@@ -200,7 +202,7 @@ static NSString *inputCell4 = @"InputCell4";
             return 160;
             break;
         case 3:
-            return 240;
+            return 280;
             break;
         default:
             return 0;
@@ -257,6 +259,7 @@ static NSString *inputCell4 = @"InputCell4";
                 InputCell3 *c = (InputCell3 *)cell;
                 _project.address = c.addressTextField.text;
                 _project.chargeman = c.chargemanTextField.text;
+                _project.chargemanPhone = c.chargemanPhone.text;
                 _project.area = c.areaTextField.text;
                 _project.progress = c.progressTextField.text;
                 _project.end_date = c.end_dateTextField.text;
