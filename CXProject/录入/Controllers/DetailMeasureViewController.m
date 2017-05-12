@@ -423,11 +423,11 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         }
     });
 }
-#pragma mark - 是否是算法三的数据
+#pragma mark - 是否是算法三或八的数据
 - (BOOL)isSpecial
 {
     Event *subEvent = _event.events[_indexPath.section];
-    if ([subEvent.method isEqualToString:@"3"])
+    if ([subEvent.method isEqualToString:@"3"] || [subEvent.method isEqualToString:@"8"])
         return YES;
     else
         return NO;
@@ -611,6 +611,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self setViews];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Event *event = _event.events[indexPath.row];
+    NSDictionary *attribute = @{NSFontAttributeName:LABEL_FONT};
+    CGSize size = [event.name boundingRectWithSize:CGSizeMake(DEF_SCREEN_WIDTH*0.25 , MAXFLOAT)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+    return size.height+50;
+}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

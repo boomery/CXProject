@@ -40,7 +40,7 @@
                     </connections>
                 </collectionView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9qX-8U-GFe">
-                    <rect key="frame" x="0.0" y="264" width="131.5" height="403"/>
+                    <rect key="frame" x="0.0" y="264" width="94" height="403"/>
                     <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Auo-ld-yIK"/>
@@ -48,22 +48,22 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-XE-Xkt" userLabel="right">
-                    <rect key="frame" x="131.5" y="264" width="244" height="403"/>
+                    <rect key="frame" x="94" y="264" width="281.5" height="403"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="检测区" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZ8-22-n99">
-                            <rect key="frame" x="82.5" y="5" width="80" height="40"/>
+                            <rect key="frame" x="95" y="5" width="92.5" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="检测点" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-IC-GeY">
-                            <rect key="frame" x="163.5" y="5" width="80.5" height="40"/>
+                            <rect key="frame" x="188.5" y="5" width="93" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="评估标准" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VuA-JF-bWC">
-                            <rect key="frame" x="1" y="5" width="80.5" height="40"/>
+                            <rect key="frame" x="1" y="5" width="93" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="lnW-9q-nXY"/>
                             </constraints>
@@ -72,7 +72,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-R6-AK3">
-                            <rect key="frame" x="82.5" y="45" width="80" height="40"/>
+                            <rect key="frame" x="95" y="45" width="92.5" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
@@ -81,7 +81,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cav-kh-tXV">
-                            <rect key="frame" x="163.5" y="45" width="80.5" height="40"/>
+                            <rect key="frame" x="188.5" y="45" width="93" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
@@ -90,7 +90,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-n3-8ao">
-                            <rect key="frame" x="1" y="45" width="80.5" height="40"/>
+                            <rect key="frame" x="1" y="45" width="93" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -134,16 +134,15 @@
                 <constraint firstItem="Phr-HM-Z0l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="GOH-8J-eNl"/>
                 <constraint firstItem="Phr-HM-Z0l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LhL-1K-Pfi"/>
                 <constraint firstItem="9qX-8U-GFe" firstAttribute="top" secondItem="Phr-HM-Z0l" secondAttribute="bottom" id="O6s-Vi-aJP"/>
-                <constraint firstItem="0yJ-XE-Xkt" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.65" id="StF-pV-kK3"/>
                 <constraint firstAttribute="bottom" secondItem="9qX-8U-GFe" secondAttribute="bottom" id="WKI-Gc-ZIY"/>
                 <constraint firstItem="0yJ-XE-Xkt" firstAttribute="trailing" secondItem="Phr-HM-Z0l" secondAttribute="trailing" id="axs-qP-NZT"/>
-                <constraint firstItem="9qX-8U-GFe" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.35" id="bFE-7h-eSw"/>
+                <constraint firstItem="9qX-8U-GFe" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.25" id="bFE-7h-eSw"/>
                 <constraint firstItem="0yJ-XE-Xkt" firstAttribute="leading" secondItem="9qX-8U-GFe" secondAttribute="trailing" id="dVZ-61-2fR"/>
                 <constraint firstItem="9qX-8U-GFe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="k71-NU-kMD"/>
                 <constraint firstItem="Phr-HM-Z0l" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="tFO-WB-Drd"/>
                 <constraint firstItem="0yJ-XE-Xkt" firstAttribute="height" secondItem="9qX-8U-GFe" secondAttribute="height" id="y9W-Bv-oeh"/>
             </constraints>
-            <point key="canvasLocation" x="-966" y="-14"/>
+            <point key="canvasLocation" x="-1322" y="-79"/>
         </view>
     </objects>
 </document>

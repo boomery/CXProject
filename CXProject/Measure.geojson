@@ -1,7 +1,7 @@
 {
     "version": "1.0",
     "Measuretype": "过程评估",
-    "type":"实测实量",
+    "type": "实测实量",
     "houseType": "住宅精装类",
     "unit": "mm",
     "events": [
@@ -146,16 +146,15 @@
                              "method": "2"
                              },
                              {
-                             "墙面垂直度": {
+                             "name": "墙面垂直度",
                              "needDesign": "0",
                              "measurePoint": "1",
                              "min": "0",
                              "max": "4",
                              "method": "2"
-                             }
                              },
                              {
-                             "净高": {
+                             "name": "净高",
                              "needDesign": "1",
                              "designName": [
                                             "净高"
@@ -165,7 +164,6 @@
                              "max": "15",
                              "limit": "30",
                              "method": "8"
-                             }
                              },
                              {
                              "name": "顶板水平度",
@@ -259,7 +257,7 @@
                              "needDesign": "0",
                              "measurePoint": "1",
                              "min": "0",
-                             "max": "0.03",
+                             "max": "0.3",
                              "method": "5"
                              },
                              {
@@ -267,7 +265,7 @@
                              "needDesign": "0",
                              "measurePoint": "1",
                              "min": "0",
-                             "max": "0.03",
+                             "max": "0.3",
                              "method": "5"
                              },
                              {
@@ -443,8 +441,8 @@
                              "measurePoint": "1",
                              "condition": "瓷砖墙面;光面石材墙面",
                              "min": "0",
-                             "max": "0.05",
-                             "max2": "0.05",
+                             "max": "0.5",
+                             "max2": "0.5",
                              "method": "5"
                              },
                              {
@@ -483,7 +481,7 @@
                              "needDesign": "0",
                              "measurePoint": "1",
                              "min": "0",
-                             "max": "0.05",
+                             "max": "0.5",
                              "method": "5"
                              },
                              {
@@ -614,7 +612,7 @@
                              "method": "2"
                              },
                              {
-                             "name": "门扇与地面留缝宽度（留缝）",
+                             "name": "门扇与地面留缝宽度",
                              "needDesign": "0",
                              "measurePoint": "1",
                              "min": "5",
