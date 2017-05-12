@@ -9,6 +9,28 @@
 #import "MeasureResult+Addtion.h"
 #import "CXDataBaseUtil.h"
 @implementation MeasureResult (Addtion)
++ (void)deleteMeasureResult:(MeasureResult *)result
+{
+    FMDatabase *db = [CXDataBaseUtil database];
+    if (![db open])
+    {
+        [db close];
+        NSAssert([db open], @"数据库打开失败");
+    }
+    [db setShouldCacheStatements:YES];
+    NSString *deleteSql= [NSString stringWithFormat:
+                         @"delete from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@' and mesaureIndex = '%@'",[CXDataBaseUtil tableName],result.projectID,result.itemName,result.subItemName,result.mesaureIndex];
+    BOOL res = [db executeUpdate:deleteSql];
+    if (res)
+    {
+        [SVProgressHUD showSuccessWithStatus:@"数据删除成功"];
+    }
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:@"数据删除失败"];
+    }
+}
+
 + (void)insertNewMeasureResult:(MeasureResult *)result
 {
     FMDatabase *db = [CXDataBaseUtil database];

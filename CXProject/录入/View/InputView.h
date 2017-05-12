@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^SaveBlock)();
+typedef void(^Block)();
 @interface InputView : UIView
 @property (nonatomic, weak) id delegate;
-@property (nonatomic, copy) SaveBlock saveBlock;
-@property (nonatomic, copy) SaveBlock showBlock;
+@property (nonatomic, copy) Block saveBlock;
+@property (nonatomic, copy) Block showBlock;
+@property (nonatomic, copy) Block deleteBlock;
 
 - (void)setUpViewsWithMeasurePoint:(NSInteger)measurePoint//每一组测量值有几个点
                         haveDesign:(BOOL)haveDesign//是否有设计值

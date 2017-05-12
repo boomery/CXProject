@@ -109,6 +109,16 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             [weakSelf saveHaveMeasurePlace:result.measurePlace];
         }
     };
+    _inputView.deleteBlock = ^{
+        if ([weakSelf exsistMeasureResultForIndexPath:weakSelf.indexPath])
+        {
+            [weakSelf deleteMeasureResult];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"该点无数据"];
+        }
+    };
     _inputView.showBlock = ^{
         if ([weakSelf exsistMeasureResultForIndexPath:weakSelf.indexPath])
         {
@@ -423,6 +433,19 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         }
     });
 }
+
+#pragma mark - 删除结果点
+- (void)deleteMeasureResult
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要删除这组数据吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [MeasureResult deleteMeasureResult:[self exsistMeasureResultForIndexPath:_indexPath]];
+        [self reloadData];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark - 是否是算法三或八的数据
 - (BOOL)isSpecial
 {

@@ -96,14 +96,19 @@
     }
 
     /*保存按钮布局*/
-    UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
-    [self addSubview:saveButton];
-    [saveButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-20];
-    
     UIButton *placeButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:placeButton];
+    [placeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-20];
+
+    UIButton *deleteButton = [[UIButton alloc] initForAutoLayout];
+    [self addSubview:deleteButton];
     
-    NSArray *array = @[placeButton, saveButton];
+    UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
+    [self addSubview:saveButton];
+    
+
+    
+    NSArray *array = @[placeButton, deleteButton,saveButton];
     
     [array autoSetViewsDimension:ALDimensionHeight toSize:height];
     [array autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:20.0 insetSpacing:YES matchedSizes:YES];
@@ -113,6 +118,12 @@
     placeButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
     [placeButton setTitle:@"地点" forState:UIControlStateNormal];
     [placeButton addTarget:self action:@selector(showPlace) forControlEvents:UIControlEventTouchUpInside];
+    
+    deleteButton.layer.cornerRadius = 10;
+    deleteButton.clipsToBounds = YES;
+    deleteButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
+    [deleteButton setTitle:@"删除" forState:UIControlStateNormal];
+    [deleteButton addTarget:self action:@selector(delete) forControlEvents:UIControlEventTouchUpInside];
     
     saveButton.layer.cornerRadius = 10;
     saveButton.clipsToBounds = YES;
@@ -164,6 +175,14 @@
         }
     }
     return YES;
+}
+
+- (void)delete
+{
+    if (self.deleteBlock)
+    {
+        self.deleteBlock();
+    }
 }
 
 - (void)showPlace
