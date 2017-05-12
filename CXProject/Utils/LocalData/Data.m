@@ -9,7 +9,7 @@
 #import "Data.h"
 @implementation Data
 
-+ (Data *)dataWithDict:(NSDictionary *)dict
++ (Data *)measureDataWithDict:(NSDictionary *)dict
 {
     NSMutableArray *eventArray = [[NSMutableArray alloc] init];
 
@@ -20,35 +20,76 @@
     for (NSDictionary *dict in eventsArray)
     {
         Event *event = [[Event alloc] init];
-        NSArray *keyArray = [dict allKeys];
-        if (keyArray.count > 0)
-        {
-            event.name = keyArray[0];
-        }
-        NSArray *dictArray = dict[event.name];
+        event.name = dict[@"name"];
+        NSArray *dictArray = dict[@"subEvents"];
         for (NSDictionary *subDict in dictArray)
         {
             Event *subEvent = [[Event alloc] init];
-            NSArray *keyArray = [subDict allKeys];
-            if (keyArray.count > 0)
+            subEvent.name = subDict[@"name"];
+            subEvent.needDesgin = [subDict[@"needDesign"] boolValue];
+            subEvent.designName = subDict[@"designName"];
+            subEvent.measurePoint = [subDict[@"measurePoint"] integerValue];
+            subEvent.min = [subDict[@"min"] floatValue];
+            subEvent.max = [subDict[@"max"] floatValue];
+            subEvent.condition = subDict[@"condition"];
+            subEvent.max2 = [subDict[@"max2"] floatValue];
+            subEvent.textStandard = subDict[@"textStandard"];
+            subEvent.limit = subDict[@"limit"];
+            subEvent.method = subDict[@"method"];
+            [event.events addObject:subEvent];
+        }
+        [eventArray addObject:event];
+        data.events = eventArray;
+    }
+    return data;
+}
+
++ (Data *)riskDataWithDict:(NSDictionary *)dict
+{
+    NSMutableArray *eventArray = [[NSMutableArray alloc] init];
+    
+    Data *data = [[Data alloc] init];
+    data.key = @"events";
+    
+    NSArray *eventsArray = dict[data.key];
+    for (NSDictionary *dict in eventsArray)
+    {
+        Event *event = [[Event alloc] init];
+        event.name = dict[@"name"];
+        NSArray *dictArray = dict[@"subEvents"];
+        for (NSDictionary *subDict in dictArray)
+        {
+            Event *subEvent = [[Event alloc] init];
+            subEvent.name = subDict[@"name"];
+            subEvent.needDesgin = [subDict[@"needDesign"] boolValue];
+            subEvent.designName = subDict[@"designName"];
+            subEvent.measurePoint = [subDict[@"measurePoint"] integerValue];
+            subEvent.min = [subDict[@"min"] floatValue];
+            subEvent.max = [subDict[@"max"] floatValue];
+            subEvent.condition = subDict[@"condition"];
+            subEvent.max2 = [subDict[@"max2"] floatValue];
+            subEvent.textStandard = subDict[@"textStandard"];
+            subEvent.limit = subDict[@"limit"];
+            subEvent.method = subDict[@"method"];
+            [event.events addObject:subEvent];
+            
+            NSArray *dictArray2 = subDict[@"subEvents"];
+            for (NSDictionary *subDict2 in dictArray2)
             {
-                subEvent.name = keyArray[0];
-            }
-            id obj = subDict[subEvent.name];
-            if ([obj isKindOfClass:[NSDictionary class]])
-            {
-                NSDictionary *dicObj = (NSDictionary *)obj;
-                subEvent.needDesgin = [dicObj[@"needDesign"] boolValue];
-                subEvent.designName = dicObj[@"designName"];
-                subEvent.measurePoint = [dicObj[@"measurePoint"] integerValue];
-                subEvent.min = [dicObj[@"min"] floatValue];
-                subEvent.max = [dicObj[@"max"] floatValue];
-                subEvent.condition = dicObj[@"condition"];
-                subEvent.max2 = [dicObj[@"max2"] floatValue];
-                subEvent.textStandard = dicObj[@"textStandard"];
-                subEvent.limit = dicObj[@"limit"];
-                subEvent.method = dicObj[@"method"];
-                [event.events addObject:subEvent];
+                Event *subEvent2 = [[Event alloc] init];
+                subEvent2.name = subDict2[@"name"];
+                subEvent2.needDesgin = [subDict2[@"needDesign"] boolValue];
+                subEvent2.designName = subDict2[@"designName"];
+                subEvent2.measurePoint = [subDict2[@"measurePoint"] integerValue];
+                subEvent2.min = [subDict2[@"min"] floatValue];
+                subEvent2.max = [subDict2[@"max"] floatValue];
+                subEvent2.condition = subDict2[@"condition"];
+                subEvent2.max2 = [subDict2[@"max2"] floatValue];
+                subEvent2.textStandard = subDict2[@"textStandard"];
+                subEvent2.limit = subDict2[@"limit"];
+                subEvent2.method = subDict2[@"method"];
+                [subEvent.events addObject:subEvent2];
+                
             }
         }
         [eventArray addObject:event];

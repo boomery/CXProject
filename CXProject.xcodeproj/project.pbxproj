@@ -78,6 +78,10 @@
 		9028C9CF1EB87E3E003DA545 /* UIView+PYSearchExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9C81EB87E3E003DA545 /* UIView+PYSearchExtension.m */; };
 		9028C9E31EC3F961003DA545 /* RiskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9E21EC3F961003DA545 /* RiskViewController.m */; };
 		9028C9E91EC3FB8B003DA545 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9E81EC3FB8B003DA545 /* ViewPagerController.m */; };
+		9028C9EB1EC43570003DA545 /* Risk.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9EA1EC43570003DA545 /* Risk.geojson */; };
+		9028C9ED1EC44269003DA545 /* RiskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9EC1EC44269003DA545 /* RiskViewController.xib */; };
+		9028C9F11EC54EBB003DA545 /* RiskLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */; };
+		9028C9F21EC54EBB003DA545 /* RiskLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -273,6 +277,11 @@
 		9028C9E41EC3FAFA003DA545 /* ICViewPager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ICViewPager.framework; path = "../../Library/Developer/Xcode/DerivedData/CXProject-fgbcffiafxzmbgbwynqpcslomiik/Build/Products/Debug-iphonesimulator/ICViewPager/ICViewPager.framework"; sourceTree = "<group>"; };
 		9028C9E71EC3FB8B003DA545 /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
 		9028C9E81EC3FB8B003DA545 /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
+		9028C9EA1EC43570003DA545 /* Risk.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Risk.geojson; sourceTree = "<group>"; };
+		9028C9EC1EC44269003DA545 /* RiskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RiskViewController.xib; sourceTree = "<group>"; };
+		9028C9EE1EC54EBB003DA545 /* RiskLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiskLineCell.h; sourceTree = "<group>"; };
+		9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiskLineCell.m; sourceTree = "<group>"; };
+		9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RiskLineCell.xib; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -513,6 +522,7 @@
 				901780F01E82626600D6E8A1 /* Info.plist */,
 				9028C93C1EA4BC6A003DA545 /* measure.sqlite */,
 				908C82561E9B7D500086EDCD /* Measure.geojson */,
+				9028C9EA1EC43570003DA545 /* Risk.geojson */,
 				901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */,
 				901780DC1E82626600D6E8A1 /* Supporting Files */,
 			);
@@ -867,6 +877,9 @@
 				9028C9811EB1EBE1003DA545 /* ExtactResultCell.xib */,
 				908C82611E9F0CAB0086EDCD /* InputView.h */,
 				908C82621E9F0CAB0086EDCD /* InputView.m */,
+				9028C9EE1EC54EBB003DA545 /* RiskLineCell.h */,
+				9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */,
+				9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -890,6 +903,7 @@
 				908C824E1E9B73B90086EDCD /* DetailMeasureViewController.xib */,
 				9028C9E11EC3F961003DA545 /* RiskViewController.h */,
 				9028C9E21EC3F961003DA545 /* RiskViewController.m */,
+				9028C9EC1EC44269003DA545 /* RiskViewController.xib */,
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
@@ -1030,6 +1044,7 @@
 				9028C9B41EB3203B003DA545 /* ContactViewController.xib in Resources */,
 				9028C98B1EB2D937003DA545 /* star_gray.png in Resources */,
 				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
+				9028C9F21EC54EBB003DA545 /* RiskLineCell.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				908C82401E9B31720086EDCD /* InputCell4.xib in Resources */,
@@ -1041,6 +1056,7 @@
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
 				908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */,
 				908C82571E9B7D500086EDCD /* Measure.geojson in Resources */,
+				9028C9EB1EC43570003DA545 /* Risk.geojson in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				9028C9831EB1EBE1003DA545 /* ExtactResultCell.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
@@ -1050,6 +1066,7 @@
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
 				9028C9CA1EB87E3E003DA545 /* PYSearch.bundle in Resources */,
 				9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */,
+				9028C9ED1EC44269003DA545 /* RiskViewController.xib in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				9028C9A51EB30A17003DA545 /* image_count_bg.png in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
@@ -1189,6 +1206,7 @@
 				90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */,
 				908C82471E9B4DEE0086EDCD /* MeasureViewController.m in Sources */,
 				908BFE381E96054E00937372 /* MHKeyboard+Animation.m in Sources */,
+				9028C9F11EC54EBB003DA545 /* RiskLineCell.m in Sources */,
 				9028C9E31EC3F961003DA545 /* RiskViewController.m in Sources */,
 				9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */,
 				9028C9A41EB30A17003DA545 /* AddImageView.m in Sources */,
@@ -1357,7 +1375,7 @@
 				INFOPLIST_FILE = CXProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zcx.CXProject;
+				PRODUCT_BUNDLE_IDENTIFIER = cx.CXProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1379,7 +1397,7 @@
 				INFOPLIST_FILE = CXProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zcx.CXProject;
+				PRODUCT_BUNDLE_IDENTIFIER = cx.CXProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -12,8 +12,8 @@
 
 + (instancetype)sharedProvider;
 
-+ (BOOL)loadData;
++ (BOOL)loadDataWithJsonFileName:(NSString *)name;
 
-+ (NSArray *)items;
-
++ (NSArray *)measureItems;
++ (NSArray *)riskItems;
 @end
