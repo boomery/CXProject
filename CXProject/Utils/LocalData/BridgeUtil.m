@@ -14,6 +14,7 @@
 {
     NSArray *measureArray = [values componentsSeparatedByString:@";"];
     NSArray *designArray = [designValues componentsSeparatedByString:@";"];
+    
     struct standard s;
     s.min = event.min;
     s.max = event.max;
@@ -59,12 +60,24 @@
             break;
         case 6:
         {
-            result = count6([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], s);
+            NSMutableArray * newArray = [self handledArray:measureArray];
+            float a[newArray.count];
+            for (int i = 0; i < newArray.count ; i ++)
+            {
+                a[i] = [newArray[i] floatValue];
+            }
+            result = count6(a, newArray.count, s);
         }
             break;
         case 7:
         {
-            result = count7([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], [measureArray[3] floatValue], [measureArray[4] floatValue], [measureArray[5] floatValue], s);
+            NSMutableArray * newArray = [self handledArray:measureArray];
+            float a[newArray.count];
+            for (int i = 0; i < newArray.count ; i ++)
+            {
+                a[i] = [newArray[i] floatValue];
+            }
+            result = count7(a, newArray.count, s);
         }
             break;
         case 8:
@@ -76,7 +89,13 @@
             break;
         case 9:
         {
-            result = count9([measureArray[0] floatValue], [measureArray[1] floatValue], [measureArray[2] floatValue], s);
+            NSMutableArray * newArray = [self handledArray:measureArray];
+            float a[newArray.count];
+            for (int i = 0; i < newArray.count ; i ++)
+            {
+                a[i] = [newArray[i] floatValue];
+            }
+            result = count9(a, newArray.count, s);
         }
             break;
         case 10:
@@ -91,4 +110,15 @@
     return [NSString stringWithFormat:@"%d",result];
 }
 
++ (NSMutableArray *)handledArray:(NSArray *)orignalArray
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    [orignalArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (![obj isEqualToString:@"-"])
+        {
+            [array addObject:obj];
+        }
+    }];
+    return array;
+}
 @end

@@ -243,6 +243,7 @@
                              "name": "裂缝/空鼓",
                              "needDesign": "0",
                              "measurePoint": "1",
+                             "textStandard": "无裂缝、无空鼓",
                              "min": "-",
                              "max": "-",
                              "method": "5"

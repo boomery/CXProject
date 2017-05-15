@@ -333,7 +333,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue])
     {
-        [SVProgressHUD showErrorWithStatus:@"请填写正确完整的数据"];
+        [SVProgressHUD showErrorWithStatus:@"请填写正确完整的数据，可以使用减号'-'作为占位符"];
         return NO;
     }
     Event *subEvent = _event.events[_indexPath.section];
@@ -662,6 +662,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     return YES;
 }
 
+//控制检测区与检测点的录入字符
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (string.length > 0 && ![string isValidInt])

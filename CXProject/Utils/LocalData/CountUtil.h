@@ -35,13 +35,13 @@ int count4(float value1, float design,struct standard s);
 
 int count5(float value1);
 
-int count6(float value1, float value2, float value3, struct standard s);
+int count6(float a[], int arrayNum, struct standard s);
 
-int count7(float value1, float value2, float value3, float value4, float value5, float value6, struct standard s);
+int count7(float a[], int arrayNum, struct standard s);
 
 struct results count8(float value1, float value2, float value3, float value4, float value5, float design,float limit,struct standard s);
 
-int count9(float value1, float value2, float value3, struct standard s);
+int count9(float a[], int arrayNum, struct standard s);
 
 int count10(float value1, float value2, struct standard s);
 

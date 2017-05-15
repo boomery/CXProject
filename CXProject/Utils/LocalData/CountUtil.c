@@ -121,13 +121,12 @@ int count5(float value1)
 }
 
 /* 算法中0表示合格 1表示不合格 */
-//算法6:每三个录入点数的极差与标准值比较，计算一个合格点
-int count6(float value1, float value2, float value3, struct standard s)
+//算法6:每三个或少于三个录入点数的极差与标准值比较，计算一个合格点
+int count6(float a[], int arrayNum, struct standard s)
 {
-    float a[3] = {value1, value2, value3};
     float min = a[0];
     float max = a[0];
-    for (int i = 0; i<2; i++)
+    for (int i = 0; i<arrayNum - 1; i++)
     {
         min = min < a[i+1]? min:a[i+1];
         max = max > a[i+1]? max:a[i+1];
@@ -141,13 +140,12 @@ int count6(float value1, float value2, float value3, struct standard s)
 }
 
 /* 算法中0表示合格 1表示不合格 */
-//算法7:每六个录入点的极差与标准值比较,计算一个合格点
-int count7(float value1, float value2, float value3, float value4, float value5, float value6, struct standard s)
+//算法7:每六个或少于六个录入点的极差与标准值比较,计算一个合格点
+int count7(float a[], int arrayNum, struct standard s)
 {
-    float a[6] = {value1, value2, value3, value4, value5, value6};
     float min = a[0];
     float max = a[0];
-    for (int i = 0; i<5; i++)
+    for (int i = 0; i<arrayNum - 1; i++)
     {
         min = min < a[i+1]? min:a[i+1];
         max = max > a[i+1]? max:a[i+1];
@@ -226,12 +224,11 @@ struct results count8(float value1, float value2, float value3, float value4, fl
 
 /* 算法中0表示合格 1表示不合格 */
 //算法9:每三个点的极差与标准值比较（两个或三个点）三个录入点计算一个合格点
-int count9(float value1, float value2, float value3, struct standard s)
+int count9(float a[], int arrayNum, struct standard s)
 {
-    float a[3] = {value1, value2, value3};
     float min = a[0];
     float max = a[0];
-    for (int i = 0; i<2; i++)
+    for (int i = 0; i<arrayNum - 1; i++)
     {
         min = min < a[i+1]? min:a[i+1];
         max = max > a[i+1]? max:a[i+1];

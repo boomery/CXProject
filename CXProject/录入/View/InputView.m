@@ -229,14 +229,14 @@
 {
     for (UITextField *text in _measureTextfieldArray)
     {
-        if (text.text.length == 0 || ![text.text isValidNumber])
+        if (text.text.length == 0 || !([text.text isValidNumber] || [text.text isEqualToString:@"-"]))
         {
             return NO;
         }
     }
     for (UITextField *text in _designTextfieldArray)
     {
-        if (text.text.length == 0 || ![text.text isValidNumber])
+        if (text.text.length == 0 || !([text.text isValidNumber] || [text.text isEqualToString:@"-"]))
         {
             return NO;
         }
