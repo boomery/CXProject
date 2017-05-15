@@ -388,7 +388,6 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     if (_event.events.count > 0)
     {
-        NSLog(@"保存完成后延迟0.5秒重新读取");
         Event *subEvent = _event.events[_indexPath.section];
         NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
         _resultsDict = resultsDict;
