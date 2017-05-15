@@ -10,4 +10,7 @@
 
 @interface MeasureRiskViewController : BaseViewController
 
+@property (nonatomic, copy) NSString *position;
+@property (nonatomic, strong) Event *event;
+
 @end

@@ -84,17 +84,35 @@ static NSString *Identifier = @"riskLinecell";
 {
     RiskLineCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
+    
+    Event *Tevent = self.eventsArray[self.activeTabIndex];
+    NSString *position = Tevent.name;
+    
+    Event *levent = _leftArray[_leftTableView.indexPathForSelectedRow.row];
+
+    
+
     if (tableView == _leftTableView)
     {
-        Event *event = _leftArray[indexPath.row];
-        _rightArray = event.events;
+        position = [position stringByAppendingString:[NSString stringWithFormat:@"/%@",levent.name]];
+        _rightArray = levent.events;
         [_rightTableView reloadData];
+        if (_rightArray.count == 0)
+        {
+            MeasureRiskViewController *riskVC = [[MeasureRiskViewController alloc] init];
+            riskVC.event = levent;
+            riskVC.position = position;
+            [self.navigationController pushViewController:riskVC animated:YES];
+        }
     }
     else
     {
-        Event *event = _rightArray[indexPath.row];
+        Event *revent = _rightArray[indexPath.row];
+        position = [position stringByAppendingString:[NSString stringWithFormat:@"/%@",levent.name]];
+        position = [position stringByAppendingString:[NSString stringWithFormat:@"/%@",revent.name]];
         MeasureRiskViewController *riskVC = [[MeasureRiskViewController alloc] init];
-        riskVC.title = event.name;
+        riskVC.event = revent;
+        riskVC.position = position;
         [self.navigationController pushViewController:riskVC animated:YES];
     }
 }

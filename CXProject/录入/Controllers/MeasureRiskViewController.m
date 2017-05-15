@@ -12,7 +12,8 @@
 #import "CXDataBaseUtil.h"
 @interface MeasureRiskViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
-    __weak IBOutlet NSLayoutConstraint *_heightConstraint;
+    __weak IBOutlet UILabel *_positionLabel;
+    IBOutlet UIScrollView *contentScrollView;
     //拍照相关变量
     BOOL _showPhoto;
     UIImageView *_imageView;
@@ -21,24 +22,24 @@
 @end
 
 @implementation MeasureRiskViewController
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (IS_IPHONE_5)
-    {
-        _heightConstraint.constant = 33;
-    }
-    else
-    {
-        _heightConstraint.constant = 44;
-    }
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"拍照" style:UIBarButtonItemStylePlain target:self action:@selector(takePhoto)];
-    UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"查看" style:UIBarButtonItemStylePlain target:self action:@selector(viewPhoto)];
+    contentScrollView.frame = CGRectMake(0, 0, DEF_SCREEN_WIDTH , DEF_SCREEN_HEIGHT);
+    contentScrollView.contentSize = CGSizeMake(DEF_SCREEN_WIDTH - 10, 50*13 + 64 + 10 + 100);
+    [self.view addSubview:contentScrollView];
     
-    self.navigationItem.rightBarButtonItems = @[item, item2];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
+    _positionLabel.text = _position;
+    
+    UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    photoButton.frame = CGRectMake(0, 0, 15*1.14, 15);
+    [photoButton addTarget:self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
+    [photoButton setBackgroundImage:[UIImage imageNamed:@"photo"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:photoButton];
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)takePhoto
