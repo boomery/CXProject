@@ -386,63 +386,60 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)reloadData
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (_event.events.count > 0)
+    if (_event.events.count > 0)
+    {
+        NSLog(@"保存完成后延迟0.5秒重新读取");
+        Event *subEvent = _event.events[_indexPath.section];
+        NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+        _resultsDict = resultsDict;
+        
+        if ([_resultsDict allValues].count == 0)
         {
-            NSLog(@"保存完成后延迟0.5秒重新读取");
-            Event *subEvent = _event.events[_indexPath.section];
-            NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
-            _resultsDict = resultsDict;
-            
-            if ([_resultsDict allValues].count == 0)
-            {
-                _indexPath = [NSIndexPath indexPathForRow:0 inSection:_indexPath.section];
-                [self loadMeasureResults];
-                [self clearMeasureAreaAndPoint];
-                [self setViews];
-
-                return;
-            }
-            
-            [self.collectionView reloadData];
-            
-            NSInteger nowRow = [self countedNumberForOrignalNumber:_indexPath.row];
-    
-            NSInteger nextRow = nowRow + 1;
-            
-            
-            NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
-            if ([self haveMoreThanTwoDesign])
-            {
-                measureNum = measureNum * 2;
-            }
-            
-            NSInteger countedNextRow = nextRow;
-            if ([self isSpecial])
-            {
-                countedNextRow = nextRow*5;
-            }
-            else if ([self haveMoreThanTwoDesign])
-            {
-                countedNextRow = nextRow*2;
-            }
-            
-            if (measureNum > countedNextRow)
-            {
-                _indexPath = [NSIndexPath indexPathForRow:countedNextRow inSection:_indexPath.section];
-                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-                [self setViews];
-                [_inputView beinEditing];
-            }
-            else
-            {
-                _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:_indexPath.section];
-                [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
-                [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
-                [self.view endEditing:YES];
-            }
+            _indexPath = [NSIndexPath indexPathForRow:0 inSection:_indexPath.section];
+            [self loadMeasureResults];
+            [self clearMeasureAreaAndPoint];
+            [self setViews];
+            return;
         }
-    });
+        
+        [self.collectionView reloadData];
+        
+        NSInteger nowRow = [self countedNumberForOrignalNumber:_indexPath.row];
+        
+        NSInteger nextRow = nowRow + 1;
+        
+        
+        NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
+        if ([self haveMoreThanTwoDesign])
+        {
+            measureNum = measureNum * 2;
+        }
+        
+        NSInteger countedNextRow = nextRow;
+        if ([self isSpecial])
+        {
+            countedNextRow = nextRow*5;
+        }
+        else if ([self haveMoreThanTwoDesign])
+        {
+            countedNextRow = nextRow*2;
+        }
+        
+        if (measureNum > countedNextRow)
+        {
+            _indexPath = [NSIndexPath indexPathForRow:countedNextRow inSection:_indexPath.section];
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            [self setViews];
+            [_inputView beinEditing];
+        }
+        else
+        {
+            _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:_indexPath.section];
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
+            [self.view endEditing:YES];
+        }
+    }
 }
 
 #pragma mark - 删除结果点
