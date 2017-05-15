@@ -55,7 +55,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [super viewDidLoad];
     [self initViews];
-    [self setUpViewsWithIndex:0];
+    [self setUpInputViewsWithIndex:0];
     [self initData];
 }
 
@@ -290,7 +290,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 }
 
 #pragma mark - 为控件布局
-- (void)setUpViewsWithIndex:(NSInteger)index
+- (void)setUpInputViewsWithIndex:(NSInteger)index
 {
     if (_event.events.count > index)
     {
@@ -393,6 +393,17 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             Event *subEvent = _event.events[_indexPath.section];
             NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
             _resultsDict = resultsDict;
+            
+            if ([_resultsDict allValues].count == 0)
+            {
+                _indexPath = [NSIndexPath indexPathForRow:0 inSection:_indexPath.section];
+                [self loadMeasureResults];
+                [self clearMeasureAreaAndPoint];
+                [self setViews];
+
+                return;
+            }
+            
             [self.collectionView reloadData];
             
             NSInteger nowRow = [self countedNumberForOrignalNumber:_indexPath.row];
@@ -628,7 +639,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 {
     [self.view endEditing:YES];
     _indexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.row];
-    [self setUpViewsWithIndex:_indexPath.section];
+    [self setUpInputViewsWithIndex:_indexPath.section];
     [self loadMeasureResults];
     [self clearMeasureAreaAndPoint];
     [self setViews];
