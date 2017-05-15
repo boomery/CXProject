@@ -9,6 +9,8 @@
 #import "MeasureResult.h"
 @interface MeasureResult (Addtion)
 
++ (void)deleteMeasureResult:(MeasureResult *)result;
+
 + (void)insertNewMeasureResult:(MeasureResult *)result;
 
 + (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
