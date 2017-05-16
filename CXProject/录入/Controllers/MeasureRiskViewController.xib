@@ -15,7 +15,19 @@
                 <outlet property="_contentScrollView" destination="Cn2-6c-A3Y" id="a4P-jF-qgl"/>
                 <outlet property="_positionLabel" destination="8mW-xB-XC3" id="ipQ-zM-Fms"/>
                 <outlet property="_responsibilityLabel" destination="f2e-1L-I0S" id="GhY-QT-ofQ"/>
+                <outlet property="_resultLabel" destination="5nA-BN-cog" id="Ury-4Q-gnU"/>
                 <outlet property="view" destination="kuM-EY-oWh" id="vEy-V2-iNY"/>
+                <outletCollection property="_scoreArray" destination="1R8-xH-6lr" id="1lS-aa-YsU"/>
+                <outletCollection property="_scoreArray" destination="ULg-1H-DyC" id="LYd-nI-ovu"/>
+                <outletCollection property="_scoreArray" destination="TPh-pt-goS" id="YTQ-zx-AyD"/>
+                <outletCollection property="_scoreArray" destination="YwF-QN-0xB" id="G41-Bl-PwT"/>
+                <outletCollection property="_scoreArray" destination="jqu-nV-MDa" id="M4E-Ym-WTS"/>
+                <outletCollection property="_levelArray" destination="2kA-zO-Fr1" id="9H5-XS-rKe"/>
+                <outletCollection property="_levelArray" destination="za9-Hj-AmE" id="jMK-3Z-ZmP"/>
+                <outletCollection property="_responsibilityArray" destination="W7L-Xr-dJj" id="gGJ-Cb-dUt"/>
+                <outletCollection property="_responsibilityArray" destination="6k8-W8-nZy" id="L9s-2N-yMe"/>
+                <outletCollection property="_responsibilityArray" destination="wnv-5Y-4JD" id="Up7-f1-tSw"/>
+                <outletCollection property="_responsibilityArray" destination="x4i-kb-n6f" id="zJN-LU-UgH"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,7 +36,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzI-oJ-SA8">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前位置：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-cv-UVa">
                             <rect key="frame" x="10" y="74" width="71.5" height="40"/>
@@ -68,7 +80,7 @@
                                 <action selector="textStandardButtonClick:" destination="-1" eventType="touchUpInside" id="U1L-yF-rfR"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R8-xH-6lr">
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R8-xH-6lr">
                             <rect key="frame" x="157.5" y="124" width="99" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="100-81">
@@ -87,6 +99,9 @@
                             <state key="normal" title="80-61">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
                                 <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="2fg-Mo-Hed"/>
                             </connections>
@@ -96,6 +111,9 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="60-41">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </state>
                             <connections>
                                 <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="oJK-yP-i1A"/>
@@ -107,6 +125,9 @@
                             <state key="normal" title="40-21">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
                                 <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="JNF-dB-tjJ"/>
                             </connections>
@@ -117,25 +138,34 @@
                             <state key="normal" title="20-0">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
                                 <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="Aow-ev-6dJ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kA-zO-Fr1">
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kA-zO-Fr1">
                             <rect key="frame" x="157.5" y="374" width="207.5" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="容易">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
                                 <action selector="levelButtonClick:" destination="-1" eventType="touchUpInside" id="Con-oI-m7g"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-Xr-dJj">
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-Xr-dJj">
                             <rect key="frame" x="157.5" y="524" width="207.5" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="精装单位">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </state>
                             <connections>
                                 <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="gd8-AR-CcW"/>
@@ -147,8 +177,24 @@
                             <state key="normal" title="机电单位">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
                                 <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="qJb-bJ-21d"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-5Y-4JD">
+                            <rect key="frame" x="157" y="624" width="207.5" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="门窗单位">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <connections>
+                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="0B8-L2-fsp"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4i-kb-n6f">
@@ -157,15 +203,21 @@
                             <state key="normal" title="总包单位">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
                             <connections>
-                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="d8O-BX-bSy"/>
+                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="VTC-OZ-5rC"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="za9-Hj-AmE">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="za9-Hj-AmE">
                             <rect key="frame" x="157.5" y="424" width="207.5" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="困难">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </state>
                             <connections>
                                 <action selector="levelButtonClick:" destination="-1" eventType="touchUpInside" id="vDC-aW-FCL"/>
@@ -192,16 +244,6 @@
                             <color key="textColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-5Y-4JD">
-                            <rect key="frame" x="157.5" y="624" width="207.5" height="40"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="门窗单位">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="0B8-L2-fsp"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.9333423376083374" green="0.93334239721298218" blue="0.9333423376083374" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
@@ -284,11 +326,11 @@
             </subviews>
             <constraints>
                 <constraint firstItem="mzI-oJ-SA8" firstAttribute="top" secondItem="Cn2-6c-A3Y" secondAttribute="top" id="ZmI-dC-gwH"/>
-                <constraint firstItem="mzI-oJ-SA8" firstAttribute="height" secondItem="Cn2-6c-A3Y" secondAttribute="height" id="exs-mX-2Nh"/>
+                <constraint firstItem="mzI-oJ-SA8" firstAttribute="height" secondItem="Cn2-6c-A3Y" secondAttribute="height" constant="1000" id="exs-mX-2Nh"/>
                 <constraint firstItem="mzI-oJ-SA8" firstAttribute="width" secondItem="Cn2-6c-A3Y" secondAttribute="width" id="slq-LN-6ra"/>
                 <constraint firstItem="mzI-oJ-SA8" firstAttribute="leading" secondItem="Cn2-6c-A3Y" secondAttribute="leading" id="tFf-aJ-qef"/>
             </constraints>
-            <point key="canvasLocation" x="-830" y="182"/>
+            <point key="canvasLocation" x="-1147" y="240"/>
         </scrollView>
         <view contentMode="scaleToFill" id="kuM-EY-oWh">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

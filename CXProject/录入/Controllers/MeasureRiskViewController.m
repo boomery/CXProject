@@ -16,13 +16,22 @@
     IBOutlet UIScrollView *_contentScrollView;
     __weak IBOutlet UILabel *_positionLabel;
     __weak IBOutlet UILabel *_responsibilityLabel;
+    
+    IBOutletCollection(UIButton) NSArray *_scoreArray;
+    
+    IBOutletCollection(UIButton) NSArray *_levelArray;
+    
+    __weak IBOutlet UILabel *_resultLabel;
+    
+    IBOutletCollection(UIButton) NSArray *_responsibilityArray;
+    
     //拍照相关变量
     BOOL _showPhoto;
     UIImageView *_imageView;
     UIView *_backView;
     
     //数据源
-    NSArray *_riskResultArray;
+    RiskResult *_riskResult;
 }
 @property (nonatomic, strong) UICollectionView *collectionView;
 @end
@@ -33,6 +42,7 @@
     [super viewDidLoad];
     [self initViews];
     [self loadRiskResults];
+    [self setViews];
 }
 
 - (void)initViews
@@ -82,33 +92,70 @@
     if (!result)
     {
         result = [[RiskResult alloc] init];
+        result.score = @"0";
+        result.level = @"0";
+        result.result = @"95";
+        result.responsibility = @"0";
     }
+    _riskResult = result;
 }
 
-#pragma mark - 选择分数档次
-- (IBAction)scoreButtonClick:(id)sender
+#pragma mark - 控件赋值
+- (void)setViews
 {
     
 }
 
+#pragma mark - 选择分数档次
+- (IBAction)scoreButtonClick:(UIButton *)sender
+{
+    UIButton *selectedButton = _scoreArray[[_riskResult.score integerValue]];
+    if (sender != selectedButton)
+    {
+        selectedButton.selected = NO;
+        sender.selected = YES;
+        _riskResult.score = [NSString stringWithFormat:@"%ld",(long)sender.tag];
+        [self updateResult];
+    }
+}
+
 #pragma mark - 显示评分规则
-- (IBAction)textStandardButtonClick:(id)sender
+- (IBAction)textStandardButtonClick:(UIButton *)sender
 {
     
 }
 
 #pragma mark - 选择整改难易度
-- (IBAction)levelButtonClick:(id)sender
+- (IBAction)levelButtonClick:(UIButton *)sender
 {
-    
+    UIButton *selectedButton = _levelArray[[_riskResult.level integerValue]];
+    if (sender != selectedButton)
+    {
+        selectedButton.selected = NO;
+        sender.selected = YES;
+        _riskResult.level = [NSString stringWithFormat:@"%ld",(long)sender.tag];
+        [self updateResult];
+    }
 }
 
 #pragma mark - 选择责任单位
-- (IBAction)responsibilityButtonClick:(id)sender
+- (IBAction)responsibilityButtonClick:(UIButton *)sender
 {
-    
+    UIButton *selectedButton = _responsibilityArray[[_riskResult.responsibility integerValue]];
+    if (sender != selectedButton)
+    {
+        selectedButton.selected = NO;
+        sender.selected = YES;
+        _riskResult.responsibility = [NSString stringWithFormat:@"%ld",(long)sender.tag];
+    }
 }
 
+#pragma mark - 更新结算分数
+- (void)updateResult
+{
+    NSInteger result = (5 - [_riskResult.score integerValue]) * 20 - 5 - ([_riskResult.level integerValue] * 10);
+    _resultLabel.text = [NSString stringWithFormat:@"%ld",(long)result];
+}
 #pragma mark - 记录保存到本地
 - (void)saveButtonClick
 {
@@ -132,7 +179,7 @@
         
         NSString *mediaType = AVMediaTypeVideo;
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusNotDetermined){
             [SVProgressHUD showErrorWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
             return;
         }
