@@ -19,7 +19,7 @@
     }
     [db setShouldCacheStatements:YES];
     NSString *deleteSql= [NSString stringWithFormat:
-                         @"delete from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@' and mesaureIndex = '%@'",[CXDataBaseUtil tableName],result.projectID,result.itemName,result.subItemName,result.mesaureIndex];
+                         @"delete from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@' and mesaureIndex = '%@'",[CXDataBaseUtil measureTableName],result.projectID,result.itemName,result.subItemName,result.mesaureIndex];
     BOOL res = [db executeUpdate:deleteSql];
     if (res)
     {
@@ -43,7 +43,7 @@
     
     NSString *insertSql= [NSString stringWithFormat:
                           @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil tableName], result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace,  result.measurePhoto, result.mesaureIndex];
+                          [CXDataBaseUtil measureTableName], result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace,  result.measurePhoto, result.mesaureIndex];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -67,7 +67,7 @@
     [db setShouldCacheStatements:YES];
     NSString *updateSql= [NSString stringWithFormat:
                           @"update '%@' set %@ = '%@',%@='%@',%@='%@'  where %@ = '%@' and %@ = '%@' and %@ = '%@'",
-                          [CXDataBaseUtil tableName],@"measureArea",result.measureArea,@"measurePoint",result.measurePoint,@"designValues",result.designValues,@"projectID",result.projectID,@"itemName",result.itemName,@"subItemName",result.subItemName];
+                          [CXDataBaseUtil measureTableName],@"measureArea",result.measureArea,@"measurePoint",result.measurePoint,@"designValues",result.designValues,@"projectID",result.projectID,@"itemName",result.itemName,@"subItemName",result.subItemName];
     BOOL res = [db executeUpdate:updateSql];
     if (res)
     {
@@ -93,9 +93,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *querySql= [NSString stringWithFormat:
-                         @"select distinct *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@'",[CXDataBaseUtil tableName],projectID,itemName,subItemName];
+                         @"select distinct *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@'",[CXDataBaseUtil measureTableName],projectID,itemName,subItemName];
     FMResultSet *res = [db executeQuery:querySql];
-//    NSLog(@"%@",querySql);
     while ([res next])
     {
         MeasureResult *result = [[MeasureResult alloc] init];
@@ -133,11 +132,11 @@
 //    BOOL res = [db executeUpdate:updateSql];
 //    if (res)
 //    {
-//        NSLog(@"分项检测区，检测点，设计值更新成功");
+//        NSLog(@"更新照片名称成功");
 //    }
 //    else
 //    {
-//        NSLog(@"分项检测区，检测点，设计值更新失败");
+//        NSLog(@"更新照片名称失败");
 //    }
 //    [db close];
 //    return res;
@@ -157,7 +156,7 @@
     }
     [db setShouldCacheStatements:YES];
     NSString *querySql= [NSString stringWithFormat:
-                         @"select *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@' and mesaureIndex = '%@'",[CXDataBaseUtil tableName],result.projectID,result.itemName,result.subItemName,result.mesaureIndex];
+                         @"select *from %@ where projectID = '%@' and itemName = '%@' and subItemName = '%@' and mesaureIndex = '%@'",[CXDataBaseUtil measureTableName],result.projectID,result.itemName,result.subItemName,result.mesaureIndex];
     FMResultSet *resultSet = [db executeQuery:querySql];
     while ([resultSet next])
     {

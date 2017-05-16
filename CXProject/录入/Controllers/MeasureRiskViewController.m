@@ -10,25 +10,36 @@
 #import <Photos/Photos.h>
 #import "PhotoEditorViewController.h"
 #import "CXDataBaseUtil.h"
+#import "RiskResult+Addition.h"
 @interface MeasureRiskViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
+    IBOutlet UIScrollView *_contentScrollView;
     __weak IBOutlet UILabel *_positionLabel;
-    IBOutlet UIScrollView *contentScrollView;
+    __weak IBOutlet UILabel *_responsibilityLabel;
     //拍照相关变量
     BOOL _showPhoto;
     UIImageView *_imageView;
     UIView *_backView;
+    
+    //数据源
+    NSArray *_riskResultArray;
 }
+@property (nonatomic, strong) UICollectionView *collectionView;
 @end
 
 @implementation MeasureRiskViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    contentScrollView.frame = CGRectMake(0, 0, DEF_SCREEN_WIDTH , DEF_SCREEN_HEIGHT);
-    contentScrollView.contentSize = CGSizeMake(DEF_SCREEN_WIDTH - 10, 50*13 + 64 + 10 + 100);
-    [self.view addSubview:contentScrollView];
+    [self initViews];
+    [self loadRiskResults];
+}
+
+- (void)initViews
+{
+    _contentScrollView.frame = CGRectMake(0, 0, DEF_SCREEN_WIDTH , DEF_SCREEN_HEIGHT);
+   
+    [self.view addSubview:_contentScrollView];
     
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
     _positionLabel.text = _position;
@@ -40,8 +51,71 @@
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:photoButton];
     self.navigationItem.rightBarButtonItem = item;
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _responsibilityLabel.bottom + 10, DEF_SCREEN_WIDTH, 100) collectionViewLayout:layout];
+    [_contentScrollView addSubview:self.collectionView];
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    self.collectionView.backgroundColor = [UIColor redColor];
+    self.collectionView.clipsToBounds = NO;
+//    self.collectionView.delegate = self;
+//    self.collectionView.dataSource = self;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"tribeMember"];
+    
+    UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
+    
+    saveButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
+    [_contentScrollView addSubview:saveButton];
+    [saveButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:_collectionView withOffset:10];
+    [saveButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [saveButton autoSetDimensionsToSize:CGSizeMake(100, 44)];
+    [saveButton setTitle:@"确认" forState:UIControlStateNormal];
+    [saveButton addTarget:self action:@selector(saveButtonClick) forControlEvents:UIControlEventTouchUpInside];
+     _contentScrollView.contentSize = CGSizeMake(DEF_SCREEN_WIDTH - 10, 50*13 + 64 + _collectionView.height + 44 + 30);
 }
 
+#pragma mark - 读取本地记录
+- (void)loadRiskResults
+{
+    RiskResult *result = [RiskResult resultForProjectID:[User editingProject].fileName itemName:_position subItemName:nil];
+    if (!result)
+    {
+        result = [[RiskResult alloc] init];
+    }
+}
+
+#pragma mark - 选择分数档次
+- (IBAction)scoreButtonClick:(id)sender
+{
+    
+}
+
+#pragma mark - 显示评分规则
+- (IBAction)textStandardButtonClick:(id)sender
+{
+    
+}
+
+#pragma mark - 选择整改难易度
+- (IBAction)levelButtonClick:(id)sender
+{
+    
+}
+
+#pragma mark - 选择责任单位
+- (IBAction)responsibilityButtonClick:(id)sender
+{
+    
+}
+
+#pragma mark - 记录保存到本地
+- (void)saveButtonClick
+{
+    
+}
+
+#pragma mark - 拍摄照片
 - (void)takePhoto
 {
 //    if (![self exsistMeasureResultForIndexPath:_indexPath])
@@ -90,6 +164,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+#pragma mark - 查看照片
 - (void)viewPhoto
 {
 //    MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];

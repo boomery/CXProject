@@ -16,7 +16,8 @@
 
 + (void)creatTable;
 
-+ (NSString *)tableName;
++ (NSString *)measureTableName;
++ (NSString *)riskTableName;
 
 + (NSString *)imageName;
 

@@ -40,19 +40,32 @@ static FMDatabase *_db = nil;
     [db setShouldCacheStatements:YES];
     
    	//判断数据库中是否已经存在这个表，如果不存在则创建该表
-    if(![db tableExists:[CXDataBaseUtil tableName]])
+    if(![db tableExists:[CXDataBaseUtil measureTableName]])
     {
-        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT,measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT, measurePhoto TEXT,mesaureIndex TEXT,PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",[CXDataBaseUtil tableName]];
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT,measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT, measurePhoto TEXT,mesaureIndex TEXT,PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",[CXDataBaseUtil measureTableName]];
         if ([db executeUpdate:createSql])
         {
-            NSLog(@"建表成功");
+            NSLog(@"实测实量建表成功");
+        }
+    }
+    //判断数据库中是否已经存在这个表，如果不存在则创建该表
+    if(![db tableExists:[CXDataBaseUtil riskTableName]])
+    {
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT, score TEXT, level TEXT, result TEXT, responsibility TEXT, photoName TEXT, PRIMARY KEY(projectID, itemName, subItemName, photoName))",[CXDataBaseUtil riskTableName]];
+        if ([db executeUpdate:createSql])
+        {
+            NSLog(@"风险评估建表成功");
         }
     }
 }
 
-+ (NSString *)tableName
++ (NSString *)measureTableName
 {
     return @"MEASURE_TABLE";
+}
++ (NSString *)riskTableName
+{
+    return @"RISK_TABLE";
 }
 
 + (NSString *)imageName

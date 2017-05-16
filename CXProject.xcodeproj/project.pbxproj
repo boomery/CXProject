@@ -82,6 +82,8 @@
 		9028C9ED1EC44269003DA545 /* RiskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9EC1EC44269003DA545 /* RiskViewController.xib */; };
 		9028C9F11EC54EBB003DA545 /* RiskLineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */; };
 		9028C9F21EC54EBB003DA545 /* RiskLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */; };
+		9028C9F51ECA964B003DA545 /* RiskResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9F41ECA964B003DA545 /* RiskResult.m */; };
+		9028C9FB1ECA9985003DA545 /* RiskResult+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9FA1ECA9985003DA545 /* RiskResult+Addition.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -282,6 +284,10 @@
 		9028C9EE1EC54EBB003DA545 /* RiskLineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiskLineCell.h; sourceTree = "<group>"; };
 		9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiskLineCell.m; sourceTree = "<group>"; };
 		9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RiskLineCell.xib; sourceTree = "<group>"; };
+		9028C9F31ECA964B003DA545 /* RiskResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RiskResult.h; sourceTree = "<group>"; };
+		9028C9F41ECA964B003DA545 /* RiskResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiskResult.m; sourceTree = "<group>"; };
+		9028C9F91ECA9985003DA545 /* RiskResult+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RiskResult+Addition.h"; sourceTree = "<group>"; };
+		9028C9FA1ECA9985003DA545 /* RiskResult+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RiskResult+Addition.m"; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -678,6 +684,10 @@
 			children = (
 				9028C9331EA4B8CB003DA545 /* CXDataBaseUtil.h */,
 				9028C9341EA4B8CB003DA545 /* CXDataBaseUtil.m */,
+				9028C9F31ECA964B003DA545 /* RiskResult.h */,
+				9028C9F41ECA964B003DA545 /* RiskResult.m */,
+				9028C9F91ECA9985003DA545 /* RiskResult+Addition.h */,
+				9028C9FA1ECA9985003DA545 /* RiskResult+Addition.m */,
 				9028C93E1EA4BF47003DA545 /* MeasureResult.h */,
 				9028C93F1EA4BF47003DA545 /* MeasureResult.m */,
 				9028C9411EA4BFE0003DA545 /* MeasureResult+Addtion.h */,
@@ -1179,6 +1189,7 @@
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
 				908BFE391E96054E00937372 /* MHKeyboard.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
+				9028C9FB1ECA9985003DA545 /* RiskResult+Addition.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9028C9691EADC6C2003DA545 /* Event.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,
@@ -1199,6 +1210,7 @@
 				9028C9821EB1EBE1003DA545 /* ExtactResultCell.m in Sources */,
 				908C82631E9F0CAB0086EDCD /* InputView.m in Sources */,
 				9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */,
+				9028C9F51ECA964B003DA545 /* RiskResult.m in Sources */,
 				9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */,
 				9028C9E91EC3FB8B003DA545 /* ViewPagerController.m in Sources */,
 				9028C9CD1EB87E3E003DA545 /* PYSearchViewController.m in Sources */,

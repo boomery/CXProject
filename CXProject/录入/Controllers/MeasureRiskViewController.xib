@@ -12,18 +12,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeasureRiskViewController">
             <connections>
+                <outlet property="_contentScrollView" destination="Cn2-6c-A3Y" id="a4P-jF-qgl"/>
                 <outlet property="_positionLabel" destination="8mW-xB-XC3" id="ipQ-zM-Fms"/>
-                <outlet property="contentScrollView" destination="Cn2-6c-A3Y" id="YrB-mZ-Vvh"/>
+                <outlet property="_responsibilityLabel" destination="f2e-1L-I0S" id="GhY-QT-ofQ"/>
                 <outlet property="view" destination="kuM-EY-oWh" id="vEy-V2-iNY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="Cn2-6c-A3Y">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="813"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzI-oJ-SA8">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="813"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前位置：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-cv-UVa">
                             <rect key="frame" x="10" y="74" width="71.5" height="40"/>
@@ -63,6 +64,9 @@
                             <state key="normal" title="评分规则">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="textStandardButtonClick:" destination="-1" eventType="touchUpInside" id="U1L-yF-rfR"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1R8-xH-6lr">
                             <rect key="frame" x="157.5" y="124" width="99" height="40"/>
@@ -70,34 +74,52 @@
                             <state key="normal" title="100-81">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </state>
+                            <connections>
+                                <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="cC0-GB-663"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-1H-DyC">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULg-1H-DyC">
                             <rect key="frame" x="157.5" y="174" width="99" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="80-61">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="2fg-Mo-Hed"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPh-pt-goS">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPh-pt-goS">
                             <rect key="frame" x="157.5" y="224" width="99" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="60-41">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="oJK-yP-i1A"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwF-QN-0xB">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwF-QN-0xB">
                             <rect key="frame" x="157.5" y="274" width="99" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="40-21">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="JNF-dB-tjJ"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqu-nV-MDa">
+                        <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqu-nV-MDa">
                             <rect key="frame" x="157.5" y="324" width="99" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="20-0">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="scoreButtonClick:" destination="-1" eventType="touchUpInside" id="Aow-ev-6dJ"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kA-zO-Fr1">
                             <rect key="frame" x="157.5" y="374" width="207.5" height="40"/>
@@ -105,6 +127,9 @@
                             <state key="normal" title="容易">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="levelButtonClick:" destination="-1" eventType="touchUpInside" id="Con-oI-m7g"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7L-Xr-dJj">
                             <rect key="frame" x="157.5" y="524" width="207.5" height="40"/>
@@ -112,20 +137,29 @@
                             <state key="normal" title="精装单位">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="gd8-AR-CcW"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k8-W8-nZy">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k8-W8-nZy">
                             <rect key="frame" x="157.5" y="574" width="207.5" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="机电单位">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="qJb-bJ-21d"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4i-kb-n6f">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4i-kb-n6f">
                             <rect key="frame" x="157.5" y="674" width="207.5" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="总包单位">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="d8O-BX-bSy"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="za9-Hj-AmE">
                             <rect key="frame" x="157.5" y="424" width="207.5" height="40"/>
@@ -133,6 +167,9 @@
                             <state key="normal" title="困难">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="levelButtonClick:" destination="-1" eventType="touchUpInside" id="vDC-aW-FCL"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最终得分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrh-5c-HIZ">
                             <rect key="frame" x="10" y="474" width="137.5" height="40"/>
@@ -155,12 +192,15 @@
                             <color key="textColor" red="0.90626192090000002" green="0.19822637739999999" blue="0.13728362320000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-5Y-4JD">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnv-5Y-4JD">
                             <rect key="frame" x="157.5" y="624" width="207.5" height="40"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="门窗单位">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="responsibilityButtonClick:" destination="-1" eventType="touchUpInside" id="0B8-L2-fsp"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.9333423376083374" green="0.93334239721298218" blue="0.9333423376083374" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -248,7 +288,7 @@
                 <constraint firstItem="mzI-oJ-SA8" firstAttribute="width" secondItem="Cn2-6c-A3Y" secondAttribute="width" id="slq-LN-6ra"/>
                 <constraint firstItem="mzI-oJ-SA8" firstAttribute="leading" secondItem="Cn2-6c-A3Y" secondAttribute="leading" id="tFf-aJ-qef"/>
             </constraints>
-            <point key="canvasLocation" x="-1035" y="258"/>
+            <point key="canvasLocation" x="-830" y="182"/>
         </scrollView>
         <view contentMode="scaleToFill" id="kuM-EY-oWh">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

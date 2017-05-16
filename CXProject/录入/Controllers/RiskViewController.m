@@ -64,12 +64,10 @@ static NSString *Identifier = @"riskLinecell";
     Event *event = nil;
     if (tableView == _leftTableView)
     {
-        NSLog(@"left...");
         event = _leftArray[indexPath.row];
     }
     else
     {
-        NSLog(@"right...");
         event = _rightArray[indexPath.row];
     }
     if (event.events.count == 0)
