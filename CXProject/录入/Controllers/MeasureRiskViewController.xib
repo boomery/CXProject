@@ -16,6 +16,7 @@
                 <outlet property="_positionLabel" destination="8mW-xB-XC3" id="ipQ-zM-Fms"/>
                 <outlet property="_responsibilityLabel" destination="f2e-1L-I0S" id="GhY-QT-ofQ"/>
                 <outlet property="_resultLabel" destination="5nA-BN-cog" id="Ury-4Q-gnU"/>
+                <outlet property="_ruleLabel" destination="SEH-bn-t3G" id="y2X-mi-MwX"/>
                 <outlet property="view" destination="kuM-EY-oWh" id="vEy-V2-iNY"/>
                 <outletCollection property="_scoreArray" destination="1R8-xH-6lr" id="1lS-aa-YsU"/>
                 <outletCollection property="_scoreArray" destination="ULg-1H-DyC" id="LYd-nI-ovu"/>
@@ -55,10 +56,10 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评分" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEH-bn-t3G">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评分" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SEH-bn-t3G">
                             <rect key="frame" x="10" y="124" width="137.5" height="240"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -73,7 +74,7 @@
                             <rect key="frame" x="266.5" y="124" width="98.5" height="240"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <state key="normal" title="评分规则">
+                            <state key="normal" title="评分项">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -330,7 +331,7 @@
                 <constraint firstItem="mzI-oJ-SA8" firstAttribute="width" secondItem="Cn2-6c-A3Y" secondAttribute="width" id="slq-LN-6ra"/>
                 <constraint firstItem="mzI-oJ-SA8" firstAttribute="leading" secondItem="Cn2-6c-A3Y" secondAttribute="leading" id="tFf-aJ-qef"/>
             </constraints>
-            <point key="canvasLocation" x="-1147" y="240"/>
+            <point key="canvasLocation" x="-1360" y="107"/>
         </scrollView>
         <view contentMode="scaleToFill" id="kuM-EY-oWh">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

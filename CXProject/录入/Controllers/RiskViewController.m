@@ -24,7 +24,7 @@ static NSString *Identifier = @"riskLinecell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
     self.dataSource = self;
     self.delegate = self;
     self.controllerArray = [[NSMutableArray alloc] init];
@@ -32,7 +32,7 @@ static NSString *Identifier = @"riskLinecell";
     for (int i = 0; i<self.eventsArray.count ; i++)
     {
         UIViewController *c = [[UIViewController alloc] init];
-        c.view.backgroundColor = [UIColor whiteColor];
+        c.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
         [self.controllerArray addObject:c];
     }
     self.leftTableView.tableFooterView = [[UIView alloc] init];
@@ -179,7 +179,7 @@ static NSString *Identifier = @"riskLinecell";
             return [UIColor colorWithRed:0.92 green:0.20 blue:0.15 alpha:1.00];
             break;
         case ViewPagerTabsView:
-            return [UIColor whiteColor];
+            return [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
             break;
         default:
             break;

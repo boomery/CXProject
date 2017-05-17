@@ -13,5 +13,6 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) LSDrawView *drawView;
 @property (nonatomic, copy) void (^imageBlock)(UIImage *image);
+@property (nonatomic, assign) BOOL haveTag;
 
 @end

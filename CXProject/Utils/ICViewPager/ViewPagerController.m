@@ -13,7 +13,7 @@
 #define kContentViewTag 34
 #define IOS_VERSION_7 [[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] != NSOrderedAscending
 
-#define kTabHeight 44.0
+#define kTabHeight 54.0
 #define kTabOffset 56.0
 #define kTabWidth DEF_SCREEN_WIDTH/4.0
 #define kTabLocation 1.0

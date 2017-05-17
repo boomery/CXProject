@@ -76,6 +76,7 @@
     cell.backgroundColor = [UIColor redColor];
     return cell;
 }
+
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {

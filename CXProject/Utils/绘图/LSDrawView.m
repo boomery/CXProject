@@ -91,10 +91,12 @@
         _redoArray = [NSMutableArray new];
         
         _bgImgView = [UIImageView new];
+        _bgImgView.contentMode = UIViewContentModeScaleAspectFit;
         _bgImgView.frame = self.bounds;
         [self addSubview:_bgImgView];
         
         _composeView = [UIImageView new];
+        _composeView.contentMode = UIViewContentModeScaleAspectFit;
         _composeView.frame = self.bounds;
 //        _composeView.image = [self getAlphaImg];
         [self addSubview:_composeView];

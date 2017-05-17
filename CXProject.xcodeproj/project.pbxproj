@@ -84,6 +84,7 @@
 		9028C9F21EC54EBB003DA545 /* RiskLineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */; };
 		9028C9F51ECA964B003DA545 /* RiskResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9F41ECA964B003DA545 /* RiskResult.m */; };
 		9028C9FB1ECA9985003DA545 /* RiskResult+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9FA1ECA9985003DA545 /* RiskResult+Addition.m */; };
+		9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028CA001ECC23BA003DA545 /* LabelReusableView.m */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -288,6 +289,8 @@
 		9028C9F41ECA964B003DA545 /* RiskResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RiskResult.m; sourceTree = "<group>"; };
 		9028C9F91ECA9985003DA545 /* RiskResult+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RiskResult+Addition.h"; sourceTree = "<group>"; };
 		9028C9FA1ECA9985003DA545 /* RiskResult+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RiskResult+Addition.m"; sourceTree = "<group>"; };
+		9028C9FF1ECC23BA003DA545 /* LabelReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelReusableView.h; sourceTree = "<group>"; };
+		9028CA001ECC23BA003DA545 /* LabelReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelReusableView.m; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -862,6 +865,8 @@
 			isa = PBXGroup;
 			children = (
 				90CB98981E8F9D61000FB2BC /* AddProjectCell.h */,
+				9028C9FF1ECC23BA003DA545 /* LabelReusableView.h */,
+				9028CA001ECC23BA003DA545 /* LabelReusableView.m */,
 				90CB98991E8F9D61000FB2BC /* AddProjectCell.m */,
 				90CB989A1E8F9D61000FB2BC /* AddProjectCell.xib */,
 				90CB98A31E8FA63D000FB2BC /* ProjectCell.h */,
@@ -1223,6 +1228,7 @@
 				9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */,
 				9028C9A41EB30A17003DA545 /* AddImageView.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
+				9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */,
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,

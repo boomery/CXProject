@@ -11,10 +11,15 @@
 #import "PhotoEditorViewController.h"
 #import "CXDataBaseUtil.h"
 #import "RiskResult+Addition.h"
-@interface MeasureRiskViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+#import "PhotoCell.h"
+#import "LabelReusableView.h"
+@interface MeasureRiskViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {
     IBOutlet UIScrollView *_contentScrollView;
     __weak IBOutlet UILabel *_positionLabel;
+    
+    __weak IBOutlet UILabel *_ruleLabel;
+    
     __weak IBOutlet UILabel *_responsibilityLabel;
     
     IBOutletCollection(UIButton) NSArray *_scoreArray;
@@ -30,6 +35,7 @@
     UIImageView *_imageView;
     UIView *_backView;
     
+    NSArray *_modelArray;
     //数据源
     RiskResult *_riskResult;
 }
@@ -37,6 +43,7 @@
 @end
 
 @implementation MeasureRiskViewController
+static NSString *headerIdentifier = @"sectionHeader";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -47,12 +54,31 @@
 
 - (void)initViews
 {
+    NSString *ruleString = @"问题按性质分为：\n  A类基础分0分\n  B类基础分20分\n  C类基础分40分\n问题按数量分为：\n  普遍：系数-'1'\n  局部：系数-'2/3'\n  个别：系数-'1/3'\n计算规则为：\n  最终得分 = 基础分+60*系数";
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:ruleString];
+    
+    NSRange range0 = [ruleString rangeOfString:@"问题按性质分为："];
+    NSRange range1 = [ruleString rangeOfString:@"问题按数量分为："];
+    NSRange range2 = [ruleString rangeOfString:@"计算规则为："];
+    
+    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range0];
+    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range1];
+    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range2];
+    
+    _ruleLabel.attributedText = str;
+    
     _contentScrollView.frame = CGRectMake(0, 0, DEF_SCREEN_WIDTH , DEF_SCREEN_HEIGHT);
    
     [self.view addSubview:_contentScrollView];
     
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
-    _positionLabel.text = _position;
+    
+    NSArray *strArray = [_position componentsSeparatedByString:@"/"];
+    NSString *lastString = [strArray lastObject];
+    NSRange range = [_position rangeOfString:lastString];
+    NSMutableAttributedString *aStr = [[NSMutableAttributedString alloc] initWithString:_position];
+    [aStr addAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.56 green:0.81 blue:0.98 alpha:1.00]} range:range];
+    _positionLabel.attributedText = aStr;
     
     UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     photoButton.frame = CGRectMake(0, 0, 15*1.14, 15);
@@ -63,15 +89,14 @@
     self.navigationItem.rightBarButtonItem = item;
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, _responsibilityLabel.bottom + 10, DEF_SCREEN_WIDTH, 100) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, _responsibilityLabel.bottom + 10, DEF_SCREEN_WIDTH-20, 200) collectionViewLayout:layout];
     [_contentScrollView addSubview:self.collectionView];
     self.collectionView.showsHorizontalScrollIndicator = NO;
-    self.collectionView.backgroundColor = [UIColor redColor];
-    self.collectionView.clipsToBounds = NO;
-//    self.collectionView.delegate = self;
-//    self.collectionView.dataSource = self;
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"tribeMember"];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.collectionView registerClass:[PhotoCell class] forCellWithReuseIdentifier:@"PhotoCell"];
+    [self.collectionView registerClass:[LabelReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
     
     UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
     
@@ -122,7 +147,7 @@
 #pragma mark - 显示评分规则
 - (IBAction)textStandardButtonClick:(UIButton *)sender
 {
-    
+    ALERT(self.event.textStandard);
 }
 
 #pragma mark - 选择整改难易度
@@ -253,6 +278,54 @@
     [_imageView removeFromSuperview];
     [tap.view removeFromSuperview];
 }
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 2;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCell" forIndexPath:indexPath];
+    ImageModel *model = _modelArray[indexPath.row];
+    cell.uploadImageView.model = model;
+    cell.uploadImageView.image = model.image;
+    cell.deleteButton.hidden = NO;
+    cell.uploadImageView.contentMode = UIViewContentModeScaleToFill;
+    cell.deleteButton.model = model;
+    [cell.deleteButton addTarget:self action:@selector(deleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    cell.backgroundColor = [UIColor redColor];
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    return CGSizeMake(DEF_SCREEN_WIDTH, 44);
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    LabelReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
+    if (indexPath.section == 0)
+    {
+        view.title = @"问题照片";
+    }
+    else
+    {
+        view.title = @"优秀照片";
+    }
+    return view;
+}
+
+- (void)deleteButtonClick:(UIButton *)button
+{
+    
+}
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -261,6 +334,7 @@
     
     
     PhotoEditorViewController *editor = [[PhotoEditorViewController alloc] init];
+    editor.haveTag = YES;
     [picker pushViewController:editor animated:YES];
     editor.image = image;
     

@@ -23,7 +23,8 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xnP-5C-2Qt">
                     <rect key="frame" x="10" y="118" width="173" height="539"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="4Ot-4w-mRx"/>
                         <outlet property="delegate" destination="-1" id="JfN-gq-AgG"/>
@@ -31,14 +32,14 @@
                 </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-Ea-uxS">
                     <rect key="frame" x="192.5" y="118" width="172.5" height="539"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="QGH-5r-Odj"/>
                         <outlet property="delegate" destination="-1" id="WwH-wm-ezS"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="xnP-5C-2Qt" firstAttribute="width" secondItem="cXS-Ea-uxS" secondAttribute="width" id="EI0-3g-H3u"/>
                 <constraint firstItem="xnP-5C-2Qt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="118" id="M4B-e5-QJg"/>
@@ -49,7 +50,7 @@
                 <constraint firstItem="cXS-Ea-uxS" firstAttribute="leading" secondItem="xnP-5C-2Qt" secondAttribute="trailing" constant="10" id="hqa-Qc-bMY"/>
                 <constraint firstAttribute="trailing" secondItem="cXS-Ea-uxS" secondAttribute="trailing" constant="10" id="qYn-0A-HsF"/>
             </constraints>
-            <point key="canvasLocation" x="16.5" y="77.5"/>
+            <point key="canvasLocation" x="-154" y="33"/>
         </view>
     </objects>
 </document>

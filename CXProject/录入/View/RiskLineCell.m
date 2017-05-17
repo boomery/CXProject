@@ -13,8 +13,6 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-     self.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-
     UIView *lineView2 = [UIView newAutoLayoutView];
     _lineView = lineView2;
     [self addSubview:lineView2];
@@ -33,7 +31,7 @@
     }
     else
     {
-        self.lineView.backgroundColor = [UIColor whiteColor];
+        self.lineView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
     }
 }
 

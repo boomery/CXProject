@@ -19,19 +19,26 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     
+    if (self.haveTag)
+    {
+        UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:@[@"问题照片",@"优秀照片"]];
+        [self.view addSubview:seg];
+        seg.frame = CGRectMake(10, 84, DEF_SCREEN_WIDTH - 20, 44);
+        seg.tintColor = THEME_COLOR;
+        seg.selectedSegmentIndex = 0;
+    }
+    
     _drawView = [[LSDrawView alloc] initForAutoLayout];
     [self.view addSubview:_drawView];
     [_drawView autoCenterInSuperview];
-    [_drawView autoSetDimensionsToSize:CGSizeMake(self.view.width, self.view.width)];
+    [_drawView autoSetDimensionsToSize:CGSizeMake(self.view.width*0.8, self.view.width*0.8)];
+    _drawView.backgroundColor = [UIColor colorWithRed:0.83 green:0.18 blue:0.13 alpha:1.00];
     _drawView.brushColor = [UIColor redColor];
     _drawView.brushWidth = 3;
     _drawView.shapeType = LSShapeEllipse;
     
     _drawView.backgroundImage = _image;
-    
-    UIButton *button = [[UIButton alloc] initForAutoLayout];
-    [self.view addSubview:button];
-//    button 
+
     // Do any additional setup after loading the view.
 }
 - (IBAction)undoButtonClick:(id)sender
