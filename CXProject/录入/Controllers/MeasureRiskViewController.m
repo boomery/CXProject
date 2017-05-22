@@ -54,18 +54,18 @@ static NSString *headerIdentifier = @"sectionHeader";
 
 - (void)initViews
 {
-    NSString *ruleString = @"问题按性质分为：\n  A类基础分0分\n  B类基础分20分\n  C类基础分40分\n问题按数量分为：\n  普遍：系数-'1'\n  局部：系数-'2/3'\n  个别：系数-'1/3'\n计算规则为：\n  最终得分 = 基础分+60*系数";
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:ruleString];
-    
-    NSRange range0 = [ruleString rangeOfString:@"问题按性质分为："];
-    NSRange range1 = [ruleString rangeOfString:@"问题按数量分为："];
-    NSRange range2 = [ruleString rangeOfString:@"计算规则为："];
-    
-    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range0];
-    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range1];
-    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range2];
-    
-    _ruleLabel.attributedText = str;
+//    NSString *ruleString = @"问题按性质分为：\n  A类基础分0分\n  B类基础分20分\n  C类基础分40分\n问题按数量分为：\n  普遍：系数-'1'\n  局部：系数-'2/3'\n  个别：系数-'1/3'\n计算规则为：\n  最终得分 = 基础分+60*系数";
+//    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:ruleString];
+//    
+//    NSRange range0 = [ruleString rangeOfString:@"问题按性质分为："];
+//    NSRange range1 = [ruleString rangeOfString:@"问题按数量分为："];
+//    NSRange range2 = [ruleString rangeOfString:@"计算规则为："];
+//    
+//    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range0];
+//    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range1];
+//    [str addAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range2];
+//    
+//    _ruleLabel.attributedText = str;
     
     _contentScrollView.frame = CGRectMake(0, 0, DEF_SCREEN_WIDTH , DEF_SCREEN_HEIGHT);
    
@@ -286,7 +286,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return 50;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
