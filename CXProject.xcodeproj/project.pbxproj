@@ -85,8 +85,6 @@
 		9028C9F51ECA964B003DA545 /* RiskResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9F41ECA964B003DA545 /* RiskResult.m */; };
 		9028C9FB1ECA9985003DA545 /* RiskResult+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028C9FA1ECA9985003DA545 /* RiskResult+Addition.m */; };
 		9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028CA001ECC23BA003DA545 /* LabelReusableView.m */; };
-		9028CA051ED287F1003DA545 /* DetailMeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9028CA031ED287F1003DA545 /* DetailMeasureCell.m */; };
-		9028CA061ED287F1003DA545 /* DetailMeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9028CA041ED287F1003DA545 /* DetailMeasureCell.xib */; };
 		904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340071E88AA9000D33ED9 /* CountViewController.xib */; };
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
@@ -304,9 +302,6 @@
 		9028C9FA1ECA9985003DA545 /* RiskResult+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RiskResult+Addition.m"; sourceTree = "<group>"; };
 		9028C9FF1ECC23BA003DA545 /* LabelReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelReusableView.h; sourceTree = "<group>"; };
 		9028CA001ECC23BA003DA545 /* LabelReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelReusableView.m; sourceTree = "<group>"; };
-		9028CA021ED287F1003DA545 /* DetailMeasureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMeasureCell.h; sourceTree = "<group>"; };
-		9028CA031ED287F1003DA545 /* DetailMeasureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMeasureCell.m; sourceTree = "<group>"; };
-		9028CA041ED287F1003DA545 /* DetailMeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailMeasureCell.xib; sourceTree = "<group>"; };
 		904340071E88AA9000D33ED9 /* CountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewController.xib; sourceTree = "<group>"; };
 		904340121E89FAA400D33ED9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		904340131E89FAA400D33ED9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -943,9 +938,6 @@
 				9028C9EE1EC54EBB003DA545 /* RiskLineCell.h */,
 				9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */,
 				9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */,
-				9028CA021ED287F1003DA545 /* DetailMeasureCell.h */,
-				9028CA031ED287F1003DA545 /* DetailMeasureCell.m */,
-				9028CA041ED287F1003DA545 /* DetailMeasureCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1117,9 +1109,12 @@
 				9028C98E1EB2D937003DA545 /* star_yellow@2x.png in Resources */,
 				9028C96F1EB1CB8C003DA545 /* MeasureRiskViewController.xib in Resources */,
 				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
+<<<<<<< HEAD
 				90BCA6921ED3E35C003C85CB /* 6.WAV in Resources */,
 				90BCA68E1ED3E35C003C85CB /* 2.WAV in Resources */,
 				9028CA061ED287F1003DA545 /* DetailMeasureCell.xib in Resources */,
+=======
+>>>>>>> parent of b8b7c0d... Merge branch '显示原始数据'
 				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
@@ -1309,7 +1304,6 @@
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
-				9028CA051ED287F1003DA545 /* DetailMeasureCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

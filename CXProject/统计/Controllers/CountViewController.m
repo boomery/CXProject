@@ -253,7 +253,6 @@
         [_topBarView.tableView setTop:(scrollView.contentOffset.y + _navHeight)+ _topBarView.offSet];
     }
 }
-
 //搜索框要么显示要么隐藏，不然会出现显示错位
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {

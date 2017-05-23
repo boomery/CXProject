@@ -66,8 +66,8 @@
     }
     [db setShouldCacheStatements:YES];
     NSString *updateSql= [NSString stringWithFormat:
-                          @"update '%@' set %@ = '%@',%@='%@' where %@ = '%@' and %@ = '%@' and %@ = '%@'",
-                          [CXDataBaseUtil measureTableName],@"measureArea",result.measureArea,@"measurePoint",result.measurePoint,@"projectID",result.projectID,@"itemName",result.itemName,@"subItemName",result.subItemName];
+                          @"update '%@' set %@ = '%@',%@='%@',%@='%@'  where %@ = '%@' and %@ = '%@' and %@ = '%@'",
+                          [CXDataBaseUtil measureTableName],@"measureArea",result.measureArea,@"measurePoint",result.measurePoint,@"designValues",result.designValues,@"projectID",result.projectID,@"itemName",result.itemName,@"subItemName",result.subItemName];
     BOOL res = [db executeUpdate:updateSql];
     if (res)
     {
@@ -84,13 +84,6 @@
 + (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
 {
     NSMutableDictionary *resultsDict = [[NSMutableDictionary alloc] init];
-    
-    //初始化不及格点数
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:RESULT_NUM_KEY];
-    NSInteger qualified = 0;
-    NSInteger recordedNum = 0;
-
-    
     FMDatabase *db = [CXDataBaseUtil database];
     if (![db open])
     {
@@ -117,25 +110,9 @@
         result.measurePhoto = [res stringForColumn:@"measurePhoto"];
         result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
         [resultsDict setValue:result forKey:result.mesaureIndex];
-        NSArray *results = [result.measureResult componentsSeparatedByString:@";"];
-        for (NSString *str in results)
-        {
-            recordedNum ++;
-            if ([str isEqualToString:@"0"])
-            {
-                qualified ++;
-            }
-        }
     }
     [res close];
     [db close];
-    
-    //在数据库查询分项记录时更新defaults中存储的点数
-    [[NSUserDefaults standardUserDefaults] setInteger:recordedNum forKey:RESULT_NUM_KEY];
-    //设计的点数在detailMesaure界面存储
-    //保存不合格点
-    [[NSUserDefaults standardUserDefaults] setInteger:qualified forKey:QUALIFIED_NUM_KEY];
-
     return resultsDict;
 }
 
@@ -187,20 +164,5 @@
     }
     [resultSet close];
     return isExist;
-}
-
-+ (NSInteger)numOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
-{
-    return [[NSUserDefaults standardUserDefaults] integerForKey:RESULT_NUM_KEY];
-}
-
-+ (NSInteger)numOfDesignResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
-{
-    return [[NSUserDefaults standardUserDefaults] integerForKey:DESIGN_NUM_KEY(projectID, itemName, subItemName)];
-}
-
-+ (NSInteger)numOfQualifiedForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
-{
-    return [[NSUserDefaults standardUserDefaults] integerForKey:QUALIFIED_NUM_KEY];
 }
 @end
