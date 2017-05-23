@@ -703,8 +703,9 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    [self.view endEditing:YES];
     if (scrollView == self.tableView)
     {
         _topTableHeight.constant = 0;
@@ -788,12 +789,6 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         return NO;
     }
     return YES;
-}
-
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
