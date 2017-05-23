@@ -11,6 +11,7 @@
 @interface LabelCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *itemLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *measureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *designLabel;
 
 @end

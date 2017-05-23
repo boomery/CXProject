@@ -15,7 +15,8 @@
 #import "PhotoEditorViewController.h"
 #import "CXDataBaseUtil.h"
 #import "NSString+isValid.h"
-@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
+#import "DetailMeasureCell.h"
+@interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
 {
     NSArray *_titleArray;
     __weak IBOutlet UITextField *_standardTextField;
@@ -23,6 +24,7 @@
     //一个分项的录入点数组
     NSDictionary *_resultsDict;
     
+    __weak IBOutlet NSLayoutConstraint *_topTableHeight;
     //拍照相关变量
     BOOL _showPhoto;
     UIImageView *_imageView;
@@ -50,22 +52,22 @@
 }
 
 static NSString *labelCellIdentifier = @"LabelCell";
-static NSString *tableViewIdentifier = @"tableViewIdentifier";
+static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self initViews];
-    [self setUpInputViewsWithIndex:0];
     [self initData];
+    [self.tableView selectRowAtIndexPath:_indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self setUpInputViewsWithIndex:0];
+    [self setViews];
 }
 
 - (void)initData
 {
-    [self loadMeasureResults];
-    [self setViews];
     _indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView selectRowAtIndexPath:_indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-    [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    [self loadMeasureResults];
+    [self updateQualified];
 }
 
 - (void)initViews
@@ -76,7 +78,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     self.navigationItem.rightBarButtonItems = @[item, item2];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"LabelCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:labelCellIdentifier];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailMeasureCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:detailMeasureCellIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.collectionView.layer.borderWidth = 0.3;
@@ -289,7 +291,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     };
 }
 
-#pragma mark - 为控件布局
+#pragma mark - 为右侧录入视图控件布局
 - (void)setUpInputViewsWithIndex:(NSInteger)index
 {
     if (_event.events.count > index)
@@ -363,8 +365,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         result.projectID = [User editingProject].fileName;
         result.itemName = _event.name;
         result.subItemName = subEvent.name;
-        result.measureArea = _measureArea.text;
-        result.measurePoint = _measurePoint.text;
+        if (![result.measureArea isEqualToString:_measureArea.text] || ![result.measurePoint isEqualToString:_measurePoint.text])
+        {
+            result.measureArea = _measureArea.text;
+            result.measurePoint = _measurePoint.text;
+            [MeasureResult updateMeasureAreaMeasurePointDesignValuesWithMeasureResult:result];
+        }
         result.measureValues = _inputView.measureValues;
         
         result.designValues = _inputView.designValues;
@@ -379,6 +385,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         
         //插入数据库
         [MeasureResult insertNewMeasureResult:result];
+        
+        //保存总的结果点数
+        [self saveDesignNum];
+        
         [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",index]];
         [self reloadData];
     }
@@ -386,6 +396,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)reloadData
 {
+    [self.tableView reloadData];
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.section inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     if (_event.events.count > 0)
     {
         Event *subEvent = _event.events[_indexPath.section];
@@ -438,6 +450,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
             [self.view endEditing:YES];
         }
+        [self updateQualified];
     }
 }
 
@@ -451,6 +464,44 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         [self reloadData];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - 保存设计总点数
+- (void)saveDesignNum
+{
+    Event *subEvent = _event.events[_indexPath.section];
+
+    NSInteger num = 0;
+    if ([self isSpecial])
+    {
+        num = [_measurePoint.text integerValue];
+
+    }
+    else
+    {
+        num = [_measureArea.text integerValue];
+    }
+    if ([self haveMoreThanTwoDesign])
+    {
+        num = num * 2;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:num forKey:DESIGN_NUM_KEY([User editingProject].fileName, _event.name, subEvent.name)];
+}
+
+- (void)updateQualified
+{
+    Event *subEvent = _event.events[_indexPath.section];
+    NSInteger results = [MeasureResult numOfResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+    NSInteger qualified = [MeasureResult numOfQualifiedForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+    if (results == 0)
+    {
+        self.title = @"合格率";
+    }
+    else
+    {
+        self.title = [NSString stringWithFormat:@"合格率:%.0f%%", (float)qualified/results*100];
+    }
 }
 
 #pragma mark - 是否是算法三或八的数据
@@ -533,7 +584,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    return 100;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -542,7 +593,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     UIView *selectedBackgroundView = [[UIView alloc] init];
     cell.selectedBackgroundView = selectedBackgroundView;
     selectedBackgroundView.backgroundColor = [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.00];
-    cell.itemLabel.text = @"";
+//    cell.itemLabel.text = @"";
     
     NSInteger measureNum = [self isSpecial] ? [_measurePoint.text integerValue] : [_measureArea.text integerValue];
     if ([self haveMoreThanTwoDesign])
@@ -564,6 +615,9 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     if (res)
     {
         NSArray *results = [res.measureResult componentsSeparatedByString:@";"];
+        NSArray *values = [res.measureValues componentsSeparatedByString:@";"];
+        NSArray *desgins = [res.designValues componentsSeparatedByString:@";"];
+
         if (results.count > 1)
         {
             if ([self haveMoreThanTwoDesign])
@@ -572,33 +626,51 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
                 if (indexPath.row%2 == 0)
                 {
                     cell.itemLabel.text = subEvent.designName[0];
-
                 }
                 else
                 {
                     cell.itemLabel.text = subEvent.designName[1];
                 }
-                cell.label.text = results[indexPath.row%2];
+                cell.designLabel.text = desgins[indexPath.row%2];
+                cell.measureLabel.text = [NSString stringWithFormat:@"%@;%@", values[indexPath.row%2*2], values[indexPath.row%2*2 + 1]];
+                if ([results[indexPath.row%2] isEqualToString:@"1"])
+                {
+                    selectedBackgroundView.backgroundColor = [UIColor purpleColor];
+                    cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+                }
             }
             else
             {
-                cell.label.text = results[indexPath.row%5];
+                if (desgins.count > 0)
+                {
+                    cell.designLabel.text = desgins[0];
+                }
+                cell.measureLabel.text = values[indexPath.row%5];
+                if ([results[indexPath.row%5] isEqualToString:@"1"])
+                {
+                    selectedBackgroundView.backgroundColor = [UIColor purpleColor];
+                    cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+                }
             }
         }
         else
         {
-            cell.label.text = res.measureResult;
-        }
-        
-        if ([cell.label.text isEqualToString:@"1"])
-        {
-            selectedBackgroundView.backgroundColor = [UIColor purpleColor];
-            cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+            if (desgins.count > 0)
+            {
+                cell.designLabel.text = desgins[0];
+            }            cell.measureLabel.text = res.measureValues;
+            if ([res.measureResult isEqualToString:@"1"])
+            {
+                selectedBackgroundView.backgroundColor = [UIColor purpleColor];
+                cell.backgroundColor = [UIColor colorWithRed:0.84 green:0.35 blue:0.29 alpha:1.00];
+            }
         }
     }
     else
     {
-        cell.label.text = @"-";
+        cell.itemLabel.text = @"-";
+        cell.designLabel.text = @"-";
+        cell.measureLabel.text = @"-";
     }
     return cell;
 }
@@ -614,6 +686,28 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self setViews];
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(self.collectionView.width/2.0, 100);
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (scrollView == self.tableView)
+    {
+        _topTableHeight.constant = 0;
+        _inputView.alpha = 1;
+    }
+    else
+    {
+        _topTableHeight.constant = 250;
+        _inputView.alpha = 0;
+    }
+}
+
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -622,11 +716,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewIdentifier forIndexPath:indexPath];
+    DetailMeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:detailMeasureCellIdentifier forIndexPath:indexPath];
     cell.textLabel.font = LABEL_FONT;
     cell.textLabel.numberOfLines = 0;
     Event *event = _event.events[indexPath.row];
-    cell.textLabel.text = event.name;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.nameLabel.text = event.name;
+    cell.progressLabel.text = [NSString stringWithFormat:@"%ld/%ld",[MeasureResult numOfResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:event.name], [MeasureResult numOfDesignResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:event.name]];
     return cell;
 }
 
@@ -639,6 +735,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self loadMeasureResults];
     [self clearMeasureAreaAndPoint];
     [self setViews];
+    [self updateQualified];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -646,7 +743,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     Event *event = _event.events[indexPath.row];
     NSDictionary *attribute = @{NSFontAttributeName:LABEL_FONT};
     CGSize size = [event.name boundingRectWithSize:CGSizeMake(DEF_SCREEN_WIDTH*0.25 , MAXFLOAT)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-    return size.height+50;
+    return size.height + 50 + 40;
 }
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
