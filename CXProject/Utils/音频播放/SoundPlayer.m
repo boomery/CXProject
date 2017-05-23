@@ -30,11 +30,13 @@ static SoundPlayer *sharedPlayer = nil;
     NSString *string = @"0123456789";
     if ([string containsString:name])
     {
-//        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:name ofType:@"WAV"]];
-//        sharedPlayer.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
-//        sharedPlayer.player.numberOfLoops = 0;
-//        sharedPlayer.player.volume = 0.8;
-//        [sharedPlayer.player play];
+        /*
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:name ofType:@"WAV"]];
+        sharedPlayer.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+        sharedPlayer.player.numberOfLoops = 0;
+        sharedPlayer.player.volume = 0.8;
+        [sharedPlayer.player play];
+         */
         SystemSoundID soundID;
         //NSBundle来返回音频文件路径
         NSString *soundFile = [[NSBundle mainBundle] pathForResource:name ofType:@"WAV"];
