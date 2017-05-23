@@ -439,14 +439,14 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         if (measureNum > countedNextRow)
         {
             _indexPath = [NSIndexPath indexPathForRow:countedNextRow inSection:_indexPath.section];
-            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionTop];
             [self setViews];
             [_inputView beinEditing];
         }
         else
         {
             _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:_indexPath.section];
-            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionTop];
             [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
             [self.view endEditing:YES];
         }
@@ -458,10 +458,20 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 - (void)deleteMeasureResult
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要删除这组数据吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入密码";
+    }];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [MeasureResult deleteMeasureResult:[self exsistMeasureResultForIndexPath:_indexPath]];
-        [self reloadData];
+        if ([[alert.textFields[0] text] isEqualToString:@"admin"])
+        {
+            [MeasureResult deleteMeasureResult:[self exsistMeasureResultForIndexPath:_indexPath]];
+            [self reloadData];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"密码错误"];
+        }
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -693,8 +703,9 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    [self.view endEditing:YES];
     if (scrollView == self.tableView)
     {
         _topTableHeight.constant = 0;
@@ -778,12 +789,6 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         return NO;
     }
     return YES;
-}
-
-#pragma mark - UIScrollViewDelegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

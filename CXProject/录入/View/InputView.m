@@ -8,6 +8,7 @@
 
 #import "InputView.h"
 #import "NSString+isValid.h"
+#import "SoundPlayer.h"
 @interface InputView () <UITextFieldDelegate>
 {
     NSMutableArray *_measureTextfieldArray;
@@ -142,7 +143,6 @@
     {
         UITextField *text = _measureTextfieldArray[index];
         [text becomeFirstResponder];
-        NSLog(@"切换到下一个输入框");
     }
     else
     {
@@ -164,7 +164,6 @@
                 {
                     UITextField *text = _designTextfieldArray[index2];
                     [text becomeFirstResponder];
-                    NSLog(@"切换到下一个设计框");
                     return YES;
                 }
             }
@@ -177,6 +176,13 @@
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    [SoundPlayer playMusicWithFileName:string];
+    return YES;
+}
+
+#pragma mark - Blokc
 - (void)delete
 {
     if (self.deleteBlock)
@@ -201,6 +207,7 @@
     }
 }
 
+#pragma mark - 快速生成TextField
 - (UITextField *)textFieldEditable:(BOOL)editable  text:(NSString *)text
 {
     UITextField *textField = [[UITextField alloc] initForAutoLayout];
@@ -216,6 +223,7 @@
     return textField;
 }
 
+#pragma mark - 快捷方法
 - (void)beinEditing
 {
     if (_measureTextfieldArray.count > 0)
@@ -262,6 +270,7 @@
         text.text = stringArray[i];
     }
 }
+
 - (void)setDesignValues:(NSString *)designValues
 {
     if (designValues.length == 0)
@@ -298,6 +307,7 @@
     }
     return values;
 }
+
 - (NSString *)designValues
 {
     NSString *values = @"";
