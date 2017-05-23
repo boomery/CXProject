@@ -327,7 +327,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
         _resultsDict = resultsDict;
         [self.collectionView reloadData];
-        [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionTop];
+        [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
     }
 }
 
@@ -439,14 +439,14 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         if (measureNum > countedNextRow)
         {
             _indexPath = [NSIndexPath indexPathForRow:countedNextRow inSection:_indexPath.section];
-            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionTop];
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:countedNextRow inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
             [self setViews];
             [_inputView beinEditing];
         }
         else
         {
             _indexPath = [NSIndexPath indexPathForRow:_indexPath.row inSection:_indexPath.section];
-            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionTop];
+            [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.row inSection:0] animated:NO scrollPosition:UICollectionViewScrollPositionNone];
             [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
             [self.view endEditing:YES];
         }
