@@ -1109,12 +1109,9 @@
 				9028C98E1EB2D937003DA545 /* star_yellow@2x.png in Resources */,
 				9028C96F1EB1CB8C003DA545 /* MeasureRiskViewController.xib in Resources */,
 				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
-<<<<<<< HEAD
 				90BCA6921ED3E35C003C85CB /* 6.WAV in Resources */,
 				90BCA68E1ED3E35C003C85CB /* 2.WAV in Resources */,
 				9028CA061ED287F1003DA545 /* DetailMeasureCell.xib in Resources */,
-=======
->>>>>>> parent of b8b7c0d... Merge branch '显示原始数据'
 				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
