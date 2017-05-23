@@ -118,6 +118,17 @@
 		908C82631E9F0CAB0086EDCD /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82621E9F0CAB0086EDCD /* InputView.m */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
+		90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA67E1ED3E262003C85CB /* SoundPlayer.m */; };
+		90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6821ED3E35C003C85CB /* 0.WAV */; };
+		90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6831ED3E35C003C85CB /* 1.WAV */; };
+		90BCA68E1ED3E35C003C85CB /* 2.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6841ED3E35C003C85CB /* 2.WAV */; };
+		90BCA68F1ED3E35C003C85CB /* 3.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6851ED3E35C003C85CB /* 3.WAV */; };
+		90BCA6901ED3E35C003C85CB /* 4.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6861ED3E35C003C85CB /* 4.WAV */; };
+		90BCA6911ED3E35C003C85CB /* 5.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6871ED3E35C003C85CB /* 5.WAV */; };
+		90BCA6921ED3E35C003C85CB /* 6.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6881ED3E35C003C85CB /* 6.WAV */; };
+		90BCA6931ED3E35C003C85CB /* 7.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6891ED3E35C003C85CB /* 7.WAV */; };
+		90BCA6941ED3E35C003C85CB /* 8.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA68A1ED3E35C003C85CB /* 8.WAV */; };
+		90BCA6951ED3E35C003C85CB /* 9.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA68B1ED3E35C003C85CB /* 9.WAV */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
 		90CB986A1E8F7527000FB2BC /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CB98691E8F7527000FB2BC /* Photos.framework */; };
 		90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB986D1E8F7F55000FB2BC /* LSDrawView.m */; };
@@ -347,6 +358,18 @@
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
 		908D037A1E83987300F0C0C1 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
+		90BCA67D1ED3E262003C85CB /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
+		90BCA67E1ED3E262003C85CB /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
+		90BCA6821ED3E35C003C85CB /* 0.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.WAV; sourceTree = "<group>"; };
+		90BCA6831ED3E35C003C85CB /* 1.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.WAV; sourceTree = "<group>"; };
+		90BCA6841ED3E35C003C85CB /* 2.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.WAV; sourceTree = "<group>"; };
+		90BCA6851ED3E35C003C85CB /* 3.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 3.WAV; sourceTree = "<group>"; };
+		90BCA6861ED3E35C003C85CB /* 4.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 4.WAV; sourceTree = "<group>"; };
+		90BCA6871ED3E35C003C85CB /* 5.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 5.WAV; sourceTree = "<group>"; };
+		90BCA6881ED3E35C003C85CB /* 6.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 6.WAV; sourceTree = "<group>"; };
+		90BCA6891ED3E35C003C85CB /* 7.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7.WAV; sourceTree = "<group>"; };
+		90BCA68A1ED3E35C003C85CB /* 8.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 8.WAV; sourceTree = "<group>"; };
+		90BCA68B1ED3E35C003C85CB /* 9.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9.WAV; sourceTree = "<group>"; };
 		90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditorViewController.h; sourceTree = "<group>"; };
 		90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditorViewController.m; sourceTree = "<group>"; };
 		90CB98691E8F7527000FB2BC /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -472,6 +495,7 @@
 		9016C79B1E8A564F00B19056 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				90BCA6791ED3DE97003C85CB /* 音频播放 */,
 				9028C9E61EC3FB8B003DA545 /* ICViewPager */,
 				9028C9BA1EB87E3E003DA545 /* PYSearch */,
 				9028C9941EB30A17003DA545 /* 图片选择器 */,
@@ -842,6 +866,25 @@
 			path = "时间选择器";
 			sourceTree = "<group>";
 		};
+		90BCA6791ED3DE97003C85CB /* 音频播放 */ = {
+			isa = PBXGroup;
+			children = (
+				90BCA67D1ED3E262003C85CB /* SoundPlayer.h */,
+				90BCA67E1ED3E262003C85CB /* SoundPlayer.m */,
+				90BCA6821ED3E35C003C85CB /* 0.WAV */,
+				90BCA6831ED3E35C003C85CB /* 1.WAV */,
+				90BCA6841ED3E35C003C85CB /* 2.WAV */,
+				90BCA6851ED3E35C003C85CB /* 3.WAV */,
+				90BCA6861ED3E35C003C85CB /* 4.WAV */,
+				90BCA6871ED3E35C003C85CB /* 5.WAV */,
+				90BCA6881ED3E35C003C85CB /* 6.WAV */,
+				90BCA6891ED3E35C003C85CB /* 7.WAV */,
+				90BCA68A1ED3E35C003C85CB /* 8.WAV */,
+				90BCA68B1ED3E35C003C85CB /* 9.WAV */,
+			);
+			path = "音频播放";
+			sourceTree = "<group>";
+		};
 		90CB986B1E8F7F0F000FB2BC /* 绘图 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,29 +1117,39 @@
 				9028C98E1EB2D937003DA545 /* star_yellow@2x.png in Resources */,
 				9028C96F1EB1CB8C003DA545 /* MeasureRiskViewController.xib in Resources */,
 				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
+				90BCA6921ED3E35C003C85CB /* 6.WAV in Resources */,
+				90BCA68E1ED3E35C003C85CB /* 2.WAV in Resources */,
 				9028CA061ED287F1003DA545 /* DetailMeasureCell.xib in Resources */,
 				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
+				90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */,
 				908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */,
 				908C82571E9B7D500086EDCD /* Measure.geojson in Resources */,
+				90BCA68F1ED3E35C003C85CB /* 3.WAV in Resources */,
 				9028C9EB1EC43570003DA545 /* Risk.geojson in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
 				9028C9831EB1EBE1003DA545 /* ExtactResultCell.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
 				9028C9A71EB30A17003DA545 /* image_unselect.png in Resources */,
 				9028C9A61EB30A17003DA545 /* image_select.png in Resources */,
+				90BCA6951ED3E35C003C85CB /* 9.WAV in Resources */,
 				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
+				90BCA6901ED3E35C003C85CB /* 4.WAV in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
 				9028C9CA1EB87E3E003DA545 /* PYSearch.bundle in Resources */,
 				9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */,
 				9028C9ED1EC44269003DA545 /* RiskViewController.xib in Resources */,
+				90BCA6941ED3E35C003C85CB /* 8.WAV in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				9028C9A51EB30A17003DA545 /* image_count_bg.png in Resources */,
+				90BCA6931ED3E35C003C85CB /* 7.WAV in Resources */,
+				90BCA6911ED3E35C003C85CB /* 5.WAV in Resources */,
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
 				9028C9B91EB32B2A003DA545 /* VersionViewController.xib in Resources */,
+				90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
 			);
@@ -1214,6 +1267,7 @@
 				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
 				9028C9B31EB3203B003DA545 /* ContactViewController.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
+				90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
 				908BFE461E97264600937372 /* InputCell2.m in Sources */,
 				9028C9A91EB30A17003DA545 /* PhotoCell.m in Sources */,

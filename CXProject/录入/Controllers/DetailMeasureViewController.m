@@ -458,10 +458,20 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 - (void)deleteMeasureResult
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要删除这组数据吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入密码";
+    }];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [MeasureResult deleteMeasureResult:[self exsistMeasureResultForIndexPath:_indexPath]];
-        [self reloadData];
+        if ([[alert.textFields[0] text] isEqualToString:@"admin"])
+        {
+            [MeasureResult deleteMeasureResult:[self exsistMeasureResultForIndexPath:_indexPath]];
+            [self reloadData];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"密码错误"];
+        }
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
