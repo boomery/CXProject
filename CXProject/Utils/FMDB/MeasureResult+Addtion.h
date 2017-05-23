@@ -15,5 +15,12 @@
 
 + (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
 
++ (BOOL)updateMeasureAreaMeasurePointDesignValuesWithMeasureResult:(MeasureResult *)result;
+
 //+ (BOOL)updateMeasurePhotoName:(NSString *)photoName forMeasureResult:(MeasureResult *)result;
+
+//userDefaults已经录入的点数个数存储在本地
++ (NSInteger)numOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
++ (NSInteger)numOfDesignResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
++ (NSInteger)numOfQualifiedForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
 @end
