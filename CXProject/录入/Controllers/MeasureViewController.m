@@ -8,6 +8,7 @@
 
 #import "MeasureViewController.h"
 #import "DetailMeasureViewController.h"
+#import "MeasureResult+Addtion.h"
 @interface MeasureViewController ()
 {
     NSArray *_titleArray;
@@ -15,8 +16,16 @@
 @end
 
 @implementation MeasureViewController
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    for (Event *event in _titleArray)
+    {
+        [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:event.name];
+    }
+    [self.tableView reloadData];
+}
 
-static NSString *cellIndentifier = @"UITableViewCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
@@ -33,7 +42,6 @@ static NSString *cellIndentifier = @"UITableViewCell";
     self.navigationItem.rightBarButtonItem = item;
     
     [self initData];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellIndentifier];
 }
 
 - (void)upload
@@ -54,10 +62,26 @@ static NSString *cellIndentifier = @"UITableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier forIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    static NSString *cellIndentifier = @"UITableViewCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+    if (!cell)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     Event *event = _titleArray[indexPath.row];
     cell.textLabel.text = event.name;
+    
+    NSInteger results = [MeasureResult tNumOfResultsForProjectID:[User editingProject].fileName itemName:event.name];
+    NSInteger qualified = [MeasureResult tNumOfQualifiedForProjectID:[User editingProject].fileName itemName:event.name];
+    if (results == 0)
+    {
+        cell.detailTextLabel.text = @"合格率";
+    }
+    else
+    {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"合格率:%.0f%%", (float)qualified/results*100];
+    }
     return cell;
 }
 

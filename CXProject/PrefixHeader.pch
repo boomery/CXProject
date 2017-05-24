@@ -32,7 +32,12 @@
 #import "Event.h"
 #endif
 
-//存储分项录入点数，总点数，合格点数
+//大项录入点数，总点数，合格点数
+#define T_RESULT_NUM_KEY [NSString stringWithFormat:@"%@_%@",projectID,itemName]
+#define T_QUALIFIED_NUM_KEY [NSString stringWithFormat:@"QUALIFIED_%@_%@",projectID,itemName]
+#define T_DESIGN_NUM_KEY(projectID,itemName,subItemName) [NSString stringWithFormat:@"DESIGN_%@_%@",projectID,itemName]
+
+//分项录入点数，总点数，合格点数
 #define RESULT_NUM_KEY [NSString stringWithFormat:@"%@_%@_%@",projectID,itemName,subItemName]
 #define QUALIFIED_NUM_KEY [NSString stringWithFormat:@"QUALIFIED_%@_%@_%@",projectID,itemName,subItemName]
 #define DESIGN_NUM_KEY(projectID,itemName,subItemName) [NSString stringWithFormat:@"DESIGN_%@_%@_%@",projectID,itemName,subItemName]
