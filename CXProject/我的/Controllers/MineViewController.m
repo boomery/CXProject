@@ -20,14 +20,16 @@
 @end
 
 @implementation MineViewController
-
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
     //导航栏变为透明
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:0];
     //让黑线消失的方法
     self.navigationController.navigationBar.shadowImage = [UIImage new];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     if ([User isOurStaff])
     {
