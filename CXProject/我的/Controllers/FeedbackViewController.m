@@ -23,10 +23,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:0];
+    self.navigationController.navigationBar.shadowImage = nil;
+    
     self.savedModelArray = [[NSMutableArray alloc] init];
     [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     
-    self.suggestionTextView = [[UIPlaceHolderTextView alloc]initWithFrame:CGRectMake(20, 20, DEF_SCREEN_WIDTH-40,130/568.0 *DEF_SCREEN_HEIGHT)];
+    self.suggestionTextView = [[UIPlaceHolderTextView alloc]initWithFrame:CGRectMake(20, 64 + 20, DEF_SCREEN_WIDTH-40,130/568.0 *DEF_SCREEN_HEIGHT)];
     self.suggestionTextView.scrollEnabled = YES;
     self.suggestionTextView.font        = [UIFont systemFontOfSize:13.5];
     self.suggestionTextView.textColor   = [UIColor blackColor];
