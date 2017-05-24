@@ -24,6 +24,7 @@
     //一个分项的录入点数组
     NSDictionary *_resultsDict;
     
+    UITextField *_activeTextField;
     //拍照相关变量
     BOOL _showPhoto;
     UIImageView *_imageView;
@@ -715,7 +716,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField == _measureArea)
+    if (_activeTextField == _measureArea)
     {
         [_measurePoint becomeFirstResponder];
     }
@@ -744,7 +745,19 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         ALERT(textField.text);
         return NO;
     }
+    _activeTextField = textField;
+    textField.inputAccessoryView = [self toolbar];
     return YES;
+}
+
+- (UIToolbar *)toolbar
+{
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
+    UIBarButtonItem *nextItem = [[UIBarButtonItem alloc] initWithTitle:@"下一项" style:UIBarButtonItemStyleDone target:self action:@selector(textFieldShouldReturn:)];
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *itemArrat = [[NSArray alloc] initWithObjects:spaceItem, spaceItem, spaceItem, nextItem, nil];
+    toolbar.items = itemArrat;
+    return toolbar;
 }
 
 #pragma mark - UIScrollViewDelegate

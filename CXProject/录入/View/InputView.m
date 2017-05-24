@@ -13,6 +13,7 @@
 {
     NSMutableArray *_measureTextfieldArray;
     NSMutableArray *_designTextfieldArray;
+    UITextField *_activeTextField;
 }
 @end
 @implementation InputView
@@ -134,10 +135,27 @@
     
 }
 
+- (UIToolbar *)toolbar
+{
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 50)];
+    UIBarButtonItem *nextItem = [[UIBarButtonItem alloc] initWithTitle:@"下一项" style:UIBarButtonItemStylePlain target:self action:@selector(textFieldShouldReturn:)];
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *itemArrat = [[NSArray alloc] initWithObjects:spaceItem, spaceItem, spaceItem, nextItem, nil];
+    toolbar.items = itemArrat;
+    return toolbar;
+}
+
 #pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    _activeTextField = textField;
+    textField.inputAccessoryView = [self toolbar];
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSInteger index = [_measureTextfieldArray indexOfObject:textField];
+    NSInteger index = [_measureTextfieldArray indexOfObject:_activeTextField];
     index++;
     if (_measureTextfieldArray.count > index)
     {
@@ -146,7 +164,7 @@
     }
     else
     {
-        NSInteger index2 = [_designTextfieldArray indexOfObject:textField];
+        NSInteger index2 = [_designTextfieldArray indexOfObject:_activeTextField];
 
         //有设计值时
         if (_designTextfieldArray.count > 0)
@@ -216,7 +234,7 @@
     textField.font = [UIFont systemFontOfSize:13];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textAlignment = NSTextAlignmentCenter;
-    textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    textField.keyboardType = UIKeyboardTypeNumberPad;
     textField.returnKeyType = UIReturnKeyNext;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.text = text;
