@@ -89,7 +89,9 @@
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:RESULT_NUM_KEY];
     NSInteger qualified = 0;
     NSInteger recordedNum = 0;
-    
+    NSInteger t_recordedNum = [[NSUserDefaults standardUserDefaults] integerForKey:T_RESULT_NUM_KEY];
+    NSInteger t_qualified = [[NSUserDefaults standardUserDefaults] integerForKey:T_QUALIFIED_NUM_KEY];
+
     FMDatabase *db = [CXDataBaseUtil database];
     if (![db open])
     {
@@ -120,21 +122,25 @@
         for (NSString *str in results)
         {
             recordedNum ++;
+            t_recordedNum ++;
             if ([str isEqualToString:@"0"])
             {
                 qualified ++;
+                t_qualified ++;
             }
         }
     }
     [res close];
     [db close];
     
-    //在数据库查询分项记录时更新defaults中存储的点数
+    //在数据库查询分项记录时   更新defaults中存储的分项点数，大项点数
     [[NSUserDefaults standardUserDefaults] setInteger:recordedNum forKey:RESULT_NUM_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:t_recordedNum forKey:T_RESULT_NUM_KEY];
     //设计的点数在detailMesaure界面存储
-    //保存不合格点
-    [[NSUserDefaults standardUserDefaults] setInteger:qualified forKey:QUALIFIED_NUM_KEY];
     
+    //保存分项合格点 大项合格点
+    [[NSUserDefaults standardUserDefaults] setInteger:qualified forKey:QUALIFIED_NUM_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:t_qualified forKey:T_QUALIFIED_NUM_KEY];
     return resultsDict;
 }
 
@@ -164,7 +170,6 @@
 //    return res;
 //}
 
-
 //使用了replace into 语句 现在暂时不需要判断是否已经存在
 #pragma mark - 判断如果收到的是已经存储过的录入点
 + (BOOL)isExistThisMeaureResult:(MeasureResult *)result
@@ -188,6 +193,23 @@
     return isExist;
 }
 
+#pragma mark - 大项数据
++ (NSInteger)tNumOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:T_RESULT_NUM_KEY];
+}
+
++ (NSInteger)tNumOfDesignResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:T_DESIGN_NUM_KEY(projectID, itemName, subItemName)];
+}
+
++ (NSInteger)tNumOfQualifiedForProjectID:(NSString *)projectID itemName:(NSString *)itemName
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:T_QUALIFIED_NUM_KEY];
+}
+
+#pragma mark - 分项数据
 + (NSInteger)numOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
 {
     return [[NSUserDefaults standardUserDefaults] integerForKey:RESULT_NUM_KEY];
