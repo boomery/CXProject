@@ -114,7 +114,7 @@
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [orignalArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (![obj isEqualToString:@"-"])
+        if (![obj isEqualToString:@"."])
         {
             [array addObject:obj];
         }

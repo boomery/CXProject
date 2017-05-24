@@ -234,7 +234,7 @@
     textField.font = [UIFont systemFontOfSize:13];
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textAlignment = NSTextAlignmentCenter;
-    textField.keyboardType = UIKeyboardTypeNumberPad;
+    textField.keyboardType = UIKeyboardTypeDecimalPad;
     textField.returnKeyType = UIReturnKeyNext;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     textField.text = text;
@@ -255,14 +255,14 @@
 {
     for (UITextField *text in _measureTextfieldArray)
     {
-        if (text.text.length == 0 || !([text.text isValidNumber] || [text.text isEqualToString:@"-"]))
+        if (text.text.length == 0 || !([text.text isValidNumber] || [text.text isEqualToString:@"."]))
         {
             return NO;
         }
     }
     for (UITextField *text in _designTextfieldArray)
     {
-        if (text.text.length == 0 || !([text.text isValidNumber] || [text.text isEqualToString:@"-"]))
+        if (text.text.length == 0 || !([text.text isValidNumber] || [text.text isEqualToString:@"."]))
         {
             return NO;
         }
