@@ -710,7 +710,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
     Event *event = _event.events[indexPath.row];
     NSDictionary *attribute = @{NSFontAttributeName:LABEL_FONT};
     CGSize size = [event.name boundingRectWithSize:CGSizeMake(DEF_SCREEN_WIDTH*0.25 , MAXFLOAT)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-    return size.height+50;
+    return size.height + 50 + 40;
 }
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
