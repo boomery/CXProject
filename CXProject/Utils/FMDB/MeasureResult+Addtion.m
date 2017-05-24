@@ -85,12 +85,9 @@
 {
     NSMutableDictionary *resultsDict = [[NSMutableDictionary alloc] init];
     
-    //初始化不及格点数
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:RESULT_NUM_KEY];
+    //初始化不及格点数，记录点数
     NSInteger qualified = 0;
     NSInteger recordedNum = 0;
-    NSInteger t_recordedNum = [[NSUserDefaults standardUserDefaults] integerForKey:T_RESULT_NUM_KEY];
-    NSInteger t_qualified = [[NSUserDefaults standardUserDefaults] integerForKey:T_QUALIFIED_NUM_KEY];
 
     FMDatabase *db = [CXDataBaseUtil database];
     if (![db open])
@@ -122,10 +119,65 @@
         for (NSString *str in results)
         {
             recordedNum ++;
-            t_recordedNum ++;
             if ([str isEqualToString:@"0"])
             {
                 qualified ++;
+            }
+        }
+    }
+    [res close];
+    [db close];
+    
+    //在数据库查询分项记录时   更新defaults中存储的分项点数
+    [[NSUserDefaults standardUserDefaults] setInteger:recordedNum forKey:RESULT_NUM_KEY];
+    //设计的点数在detailMesaure界面存储
+    
+    //保存分项合格点
+    [[NSUserDefaults standardUserDefaults] setInteger:qualified forKey:QUALIFIED_NUM_KEY];
+    return resultsDict;
+}
+
++ (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName
+{
+    NSMutableDictionary *resultsDict = [[NSMutableDictionary alloc] init];
+    
+    
+    //初始化不及格点数
+    NSInteger t_recordedNum = 0;
+    NSInteger t_qualified = 0;
+    
+    FMDatabase *db = [CXDataBaseUtil database];
+    if (![db open])
+    {
+        [db close];
+        NSAssert([db open], @"数据库打开失败");
+    }
+    [db setShouldCacheStatements:YES];
+    
+    NSString *querySql= [NSString stringWithFormat:
+                         @"select distinct *from %@ where projectID = '%@' and itemName = '%@'",[CXDataBaseUtil measureTableName],projectID,itemName];
+    FMResultSet *res = [db executeQuery:querySql];
+    while ([res next])
+    {
+        MeasureResult *result = [[MeasureResult alloc] init];
+        result.projectID = [res stringForColumn:@"projectID"];
+        result.itemName = [res stringForColumn:@"itemName"];
+        result.subItemName = [res stringForColumn:@"subItemName"];
+        result.measureArea = [res stringForColumn:@"measureArea"];
+        result.measurePoint = [res stringForColumn:@"measurePoint"];
+        result.measureValues = [res stringForColumn:@"measureValues"];
+        result.designValues = [res stringForColumn:@"designValues"];
+        result.measureResult = [res stringForColumn:@"measureResult"];
+        result.measurePlace = [res stringForColumn:@"measurePlace"];
+        result.measurePhoto = [res stringForColumn:@"measurePhoto"];
+        result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
+        [resultsDict setValue:result forKey:result.mesaureIndex];
+        NSArray *results = [result.measureResult componentsSeparatedByString:@";"];
+        for (NSString *str in results)
+        {
+            t_recordedNum ++;
+            if ([str isEqualToString:@"0"])
+            {
                 t_qualified ++;
             }
         }
@@ -133,13 +185,11 @@
     [res close];
     [db close];
     
-    //在数据库查询分项记录时   更新defaults中存储的分项点数，大项点数
-    [[NSUserDefaults standardUserDefaults] setInteger:recordedNum forKey:RESULT_NUM_KEY];
+    //在数据库查询分项记录时   更新defaults中存储的大项点数
     [[NSUserDefaults standardUserDefaults] setInteger:t_recordedNum forKey:T_RESULT_NUM_KEY];
     //设计的点数在detailMesaure界面存储
     
-    //保存分项合格点 大项合格点
-    [[NSUserDefaults standardUserDefaults] setInteger:qualified forKey:QUALIFIED_NUM_KEY];
+    //保存大项合格点
     [[NSUserDefaults standardUserDefaults] setInteger:t_qualified forKey:T_QUALIFIED_NUM_KEY];
     return resultsDict;
 }

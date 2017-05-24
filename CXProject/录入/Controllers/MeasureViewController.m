@@ -19,6 +19,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    for (Event *event in _titleArray)
+    {
+        [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:event.name];
+    }
     [self.tableView reloadData];
 }
 

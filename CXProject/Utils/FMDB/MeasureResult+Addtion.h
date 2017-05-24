@@ -15,6 +15,8 @@
 
 + (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;
 
++ (NSMutableDictionary *)resultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName;
+
 + (BOOL)updateMeasureAreaMeasurePointDesignValuesWithMeasureResult:(MeasureResult *)result;
 
 //+ (BOOL)updateMeasurePhotoName:(NSString *)photoName forMeasureResult:(MeasureResult *)result;
