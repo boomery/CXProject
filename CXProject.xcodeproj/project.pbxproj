@@ -127,6 +127,8 @@
 		90BCA6931ED3E35C003C85CB /* 7.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6891ED3E35C003C85CB /* 7.WAV */; };
 		90BCA6941ED3E35C003C85CB /* 8.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA68A1ED3E35C003C85CB /* 8.WAV */; };
 		90BCA6951ED3E35C003C85CB /* 9.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA68B1ED3E35C003C85CB /* 9.WAV */; };
+		90BCA69B1ED5174D003C85CB /* DetailMeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */; };
+		90BCA69C1ED5174D003C85CB /* DetailMeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA69A1ED5174D003C85CB /* DetailMeasureCell.m */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
 		90CB986A1E8F7527000FB2BC /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CB98691E8F7527000FB2BC /* Photos.framework */; };
 		90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB986D1E8F7F55000FB2BC /* LSDrawView.m */; };
@@ -365,6 +367,9 @@
 		90BCA6891ED3E35C003C85CB /* 7.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 7.WAV; sourceTree = "<group>"; };
 		90BCA68A1ED3E35C003C85CB /* 8.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 8.WAV; sourceTree = "<group>"; };
 		90BCA68B1ED3E35C003C85CB /* 9.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 9.WAV; sourceTree = "<group>"; };
+		90BCA6981ED5174D003C85CB /* DetailMeasureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMeasureCell.h; sourceTree = "<group>"; };
+		90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailMeasureCell.xib; sourceTree = "<group>"; };
+		90BCA69A1ED5174D003C85CB /* DetailMeasureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMeasureCell.m; sourceTree = "<group>"; };
 		90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditorViewController.h; sourceTree = "<group>"; };
 		90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditorViewController.m; sourceTree = "<group>"; };
 		90CB98691E8F7527000FB2BC /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -938,6 +943,9 @@
 				9028C9EE1EC54EBB003DA545 /* RiskLineCell.h */,
 				9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */,
 				9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */,
+				90BCA6981ED5174D003C85CB /* DetailMeasureCell.h */,
+				90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */,
+				90BCA69A1ED5174D003C85CB /* DetailMeasureCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1111,7 +1119,6 @@
 				908C82501E9B73B90086EDCD /* DetailMeasureViewController.xib in Resources */,
 				90BCA6921ED3E35C003C85CB /* 6.WAV in Resources */,
 				90BCA68E1ED3E35C003C85CB /* 2.WAV in Resources */,
-				9028CA061ED287F1003DA545 /* DetailMeasureCell.xib in Resources */,
 				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
 				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
@@ -1144,6 +1151,7 @@
 				90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
+				90BCA69B1ED5174D003C85CB /* DetailMeasureCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1296,6 +1304,7 @@
 				908C823A1E9B28060086EDCD /* ProjectViewController.m in Sources */,
 				9016C7971E8A53D600B19056 /* Reachability.m in Sources */,
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
+				90BCA69C1ED5174D003C85CB /* DetailMeasureCell.m in Sources */,
 				9028C9A81EB30A17003DA545 /* ImageModel.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,

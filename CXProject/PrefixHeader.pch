@@ -32,6 +32,11 @@
 #import "Event.h"
 #endif
 
+//存储分项录入点数，总点数，合格点数
+#define RESULT_NUM_KEY [NSString stringWithFormat:@"%@_%@_%@",projectID,itemName,subItemName]
+#define QUALIFIED_NUM_KEY [NSString stringWithFormat:@"QUALIFIED_%@_%@_%@",projectID,itemName,subItemName]
+#define DESIGN_NUM_KEY(projectID,itemName,subItemName) [NSString stringWithFormat:@"DESIGN_%@_%@_%@",projectID,itemName,subItemName]
+
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define DEF_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define IS_IPHONE_5 [[UIScreen mainScreen] bounds].size.width==320 ? YES: NO

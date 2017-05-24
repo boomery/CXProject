@@ -15,6 +15,7 @@
 #import "PhotoEditorViewController.h"
 #import "CXDataBaseUtil.h"
 #import "NSString+isValid.h"
+#import "DetailMeasureCell.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
 {
     NSArray *_titleArray;
@@ -50,22 +51,22 @@
 }
 
 static NSString *labelCellIdentifier = @"LabelCell";
-static NSString *tableViewIdentifier = @"tableViewIdentifier";
+static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self initViews];
-    [self setUpInputViewsWithIndex:0];
     [self initData];
+    [self.tableView selectRowAtIndexPath:_indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [self setUpInputViewsWithIndex:0];
+    [self setViews];
 }
 
 - (void)initData
 {
-    [self loadMeasureResults];
-    [self setViews];
     _indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView selectRowAtIndexPath:_indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-    [self.collectionView selectItemAtIndexPath:_indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    [self loadMeasureResults];
+    [self updateQualified];
 }
 
 - (void)initViews
@@ -76,7 +77,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     self.navigationItem.rightBarButtonItems = @[item, item2];
     
     [self.collectionView registerNib:[UINib nibWithNibName:@"LabelCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:labelCellIdentifier];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:tableViewIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailMeasureCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:detailMeasureCellIdentifier];
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     self.collectionView.layer.borderWidth = 0.3;
@@ -289,7 +290,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     };
 }
 
-#pragma mark - 为控件布局
+#pragma mark - 为右侧录入视图控件布局
 - (void)setUpInputViewsWithIndex:(NSInteger)index
 {
     if (_event.events.count > index)
@@ -363,8 +364,12 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         result.projectID = [User editingProject].fileName;
         result.itemName = _event.name;
         result.subItemName = subEvent.name;
-        result.measureArea = _measureArea.text;
-        result.measurePoint = _measurePoint.text;
+        if (![result.measureArea isEqualToString:_measureArea.text] || ![result.measurePoint isEqualToString:_measurePoint.text])
+        {
+            result.measureArea = _measureArea.text;
+            result.measurePoint = _measurePoint.text;
+            [MeasureResult updateMeasureAreaMeasurePointDesignValuesWithMeasureResult:result];
+        }
         result.measureValues = _inputView.measureValues;
         
         result.designValues = _inputView.designValues;
@@ -379,6 +384,10 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
         
         //插入数据库
         [MeasureResult insertNewMeasureResult:result];
+        
+        //保存总的结果点数
+        [self saveDesignNum];
+        
         [_resultsDict setValue:result forKey:[NSString stringWithFormat:@"%ld",index]];
         [self reloadData];
     }
@@ -386,6 +395,8 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (void)reloadData
 {
+    [self.tableView reloadData];
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:_indexPath.section inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
     if (_event.events.count > 0)
     {
         Event *subEvent = _event.events[_indexPath.section];
@@ -438,6 +449,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
             [SVProgressHUD showSuccessWithStatus:@"本项数据录入完成"];
             [self.view endEditing:YES];
         }
+        [self updateQualified];
     }
 }
 
@@ -462,6 +474,45 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+#pragma mark - 保存设计总点数
+- (void)saveDesignNum
+{
+    Event *subEvent = _event.events[_indexPath.section];
+    
+    NSInteger num = 0;
+    if ([self isSpecial])
+    {
+        num = [_measurePoint.text integerValue];
+        
+    }
+    else
+    {
+        num = [_measureArea.text integerValue];
+    }
+    if ([self haveMoreThanTwoDesign])
+    {
+        num = num * 2;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:num forKey:DESIGN_NUM_KEY([User editingProject].fileName, _event.name, subEvent.name)];
+}
+
+- (void)updateQualified
+{
+    Event *subEvent = _event.events[_indexPath.section];
+    NSInteger results = [MeasureResult numOfResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+    NSInteger qualified = [MeasureResult numOfQualifiedForProjectID:[User editingProject].fileName itemName:_event.name subItemName:subEvent.name];
+    if (results == 0)
+    {
+        self.title = @"合格率";
+    }
+    else
+    {
+        self.title = [NSString stringWithFormat:@"合格率:%.0f%%", (float)qualified/results*100];
+    }
+}
+
 
 #pragma mark - 是否是算法三或八的数据
 - (BOOL)isSpecial
@@ -632,11 +683,13 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:tableViewIdentifier forIndexPath:indexPath];
+    DetailMeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:detailMeasureCellIdentifier forIndexPath:indexPath];
     cell.textLabel.font = LABEL_FONT;
     cell.textLabel.numberOfLines = 0;
     Event *event = _event.events[indexPath.row];
-    cell.textLabel.text = event.name;
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.nameLabel.text = event.name;
+    cell.progressLabel.text = [NSString stringWithFormat:@"%ld/%ld",[MeasureResult numOfResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:event.name], [MeasureResult numOfDesignResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:event.name]];
     return cell;
 }
 
@@ -649,6 +702,7 @@ static NSString *tableViewIdentifier = @"tableViewIdentifier";
     [self loadMeasureResults];
     [self clearMeasureAreaAndPoint];
     [self setViews];
+    [self updateQualified];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
