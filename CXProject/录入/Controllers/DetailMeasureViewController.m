@@ -684,6 +684,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailMeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:detailMeasureCellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = LABEL_FONT;
     cell.textLabel.numberOfLines = 0;
     Event *event = _event.events[indexPath.row];
