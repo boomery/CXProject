@@ -24,6 +24,7 @@
     //一个分项的录入点数组
     NSDictionary *_resultsDict;
     
+    UITextField *_activeTextField;
     //拍照相关变量
     BOOL _showPhoto;
     UIImageView *_imageView;
@@ -334,7 +335,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 {
     if (_measureArea.text.length == 0 || _measurePoint.text.length == 0 || ![_inputView haveSetValue])
     {
-        [SVProgressHUD showErrorWithStatus:@"请填写正确完整的数据，可以使用减号'-'作为占位符"];
+        [SVProgressHUD showErrorWithStatus:@"请填写正确完整的数据，可以使用小数点 '.' 作为占位符"];
         return NO;
     }
     Event *subEvent = _event.events[_indexPath.section];
@@ -684,6 +685,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailMeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:detailMeasureCellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = LABEL_FONT;
     cell.textLabel.numberOfLines = 0;
     Event *event = _event.events[indexPath.row];
@@ -715,7 +717,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField == _measureArea)
+    if (_activeTextField == _measureArea)
     {
         [_measurePoint becomeFirstResponder];
     }
@@ -744,7 +746,19 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         ALERT(textField.text);
         return NO;
     }
+    _activeTextField = textField;
+    textField.inputAccessoryView = [self toolbar];
     return YES;
+}
+
+- (UIToolbar *)toolbar
+{
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
+    UIBarButtonItem *nextItem = [[UIBarButtonItem alloc] initWithTitle:@"下一项" style:UIBarButtonItemStyleDone target:self action:@selector(textFieldShouldReturn:)];
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    NSArray *itemArrat = [[NSArray alloc] initWithObjects:spaceItem, spaceItem, spaceItem, nextItem, nil];
+    toolbar.items = itemArrat;
+    return toolbar;
 }
 
 #pragma mark - UIScrollViewDelegate

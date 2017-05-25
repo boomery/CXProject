@@ -41,7 +41,7 @@
                 </collectionView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9qX-8U-GFe">
                     <rect key="frame" x="0.0" y="264" width="94" height="403"/>
-                    <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Auo-ld-yIK"/>
                         <outlet property="delegate" destination="-1" id="6Li-xW-gMo"/>
@@ -75,7 +75,7 @@
                             <rect key="frame" x="95" y="40" width="92.5" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="CRd-i5-a6r"/>
                             </connections>
@@ -84,7 +84,7 @@
                             <rect key="frame" x="188.5" y="40" width="93" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
                             <connections>
                                 <outlet property="delegate" destination="-1" id="bil-hT-E0b"/>
                             </connections>
