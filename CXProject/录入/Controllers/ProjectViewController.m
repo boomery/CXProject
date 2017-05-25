@@ -35,8 +35,8 @@
         [self.navigationController popViewControllerAnimated:YES];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
-   
 }
+
 #pragma mark - 实测实量
 - (IBAction)measure:(id)sender
 {

@@ -84,7 +84,6 @@
     countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[[UIImage imageNamed:@"search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"search_selected"]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
-    mineVC.title = @"我的";
     BaseNavigationController *mineNav = [[BaseNavigationController alloc] initWithRootViewController:mineVC];
     
     mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[[UIImage imageNamed:@"my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  selectedImage:[UIImage imageNamed:@"my_selected"]];
