@@ -29,7 +29,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公平 公正 客观 廉洁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXs-Xf-zQr">
-                    <rect key="frame" x="43.5" y="44.5" width="288.5" height="39.5"/>
+                    <rect key="frame" x="43.5" y="64.5" width="288.5" height="39.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                     <color key="textColor" red="0.16494463384151459" green="0.31702092289924622" blue="0.95692241191864014" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <nil key="highlightedColor"/>
@@ -50,12 +50,12 @@
                 <constraint firstAttribute="trailing" secondItem="1CU-42-tcl" secondAttribute="trailing" id="CRc-bK-wv2"/>
                 <constraint firstItem="1CU-42-tcl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CkJ-Pb-Gdm"/>
                 <constraint firstAttribute="bottom" secondItem="hye-tk-ykB" secondAttribute="bottom" constant="59" id="F9Z-uP-q8s"/>
+                <constraint firstItem="qXs-Xf-zQr" firstAttribute="centerY" secondItem="1CU-42-tcl" secondAttribute="centerY" id="Sff-9O-PMB"/>
                 <constraint firstItem="hye-tk-ykB" firstAttribute="trailing" secondItem="1CU-42-tcl" secondAttribute="trailing" id="gN5-6i-Bsz"/>
                 <constraint firstItem="1CU-42-tcl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gXb-aH-DWd"/>
                 <constraint firstItem="hye-tk-ykB" firstAttribute="top" secondItem="1CU-42-tcl" secondAttribute="bottom" id="kex-aZ-obk"/>
-                <constraint firstItem="1CU-42-tcl" firstAttribute="top" secondItem="qXs-Xf-zQr" secondAttribute="bottom" constant="-84" id="mXx-BJ-DZk"/>
             </constraints>
-            <point key="canvasLocation" x="-23" y="37"/>
+            <point key="canvasLocation" x="-311" y="-21"/>
         </view>
     </objects>
     <resources>
