@@ -7,14 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol PageViewDelegate <NSObject>
-
-- (void)didSelectPageViewWithNumber:(NSInteger)selectNumber;
-
-@end
-
-
+@protocol PageViewDelegate;
 @interface PageView : UIView
 
 @property (nonatomic, strong) NSArray * imageArray;
@@ -26,5 +19,11 @@
 -(instancetype)initPageViewFrame:(CGRect)frame;
 
 @property (nonatomic ,weak) id<PageViewDelegate> delegate;
+
+@end
+
+@protocol PageViewDelegate <NSObject>
+
+- (void)pageView:(PageView *)pageView didSelectPageViewWithNumber:(NSInteger)selectNumber;
 
 @end

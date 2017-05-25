@@ -191,7 +191,11 @@
 //手势点击
 - (void)pageViewClick:(UITapGestureRecognizer *)tap
 {
-    [self.delegate didSelectPageViewWithNumber:self.pageControl.currentPage];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pageView:didSelectPageViewWithNumber:)])
+    {
+        [self.delegate pageView:self didSelectPageViewWithNumber:self.pageControl.currentPage];
+
+    }
 }
 
 

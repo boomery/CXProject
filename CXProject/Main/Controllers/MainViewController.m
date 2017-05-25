@@ -9,16 +9,25 @@
 #import "MainViewController.h"
 #import "PageView.h"
 #import "ImageViewCell.h"
-@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate>
+#import "ProduceViewController.h"
+@interface MainViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, PageViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *titleArray;
+@property (nonatomic, strong) NSArray *partnerArray;
 @property (nonatomic, strong) NSDictionary *imageNameDict;
+@property (nonatomic, assign) CGFloat space;
 @end
 
 @implementation MainViewController
 
 static NSString *imageCellIdentifier = @"ImageViewCell";
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -30,12 +39,11 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
 {
     _titleArray = @[@"关于平大", @"业务范围", @"项目展示", @"合作伙伴"];
     _imageNameDict = @{@"0":@[@"introduce", @"concept", @"advantage"], @"1":@[@"home_measure", @"home_train", @"home_service"], @"2":@[@"home_house", @"home_business", @"home_public", @"home_industry"]};
+    _partnerArray = @[@"wk", @"wd", @"bl", @"ccjs", @"hr", @"ln", @"zjdc", @"zjsj", @"dj", @"more"];
 }
 
 - (void)setUpViews
 {
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     self.tableView.tableFooterView = [UIView new];
 }
 
@@ -111,6 +119,8 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
     if (section != 3)
     {
         PageView *pageView = [[PageView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.width/710.0 * 250)];
+        pageView.tag = section;
+        pageView.delegate = self;
         pageView.backgroundColor = [UIColor redColor];
         pageView.imageArray = _imageNameDict[[NSString stringWithFormat:@"%ld",section]];
         pageView.duration = 0;
@@ -118,37 +128,64 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
     }
     else
     {
+        for (int i = 0; i < _partnerArray.count; i++)
+        {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            CGFloat width = (self.view.width - 4*_space)/3.0;
+            CGFloat height = self.view.width/3.0*50/160.0;
+            button.tag = i;
+            button.layer.borderWidth = 0.5;
+            button.layer.borderColor = [UIColor colorWithRed:0.73 green:0.73 blue:0.73 alpha:1.00].CGColor;
+            
+            button.frame = CGRectMake(_space + i%3*(width + _space), _space + i/3*(height + _space), width, height);
+            [view addSubview:button];
+            [button setBackgroundImage:[UIImage imageNamed:_partnerArray[i]] forState:UIControlStateNormal];
+        }
+      
+        
         if (!_collectionView)
         {
-            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-            layout.itemSize = CGSizeMake(100, 50);
-            _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.width/710.0 * 250) collectionViewLayout:layout];
-            _collectionView.backgroundColor = [UIColor whiteColor];
-            _collectionView.delegate = self;
-            _collectionView.dataSource = self;
-            [_collectionView registerClass:[ImageViewCell class] forCellWithReuseIdentifier:imageCellIdentifier];
+//            UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+//            layout.itemSize = CGSizeMake(self.view.width/3.0-10, self.view.width/3.0*50/160.0);
+//            _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.width/710.0 * 250) collectionViewLayout:layout];
+//            _collectionView.backgroundColor = [UIColor whiteColor];
+//            _collectionView.delegate = self;
+//            _collectionView.scrollEnabled = NO;
+//            _collectionView.dataSource = self;
+//            [_collectionView registerClass:[ImageViewCell class] forCellWithReuseIdentifier:imageCellIdentifier];
         }
-        [view addSubview:_collectionView];
+//        [view addSubview:_collectionView];
     }
     return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    if (section == 3)
+    {
+        _space = 15;
+        CGFloat height = self.view.width/3.0*50/160.0 + _space;
+        return (_partnerArray.count/3.0 + 1)*height;
+    }
     return self.view.width/710.0 * 250;
 }
-
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    return 10;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:imageCellIdentifier forIndexPath:indexPath];
-    cell.imageView.image = [UIImage imageNamed:@"logo"];
+    cell.layer.borderWidth = 0.5;
+    cell.layer.borderColor = [UIColor colorWithRed:0.73 green:0.73 blue:0.73 alpha:1.00].CGColor;
+    cell.imageView.image = [UIImage imageNamed:_partnerArray[indexPath.row]];
+    if (indexPath.row == _partnerArray.count)
+    {
+        _collectionView.frame =CGRectMake(0, 0, self.view.width, _collectionView.collectionViewLayout.collectionViewContentSize.height);
+    }
     return cell;
 }
 
@@ -161,6 +198,37 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
  
+}
+
+#pragma mark - PageViewDelegate
+- (void)pageView:(PageView *)pageView didSelectPageViewWithNumber:(NSInteger)selectNumber
+{
+    if (pageView.tag == 0)
+    {
+        switch (selectNumber)
+        {
+            case 0:
+            {
+                ProduceViewController *proVC = [[ProduceViewController alloc] init];
+                proVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:proVC animated:YES];
+            }
+                break;
+            case 1:
+            {
+                
+            }
+                break;
+            case 2:
+            {
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {

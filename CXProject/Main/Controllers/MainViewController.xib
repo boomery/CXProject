@@ -35,7 +35,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hye-tk-ykB">
-                    <rect key="frame" x="0.0" y="169" width="375" height="439"/>
+                    <rect key="frame" x="0.0" y="169" width="375" height="449"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="a5Z-Um-Qtu"/>
@@ -49,7 +49,7 @@
                 <constraint firstItem="hye-tk-ykB" firstAttribute="leading" secondItem="1CU-42-tcl" secondAttribute="leading" id="BaC-wL-l8P"/>
                 <constraint firstAttribute="trailing" secondItem="1CU-42-tcl" secondAttribute="trailing" id="CRc-bK-wv2"/>
                 <constraint firstItem="1CU-42-tcl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CkJ-Pb-Gdm"/>
-                <constraint firstAttribute="bottom" secondItem="hye-tk-ykB" secondAttribute="bottom" constant="59" id="F9Z-uP-q8s"/>
+                <constraint firstAttribute="bottom" secondItem="hye-tk-ykB" secondAttribute="bottom" constant="49" id="F9Z-uP-q8s"/>
                 <constraint firstItem="qXs-Xf-zQr" firstAttribute="centerY" secondItem="1CU-42-tcl" secondAttribute="centerY" id="Sff-9O-PMB"/>
                 <constraint firstItem="hye-tk-ykB" firstAttribute="trailing" secondItem="1CU-42-tcl" secondAttribute="trailing" id="gN5-6i-Bsz"/>
                 <constraint firstItem="1CU-42-tcl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gXb-aH-DWd"/>
