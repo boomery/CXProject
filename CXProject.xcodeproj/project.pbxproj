@@ -129,6 +129,11 @@
 		90BCA6951ED3E35C003C85CB /* 9.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA68B1ED3E35C003C85CB /* 9.WAV */; };
 		90BCA69B1ED5174D003C85CB /* DetailMeasureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */; };
 		90BCA69C1ED5174D003C85CB /* DetailMeasureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA69A1ED5174D003C85CB /* DetailMeasureCell.m */; };
+		90BCA6AA1ED6A5AF003C85CB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6A91ED6A5AF003C85CB /* MainViewController.xib */; };
+		90BCA6AD1ED6ADF2003C85CB /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA6AC1ED6ADF2003C85CB /* PageView.m */; };
+		90BCA6B01ED6B314003C85CB /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA6AF1ED6B314003C85CB /* ImageViewCell.m */; };
+		90BCA6B41ED6CE6F003C85CB /* ProduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA6B21ED6CE6F003C85CB /* ProduceViewController.m */; };
+		90BCA6B51ED6CE6F003C85CB /* ProduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6B31ED6CE6F003C85CB /* ProduceViewController.xib */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
 		90CB986A1E8F7527000FB2BC /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CB98691E8F7527000FB2BC /* Photos.framework */; };
 		90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB986D1E8F7F55000FB2BC /* LSDrawView.m */; };
@@ -370,6 +375,14 @@
 		90BCA6981ED5174D003C85CB /* DetailMeasureCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailMeasureCell.h; sourceTree = "<group>"; };
 		90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailMeasureCell.xib; sourceTree = "<group>"; };
 		90BCA69A1ED5174D003C85CB /* DetailMeasureCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailMeasureCell.m; sourceTree = "<group>"; };
+		90BCA6A91ED6A5AF003C85CB /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		90BCA6AB1ED6ADF2003C85CB /* PageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
+		90BCA6AC1ED6ADF2003C85CB /* PageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
+		90BCA6AE1ED6B314003C85CB /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
+		90BCA6AF1ED6B314003C85CB /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
+		90BCA6B11ED6CE6F003C85CB /* ProduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProduceViewController.h; sourceTree = "<group>"; };
+		90BCA6B21ED6CE6F003C85CB /* ProduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProduceViewController.m; sourceTree = "<group>"; };
+		90BCA6B31ED6CE6F003C85CB /* ProduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProduceViewController.xib; sourceTree = "<group>"; };
 		90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditorViewController.h; sourceTree = "<group>"; };
 		90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditorViewController.m; sourceTree = "<group>"; };
 		90CB98691E8F7527000FB2BC /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -693,6 +706,10 @@
 			children = (
 				901781501E8275FD00D6E8A1 /* MainViewController.h */,
 				901781511E8275FD00D6E8A1 /* MainViewController.m */,
+				90BCA6A91ED6A5AF003C85CB /* MainViewController.xib */,
+				90BCA6B11ED6CE6F003C85CB /* ProduceViewController.h */,
+				90BCA6B21ED6CE6F003C85CB /* ProduceViewController.m */,
+				90BCA6B31ED6CE6F003C85CB /* ProduceViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -707,6 +724,10 @@
 		901781551E8275FD00D6E8A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90BCA6AB1ED6ADF2003C85CB /* PageView.h */,
+				90BCA6AC1ED6ADF2003C85CB /* PageView.m */,
+				90BCA6AE1ED6B314003C85CB /* ImageViewCell.h */,
+				90BCA6AF1ED6B314003C85CB /* ImageViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1147,7 +1168,9 @@
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
+				90BCA6AA1ED6A5AF003C85CB /* MainViewController.xib in Resources */,
 				9028C9B91EB32B2A003DA545 /* VersionViewController.xib in Resources */,
+				90BCA6B51ED6CE6F003C85CB /* ProduceViewController.xib in Resources */,
 				90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
@@ -1252,6 +1275,7 @@
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				9028C9CC1EB87E3E003DA545 /* PYSearchSuggestionViewController.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
+				90BCA6B41ED6CE6F003C85CB /* ProduceViewController.m in Sources */,
 				9028C9AB1EB30A17003DA545 /* WMPhotoCollectionViewCell.m in Sources */,
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
 				908BFE391E96054E00937372 /* MHKeyboard.m in Sources */,
@@ -1264,6 +1288,7 @@
 				908BFE371E96054E00937372 /* MHKeyboard+AccessObject.m in Sources */,
 				90CB98A21E8FA18C000FB2BC /* Project.m in Sources */,
 				908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */,
+				90BCA6B01ED6B314003C85CB /* ImageViewCell.m in Sources */,
 				908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */,
 				9028C9B31EB3203B003DA545 /* ContactViewController.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
@@ -1306,6 +1331,7 @@
 				9016C7AD1E8C938C00B19056 /* BaseNavigationController.m in Sources */,
 				90BCA69C1ED5174D003C85CB /* DetailMeasureCell.m in Sources */,
 				9028C9A81EB30A17003DA545 /* ImageModel.m in Sources */,
+				90BCA6AD1ED6ADF2003C85CB /* PageView.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
