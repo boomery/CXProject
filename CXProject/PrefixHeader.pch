@@ -44,7 +44,9 @@
 
 #define DEF_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define DEF_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
 #define IS_IPHONE_5 [[UIScreen mainScreen] bounds].size.width==320 ? YES: NO
+#define IS_IPHONE_PLUS [[UIScreen mainScreen] bounds].size.width==414 ? YES: NO
 
 
 #define LINE_COLOR [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1.00]

@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "PageView.h"
 #import "ImageViewCell.h"
-#import "ProduceViewController.h"
+#import "ImageViewController.h"
 @interface MainViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, PageViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -38,7 +38,7 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
 - (void)initData
 {
     _titleArray = @[@"关于平大", @"业务范围", @"项目展示", @"合作伙伴"];
-    _imageNameDict = @{@"0":@[@"introduce", @"concept", @"advantage"], @"1":@[@"home_measure", @"home_train", @"home_service"], @"2":@[@"home_house", @"home_business", @"home_public", @"home_industry"]};
+    _imageNameDict = @{@"0":@[@"home_introduce", @"home_concept", @"home_advantage"], @"1":@[@"home_measure", @"home_train", @"home_service"], @"2":@[@"home_house", @"home_business", @"home_public", @"home_industry"]};
     _partnerArray = @[@"wk", @"wd", @"bl", @"ccjs", @"hr", @"ln", @"zjdc", @"zjsj", @"dj", @"more"];
 }
 
@@ -203,25 +203,29 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
 #pragma mark - PageViewDelegate
 - (void)pageView:(PageView *)pageView didSelectPageViewWithNumber:(NSInteger)selectNumber
 {
+    ImageViewController *imageVC = [[ImageViewController alloc] init];
+    imageVC.hidesBottomBarWhenPushed = YES;
+
     if (pageView.tag == 0)
     {
         switch (selectNumber)
         {
             case 0:
             {
-                ProduceViewController *proVC = [[ProduceViewController alloc] init];
-                proVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:proVC animated:YES];
+                imageVC.title = @"公司简介";
+                imageVC.imageName = @"introduce";
             }
                 break;
             case 1:
             {
-                
+                imageVC.title = @"公司理念";
+                imageVC.imageName = @"concept";
             }
                 break;
             case 2:
             {
-                
+                imageVC.title = @"核心优势";
+                imageVC.imageName = @"advantage";
             }
                 break;
                 
@@ -229,6 +233,67 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
                 break;
         }
     }
+    else if (pageView.tag == 1)
+    {
+        switch (selectNumber)
+        {
+            case 0:
+            {
+                imageVC.title = @"第三方评估";
+                imageVC.imageName = @"third_measure";
+            }
+                break;
+            case 1:
+            {
+                imageVC.title = @"工程管理培训";
+//                imageVC.imageName = @"concept";
+            }
+                break;
+            case 2:
+            {
+                imageVC.title = @"5+2+1服务体系";
+                imageVC.imageName = @"service";
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+    else if (pageView.tag == 2)
+    {
+        switch (selectNumber)
+        {
+            case 0:
+            {
+                imageVC.title = @"住宅项目";
+//                imageVC.imageName = @"introduce";
+            }
+                break;
+            case 1:
+            {
+                imageVC.title = @"商业项目";
+//                imageVC.imageName = @"concept";
+            }
+                break;
+            case 2:
+            {
+                imageVC.title = @"公建项目";
+//                imageVC.imageName = @"advantage";
+            }
+                break;
+            case 3:
+            {
+                imageVC.title = @"工业项目";
+//                imageVC.imageName = @"advantage";
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+    [self.navigationController pushViewController:imageVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

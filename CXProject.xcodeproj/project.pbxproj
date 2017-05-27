@@ -132,8 +132,6 @@
 		90BCA6AA1ED6A5AF003C85CB /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6A91ED6A5AF003C85CB /* MainViewController.xib */; };
 		90BCA6AD1ED6ADF2003C85CB /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA6AC1ED6ADF2003C85CB /* PageView.m */; };
 		90BCA6B01ED6B314003C85CB /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA6AF1ED6B314003C85CB /* ImageViewCell.m */; };
-		90BCA6B41ED6CE6F003C85CB /* ProduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA6B21ED6CE6F003C85CB /* ProduceViewController.m */; };
-		90BCA6B51ED6CE6F003C85CB /* ProduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6B31ED6CE6F003C85CB /* ProduceViewController.xib */; };
 		90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */; };
 		90CB986A1E8F7527000FB2BC /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CB98691E8F7527000FB2BC /* Photos.framework */; };
 		90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB986D1E8F7F55000FB2BC /* LSDrawView.m */; };
@@ -152,6 +150,8 @@
 		90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */; };
 		90D4DF501E83C54A000A1918 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF4F1E83C54A000A1918 /* DataModel.m */; };
 		90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF521E83C839000A1918 /* ResultViewController.m */; };
+		90F5BA751ED9175800C2CE7F /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA741ED9175800C2CE7F /* ImageViewController.m */; };
+		90F5BA771ED9177400C2CE7F /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA761ED9177400C2CE7F /* ImageViewController.xib */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -380,9 +380,6 @@
 		90BCA6AC1ED6ADF2003C85CB /* PageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
 		90BCA6AE1ED6B314003C85CB /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewCell.h; sourceTree = "<group>"; };
 		90BCA6AF1ED6B314003C85CB /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewCell.m; sourceTree = "<group>"; };
-		90BCA6B11ED6CE6F003C85CB /* ProduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProduceViewController.h; sourceTree = "<group>"; };
-		90BCA6B21ED6CE6F003C85CB /* ProduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProduceViewController.m; sourceTree = "<group>"; };
-		90BCA6B31ED6CE6F003C85CB /* ProduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProduceViewController.xib; sourceTree = "<group>"; };
 		90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoEditorViewController.h; sourceTree = "<group>"; };
 		90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoEditorViewController.m; sourceTree = "<group>"; };
 		90CB98691E8F7527000FB2BC /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
@@ -414,6 +411,9 @@
 		90D4DF4F1E83C54A000A1918 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 		90D4DF511E83C839000A1918 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		90D4DF521E83C839000A1918 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		90F5BA731ED9175800C2CE7F /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		90F5BA741ED9175800C2CE7F /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		90F5BA761ED9177400C2CE7F /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
 		B09939730C48F88524F34BB6 /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5CC928867F17D29D35F1D0 /* Pods-CXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXProject/Pods-CXProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -707,9 +707,9 @@
 				901781501E8275FD00D6E8A1 /* MainViewController.h */,
 				901781511E8275FD00D6E8A1 /* MainViewController.m */,
 				90BCA6A91ED6A5AF003C85CB /* MainViewController.xib */,
-				90BCA6B11ED6CE6F003C85CB /* ProduceViewController.h */,
-				90BCA6B21ED6CE6F003C85CB /* ProduceViewController.m */,
-				90BCA6B31ED6CE6F003C85CB /* ProduceViewController.xib */,
+				90F5BA731ED9175800C2CE7F /* ImageViewController.h */,
+				90F5BA741ED9175800C2CE7F /* ImageViewController.m */,
+				90F5BA761ED9177400C2CE7F /* ImageViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1131,6 +1131,7 @@
 				9028C9B41EB3203B003DA545 /* ContactViewController.xib in Resources */,
 				9028C98B1EB2D937003DA545 /* star_gray.png in Resources */,
 				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
+				90F5BA771ED9177400C2CE7F /* ImageViewController.xib in Resources */,
 				9028C9F21EC54EBB003DA545 /* RiskLineCell.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
@@ -1170,7 +1171,6 @@
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
 				90BCA6AA1ED6A5AF003C85CB /* MainViewController.xib in Resources */,
 				9028C9B91EB32B2A003DA545 /* VersionViewController.xib in Resources */,
-				90BCA6B51ED6CE6F003C85CB /* ProduceViewController.xib in Resources */,
 				90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
@@ -1275,7 +1275,6 @@
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				9028C9CC1EB87E3E003DA545 /* PYSearchSuggestionViewController.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
-				90BCA6B41ED6CE6F003C85CB /* ProduceViewController.m in Sources */,
 				9028C9AB1EB30A17003DA545 /* WMPhotoCollectionViewCell.m in Sources */,
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
 				908BFE391E96054E00937372 /* MHKeyboard.m in Sources */,
@@ -1314,6 +1313,7 @@
 				9028C9F11EC54EBB003DA545 /* RiskLineCell.m in Sources */,
 				9028C9E31EC3F961003DA545 /* RiskViewController.m in Sources */,
 				9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */,
+				90F5BA751ED9175800C2CE7F /* ImageViewController.m in Sources */,
 				9028C9A41EB30A17003DA545 /* AddImageView.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */,
