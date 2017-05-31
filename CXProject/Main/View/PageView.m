@@ -214,7 +214,7 @@
 //结束拖动时
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self startTimer];
+//    [self startTimer];
 }
 
 @end
