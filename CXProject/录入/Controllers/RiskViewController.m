@@ -127,8 +127,6 @@ static NSString *headerIdentifier = @"sectionHeader";
         _thirdSelectedRow = 0;
         [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:1]];
 
-
-        
         Event *event = _leftArray[indexPath.row];
         _rightArray = event.events;
         if (_rightArray.count > 0)
@@ -184,34 +182,34 @@ static NSString *headerIdentifier = @"sectionHeader";
 //定义每个Cell的大小
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:17]};
-
-    Event *event = nil;
-    if (indexPath.section == 0)
-    {
-        return CGSizeMake(100, 44);
-    }
-    else if (indexPath.section == 1)
-    {
-        event = _leftArray[indexPath.row];
-        CGSize size = [event.name boundingRectWithSize:CGSizeMake(MAXFLOAT , 44)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-        if (size.width < 80)
-        {
-            size.width = 80;
-        }
-        return CGSizeMake(size.width, 44);
-    }
-    else if(indexPath.section == 2)
-    {
-        event = _rightArray[indexPath.row];
-        CGSize size = [event.name boundingRectWithSize:CGSizeMake(MAXFLOAT , 44)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-        if (size.width < 80)
-        {
-            size.width = 80;
-        }
-        return CGSizeMake(size.width, 44);
-    }
-    return CGSizeMake(0, 0);
+//    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:17]};
+//
+//    Event *event = nil;
+//    if (indexPath.section == 0)
+//    {
+//        return CGSizeMake(80, 44);
+//    }
+//    else if (indexPath.section == 1)
+//    {
+//        event = _leftArray[indexPath.row];
+//        CGSize size = [event.name boundingRectWithSize:CGSizeMake(MAXFLOAT , 44)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+//        if (size.width < 80)
+//        {
+//            size.width = 80;
+//        }
+//        return CGSizeMake(size.width, 44);
+//    }
+//    else if(indexPath.section == 2)
+//    {
+//        event = _rightArray[indexPath.row];
+//        CGSize size = [event.name boundingRectWithSize:CGSizeMake(MAXFLOAT , 44)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+//        if (size.width < 80)
+//        {
+//            size.width = 80;
+//        }
+//        return CGSizeMake(size.width, 44);
+//    }
+    return CGSizeMake((self.view.width - 4*15)/3.0, 44);
 }
     
     //定义每个Section的四边间距
