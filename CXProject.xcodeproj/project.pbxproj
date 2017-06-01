@@ -157,6 +157,10 @@
 		90F5BA861EDFAF8B00C2CE7F /* MyProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA841EDFAF8B00C2CE7F /* MyProjectCell.xib */; };
 		90F5BA891EDFB46700C2CE7F /* M_ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA881EDFB46700C2CE7F /* M_ProjectViewController.m */; };
 		90F5BA8B1EDFB49500C2CE7F /* M_ProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA8A1EDFB49500C2CE7F /* M_ProjectViewController.xib */; };
+		90F5BA8F1EE0098500C2CE7F /* M_ViewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA8D1EE0098500C2CE7F /* M_ViewFileViewController.m */; };
+		90F5BA901EE0098500C2CE7F /* M_ViewFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA8E1EE0098500C2CE7F /* M_ViewFileViewController.xib */; };
+		90F5BA941EE012E300C2CE7F /* FileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA921EE012E300C2CE7F /* FileCell.m */; };
+		90F5BA951EE012E300C2CE7F /* FileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA931EE012E300C2CE7F /* FileCell.xib */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -427,6 +431,12 @@
 		90F5BA871EDFB46700C2CE7F /* M_ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_ProjectViewController.h; sourceTree = "<group>"; };
 		90F5BA881EDFB46700C2CE7F /* M_ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_ProjectViewController.m; sourceTree = "<group>"; };
 		90F5BA8A1EDFB49500C2CE7F /* M_ProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M_ProjectViewController.xib; sourceTree = "<group>"; };
+		90F5BA8C1EE0098500C2CE7F /* M_ViewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_ViewFileViewController.h; sourceTree = "<group>"; };
+		90F5BA8D1EE0098500C2CE7F /* M_ViewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_ViewFileViewController.m; sourceTree = "<group>"; };
+		90F5BA8E1EE0098500C2CE7F /* M_ViewFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M_ViewFileViewController.xib; sourceTree = "<group>"; };
+		90F5BA911EE012E300C2CE7F /* FileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCell.h; sourceTree = "<group>"; };
+		90F5BA921EE012E300C2CE7F /* FileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCell.m; sourceTree = "<group>"; };
+		90F5BA931EE012E300C2CE7F /* FileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileCell.xib; sourceTree = "<group>"; };
 		B09939730C48F88524F34BB6 /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5CC928867F17D29D35F1D0 /* Pods-CXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXProject/Pods-CXProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -701,6 +711,9 @@
 				90F5BA871EDFB46700C2CE7F /* M_ProjectViewController.h */,
 				90F5BA881EDFB46700C2CE7F /* M_ProjectViewController.m */,
 				90F5BA8A1EDFB49500C2CE7F /* M_ProjectViewController.xib */,
+				90F5BA8C1EE0098500C2CE7F /* M_ViewFileViewController.h */,
+				90F5BA8D1EE0098500C2CE7F /* M_ViewFileViewController.m */,
+				90F5BA8E1EE0098500C2CE7F /* M_ViewFileViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -718,6 +731,9 @@
 				90F5BA821EDFAF8B00C2CE7F /* MyProjectCell.h */,
 				90F5BA831EDFAF8B00C2CE7F /* MyProjectCell.m */,
 				90F5BA841EDFAF8B00C2CE7F /* MyProjectCell.xib */,
+				90F5BA911EE012E300C2CE7F /* FileCell.h */,
+				90F5BA921EE012E300C2CE7F /* FileCell.m */,
+				90F5BA931EE012E300C2CE7F /* FileCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1181,9 +1197,11 @@
 				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
 				90BCA6901ED3E35C003C85CB /* 4.WAV in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
+				90F5BA901EE0098500C2CE7F /* M_ViewFileViewController.xib in Resources */,
 				9028C9CA1EB87E3E003DA545 /* PYSearch.bundle in Resources */,
 				9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */,
 				9028C9ED1EC44269003DA545 /* RiskViewController.xib in Resources */,
+				90F5BA951EE012E300C2CE7F /* FileCell.xib in Resources */,
 				90BCA6941ED3E35C003C85CB /* 8.WAV in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				9028C9A51EB30A17003DA545 /* image_count_bg.png in Resources */,
@@ -1346,6 +1364,7 @@
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
+				90F5BA941EE012E300C2CE7F /* FileCell.m in Sources */,
 				9028C9681EADC6C2003DA545 /* DataProvider.m in Sources */,
 				9028C9AC1EB30A17003DA545 /* WMPhotoPickerController.m in Sources */,
 				9028C9661EADC6C2003DA545 /* CountUtil.c in Sources */,
@@ -1362,6 +1381,7 @@
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
+				90F5BA8F1EE0098500C2CE7F /* M_ViewFileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

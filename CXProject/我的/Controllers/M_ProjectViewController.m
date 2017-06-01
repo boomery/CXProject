@@ -7,7 +7,7 @@
 //
 
 #import "M_ProjectViewController.h"
-
+#import "M_ViewFileViewController.h"
 @interface M_ProjectViewController ()
 
 @end
@@ -18,6 +18,31 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+- (IBAction)projectDetailButtonClick:(id)sender
+{
+    
+}
+
+- (IBAction)viewExcelButtonClick:(id)sender
+{
+    M_ViewFileViewController *vc = [[M_ViewFileViewController alloc] init];
+    vc.title = @"表格查看";
+    vc.fileType = @"excel";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)viewReportButtonClick:(id)sender
+{
+    M_ViewFileViewController *vc = [[M_ViewFileViewController alloc] init];
+    vc.title = @"报告查看";
+    vc.fileType = @"word";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)reporyQuestionButtonClick:(id)sender
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
