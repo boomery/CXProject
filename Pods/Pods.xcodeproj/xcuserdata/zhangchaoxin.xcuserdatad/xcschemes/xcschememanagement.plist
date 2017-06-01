@@ -14,6 +14,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CXProject.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11E96B12F935A7AC9F0C2B9BCD3E5397</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>14679330D14AC6F8448A8E12D0A1B355</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>17299CD983F2948EBD68B90142AD0CB0</key>
+		<key>161487C9A47D6AF89E8F53CB3E73EDFB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,12 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C539A21A26D0344EE73102608AEE2A2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>75630B754B12A851C8D562BB0F2241EF</key>
+		<key>6C5DCF39E688E10498069E17467B85AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C6BCE18EA24746638FFA76546DF7590</key>
+		<key>988679B45658BF286B13031FBF6E3BC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AEC19916E3A606467B505CC5DF8178D1</key>
+		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEDFA49E245495DB334609DDCE2EE135</key>
+		<key>F41BA0BAD76B7B55E7127BA6237F55E5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

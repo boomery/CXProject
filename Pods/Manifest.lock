@@ -16,6 +16,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - DZNEmptyDataSet (1.8.1)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -26,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetwork (~> 0.1.0)
+  - DZNEmptyDataSet (~> 1.8.1)
   - FMDB (~> 2.6.2)
   - MJRefresh (~> 3.1.12)
   - PureLayout (~> 3.0.2)
@@ -35,12 +37,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetwork: 0dbdb2ffb4a7770b3d1802dc85b50ab31263f2c2
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   UIView+HHFrame: 93022a0690d2d7482b917e8285f274e68fb37823
 
-PODFILE CHECKSUM: 795bb99ae3d288cccdf6f4e900a782e9a312d638
+PODFILE CHECKSUM: 01f2d03aba83214484a71581f7ed508a5c2b08fc
 
 COCOAPODS: 1.2.0

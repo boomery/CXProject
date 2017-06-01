@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F41BA0BAD76B7B55E7127BA6237F55E5'
-               BlueprintName = 'PureLayout'
+               BlueprintIdentifier = 'D386C75EFD4F03725E4EFB866B600B9A'
+               BlueprintName = 'DZNEmptyDataSet'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PureLayout.framework'>
+               BuildableName = 'DZNEmptyDataSet.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
