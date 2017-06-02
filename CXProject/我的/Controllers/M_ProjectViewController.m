@@ -28,7 +28,7 @@
 {
     M_ViewFileViewController *vc = [[M_ViewFileViewController alloc] init];
     vc.title = @"表格查看";
-    vc.fileType = @"excel";
+    vc.fileType = @"表格";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -36,7 +36,7 @@
 {
     M_ViewFileViewController *vc = [[M_ViewFileViewController alloc] init];
     vc.title = @"报告查看";
-    vc.fileType = @"word";
+    vc.fileType = @"报告";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
