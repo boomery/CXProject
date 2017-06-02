@@ -7,15 +7,15 @@
 //
 
 #import "M_ViewFileViewController.h"
+#import "M_CollectionViewController.h"
 #import "FileCell.h"
-@interface M_ViewFileViewController () <ViewPagerDataSource, ViewPagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource>
+@interface M_ViewFileViewController () <ViewPagerDataSource, ViewPagerDelegate, DZNEmptyDataSetSource>
 
 @property (nonatomic, strong)  UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *controllerArray;
 @property (nonatomic, strong) NSArray *titleArray;
 
-@property (nonatomic, strong) NSArray *sourceArray;
 @property (nonatomic, strong) NSArray *recentArray;
 @property (nonatomic, strong) NSArray *historyArray;
 @end
@@ -36,7 +36,7 @@ static NSString *headerIdentifier = @"sectionHeader";
     self.delegate = self;
     
     self.controllerArray = [[NSMutableArray alloc] init];
-    if ([self.fileType isEqualToString:@"excel"])
+    if ([self.fileType isEqualToString:@"表格"])
     {
         self.titleArray = @[@"近期表格", @"历史表格"];
     }
@@ -44,103 +44,26 @@ static NSString *headerIdentifier = @"sectionHeader";
     {
         self.titleArray = @[@"近期报告", @"历史报告"];
     }
+    _historyArray = @[@(0), @(0), @(0), @(0), @(0), @(0), @(0)];
     for (int i = 0; i<self.titleArray.count ; i++)
     {
-        UIViewController *c = [[UIViewController alloc] init];
-        c.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+        M_CollectionViewController *c = [[M_CollectionViewController alloc] init];
+        c.fileType = self.fileType;
+        if (i == 0)
+        {
+            c.sourceArray = _recentArray;
+        }
+        else
+        {
+            c.sourceArray = _historyArray;
+        }
         [self.controllerArray addObject:c];
     }
-    _historyArray = @[@(0), @(0), @(0), @(0), @(0), @(0), @(0)];
-    _sourceArray = _historyArray;
 }
 
 - (void)initViews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 128, DEF_SCREEN_WIDTH-20, DEF_SCREEN_HEIGHT - 128) collectionViewLayout:layout];
-    self.collectionView.backgroundColor = [UIColor clearColor];
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
-    self.collectionView.emptyDataSetSource = self;
-    [self.view addSubview:self.collectionView];
-    
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FileCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:fileCellIdentifier];
-    [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
-}
-
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
-    return _sourceArray.count / 3.0;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return _sourceArray.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    FileCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:fileCellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
-    return cell;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-    return CGSizeMake(DEF_SCREEN_WIDTH, 5);
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
-    UIView *lineView = [UIView newAutoLayoutView];
-    lineView.backgroundColor = [UIColor colorWithRed:0.87 green:0.87 blue:0.88 alpha:1.00];
-    [view addSubview:lineView];
-    [lineView autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:view];
-    [lineView autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:view];
-    [lineView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:view];
-    [lineView autoSetDimension:ALDimensionHeight toSize:0.5];
-    return view;
-}
-
-#pragma mark - UICollectionViewDelegateFlowLayout
-//定义每个Cell的大小
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake((self.view.width - 4*15)/3.0, (self.view.width - 4*15)/3.0 + 40);
-}
-
-//定义每个Section的四边间距
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(10, 10, 10, 10);//分别为上、左、下、右
-}
-
-//    //这个是两行cell之间的间距（上下行cell的间距）
-//    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
-
-//    //两个cell之间的间距（同一行的cell的间距）
-//    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
-#pragma mark - DZNEmptyDataSetSource
-- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
-{
-    NSString *text = [NSString stringWithFormat:@"没有相关%@可查看",self.fileType];
-    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
-    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
-
-- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
-{
-    return [UIImage imageNamed:@"M_smile"];
 }
 
 #pragma mark - ViewPagerDataSource
@@ -168,15 +91,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 #pragma mark - ViewPagerDelegate
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index
 {
-    if (index == 0)
-    {
-        _sourceArray = _recentArray;
-    }
-    else
-    {
-        _sourceArray = _historyArray;
-    }
-    [self.collectionView reloadData];
+    
 }
 
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value

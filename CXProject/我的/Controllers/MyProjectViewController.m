@@ -10,7 +10,7 @@
 #import "Project.h"
 #import "MyProjectCell.h"
 #import "M_ProjectViewController.h"
-@interface MyProjectViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface MyProjectViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, DZNEmptyDataSetSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *sourceArray;
@@ -51,6 +51,7 @@ static NSString *myProjectCellIdentifier = @"MyProjectCell";
     tableView.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.emptyDataSetSource = self;
     self.tableView = tableView;
     [self.tableView registerNib:[UINib nibWithNibName:@"MyProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:myProjectCellIdentifier];
 
@@ -78,7 +79,10 @@ static NSString *myProjectCellIdentifier = @"MyProjectCell";
 
 - (void)backToTop
 {
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    if (_projectArray.count > 0)
+    {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 #pragma mark - 项目搜索
@@ -137,6 +141,19 @@ static NSString *myProjectCellIdentifier = @"MyProjectCell";
         _sourceArray = _projectArray;
         [self.tableView reloadData];
     }
+    else
+    {
+        _searchResultArray = [[NSMutableArray alloc] init];
+        for (Project *p in _projectArray)
+        {
+            if ([p.name containsString:searchBar.text])
+            {
+                [_searchResultArray addObject:p];
+            }
+        }
+        _sourceArray = _searchResultArray;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
@@ -185,6 +202,19 @@ static NSString *myProjectCellIdentifier = @"MyProjectCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
+}
+
+#pragma mark - DZNEmptyDataSetSource
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"没有符合条件的项目";
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return -150;
 }
 
 - (void)didReceiveMemoryWarning

@@ -89,6 +89,7 @@
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
 		9043401A1E8A019C00D33ED9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340191E8A019C00D33ED9 /* User.m */; };
+		90635C6A1EE13101009725E0 /* M_CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C691EE13101009725E0 /* M_CollectionViewController.m */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -324,6 +325,8 @@
 		904340141E89FAA400D33ED9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		904340181E8A019C00D33ED9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		904340191E8A019C00D33ED9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		90635C681EE13101009725E0 /* M_CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_CollectionViewController.h; sourceTree = "<group>"; };
+		90635C691EE13101009725E0 /* M_CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_CollectionViewController.m; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -714,6 +717,8 @@
 				90F5BA8C1EE0098500C2CE7F /* M_ViewFileViewController.h */,
 				90F5BA8D1EE0098500C2CE7F /* M_ViewFileViewController.m */,
 				90F5BA8E1EE0098500C2CE7F /* M_ViewFileViewController.xib */,
+				90635C681EE13101009725E0 /* M_CollectionViewController.h */,
+				90635C691EE13101009725E0 /* M_CollectionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1311,6 +1316,7 @@
 				9028C97D1EB1DF81003DA545 /* GroupEvaluateViewController.m in Sources */,
 				9028C9B81EB32B2A003DA545 /* VersionViewController.m in Sources */,
 				9028C9AF1EB30A41003DA545 /* FeedbackViewController.m in Sources */,
+				90635C6A1EE13101009725E0 /* M_CollectionViewController.m in Sources */,
 				9028C9931EB30936003DA545 /* UIPlaceHolderTextView.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
