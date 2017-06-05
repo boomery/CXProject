@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3A-kz-Ffy">
-                        <rect key="frame" x="47" y="35" width="40" height="30"/>
+                        <rect key="frame" x="47" y="35" width="40" height="29.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hU-2l-cVU">
-                        <rect key="frame" x="5" y="50" width="37" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进入" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hU-2l-cVU">
+                        <rect key="frame" x="5" y="42" width="37" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" priority="499" constant="37" id="5bm-yw-cWT"/>
                         </constraints>
@@ -50,7 +50,7 @@
                 <outlet property="itemLabel" destination="5hU-2l-cVU" id="Qph-Sb-0EY"/>
                 <outlet property="label" destination="a3A-kz-Ffy" id="C6H-my-Jwe"/>
             </connections>
-            <point key="canvasLocation" x="-479" y="-21"/>
+            <point key="canvasLocation" x="-185" y="-5.5"/>
         </collectionViewCell>
     </objects>
 </document>
