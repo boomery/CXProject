@@ -246,7 +246,7 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
             case 1:
             {
                 imageVC.title = @"工程管理培训";
-                imageVC.imageName = @"train";
+//                imageVC.imageName = @"concept";
             }
                 break;
             case 2:
@@ -267,25 +267,25 @@ static NSString *imageCellIdentifier = @"ImageViewCell";
             case 0:
             {
                 imageVC.title = @"住宅项目";
-                imageVC.imageName = @"house";
+//                imageVC.imageName = @"introduce";
             }
                 break;
             case 1:
             {
                 imageVC.title = @"商业项目";
-                imageVC.imageName = @"business";
+//                imageVC.imageName = @"concept";
             }
                 break;
             case 2:
             {
                 imageVC.title = @"公建项目";
-                imageVC.imageName = @"public";
+//                imageVC.imageName = @"advantage";
             }
                 break;
             case 3:
             {
                 imageVC.title = @"工业项目";
-                imageVC.imageName = @"industry";
+//                imageVC.imageName = @"advantage";
             }
                 break;
                 

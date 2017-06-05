@@ -7,7 +7,6 @@
 //
 
 #import "MineViewController.h"
-#import "MyProjectViewController.h"
 #import "FeedbackViewController.h"
 #import "ContactViewController.h"
 #import "VersionViewController.h"
@@ -122,14 +121,7 @@
     
     NSArray *titileArray = [_titleDict valueForKey:[NSString stringWithFormat:@"%ld",indexPath.section]];
 
-    if ([titileArray[indexPath.row] isEqualToString:@"我的项目"])
-    {
-        MyProjectViewController *vc = [[MyProjectViewController alloc] init];
-        vc.title = titileArray[indexPath.row];
-        vc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if ([titileArray[indexPath.row] isEqualToString:@"意见反馈"])
+    if ([titileArray[indexPath.row] isEqualToString:@"意见反馈"])
     {
         FeedbackViewController *vc = [[FeedbackViewController alloc] init];
         vc.title = titileArray[indexPath.row];
