@@ -39,7 +39,7 @@
     }
     else
     {
-        _imageNameDict = @{@"0":@[@"my_project", @"feedback", @"version", @"contact"]};
+        _imageNameDict = @{@"0":@[@"my_project"],@"1":@[@"feedback", @"version", @"contact"]};
         _titleDict = @{@"0":@[ @"我的项目"], @"1":@[@"意见反馈", @"关于平大", @"联系我们"]};
     }
     [self.tableView reloadData];
