@@ -144,7 +144,7 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     
 //    PhotoEditorViewController *editor = [[PhotoEditorViewController alloc] init];
