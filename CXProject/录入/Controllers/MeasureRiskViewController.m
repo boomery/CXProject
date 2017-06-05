@@ -73,16 +73,13 @@ static NSString *headerIdentifier = @"sectionHeader";
     
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
     
-    if (_position)
-    {
-        NSArray *strArray = [_position componentsSeparatedByString:@"/"];
-        NSString *lastString = [strArray lastObject];
-        NSRange range = [_position rangeOfString:lastString];
-        NSMutableAttributedString *aStr = [[NSMutableAttributedString alloc] initWithString:_position];
-        [aStr addAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.56 green:0.81 blue:0.98 alpha:1.00]} range:range];
-        _positionLabel.attributedText = aStr;
-    }
-   
+    NSArray *strArray = [_position componentsSeparatedByString:@"/"];
+    NSString *lastString = [strArray lastObject];
+    NSRange range = [_position rangeOfString:lastString];
+    NSMutableAttributedString *aStr = [[NSMutableAttributedString alloc] initWithString:_position];
+    [aStr addAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.56 green:0.81 blue:0.98 alpha:1.00]} range:range];
+    _positionLabel.attributedText = aStr;
+    
     UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     photoButton.frame = CGRectMake(0, 0, 15*1.14, 15);
     [photoButton addTarget:self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
@@ -281,7 +278,6 @@ static NSString *headerIdentifier = @"sectionHeader";
     [_imageView removeFromSuperview];
     [tap.view removeFromSuperview];
 }
-
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

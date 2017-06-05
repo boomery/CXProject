@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RiskViewController">
             <connections>
+                <outlet property="leftTableView" destination="xnP-5C-2Qt" id="8WA-LF-FQH"/>
+                <outlet property="rightTableView" destination="cXS-Ea-uxS" id="yuN-6L-ExE"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Qeb-yb-shi"/>
             </connections>
         </placeholder>
@@ -18,7 +20,37 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <point key="canvasLocation" x="-479" y="29"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xnP-5C-2Qt">
+                    <rect key="frame" x="10" y="128" width="173" height="529"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="4Ot-4w-mRx"/>
+                        <outlet property="delegate" destination="-1" id="JfN-gq-AgG"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cXS-Ea-uxS">
+                    <rect key="frame" x="192.5" y="128" width="172.5" height="529"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="QGH-5r-Odj"/>
+                        <outlet property="delegate" destination="-1" id="WwH-wm-ezS"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="xnP-5C-2Qt" firstAttribute="width" secondItem="cXS-Ea-uxS" secondAttribute="width" id="EI0-3g-H3u"/>
+                <constraint firstItem="xnP-5C-2Qt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="128" id="M4B-e5-QJg"/>
+                <constraint firstItem="xnP-5C-2Qt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="QMg-oI-QwQ"/>
+                <constraint firstItem="cXS-Ea-uxS" firstAttribute="bottom" secondItem="xnP-5C-2Qt" secondAttribute="bottom" id="c8Q-hR-Lo2"/>
+                <constraint firstAttribute="bottom" secondItem="xnP-5C-2Qt" secondAttribute="bottom" constant="10" id="cG8-ia-SWK"/>
+                <constraint firstItem="cXS-Ea-uxS" firstAttribute="top" secondItem="xnP-5C-2Qt" secondAttribute="top" id="gKj-SG-IJH"/>
+                <constraint firstItem="cXS-Ea-uxS" firstAttribute="leading" secondItem="xnP-5C-2Qt" secondAttribute="trailing" constant="10" id="hqa-Qc-bMY"/>
+                <constraint firstAttribute="trailing" secondItem="cXS-Ea-uxS" secondAttribute="trailing" constant="10" id="qYn-0A-HsF"/>
+            </constraints>
+            <point key="canvasLocation" x="-245" y="36"/>
         </view>
     </objects>
 </document>
