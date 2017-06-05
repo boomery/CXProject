@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C539A21A26D0344EE73102608AEE2A2"
+               BlueprintIdentifier = "988679B45658BF286B13031FBF6E3BC0"
                BuildableName = "UIView_HHFrame.framework"
                BlueprintName = "UIView+HHFrame"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4C539A21A26D0344EE73102608AEE2A2"
+            BlueprintIdentifier = "988679B45658BF286B13031FBF6E3BC0"
             BuildableName = "UIView_HHFrame.framework"
             BlueprintName = "UIView+HHFrame"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -8,7 +8,7 @@
 
 #import "ResultViewController.h"
 #import "DataModel.h"
-@interface ResultViewController ()
+@interface ResultViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @end
 
@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.emptyDataSetSource = self;
+    self.tableView.emptyDataSetDelegate = self;
 }
 
 #pragma mark - UITableViewDataSource
@@ -51,6 +53,19 @@
     }]];
     [self presentViewController:alert animated:YES completion:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - DZNEmptyDataSetSource
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"没有符合条件的项目";
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return -150;
 }
 
 - (void)didReceiveMemoryWarning

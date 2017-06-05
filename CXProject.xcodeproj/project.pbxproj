@@ -152,6 +152,8 @@
 		90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF521E83C839000A1918 /* ResultViewController.m */; };
 		90F5BA751ED9175800C2CE7F /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA741ED9175800C2CE7F /* ImageViewController.m */; };
 		90F5BA771ED9177400C2CE7F /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA761ED9177400C2CE7F /* ImageViewController.xib */; };
+		90F5BA7B1EDE507100C2CE7F /* PureLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA791EDE507100C2CE7F /* PureLabelCell.m */; };
+		90F5BA7C1EDE507100C2CE7F /* PureLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA7A1EDE507100C2CE7F /* PureLabelCell.xib */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -414,6 +416,9 @@
 		90F5BA731ED9175800C2CE7F /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		90F5BA741ED9175800C2CE7F /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		90F5BA761ED9177400C2CE7F /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
+		90F5BA781EDE507100C2CE7F /* PureLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLabelCell.h; sourceTree = "<group>"; };
+		90F5BA791EDE507100C2CE7F /* PureLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PureLabelCell.m; sourceTree = "<group>"; };
+		90F5BA7A1EDE507100C2CE7F /* PureLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PureLabelCell.xib; sourceTree = "<group>"; };
 		B09939730C48F88524F34BB6 /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5CC928867F17D29D35F1D0 /* Pods-CXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXProject/Pods-CXProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -956,6 +961,9 @@
 				908C82511E9B784E0086EDCD /* LabelCell.h */,
 				908C82521E9B784E0086EDCD /* LabelCell.m */,
 				908C82531E9B784E0086EDCD /* LabelCell.xib */,
+				90F5BA781EDE507100C2CE7F /* PureLabelCell.h */,
+				90F5BA791EDE507100C2CE7F /* PureLabelCell.m */,
+				90F5BA7A1EDE507100C2CE7F /* PureLabelCell.xib */,
 				9028C97F1EB1EBE1003DA545 /* ExtactResultCell.h */,
 				9028C9801EB1EBE1003DA545 /* ExtactResultCell.m */,
 				9028C9811EB1EBE1003DA545 /* ExtactResultCell.xib */,
@@ -1155,6 +1163,7 @@
 				9028C9A71EB30A17003DA545 /* image_unselect.png in Resources */,
 				9028C9A61EB30A17003DA545 /* image_select.png in Resources */,
 				90BCA6951ED3E35C003C85CB /* 9.WAV in Resources */,
+				90F5BA7C1EDE507100C2CE7F /* PureLabelCell.xib in Resources */,
 				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
 				90BCA6901ED3E35C003C85CB /* 4.WAV in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
@@ -1249,6 +1258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CB98781E8F7F55000FB2BC /* NSObject+YYModel.m in Sources */,
+				90F5BA7B1EDE507100C2CE7F /* PureLabelCell.m in Sources */,
 				9028C9C91EB87E3E003DA545 /* NSBundle+PYSearchExtension.m in Sources */,
 				9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */,
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,

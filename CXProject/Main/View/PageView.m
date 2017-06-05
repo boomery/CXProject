@@ -208,13 +208,13 @@
 //开始拖动时
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [self.timer invalidate];
+//    [self.timer invalidate];
 }
 
 //结束拖动时
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    [self startTimer];
+//    [self startTimer];
 }
 
 @end
