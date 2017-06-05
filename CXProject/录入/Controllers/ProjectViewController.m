@@ -12,6 +12,7 @@
 #import "NewProjectViewController.h"
 #import "ExtractionResultViewController.h"
 #import "GroupEvaluateViewController.h"
+#import "Risk_Progress_ViewController.h"
 @interface ProjectViewController ()
 
 @end
@@ -48,7 +49,12 @@
 #pragma mark - 风险评估
 - (IBAction)riskEvaluate:(id)sender
 {
-    RiskViewController *riskVC = [[RiskViewController alloc] init];
+    //交付评估
+//    RiskViewController *riskVC = [[RiskViewController alloc] init];
+//    riskVC.title = @"风险评估";
+//    [self.navigationController pushViewController:riskVC animated:YES];
+    //过程评估
+    Risk_Progress_ViewController *riskVC = [[Risk_Progress_ViewController alloc] init];
     riskVC.title = @"风险评估";
     [self.navigationController pushViewController:riskVC animated:YES];
 }

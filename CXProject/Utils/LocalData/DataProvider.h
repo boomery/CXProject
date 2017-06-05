@@ -14,6 +14,10 @@
 
 + (BOOL)loadDataWithJsonFileName:(NSString *)name;
 
+//实测实量项目
 + (NSArray *)measureItems;
+//交付风险评估项目
 + (NSArray *)riskItems;
+//过程风险评估项目
++ (NSArray *)riskProgressItems;
 @end

@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,27 +21,52 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtd-2I-pag">
-                        <rect key="frame" x="0.0" y="0.0" width="283" height="200"/>
-                        <color key="backgroundColor" red="0.8401119709" green="0.35040047759999998" blue="0.28633546830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <rect key="frame" x="16" y="0.0" width="251.5" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Wtd-2I-pag" secondAttribute="height" multiplier="122:97" id="TTH-KX-KBL"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="file">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KZ-d4-Y6G">
-                        <rect key="frame" x="95" y="210" width="92" height="21"/>
+                        <rect key="frame" x="95.5" y="210" width="92" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abq-tr-geR">
+                        <rect key="frame" x="85" y="82" width="113.5" height="113"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Abq-tr-geR" secondAttribute="height" multiplier="1:1" id="9dE-Oh-QAJ"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="white_circle">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="Abq-tr-geR" firstAttribute="width" secondItem="Wtd-2I-pag" secondAttribute="width" multiplier="0.45" id="Hhc-dc-Rc4"/>
                 <constraint firstAttribute="bottom" secondItem="4KZ-d4-Y6G" secondAttribute="bottom" constant="9" id="Phe-45-5oe"/>
                 <constraint firstAttribute="bottom" secondItem="Wtd-2I-pag" secondAttribute="bottom" constant="40" id="ira-Nv-zZF"/>
-                <constraint firstItem="Wtd-2I-pag" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jLh-CX-2Fr"/>
-                <constraint firstAttribute="trailing" secondItem="Wtd-2I-pag" secondAttribute="trailing" id="nSz-jQ-NxD"/>
                 <constraint firstItem="4KZ-d4-Y6G" firstAttribute="centerX" secondItem="Wtd-2I-pag" secondAttribute="centerX" id="pq3-yH-9jQ"/>
+                <constraint firstItem="Abq-tr-geR" firstAttribute="bottom" secondItem="Wtd-2I-pag" secondAttribute="bottom" constant="-5" id="quJ-dC-rWO"/>
                 <constraint firstItem="Wtd-2I-pag" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sDr-a7-Ol1"/>
+                <constraint firstItem="Abq-tr-geR" firstAttribute="centerX" secondItem="Wtd-2I-pag" secondAttribute="centerX" id="tjJ-Yx-Wd6"/>
+                <constraint firstItem="Wtd-2I-pag" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="tya-NM-LjB"/>
             </constraints>
             <size key="customSize" width="283" height="240"/>
-            <point key="canvasLocation" x="-48.5" y="30"/>
+            <connections>
+                <outlet property="circleButton" destination="Abq-tr-geR" id="nkg-WT-hxR"/>
+                <outlet property="imageButton" destination="Wtd-2I-pag" id="QEW-UY-QSX"/>
+                <outlet property="nameLabel" destination="4KZ-d4-Y6G" id="REI-WU-iwe"/>
+            </connections>
+            <point key="canvasLocation" x="-931" y="-10"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="file" width="61" height="48"/>
+        <image name="white_circle" width="25" height="25"/>
+    </resources>
 </document>

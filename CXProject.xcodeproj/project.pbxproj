@@ -90,6 +90,10 @@
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
 		9043401A1E8A019C00D33ED9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340191E8A019C00D33ED9 /* User.m */; };
 		90635C6A1EE13101009725E0 /* M_CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C691EE13101009725E0 /* M_CollectionViewController.m */; };
+		90635C6D1EE5018E009725E0 /* Risk_Progress_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C6C1EE5018E009725E0 /* Risk_Progress_ViewController.m */; };
+		90635C701EE505A3009725E0 /* Risk_Progress_CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C6F1EE505A3009725E0 /* Risk_Progress_CollectionViewController.m */; };
+		90635C721EE52796009725E0 /* Risk_Progress.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 90635C711EE52796009725E0 /* Risk_Progress.geojson */; };
+		90635C731EE52796009725E0 /* Risk_Progress.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 90635C711EE52796009725E0 /* Risk_Progress.geojson */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -327,6 +331,11 @@
 		904340191E8A019C00D33ED9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		90635C681EE13101009725E0 /* M_CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_CollectionViewController.h; sourceTree = "<group>"; };
 		90635C691EE13101009725E0 /* M_CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_CollectionViewController.m; sourceTree = "<group>"; };
+		90635C6B1EE5018E009725E0 /* Risk_Progress_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risk_Progress_ViewController.h; sourceTree = "<group>"; };
+		90635C6C1EE5018E009725E0 /* Risk_Progress_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_ViewController.m; sourceTree = "<group>"; };
+		90635C6E1EE505A3009725E0 /* Risk_Progress_CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risk_Progress_CollectionViewController.h; sourceTree = "<group>"; };
+		90635C6F1EE505A3009725E0 /* Risk_Progress_CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_CollectionViewController.m; sourceTree = "<group>"; };
+		90635C711EE52796009725E0 /* Risk_Progress.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Risk_Progress.geojson; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -600,6 +609,7 @@
 				9028C93C1EA4BC6A003DA545 /* measure.sqlite */,
 				908C82561E9B7D500086EDCD /* Measure.geojson */,
 				9028C9EA1EC43570003DA545 /* Risk.geojson */,
+				90635C711EE52796009725E0 /* Risk_Progress.geojson */,
 				901780E81E82626600D6E8A1 /* CXProject.xcdatamodeld */,
 				901780DC1E82626600D6E8A1 /* Supporting Files */,
 			);
@@ -1033,6 +1043,10 @@
 				9028C9E11EC3F961003DA545 /* RiskViewController.h */,
 				9028C9E21EC3F961003DA545 /* RiskViewController.m */,
 				9028C9EC1EC44269003DA545 /* RiskViewController.xib */,
+				90635C6B1EE5018E009725E0 /* Risk_Progress_ViewController.h */,
+				90635C6C1EE5018E009725E0 /* Risk_Progress_ViewController.m */,
+				90635C6E1EE505A3009725E0 /* Risk_Progress_CollectionViewController.h */,
+				90635C6F1EE505A3009725E0 /* Risk_Progress_CollectionViewController.m */,
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
@@ -1198,6 +1212,7 @@
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
 				9028C9A71EB30A17003DA545 /* image_unselect.png in Resources */,
 				9028C9A61EB30A17003DA545 /* image_select.png in Resources */,
+				90635C721EE52796009725E0 /* Risk_Progress.geojson in Resources */,
 				90BCA6951ED3E35C003C85CB /* 9.WAV in Resources */,
 				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
 				90BCA6901ED3E35C003C85CB /* 4.WAV in Resources */,
@@ -1229,6 +1244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				901781621E8276C600D6E8A1 /* CountCell.xib in Resources */,
+				90635C731EE52796009725E0 /* Risk_Progress.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,6 +1336,7 @@
 				9028C9931EB30936003DA545 /* UIPlaceHolderTextView.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
+				90635C701EE505A3009725E0 /* Risk_Progress_CollectionViewController.m in Sources */,
 				901780E11E82626600D6E8A1 /* AppDelegate.m in Sources */,
 				9028C9CC1EB87E3E003DA545 /* PYSearchSuggestionViewController.m in Sources */,
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
@@ -1387,6 +1404,7 @@
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
+				90635C6D1EE5018E009725E0 /* Risk_Progress_ViewController.m in Sources */,
 				90F5BA8F1EE0098500C2CE7F /* M_ViewFileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

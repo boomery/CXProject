@@ -10,9 +10,10 @@
 
 @implementation FileCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
-    // Initialization code
+    [self.imageButton setContentEdgeInsets:UIEdgeInsetsMake(self.imageButton.height/4 - 20, 0, 0, 0)];
 }
 
 @end

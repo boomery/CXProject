@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FileCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIButton *circleButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
