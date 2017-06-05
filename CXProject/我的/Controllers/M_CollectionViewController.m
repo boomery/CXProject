@@ -111,7 +111,11 @@ static NSString *headerIdentifier = @"sectionHeader";
 #pragma mark - DZNEmptyDataSetSource
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = [NSString stringWithFormat:@"没有相关%@可查看",self.fileType];
+    if (!self.fileType)
+    {
+        self.fileType = @"数据";
+    }
+    NSString *text = [NSString stringWithFormat:@"没有相关%@",self.fileType];
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
