@@ -89,7 +89,6 @@
 		904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340131E89FAA400D33ED9 /* LoginViewController.m */; };
 		904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 904340141E89FAA400D33ED9 /* LoginViewController.xib */; };
 		9043401A1E8A019C00D33ED9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 904340191E8A019C00D33ED9 /* User.m */; };
-		90635C6A1EE13101009725E0 /* M_CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C691EE13101009725E0 /* M_CollectionViewController.m */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -153,15 +152,8 @@
 		90D4DF531E83C839000A1918 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D4DF521E83C839000A1918 /* ResultViewController.m */; };
 		90F5BA751ED9175800C2CE7F /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA741ED9175800C2CE7F /* ImageViewController.m */; };
 		90F5BA771ED9177400C2CE7F /* ImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA761ED9177400C2CE7F /* ImageViewController.xib */; };
-		90F5BA801EDFA70300C2CE7F /* MyProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA7E1EDFA70300C2CE7F /* MyProjectViewController.m */; };
-		90F5BA851EDFAF8B00C2CE7F /* MyProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA831EDFAF8B00C2CE7F /* MyProjectCell.m */; };
-		90F5BA861EDFAF8B00C2CE7F /* MyProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA841EDFAF8B00C2CE7F /* MyProjectCell.xib */; };
-		90F5BA891EDFB46700C2CE7F /* M_ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA881EDFB46700C2CE7F /* M_ProjectViewController.m */; };
-		90F5BA8B1EDFB49500C2CE7F /* M_ProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA8A1EDFB49500C2CE7F /* M_ProjectViewController.xib */; };
-		90F5BA8F1EE0098500C2CE7F /* M_ViewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA8D1EE0098500C2CE7F /* M_ViewFileViewController.m */; };
-		90F5BA901EE0098500C2CE7F /* M_ViewFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA8E1EE0098500C2CE7F /* M_ViewFileViewController.xib */; };
-		90F5BA941EE012E300C2CE7F /* FileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA921EE012E300C2CE7F /* FileCell.m */; };
-		90F5BA951EE012E300C2CE7F /* FileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA931EE012E300C2CE7F /* FileCell.xib */; };
+		90F5BA7B1EDE507100C2CE7F /* PureLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90F5BA791EDE507100C2CE7F /* PureLabelCell.m */; };
+		90F5BA7C1EDE507100C2CE7F /* PureLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90F5BA7A1EDE507100C2CE7F /* PureLabelCell.xib */; };
 		92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09939730C48F88524F34BB6 /* Pods_CXProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -325,8 +317,6 @@
 		904340141E89FAA400D33ED9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		904340181E8A019C00D33ED9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		904340191E8A019C00D33ED9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		90635C681EE13101009725E0 /* M_CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_CollectionViewController.h; sourceTree = "<group>"; };
-		90635C691EE13101009725E0 /* M_CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_CollectionViewController.m; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -426,20 +416,9 @@
 		90F5BA731ED9175800C2CE7F /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		90F5BA741ED9175800C2CE7F /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		90F5BA761ED9177400C2CE7F /* ImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageViewController.xib; sourceTree = "<group>"; };
-		90F5BA7D1EDFA70300C2CE7F /* MyProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectViewController.h; sourceTree = "<group>"; };
-		90F5BA7E1EDFA70300C2CE7F /* MyProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectViewController.m; sourceTree = "<group>"; };
-		90F5BA821EDFAF8B00C2CE7F /* MyProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjectCell.h; sourceTree = "<group>"; };
-		90F5BA831EDFAF8B00C2CE7F /* MyProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjectCell.m; sourceTree = "<group>"; };
-		90F5BA841EDFAF8B00C2CE7F /* MyProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProjectCell.xib; sourceTree = "<group>"; };
-		90F5BA871EDFB46700C2CE7F /* M_ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_ProjectViewController.h; sourceTree = "<group>"; };
-		90F5BA881EDFB46700C2CE7F /* M_ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_ProjectViewController.m; sourceTree = "<group>"; };
-		90F5BA8A1EDFB49500C2CE7F /* M_ProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M_ProjectViewController.xib; sourceTree = "<group>"; };
-		90F5BA8C1EE0098500C2CE7F /* M_ViewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M_ViewFileViewController.h; sourceTree = "<group>"; };
-		90F5BA8D1EE0098500C2CE7F /* M_ViewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M_ViewFileViewController.m; sourceTree = "<group>"; };
-		90F5BA8E1EE0098500C2CE7F /* M_ViewFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = M_ViewFileViewController.xib; sourceTree = "<group>"; };
-		90F5BA911EE012E300C2CE7F /* FileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCell.h; sourceTree = "<group>"; };
-		90F5BA921EE012E300C2CE7F /* FileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCell.m; sourceTree = "<group>"; };
-		90F5BA931EE012E300C2CE7F /* FileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileCell.xib; sourceTree = "<group>"; };
+		90F5BA781EDE507100C2CE7F /* PureLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLabelCell.h; sourceTree = "<group>"; };
+		90F5BA791EDE507100C2CE7F /* PureLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PureLabelCell.m; sourceTree = "<group>"; };
+		90F5BA7A1EDE507100C2CE7F /* PureLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PureLabelCell.xib; sourceTree = "<group>"; };
 		B09939730C48F88524F34BB6 /* Pods_CXProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5CC928867F17D29D35F1D0 /* Pods-CXProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXProject/Pods-CXProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -709,16 +688,6 @@
 				9028C9B51EB32B2A003DA545 /* VersionViewController.h */,
 				9028C9B61EB32B2A003DA545 /* VersionViewController.m */,
 				9028C9B71EB32B2A003DA545 /* VersionViewController.xib */,
-				90F5BA7D1EDFA70300C2CE7F /* MyProjectViewController.h */,
-				90F5BA7E1EDFA70300C2CE7F /* MyProjectViewController.m */,
-				90F5BA871EDFB46700C2CE7F /* M_ProjectViewController.h */,
-				90F5BA881EDFB46700C2CE7F /* M_ProjectViewController.m */,
-				90F5BA8A1EDFB49500C2CE7F /* M_ProjectViewController.xib */,
-				90F5BA8C1EE0098500C2CE7F /* M_ViewFileViewController.h */,
-				90F5BA8D1EE0098500C2CE7F /* M_ViewFileViewController.m */,
-				90F5BA8E1EE0098500C2CE7F /* M_ViewFileViewController.xib */,
-				90635C681EE13101009725E0 /* M_CollectionViewController.h */,
-				90635C691EE13101009725E0 /* M_CollectionViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -733,12 +702,6 @@
 		901781481E8275E000D6E8A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				90F5BA821EDFAF8B00C2CE7F /* MyProjectCell.h */,
-				90F5BA831EDFAF8B00C2CE7F /* MyProjectCell.m */,
-				90F5BA841EDFAF8B00C2CE7F /* MyProjectCell.xib */,
-				90F5BA911EE012E300C2CE7F /* FileCell.h */,
-				90F5BA921EE012E300C2CE7F /* FileCell.m */,
-				90F5BA931EE012E300C2CE7F /* FileCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -998,6 +961,9 @@
 				908C82511E9B784E0086EDCD /* LabelCell.h */,
 				908C82521E9B784E0086EDCD /* LabelCell.m */,
 				908C82531E9B784E0086EDCD /* LabelCell.xib */,
+				90F5BA781EDE507100C2CE7F /* PureLabelCell.h */,
+				90F5BA791EDE507100C2CE7F /* PureLabelCell.m */,
+				90F5BA7A1EDE507100C2CE7F /* PureLabelCell.xib */,
 				9028C97F1EB1EBE1003DA545 /* ExtactResultCell.h */,
 				9028C9801EB1EBE1003DA545 /* ExtactResultCell.m */,
 				9028C9811EB1EBE1003DA545 /* ExtactResultCell.xib */,
@@ -1173,7 +1139,6 @@
 				9028C9B41EB3203B003DA545 /* ContactViewController.xib in Resources */,
 				9028C98B1EB2D937003DA545 /* star_gray.png in Resources */,
 				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
-				90F5BA861EDFAF8B00C2CE7F /* MyProjectCell.xib in Resources */,
 				90F5BA771ED9177400C2CE7F /* ImageViewController.xib in Resources */,
 				9028C9F21EC54EBB003DA545 /* RiskLineCell.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
@@ -1193,20 +1158,18 @@
 				90BCA68F1ED3E35C003C85CB /* 3.WAV in Resources */,
 				9028C9EB1EC43570003DA545 /* Risk.geojson in Resources */,
 				90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */,
-				90F5BA8B1EDFB49500C2CE7F /* M_ProjectViewController.xib in Resources */,
 				9028C9831EB1EBE1003DA545 /* ExtactResultCell.xib in Resources */,
 				908BFE471E97264600937372 /* InputCell2.xib in Resources */,
 				9028C9A71EB30A17003DA545 /* image_unselect.png in Resources */,
 				9028C9A61EB30A17003DA545 /* image_select.png in Resources */,
 				90BCA6951ED3E35C003C85CB /* 9.WAV in Resources */,
+				90F5BA7C1EDE507100C2CE7F /* PureLabelCell.xib in Resources */,
 				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
 				90BCA6901ED3E35C003C85CB /* 4.WAV in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
-				90F5BA901EE0098500C2CE7F /* M_ViewFileViewController.xib in Resources */,
 				9028C9CA1EB87E3E003DA545 /* PYSearch.bundle in Resources */,
 				9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */,
 				9028C9ED1EC44269003DA545 /* RiskViewController.xib in Resources */,
-				90F5BA951EE012E300C2CE7F /* FileCell.xib in Resources */,
 				90BCA6941ED3E35C003C85CB /* 8.WAV in Resources */,
 				901780EC1E82626600D6E8A1 /* Assets.xcassets in Resources */,
 				9028C9A51EB30A17003DA545 /* image_count_bg.png in Resources */,
@@ -1295,7 +1258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90CB98781E8F7F55000FB2BC /* NSObject+YYModel.m in Sources */,
-				90F5BA851EDFAF8B00C2CE7F /* MyProjectCell.m in Sources */,
+				90F5BA7B1EDE507100C2CE7F /* PureLabelCell.m in Sources */,
 				9028C9C91EB87E3E003DA545 /* NSBundle+PYSearchExtension.m in Sources */,
 				9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */,
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
@@ -1316,7 +1279,6 @@
 				9028C97D1EB1DF81003DA545 /* GroupEvaluateViewController.m in Sources */,
 				9028C9B81EB32B2A003DA545 /* VersionViewController.m in Sources */,
 				9028C9AF1EB30A41003DA545 /* FeedbackViewController.m in Sources */,
-				90635C6A1EE13101009725E0 /* M_CollectionViewController.m in Sources */,
 				9028C9931EB30936003DA545 /* UIPlaceHolderTextView.m in Sources */,
 				9016C7961E8A53D600B19056 /* NetworkManager.m in Sources */,
 				90CB98681E8F7204000FB2BC /* PhotoEditorViewController.m in Sources */,
@@ -1325,7 +1287,6 @@
 				901780DE1E82626600D6E8A1 /* main.m in Sources */,
 				9028C9AB1EB30A17003DA545 /* WMPhotoCollectionViewCell.m in Sources */,
 				9016C7951E8A53D600B19056 /* NetworkAPI.m in Sources */,
-				90F5BA801EDFA70300C2CE7F /* MyProjectViewController.m in Sources */,
 				908BFE391E96054E00937372 /* MHKeyboard.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				9028C9FB1ECA9985003DA545 /* RiskResult+Addition.m in Sources */,
@@ -1353,7 +1314,6 @@
 				9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */,
 				9028C9F51ECA964B003DA545 /* RiskResult.m in Sources */,
 				9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */,
-				90F5BA891EDFB46700C2CE7F /* M_ProjectViewController.m in Sources */,
 				9028C9E91EC3FB8B003DA545 /* ViewPagerController.m in Sources */,
 				9028C9CD1EB87E3E003DA545 /* PYSearchViewController.m in Sources */,
 				9017815F1E8276C600D6E8A1 /* CountCell.m in Sources */,
@@ -1370,7 +1330,6 @@
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
-				90F5BA941EE012E300C2CE7F /* FileCell.m in Sources */,
 				9028C9681EADC6C2003DA545 /* DataProvider.m in Sources */,
 				9028C9AC1EB30A17003DA545 /* WMPhotoPickerController.m in Sources */,
 				9028C9661EADC6C2003DA545 /* CountUtil.c in Sources */,
@@ -1387,7 +1346,6 @@
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
-				90F5BA8F1EE0098500C2CE7F /* M_ViewFileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
