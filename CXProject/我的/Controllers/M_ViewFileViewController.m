@@ -11,8 +11,6 @@
 #import "FileCell.h"
 @interface M_ViewFileViewController () <ViewPagerDataSource, ViewPagerDelegate, DZNEmptyDataSetSource>
 
-@property (nonatomic, strong)  UICollectionView *collectionView;
-
 @property (nonatomic, strong) NSMutableArray *controllerArray;
 @property (nonatomic, strong) NSArray *titleArray;
 
