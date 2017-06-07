@@ -39,6 +39,12 @@ static FMDatabase *_db = nil;
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
+//    NSString *deleteTable = @"drop table risk_progress_table";
+//    if ([db executeUpdate:deleteTable])
+//    {
+//        NSLog(@"删除表");
+//    }
+    
    	//判断数据库中是否已经存在这个表，如果不存在则创建该表
     if(![db tableExists:[CXDataBaseUtil measureTableName]])
     {
@@ -54,7 +60,15 @@ static FMDatabase *_db = nil;
         NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT, score TEXT, level TEXT, result TEXT, responsibility TEXT, photoName TEXT, PRIMARY KEY(projectID, itemName, subItemName, photoName))",[CXDataBaseUtil riskTableName]];
         if ([db executeUpdate:createSql])
         {
-            NSLog(@"风险评估建表成功");
+            NSLog(@"风险交付评估建表成功");
+        }
+    }
+    if(![db tableExists:[CXDataBaseUtil riskProgressTableName]])
+    {
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, photoName TEXT, save_time TEXT, place TEXT, kind TEXT, item TEXT, subItem TEXT, subItem2 TEXT, responsibility TEXT, repair_time TEXT)",[CXDataBaseUtil riskProgressTableName]];
+        if ([db executeUpdate:createSql])
+        {
+            NSLog(@"风险过程评估建表成功");
         }
     }
 }
@@ -66,6 +80,10 @@ static FMDatabase *_db = nil;
 + (NSString *)riskTableName
 {
     return @"RISK_TABLE";
+}
++ (NSString *)riskProgressTableName
+{
+    return @"RISK_PROGRESS_TABLE";
 }
 
 + (NSString *)imageName

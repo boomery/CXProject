@@ -94,6 +94,13 @@
 		90635C701EE505A3009725E0 /* Risk_Progress_CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C6F1EE505A3009725E0 /* Risk_Progress_CollectionViewController.m */; };
 		90635C721EE52796009725E0 /* Risk_Progress.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 90635C711EE52796009725E0 /* Risk_Progress.geojson */; };
 		90635C731EE52796009725E0 /* Risk_Progress.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 90635C711EE52796009725E0 /* Risk_Progress.geojson */; };
+		90635C761EE55455009725E0 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C751EE55455009725E0 /* Photo.m */; };
+		90635C791EE554AF009725E0 /* Photo+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C781EE554AF009725E0 /* Photo+Addtion.m */; };
+		90635C7D1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C7B1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.m */; };
+		90635C7E1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90635C7C1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.xib */; };
+		90635C811EE6541B009725E0 /* Risk_Progress_PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C801EE6541B009725E0 /* Risk_Progress_PhotoViewController.m */; };
+		90635C841EE78E6F009725E0 /* Risk_Progress_DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C831EE78E6F009725E0 /* Risk_Progress_DetailViewController.m */; };
+		90635C891EE7A244009725E0 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C881EE7A244009725E0 /* UIViewController+BackButtonHandler.m */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -336,6 +343,19 @@
 		90635C6E1EE505A3009725E0 /* Risk_Progress_CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risk_Progress_CollectionViewController.h; sourceTree = "<group>"; };
 		90635C6F1EE505A3009725E0 /* Risk_Progress_CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_CollectionViewController.m; sourceTree = "<group>"; };
 		90635C711EE52796009725E0 /* Risk_Progress.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Risk_Progress.geojson; sourceTree = "<group>"; };
+		90635C741EE55455009725E0 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		90635C751EE55455009725E0 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		90635C771EE554AF009725E0 /* Photo+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Addtion.h"; sourceTree = "<group>"; };
+		90635C781EE554AF009725E0 /* Photo+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Addtion.m"; sourceTree = "<group>"; };
+		90635C7A1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risk_Progress_PhotoEditorViewController.h; sourceTree = "<group>"; };
+		90635C7B1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_PhotoEditorViewController.m; sourceTree = "<group>"; };
+		90635C7C1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Risk_Progress_PhotoEditorViewController.xib; sourceTree = "<group>"; };
+		90635C7F1EE6541B009725E0 /* Risk_Progress_PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risk_Progress_PhotoViewController.h; sourceTree = "<group>"; };
+		90635C801EE6541B009725E0 /* Risk_Progress_PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_PhotoViewController.m; sourceTree = "<group>"; };
+		90635C821EE78E6F009725E0 /* Risk_Progress_DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risk_Progress_DetailViewController.h; sourceTree = "<group>"; };
+		90635C831EE78E6F009725E0 /* Risk_Progress_DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_DetailViewController.m; sourceTree = "<group>"; };
+		90635C871EE7A244009725E0 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		90635C881EE7A244009725E0 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -557,6 +577,9 @@
 				90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */,
 				90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */,
 				90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */,
+				90635C7A1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.h */,
+				90635C7B1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.m */,
+				90635C7C1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.xib */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -597,6 +620,7 @@
 				904340121E89FAA400D33ED9 /* LoginViewController.h */,
 				904340131E89FAA400D33ED9 /* LoginViewController.m */,
 				904340141E89FAA400D33ED9 /* LoginViewController.xib */,
+				90635C861EE7A22C009725E0 /* Category */,
 				9016C79B1E8A564F00B19056 /* Utils */,
 				9016C7461E8A53D500B19056 /* Network */,
 				904340171E8A018E00D33ED9 /* UserData */,
@@ -789,6 +813,10 @@
 			children = (
 				9028C9331EA4B8CB003DA545 /* CXDataBaseUtil.h */,
 				9028C9341EA4B8CB003DA545 /* CXDataBaseUtil.m */,
+				90635C741EE55455009725E0 /* Photo.h */,
+				90635C751EE55455009725E0 /* Photo.m */,
+				90635C771EE554AF009725E0 /* Photo+Addtion.h */,
+				90635C781EE554AF009725E0 /* Photo+Addtion.m */,
 				9028C9F31ECA964B003DA545 /* RiskResult.h */,
 				9028C9F41ECA964B003DA545 /* RiskResult.m */,
 				9028C9F91ECA9985003DA545 /* RiskResult+Addition.h */,
@@ -913,6 +941,15 @@
 			path = UserData;
 			sourceTree = "<group>";
 		};
+		90635C861EE7A22C009725E0 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				90635C871EE7A244009725E0 /* UIViewController+BackButtonHandler.h */,
+				90635C881EE7A244009725E0 /* UIViewController+BackButtonHandler.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		908BFE2C1E96054E00937372 /* MHKeyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1017,8 +1054,8 @@
 				9028C9EF1EC54EBB003DA545 /* RiskLineCell.m */,
 				9028C9F01EC54EBB003DA545 /* RiskLineCell.xib */,
 				90BCA6981ED5174D003C85CB /* DetailMeasureCell.h */,
-				90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */,
 				90BCA69A1ED5174D003C85CB /* DetailMeasureCell.m */,
+				90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1047,6 +1084,10 @@
 				90635C6C1EE5018E009725E0 /* Risk_Progress_ViewController.m */,
 				90635C6E1EE505A3009725E0 /* Risk_Progress_CollectionViewController.h */,
 				90635C6F1EE505A3009725E0 /* Risk_Progress_CollectionViewController.m */,
+				90635C7F1EE6541B009725E0 /* Risk_Progress_PhotoViewController.h */,
+				90635C801EE6541B009725E0 /* Risk_Progress_PhotoViewController.m */,
+				90635C821EE78E6F009725E0 /* Risk_Progress_DetailViewController.h */,
+				90635C831EE78E6F009725E0 /* Risk_Progress_DetailViewController.m */,
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
@@ -1217,6 +1258,7 @@
 				9028C98D1EB2D937003DA545 /* star_yellow.png in Resources */,
 				90BCA6901ED3E35C003C85CB /* 4.WAV in Resources */,
 				90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */,
+				90635C7E1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.xib in Resources */,
 				90F5BA901EE0098500C2CE7F /* M_ViewFileViewController.xib in Resources */,
 				9028C9CA1EB87E3E003DA545 /* PYSearch.bundle in Resources */,
 				9028C98C1EB2D937003DA545 /* star_gray@2x.png in Resources */,
@@ -1314,7 +1356,9 @@
 				90F5BA851EDFAF8B00C2CE7F /* MyProjectCell.m in Sources */,
 				9028C9C91EB87E3E003DA545 /* NSBundle+PYSearchExtension.m in Sources */,
 				9028C9431EA4BFE0003DA545 /* MeasureResult+Addtion.m in Sources */,
+				90635C7D1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.m in Sources */,
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
+				90635C841EE78E6F009725E0 /* Risk_Progress_DetailViewController.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
 				9028C9CB1EB87E3E003DA545 /* PYSearchConst.m in Sources */,
 				9028C9781EB1DF18003DA545 /* ExtractionResultViewController.m in Sources */,
@@ -1364,12 +1408,15 @@
 				9028C9AA1EB30A17003DA545 /* UploadImageView.m in Sources */,
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				9028C9CE1EB87E3E003DA545 /* UIColor+PYSearchExtension.m in Sources */,
+				90635C791EE554AF009725E0 /* Photo+Addtion.m in Sources */,
 				908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */,
+				90635C761EE55455009725E0 /* Photo.m in Sources */,
 				9028C9821EB1EBE1003DA545 /* ExtactResultCell.m in Sources */,
 				908C82631E9F0CAB0086EDCD /* InputView.m in Sources */,
 				9028C9401EA4BF47003DA545 /* MeasureResult.m in Sources */,
 				9028C9F51ECA964B003DA545 /* RiskResult.m in Sources */,
 				9028C96A1EADC6C2003DA545 /* NSString+isValid.m in Sources */,
+				90635C891EE7A244009725E0 /* UIViewController+BackButtonHandler.m in Sources */,
 				90F5BA891EDFB46700C2CE7F /* M_ProjectViewController.m in Sources */,
 				9028C9E91EC3FB8B003DA545 /* ViewPagerController.m in Sources */,
 				9028C9CD1EB87E3E003DA545 /* PYSearchViewController.m in Sources */,
@@ -1402,6 +1449,7 @@
 				90BCA6AD1ED6ADF2003C85CB /* PageView.m in Sources */,
 				904340151E89FAA400D33ED9 /* LoginViewController.m in Sources */,
 				90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */,
+				90635C811EE6541B009725E0 /* Risk_Progress_PhotoViewController.m in Sources */,
 				908BFE4B1E97265400937372 /* InputCell3.m in Sources */,
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
 				90635C6D1EE5018E009725E0 /* Risk_Progress_ViewController.m in Sources */,

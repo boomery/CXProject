@@ -1,28 +1,37 @@
 //
-//  Risk_Progress_CollectionViewController.m
+//  Risk_Progress_PhotoViewController.m
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/6/5.
+//  Created by zhangchaoxin on 2017/6/6.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#import "Risk_Progress_CollectionViewController.h"
-#import "FileCell.h"
 #import "Risk_Progress_PhotoViewController.h"
-@interface Risk_Progress_CollectionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource>
+#import "ImageViewCell.h"
+#import "Photo+Addtion.h"
+#import "Risk_Progress_DetailViewController.h"
+@interface Risk_Progress_PhotoViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource>
 
 @property (nonatomic, strong)  UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *sourceArray;
 
 @end
 
-@implementation Risk_Progress_CollectionViewController
+@implementation Risk_Progress_PhotoViewController
 
-static NSString *fileCellIdentifier = @"FileCell";
+static NSString *fileCellIdentifier = @"ImageViewCell";
 static NSString *headerIdentifier = @"sectionHeader";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self initViews];
+    [self initData];
+}
+
+- (void)initData
+{
+    self.sourceArray = [Photo photosForProjectID:[User editingProject].fileName kind:self.kind];
+    [self.collectionView reloadData];
 }
 
 - (void)initViews
@@ -30,7 +39,7 @@ static NSString *headerIdentifier = @"sectionHeader";
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 0, self.view.width-20, self.view.height - 54 - 64) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 64, self.view.width-20, self.view.height - 64) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -38,51 +47,32 @@ static NSString *headerIdentifier = @"sectionHeader";
     [self.view addSubview:self.collectionView];
     
     self.collectionView.showsHorizontalScrollIndicator = NO;
-    [self.collectionView registerNib:[UINib nibWithNibName:@"FileCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:fileCellIdentifier];
+    [self.collectionView registerClass:[ImageViewCell class] forCellWithReuseIdentifier:fileCellIdentifier];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _sourceArray.count + 1;
+    return _sourceArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FileCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:fileCellIdentifier forIndexPath:indexPath];
-    if (self.sourceArray.count > indexPath.row)
-    {
-        Event *event = self.sourceArray[indexPath.row];
-        cell.nameLabel.text = event.name;
-        [cell.circleButton setTitle:@"98%" forState:UIControlStateNormal];
-    }
-    else
-    {
-        cell.nameLabel.text = @"未分类";
-        [cell.circleButton setTitle:@"😨" forState:UIControlStateNormal];
-    }
+    ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:fileCellIdentifier forIndexPath:indexPath];
+    Photo *photo = self.sourceArray[indexPath.row];
+    UIImage *image = [UIImage imageWithContentsOfFile:photo.photoFilePath];
+    photo.image = image;
+    cell.imageView.image = image;
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    Risk_Progress_PhotoViewController *photoVC = [[Risk_Progress_PhotoViewController alloc] init];
-    if (self.sourceArray.count > indexPath.row)
-    {
-        Event *event = self.sourceArray[indexPath.row];
-        photoVC.title = event.name;
-    }
-    else
-    {
-        photoVC.title = @"未分类";
-        photoVC.kind = [NSString stringWithFormat:@"%ld",self.index];
-        [self.navigationController pushViewController:photoVC animated:YES];
-    }
+    Risk_Progress_DetailViewController *detailVC = [[Risk_Progress_DetailViewController alloc] init];
+    Photo *photo = self.sourceArray[indexPath.row];
+    detailVC.photo = photo;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
@@ -107,7 +97,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 //定义每个Cell的大小
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.width - 4*15)/2.0, (self.view.width - 4*15)/2.0 *97/122.0);
+    return CGSizeMake((self.view.width - 4*15)/2.0, (self.view.width - 4*15)/2.0);
 }
 
 //定义每个Section的四边间距
@@ -124,7 +114,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 #pragma mark - DZNEmptyDataSetSource
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = [NSString stringWithFormat:@"没有相关%@可查看",@"分类"];
+    NSString *text = [NSString stringWithFormat:@"没有相关%@可查看",@"数据"];
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
     return [[NSAttributedString alloc] initWithString:text attributes:attributes];
 }
@@ -139,6 +129,12 @@ static NSString *headerIdentifier = @"sectionHeader";
     return -100;
 }
 
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 /*
 #pragma mark - Navigation
 

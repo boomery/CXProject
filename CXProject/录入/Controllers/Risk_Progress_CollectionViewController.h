@@ -10,6 +10,7 @@
 
 @interface Risk_Progress_CollectionViewController : BaseViewController
 
+@property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSArray *sourceArray;
 
 @end

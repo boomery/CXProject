@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="283" height="240"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtd-2I-pag">
+                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wtd-2I-pag">
                         <rect key="frame" x="16" y="0.0" width="251.5" height="200"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Wtd-2I-pag" secondAttribute="height" multiplier="122:97" id="TTH-KX-KBL"/>
@@ -28,6 +28,7 @@
                         <state key="normal" backgroundImage="file">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="disabled" backgroundImage="file"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KZ-d4-Y6G">
                         <rect key="frame" x="95.5" y="210" width="92" height="21"/>
@@ -35,7 +36,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abq-tr-geR">
+                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abq-tr-geR">
                         <rect key="frame" x="85" y="82" width="113.5" height="113"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Abq-tr-geR" secondAttribute="height" multiplier="1:1" id="9dE-Oh-QAJ"/>
@@ -43,6 +44,7 @@
                         <state key="normal" backgroundImage="white_circle">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="disabled" backgroundImage="white_circle"/>
                     </button>
                 </subviews>
             </view>
@@ -62,7 +64,7 @@
                 <outlet property="imageButton" destination="Wtd-2I-pag" id="QEW-UY-QSX"/>
                 <outlet property="nameLabel" destination="4KZ-d4-Y6G" id="REI-WU-iwe"/>
             </connections>
-            <point key="canvasLocation" x="-931" y="-10"/>
+            <point key="canvasLocation" x="-1540" y="-159"/>
         </collectionViewCell>
     </objects>
     <resources>

@@ -18,6 +18,7 @@
 
 + (NSString *)measureTableName;
 + (NSString *)riskTableName;
++ (NSString *)riskProgressTableName;
 
 + (NSString *)imageName;
 

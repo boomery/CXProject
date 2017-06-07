@@ -9,7 +9,11 @@
 #import "Risk_Progress_ViewController.h"
 #import "Risk_Progress_CollectionViewController.h"
 #import "DataProvider.h"
-@interface Risk_Progress_ViewController () <ViewPagerDelegate, ViewPagerDataSource>
+#import <Photos/Photos.h>
+#import "Risk_Progress_PhotoEditorViewController.h"
+#import "CXDataBaseUtil.h"
+#import "Photo+Addtion.h"
+@interface Risk_Progress_ViewController () <ViewPagerDelegate, ViewPagerDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *controllerArray;
 @property (nonatomic, strong) NSArray *titleArray;
@@ -44,6 +48,7 @@ static NSString *headerIdentifier = @"sectionHeader";
             Event *event = array[i];
             c.sourceArray = event.events;
         }
+        c.index = i;
         [self.controllerArray addObject:c];
     }
 }
@@ -51,6 +56,99 @@ static NSString *headerIdentifier = @"sectionHeader";
 - (void)initViews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+    UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    photoButton.frame = CGRectMake(0, 0, 15*1.14, 15);
+    [photoButton addTarget:self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];
+    [photoButton setBackgroundImage:[UIImage imageNamed:@"photo"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:photoButton];
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+#pragma mark - 拍摄照片
+- (void)takePhoto
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action){
+        
+        NSString *mediaType = AVMediaTypeVideo;
+        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusNotDetermined){
+            [SVProgressHUD showErrorWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
+            return;
+        }
+        
+        //先判断相机是否可用
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        {
+            UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = NO;
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"从相册选取" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //选择图片
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+        {
+            UIImagePickerController * picker = [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.allowsEditing = NO;
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    
+    Risk_Progress_PhotoEditorViewController *editor = [[Risk_Progress_PhotoEditorViewController alloc] init];
+    editor.haveTag = YES;
+    [picker pushViewController:editor animated:YES];
+    editor.image = image;
+    
+    editor.imageBlock = ^(UIImage *image, NSInteger index){
+        
+        NSString *imageName = [CXDataBaseUtil imageName];
+        //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
+        if ( [UIImageJPEGRepresentation(image, 0.5) writeToFile:[CXDataBaseUtil imagePathForName:imageName]  atomically:YES])
+        {
+            Photo *photo = [[Photo alloc] init];
+            photo.projectID = [User editingProject].fileName;
+            photo.photoName = imageName;
+            
+            NSDate *date = [NSDate date];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd-hh_mm_ss"];
+            NSString *dateString = [formatter stringFromDate:date];
+            photo.save_time = dateString;
+            photo.place = @"";
+            photo.kind = [NSString stringWithFormat:@"%ld",index];
+            photo.item = @"";
+            photo.subItem = @"";
+            photo.subItem2 = @"";
+            photo.responsibility = @"";
+            photo.repair_time = @"";
+            
+            [Photo insertNewPhoto:photo];
+            [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
+        }
+        
+        [picker dismissViewControllerAnimated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarHidden:NO];
+            // 改变状态栏的颜色  改变为白色
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        }];
+    };
 }
 
 #pragma mark - ViewPagerDataSource

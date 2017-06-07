@@ -119,6 +119,41 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
+    
+    _brushArray = [NSMutableArray new];
+    _undoArray = [NSMutableArray new];
+    _redoArray = [NSMutableArray new];
+    
+    _bgImgView = [UIImageView new];
+    _bgImgView.contentMode = UIViewContentModeScaleAspectFit;
+    _bgImgView.frame = self.bounds;
+    [self addSubview:_bgImgView];
+    
+    _composeView = [UIImageView new];
+    _composeView.contentMode = UIViewContentModeScaleAspectFit;
+    _composeView.frame = self.bounds;
+    //        _composeView.image = [self getAlphaImg];
+    [self addSubview:_composeView];
+    
+    _canvasView = [LSCanvas new];
+    _canvasView.frame = _composeView.bounds;
+    
+    [_composeView addSubview:_canvasView];
+    
+    _brushColor = LSDEF_BRUSH_COLOR;
+    _brushWidth = LSDEF_BRUSH_WIDTH;
+    _isEraser = NO;
+    _shapeType = LSDEF_BRUSH_SHAPE;
+    
+    //linyl
+    _dwawFile = [LSDrawFile new];
+    _dwawFile.packageArray = [NSMutableArray new];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     CGPoint point = [[touches anyObject] locationInView:self];
