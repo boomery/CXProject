@@ -101,6 +101,7 @@
 		90635C811EE6541B009725E0 /* Risk_Progress_PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C801EE6541B009725E0 /* Risk_Progress_PhotoViewController.m */; };
 		90635C841EE78E6F009725E0 /* Risk_Progress_DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C831EE78E6F009725E0 /* Risk_Progress_DetailViewController.m */; };
 		90635C891EE7A244009725E0 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C881EE7A244009725E0 /* UIViewController+BackButtonHandler.m */; };
+		90635C8C1EE7F331009725E0 /* Risk_Progress_ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90635C8B1EE7F331009725E0 /* Risk_Progress_ItemViewController.m */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -356,6 +357,8 @@
 		90635C831EE78E6F009725E0 /* Risk_Progress_DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_DetailViewController.m; sourceTree = "<group>"; };
 		90635C871EE7A244009725E0 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		90635C881EE7A244009725E0 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		90635C8A1EE7F331009725E0 /* Risk_Progress_ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Risk_Progress_ItemViewController.h; sourceTree = "<group>"; };
+		90635C8B1EE7F331009725E0 /* Risk_Progress_ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Risk_Progress_ItemViewController.m; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -1088,6 +1091,8 @@
 				90635C801EE6541B009725E0 /* Risk_Progress_PhotoViewController.m */,
 				90635C821EE78E6F009725E0 /* Risk_Progress_DetailViewController.h */,
 				90635C831EE78E6F009725E0 /* Risk_Progress_DetailViewController.m */,
+				90635C8A1EE7F331009725E0 /* Risk_Progress_ItemViewController.h */,
+				90635C8B1EE7F331009725E0 /* Risk_Progress_ItemViewController.m */,
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
@@ -1390,6 +1395,7 @@
 				908BFE391E96054E00937372 /* MHKeyboard.m in Sources */,
 				901781581E8275FD00D6E8A1 /* MainViewController.m in Sources */,
 				9028C9FB1ECA9985003DA545 /* RiskResult+Addition.m in Sources */,
+				90635C8C1EE7F331009725E0 /* Risk_Progress_ItemViewController.m in Sources */,
 				901781401E8275C700D6E8A1 /* CountViewController.m in Sources */,
 				9028C9691EADC6C2003DA545 /* Event.m in Sources */,
 				9017814B1E8275E000D6E8A1 /* MineViewController.m in Sources */,

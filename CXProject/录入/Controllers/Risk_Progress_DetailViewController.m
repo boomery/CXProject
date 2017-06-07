@@ -8,7 +8,7 @@
 
 #import "Risk_Progress_DetailViewController.h"
 #import "UIViewController+BackButtonHandler.h"
-#import "RiskViewController.h"
+#import "Risk_Progress_ItemViewController.h"
 @interface Risk_Progress_DetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_titleArray;
@@ -149,8 +149,50 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    RiskViewController *risk = [[RiskViewController alloc] init];
-    [self.navigationController pushViewController:risk animated:YES];
+    switch (indexPath.section)
+    {
+        case 0:
+        {
+            Risk_Progress_ItemViewController *riskVC = [[Risk_Progress_ItemViewController alloc] init];
+            NSArray *itemArray = [DataProvider riskProgressItems];
+            for (Event *event in itemArray)
+            {
+                if ([event.name isEqualToString:self.photo.kind])
+                {
+                    riskVC.event = event;
+                }
+            }
+            [self.navigationController pushViewController:riskVC animated:YES];
+        }
+            break;
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        case 3:
+        {
+            
+        }
+            break;
+        case 4:
+        {
+         
+        }
+            break;
+        case 5:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

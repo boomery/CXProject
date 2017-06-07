@@ -69,4 +69,9 @@
     [db close];
     return photosArray;
 }
++ (NSString *)textKindForIndex:(NSInteger)index
+{
+    NSArray *array = @[@"安全文明", @"质量风险", @"优秀照片"];
+    return array[index];
+}
 @end

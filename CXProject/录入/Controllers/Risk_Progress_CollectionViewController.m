@@ -9,6 +9,7 @@
 #import "Risk_Progress_CollectionViewController.h"
 #import "FileCell.h"
 #import "Risk_Progress_PhotoViewController.h"
+#import "Photo+Addtion.h"
 @interface Risk_Progress_CollectionViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource>
 
 @property (nonatomic, strong)  UICollectionView *collectionView;
@@ -80,7 +81,7 @@ static NSString *headerIdentifier = @"sectionHeader";
     else
     {
         photoVC.title = @"未分类";
-        photoVC.kind = [NSString stringWithFormat:@"%ld",self.index];
+        photoVC.kind = [Photo textKindForIndex:self.index];
         [self.navigationController pushViewController:photoVC animated:YES];
     }
 }
