@@ -30,9 +30,10 @@
                         </state>
                         <state key="disabled" backgroundImage="file"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KZ-d4-Y6G">
-                        <rect key="frame" x="95.5" y="210" width="92" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-06-13" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4KZ-d4-Y6G">
+                        <rect key="frame" x="0.5" y="210" width="283" height="30"/>
+                        <color key="backgroundColor" red="1" green="0.58616451469999997" blue="0.88029855109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -49,10 +50,12 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="4KZ-d4-Y6G" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="39Q-CV-HND"/>
                 <constraint firstItem="Abq-tr-geR" firstAttribute="width" secondItem="Wtd-2I-pag" secondAttribute="width" multiplier="0.45" id="Hhc-dc-Rc4"/>
-                <constraint firstAttribute="bottom" secondItem="4KZ-d4-Y6G" secondAttribute="bottom" constant="9" id="Phe-45-5oe"/>
+                <constraint firstAttribute="bottom" secondItem="4KZ-d4-Y6G" secondAttribute="bottom" id="Phe-45-5oe"/>
                 <constraint firstAttribute="bottom" secondItem="Wtd-2I-pag" secondAttribute="bottom" constant="40" id="ira-Nv-zZF"/>
                 <constraint firstItem="4KZ-d4-Y6G" firstAttribute="centerX" secondItem="Wtd-2I-pag" secondAttribute="centerX" id="pq3-yH-9jQ"/>
+                <constraint firstItem="4KZ-d4-Y6G" firstAttribute="top" secondItem="Wtd-2I-pag" secondAttribute="bottom" constant="10" id="q4Z-Ez-hiT"/>
                 <constraint firstItem="Abq-tr-geR" firstAttribute="bottom" secondItem="Wtd-2I-pag" secondAttribute="bottom" constant="-5" id="quJ-dC-rWO"/>
                 <constraint firstItem="Wtd-2I-pag" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sDr-a7-Ol1"/>
                 <constraint firstItem="Abq-tr-geR" firstAttribute="centerX" secondItem="Wtd-2I-pag" secondAttribute="centerX" id="tjJ-Yx-Wd6"/>

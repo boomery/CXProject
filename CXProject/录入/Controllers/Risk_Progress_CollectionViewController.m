@@ -31,7 +31,15 @@ static NSString *headerIdentifier = @"sectionHeader";
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
     self.automaticallyAdjustsScrollViewInsets = YES;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 0, self.view.width-20, self.view.height) collectionViewLayout:layout];
+    if (self.isShort)
+    {
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 0, self.view.width-20, self.view.height-50-64) collectionViewLayout:layout];
+
+    }
+    else
+    {
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 0, self.view.width-20, self.view.height) collectionViewLayout:layout];
+    }
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -116,7 +124,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 //定义每个Cell的大小
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((self.view.width - 4*15)/2.0, (self.view.width - 4*15)/2.0 *97/122.0);
+    return CGSizeMake((self.view.width - 4*15)/2.0, (self.view.width - 4*15)/2.0 *97/122.0 + 30);
 }
 
 //定义每个Section的四边间距

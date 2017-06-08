@@ -12,6 +12,8 @@
 
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSArray *sourceArray;
+//是否显示未分类文件夹
 @property (nonatomic, assign) BOOL showUnsorted;
-
+//collectionView高度
+@property (nonatomic, assign) BOOL isShort;
 @end

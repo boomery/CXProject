@@ -49,6 +49,7 @@ static NSString *headerIdentifier = @"sectionHeader";
             c.sourceArray = event.events;
         }
         c.showUnsorted = YES;
+        c.isShort = YES;
         c.index = i;
         [self.controllerArray addObject:c];
     }
