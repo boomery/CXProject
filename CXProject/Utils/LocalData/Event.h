@@ -44,4 +44,5 @@
 @property (nonatomic, strong) NSMutableArray *events;
 /*------------------------风险评估-----------------------------*/
 
++ (Event *)eventWithDictionary:(NSDictionary *)dict;
 @end

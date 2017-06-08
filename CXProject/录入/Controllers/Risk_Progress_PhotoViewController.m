@@ -30,7 +30,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 
 - (void)initData
 {
-    self.sourceArray = [Photo photosForProjectID:[User editingProject].fileName kind:self.kind];
+    self.sourceArray = [Photo unsortedPhotosForProjectID:[User editingProject].fileName kind:self.kind];
     [self.collectionView reloadData];
 }
 

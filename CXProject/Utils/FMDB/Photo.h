@@ -24,4 +24,6 @@
 
 @property (nonatomic, strong) UIImage *image;
 
+@property (nonatomic, strong) Event *subEvent;
+
 @end

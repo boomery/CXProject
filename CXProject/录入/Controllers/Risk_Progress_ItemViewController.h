@@ -12,4 +12,8 @@
 
 @property (nonatomic, strong) Event *event;
 
+@property (nonatomic, copy) void (^saveBlock)(NSArray *itemArray);
+
+@property (nonatomic, strong) NSMutableArray *itemArray;
+
 @end

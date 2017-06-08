@@ -12,5 +12,6 @@
 
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, strong) NSArray *sourceArray;
+@property (nonatomic, assign) BOOL showUnsorted;
 
 @end

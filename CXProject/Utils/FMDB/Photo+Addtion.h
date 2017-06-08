@@ -11,7 +11,7 @@
 @interface Photo (Addtion)
 
 + (void)insertNewPhoto:(Photo *)photo;
-+ (NSMutableArray *)photosForProjectID:(NSString *)projectID kind:(NSString *)kind;
++ (NSMutableArray *)unsortedPhotosForProjectID:(NSString *)projectID kind:(NSString *)kind;
 
 + (NSString *)textKindForIndex:(NSInteger)index;
 @end

@@ -40,14 +40,15 @@ static NSString *headerIdentifier = @"sectionHeader";
     self.titleArray = @[@"安全文明", @"质量风险", @"优秀照片"];
     NSArray *array = [DataProvider riskProgressItems];
     
-    for (int i = 0; i < self.titleArray.count && i < array.count; i++)
+    for (int i = 0; i < _titleArray.count; i++)
     {
         Risk_Progress_CollectionViewController *c = [[Risk_Progress_CollectionViewController alloc] init];
-        if (i < array.count - 1)
+        if (i < array.count)
         {
             Event *event = array[i];
             c.sourceArray = event.events;
         }
+        c.showUnsorted = YES;
         c.index = i;
         [self.controllerArray addObject:c];
     }
@@ -73,7 +74,7 @@ static NSString *headerIdentifier = @"sectionHeader";
         
         NSString *mediaType = AVMediaTypeVideo;
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusNotDetermined){
+        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
             [SVProgressHUD showErrorWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
             return;
         }

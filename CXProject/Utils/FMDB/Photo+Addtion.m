@@ -34,7 +34,7 @@
     [db close];
 }
 
-+ (NSMutableArray *)photosForProjectID:(NSString *)projectID kind:(NSString *)kind
++ (NSMutableArray *)unsortedPhotosForProjectID:(NSString *)projectID kind:(NSString *)kind
 {
     NSMutableArray *photosArray = [[NSMutableArray alloc] init];
     
@@ -47,7 +47,7 @@
     [db setShouldCacheStatements:YES];
     
     NSString *querySql= [NSString stringWithFormat:
-                         @"select *from %@ where projectID = '%@' and kind = '%@'",[CXDataBaseUtil riskProgressTableName],projectID, kind];
+                         @"select *from %@ where projectID = '%@' and kind = '%@' and item = '' and subItem = '' and subItem2 = ''",[CXDataBaseUtil riskProgressTableName],projectID, kind];
     FMResultSet *res = [db executeQuery:querySql];
     while ([res next])
     {

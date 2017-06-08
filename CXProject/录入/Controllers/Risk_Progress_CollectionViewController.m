@@ -29,9 +29,9 @@ static NSString *headerIdentifier = @"sectionHeader";
 - (void)initViews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-    
+    self.automaticallyAdjustsScrollViewInsets = YES;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 0, self.view.width-20, self.view.height - 54 - 64) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10, 0, self.view.width-20, self.view.height) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -50,7 +50,11 @@ static NSString *headerIdentifier = @"sectionHeader";
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _sourceArray.count + 1;
+    if (_showUnsorted)
+    {
+        return _sourceArray.count + 1;
+    }
+    return _sourceArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +80,11 @@ static NSString *headerIdentifier = @"sectionHeader";
     if (self.sourceArray.count > indexPath.row)
     {
         Event *event = self.sourceArray[indexPath.row];
-        photoVC.title = event.name;
+        Risk_Progress_CollectionViewController *collection = [[Risk_Progress_CollectionViewController alloc] init];
+        collection.title = event.name;
+        collection.sourceArray = event.events;
+        [self.navigationController pushViewController:collection animated:YES];
+
     }
     else
     {
@@ -117,11 +125,6 @@ static NSString *headerIdentifier = @"sectionHeader";
     return UIEdgeInsetsMake(10, 10, 10, 10);//分别为上、左、下、右
 }
 
-//    //这个是两行cell之间的间距（上下行cell的间距）
-//    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
-
-//    //两个cell之间的间距（同一行的cell的间距）
-//    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
 #pragma mark - DZNEmptyDataSetSource
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {

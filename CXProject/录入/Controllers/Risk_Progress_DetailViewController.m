@@ -9,6 +9,7 @@
 #import "Risk_Progress_DetailViewController.h"
 #import "UIViewController+BackButtonHandler.h"
 #import "Risk_Progress_ItemViewController.h"
+#import "Photo+Addtion.h"
 @interface Risk_Progress_DetailViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     NSArray *_titleArray;
@@ -80,8 +81,9 @@
 
 - (void)savePhoto
 {
-    
+    [Photo insertNewPhoto:_photo];
 }
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -101,21 +103,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         cell.textLabel.textAlignment = NSTextAlignmentLeft;
         cell.detailTextLabel.textAlignment = NSTextAlignmentLeft;
+        cell.detailTextLabel.font = LABEL_FONT;
+        cell.detailTextLabel.numberOfLines = 0;
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
-    
     cell.textLabel.text = _titleArray[indexPath.section];
     switch (indexPath.section)
     {
         case 0:
         {
-            
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@-%@",_photo.item,_photo.subItem];
         }
             break;
         case 1:
         {
-            
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",_photo.subItem2];
         }
             break;
         case 2:
@@ -162,12 +164,54 @@
                     riskVC.event = event;
                 }
             }
+            riskVC.itemArray = [[NSMutableArray alloc] init];
+            __weak typeof(self) weakSelf = self;
+            riskVC.saveBlock = ^(NSArray *itemArray) {
+                for (int i = 0; i< itemArray.count; i++)
+                {
+                    Event *event = itemArray[i];
+                    switch (i) {
+                        case 0:
+                            _photo.item = event.name;
+                            break;
+                        case 1:
+                            _photo.subItem = event.name;
+                            _photo.subEvent = event;
+                            break;
+                        case 2:
+                            _photo.subItem2 = event.name;
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                [weakSelf.tableView reloadData];
+            };
             [self.navigationController pushViewController:riskVC animated:YES];
         }
             break;
         case 1:
         {
-            
+            Risk_Progress_ItemViewController *riskVC = [[Risk_Progress_ItemViewController alloc] init];
+            riskVC.event = _photo.subEvent;
+            riskVC.itemArray = [[NSMutableArray alloc] init];
+            __weak typeof(self) weakSelf = self;
+            riskVC.saveBlock = ^(NSArray *itemArray) {
+                for (int i = 0; i< itemArray.count; i++)
+                {
+                    Event *event = itemArray[i];
+                    switch (i) {
+                        case 0:
+                            _photo.subItem2 = event.name;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                [weakSelf.tableView reloadData];
+            };
+            [self.navigationController pushViewController:riskVC animated:YES];
         }
             break;
         case 2:
@@ -193,6 +237,24 @@
         default:
             break;
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize size;
+    if (indexPath.section == 0)
+    {
+        NSDictionary *attribute = @{NSFontAttributeName:LABEL_FONT};
+        size = [[NSString stringWithFormat:@"%@-%@",_photo.item,_photo.subItem] boundingRectWithSize:CGSizeMake(DEF_SCREEN_WIDTH*0.7 , MAXFLOAT)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+        return size.height + 30;
+    }
+    else if (indexPath.section == 1)
+    {
+        NSDictionary *attribute = @{NSFontAttributeName:LABEL_FONT};
+        size = [_photo.subItem2 boundingRectWithSize:CGSizeMake(DEF_SCREEN_WIDTH*0.7 , MAXFLOAT)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
+        return size.height + 30;
+    }
+    return 44;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

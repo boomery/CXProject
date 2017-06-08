@@ -71,7 +71,7 @@ static DataProvider *provider = nil;
         }
         else if (type == 3)
         {
-            data = [Data riskDataWithDict:dict];
+            data = [Data riskProgressDataWithDict:dict];
         }
         return data;
     }
