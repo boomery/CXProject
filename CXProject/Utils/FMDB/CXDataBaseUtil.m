@@ -86,13 +86,18 @@ static FMDatabase *_db = nil;
     return @"RISK_PROGRESS_TABLE";
 }
 
++ (BOOL)saveImage:(UIImage *)image withRatio:(CGFloat)ratio imageName:(NSString *)imageName
+{
+    return [UIImageJPEGRepresentation(image, ratio) writeToFile:[CXDataBaseUtil imagePathForName:imageName] atomically:YES];
+}
+
 + (NSString *)imageName
 {
     NSDate *date = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd-hh_mm_ss"];
     NSString *dateString = [formatter stringFromDate:date];
-    NSString *imageName = [NSString stringWithFormat:@"image_create_at_%@",dateString];
+    NSString *imageName = [NSString stringWithFormat:@"image_create_at_%@.png",dateString];
     return imageName;
 }
 

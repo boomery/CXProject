@@ -20,6 +20,8 @@
 + (NSString *)riskTableName;
 + (NSString *)riskProgressTableName;
 
++ (BOOL)saveImage:(UIImage *)image withRatio:(CGFloat)ratio imageName:(NSString *)imageName;
+
 + (NSString *)imageName;
 
 + (NSString *)imagePathForName:(NSString *)imageName;

@@ -155,7 +155,7 @@
 //        
 //        NSString *imageName = [CXDataBaseUtil imageName];
 //        //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-//        if ( [UIImageJPEGRepresentation(image, 0.5) writeToFile:[CXDataBaseUtil imagePathForName:imageName]  atomically:YES])
+//        if ([CXDataBaseUtil saveImage:image withRatio:0.5 imageName:imageName])
 //        {
 //            MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
 //            if (res.measurePhoto.length != 0)
