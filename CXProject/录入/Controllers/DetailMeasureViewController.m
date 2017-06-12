@@ -283,7 +283,6 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
             [MeasureResult insertNewMeasureResult:res];
             [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
         }
-        
         [picker dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarHidden:NO];
             // 改变状态栏的颜色  改变为白色

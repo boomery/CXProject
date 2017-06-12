@@ -61,9 +61,20 @@ static NSString *headerIdentifier = @"sectionHeader";
 {
     ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:fileCellIdentifier forIndexPath:indexPath];
     Photo *photo = self.sourceArray[indexPath.row];
-    UIImage *image = [UIImage imageWithContentsOfFile:photo.photoFilePath];
-    photo.image = image;
-    cell.imageView.image = image;
+    if (!photo.image)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [UIImage imageWithContentsOfFile:photo.photoFilePath];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                photo.image = image;
+                cell.imageView.image = image;
+            });
+        });
+    }
+    else
+    {
+        cell.imageView.image = photo.image;
+    }
     return cell;
 }
 
@@ -133,6 +144,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 /*
