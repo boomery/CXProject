@@ -202,6 +202,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
             [view addGestureRecognizer:tap];
             
             UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
             [self.view addSubview:imageView];
             _imageView = imageView;
             [imageView autoCenterInSuperview];

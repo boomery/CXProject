@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
-    _drawView.backgroundColor = [UIColor redColor];
+    _drawView.backgroundColor = [UIColor blackColor];
     _drawView.brushColor = [UIColor redColor];
     _drawView.brushWidth = 3;
     _drawView.shapeType = LSShapeEllipse;
