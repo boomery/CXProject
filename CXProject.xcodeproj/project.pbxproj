@@ -129,6 +129,7 @@
 		908C82631E9F0CAB0086EDCD /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908C82621E9F0CAB0086EDCD /* InputView.m */; };
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
+		90ACDC5B1EEFBE2F0035056D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ACDC5A1EEFBE2F0035056D /* FileManager.m */; };
 		90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA67E1ED3E262003C85CB /* SoundPlayer.m */; };
 		90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6821ED3E35C003C85CB /* 0.WAV */; };
 		90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6831ED3E35C003C85CB /* 1.WAV */; };
@@ -404,6 +405,8 @@
 		908D03761E835EB600F0C0C1 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		908D03791E83987300F0C0C1 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
 		908D037A1E83987300F0C0C1 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
+		90ACDC591EEFBE2F0035056D /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		90ACDC5A1EEFBE2F0035056D /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		90BCA67D1ED3E262003C85CB /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		90BCA67E1ED3E262003C85CB /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		90BCA6821ED3E35C003C85CB /* 0.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.WAV; sourceTree = "<group>"; };
@@ -843,6 +846,8 @@
 				9028C95E1EADC6C2003DA545 /* Data.m */,
 				9028C95F1EADC6C2003DA545 /* DataProvider.h */,
 				9028C9601EADC6C2003DA545 /* DataProvider.m */,
+				90ACDC591EEFBE2F0035056D /* FileManager.h */,
+				90ACDC5A1EEFBE2F0035056D /* FileManager.m */,
 				9028C9611EADC6C2003DA545 /* Event.h */,
 				9028C9621EADC6C2003DA545 /* Event.m */,
 				9028C9631EADC6C2003DA545 /* NSString+isValid.h */,
@@ -1408,6 +1413,7 @@
 				9028C9B31EB3203B003DA545 /* ContactViewController.m in Sources */,
 				9016C79A1E8A53D600B19056 /* SRWebSocket.m in Sources */,
 				90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */,
+				90ACDC5B1EEFBE2F0035056D /* FileManager.m in Sources */,
 				90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */,
 				908BFE461E97264600937372 /* InputCell2.m in Sources */,
 				9028C9A91EB30A17003DA545 /* PhotoCell.m in Sources */,

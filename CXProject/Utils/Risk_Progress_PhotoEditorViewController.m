@@ -7,12 +7,14 @@
 //
 
 #import "Risk_Progress_PhotoEditorViewController.h"
-
+#import "Risk_Progress_DetailViewController.h"
+#import "FileManager.h"
 @interface Risk_Progress_PhotoEditorViewController ()
 {
     UIButton *_selectedButton;
     __weak IBOutlet UIButton *_firstButton;
     __weak IBOutlet LSDrawView *_drawView;
+    Photo *_photo;
 }
 @end
 
@@ -31,6 +33,22 @@
     _firstButton.selected = YES;
     _firstButton.backgroundColor = [UIColor colorWithRed:0.23 green:0.56 blue:0.96 alpha:1.00];
     _selectedButton = _firstButton;
+    
+    NSString *imageName = [FileManager imageName];
+    Photo *photo = [[Photo alloc] init];
+    photo.projectID = [User editingProject].fileName;
+    photo.photoName = imageName;
+    photo.save_time = [FileManager currentTime];
+    photo.place = @"";
+    photo.kind = [Photo textKindForIndex:0];
+    photo.item = @"";
+    photo.subItem = @"";
+    photo.subItem2 = @"";
+    photo.subItem3 = @"";
+    photo.responsibility = @"";
+    photo.repair_time = @"";
+    photo.image = nil;
+    _photo = photo;
 }
 
 - (IBAction)kindButtonClick:(UIButton *)sender
@@ -50,10 +68,27 @@
     [_drawView unDo];
 }
 
+- (IBAction)editDetail:(id)sender
+{
+    [_drawView save];
+    
+    Risk_Progress_DetailViewController *detailVC = [[Risk_Progress_DetailViewController alloc] init];
+    
+    _photo.image = _drawView.editedImage;
+    _photo.kind = [Photo textKindForIndex:_selectedButton.tag];
+    detailVC.photo = _photo;
+
+    detailVC.saveBlock = ^(Photo *photo){
+        _photo = photo;
+    };
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+
 - (IBAction)confirmButtonClick:(id)sender
 {
     [_drawView save];
-    self.imageBlock(_drawView.editedImage, _selectedButton.tag);
+    self.imageBlock(_photo);
 }
 
 /*

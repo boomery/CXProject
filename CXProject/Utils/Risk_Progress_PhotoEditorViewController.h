@@ -8,10 +8,11 @@
 
 #import "BaseViewController.h"
 #import "LSDrawView.h"
+#import "Photo+Addtion.h"
 @interface Risk_Progress_PhotoEditorViewController : BaseViewController
 
 @property (nonatomic, strong) UIImage *image;
-@property (nonatomic, copy) void (^imageBlock)(UIImage *image, NSInteger kind);
+@property (nonatomic, copy) void (^imageBlock)(Photo *photo);
 @property (nonatomic, assign) BOOL haveTag;
 
 @end

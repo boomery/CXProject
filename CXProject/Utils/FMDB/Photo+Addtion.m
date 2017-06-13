@@ -8,6 +8,7 @@
 
 #import "Photo+Addtion.h"
 #import "CXDataBaseUtil.h"
+#import "FileManager.h"
 @implementation Photo (Addtion)
 + (void)insertNewPhoto:(Photo *)photo
 {
@@ -20,8 +21,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.responsibility, photo.responsibility];
+                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.subItem3,photo.responsibility, photo.responsibility];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -47,7 +48,7 @@
     [db setShouldCacheStatements:YES];
     
     NSString *querySql= [NSString stringWithFormat:
-                         @"select *from %@ where projectID = '%@' and kind = '%@' and item = '' and subItem = '' and subItem2 = ''",[CXDataBaseUtil riskProgressTableName],projectID, kind];
+                         @"select *from %@ where projectID = '%@' and kind = '%@' and item = '' and subItem = '' and subItem2 = '' and subItem3 = ''",[CXDataBaseUtil riskProgressTableName],projectID, kind];
     FMResultSet *res = [db executeQuery:querySql];
     while ([res next])
     {
@@ -56,11 +57,12 @@
         photo.photoName = [res stringForColumn:@"photoName"];
         photo.save_time = [res stringForColumn:@"save_time"];
         photo.place = [res stringForColumn:@"place"];
-        photo.photoFilePath = [CXDataBaseUtil imagePathForName:[res stringForColumn:@"photoName"]];
+        photo.photoFilePath = [FileManager imagePathForName:[res stringForColumn:@"photoName"]];
         photo.kind = [res stringForColumn:@"kind"];
         photo.item = [res stringForColumn:@"item"];
         photo.subItem = [res stringForColumn:@"subItem"];
         photo.subItem2 = [res stringForColumn:@"subItem2"];
+        photo.subItem3 = [res stringForColumn:@"subItem3"];
         photo.responsibility = [res stringForColumn:@"responsibility"];
         photo.repair_time = [res stringForColumn:@"repair_time"];
         [photosArray addObject:photo];
@@ -103,11 +105,12 @@
             photo.photoName = [res stringForColumn:@"photoName"];
             photo.save_time = [res stringForColumn:@"save_time"];
             photo.place = [res stringForColumn:@"place"];
-            photo.photoFilePath = [CXDataBaseUtil imagePathForName:[res stringForColumn:@"photoName"]];
+            photo.photoFilePath = [FileManager imagePathForName:[res stringForColumn:@"photoName"]];
             photo.kind = [res stringForColumn:@"kind"];
             photo.item = [res stringForColumn:@"item"];
             photo.subItem = [res stringForColumn:@"subItem"];
             photo.subItem2 = [res stringForColumn:@"subItem2"];
+            photo.subItem3 = [res stringForColumn:@"subItem3"];
             photo.responsibility = [res stringForColumn:@"responsibility"];
             photo.repair_time = [res stringForColumn:@"repair_time"];
             [photosArray addObject:photo];

@@ -65,7 +65,7 @@ static FMDatabase *_db = nil;
     }
     if(![db tableExists:[CXDataBaseUtil riskProgressTableName]])
     {
-        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, photoName TEXT, save_time TEXT, place TEXT, kind TEXT, item TEXT, subItem TEXT, subItem2 TEXT, responsibility TEXT, repair_time TEXT,PRIMARY KEY(projectID, photoName))",[CXDataBaseUtil riskProgressTableName]];
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, photoName TEXT, save_time TEXT, place TEXT, kind TEXT, item TEXT, subItem TEXT, subItem2 TEXT, subItem3 TEXT, responsibility TEXT, repair_time TEXT,PRIMARY KEY(projectID, photoName))",[CXDataBaseUtil riskProgressTableName]];
         if ([db executeUpdate:createSql])
         {
             NSLog(@"风险过程评估建表成功");
@@ -84,30 +84,6 @@ static FMDatabase *_db = nil;
 + (NSString *)riskProgressTableName
 {
     return @"RISK_PROGRESS_TABLE";
-}
-
-+ (BOOL)saveImage:(UIImage *)image withRatio:(CGFloat)ratio imageName:(NSString *)imageName
-{
-    return [UIImageJPEGRepresentation(image, ratio) writeToFile:[CXDataBaseUtil imagePathForName:imageName] atomically:YES];
-}
-
-+ (NSString *)imageName
-{
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd-hh_mm_ss"];
-    NSString *dateString = [formatter stringFromDate:date];
-    NSString *imageName = [NSString stringWithFormat:@"image_create_at_%@.png",dateString];
-    return imageName;
-}
-
-+ (NSString *)imagePathForName:(NSString *)imageName
-{
-    //首先,需要获取沙盒路径
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    // 拼接图片名为"currentImage.png"的路径
-    NSString *imageFilePath = [path stringByAppendingPathComponent:imageName];
-    return imageFilePath;
 }
 
 + (NSString *)getDatabasePath

@@ -16,6 +16,7 @@
 #import "CXDataBaseUtil.h"
 #import "NSString+isValid.h"
 #import "DetailMeasureCell.h"
+#import "FileManager.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
 {
     NSArray *_titleArray;
@@ -207,7 +208,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
             _imageView = imageView;
             [imageView autoCenterInSuperview];
             [imageView autoSetDimensionsToSize:CGSizeMake(300, 300)];
-            imageView.image = [UIImage imageWithContentsOfFile:[CXDataBaseUtil imagePathForName:res.measurePhoto]];
+            imageView.image = [UIImage imageWithContentsOfFile:[FileManager imagePathForName:res.measurePhoto]];
             _showPhoto = !_showPhoto;
         }
     }
@@ -269,14 +270,14 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
     
     editor.imageBlock = ^(UIImage *image){
         
-        NSString *imageName = [CXDataBaseUtil imageName];
+        NSString *imageName = [FileManager imageName];
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ([CXDataBaseUtil saveImage:image withRatio:0.5 imageName:imageName])
+        if ([FileManager saveImage:image withRatio:0.5 imageName:imageName])
         {
             MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
             if (res.measurePhoto.length != 0)
             {
-                [[NSFileManager defaultManager] removeItemAtPath:[CXDataBaseUtil imagePathForName:res.measurePhoto] error:nil];
+                [[NSFileManager defaultManager] removeItemAtPath:[FileManager imagePathForName:res.measurePhoto] error:nil];
                 NSLog(@"移除旧照片");
             }
             res.measurePhoto = imageName;

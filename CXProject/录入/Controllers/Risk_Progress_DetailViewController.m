@@ -81,7 +81,17 @@
 
 - (void)savePhoto
 {
-    [Photo insertNewPhoto:_photo];
+    //直接编辑详细分类执行
+    if (self.saveBlock)
+    {
+        self.saveBlock(_photo);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    //先保存后编辑详细分类执行
+    else
+    {
+        [Photo insertNewPhoto:_photo];
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -117,7 +127,7 @@
             break;
         case 1:
         {
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",_photo.subItem2];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"%@-%@",_photo.subItem2,_photo.subItem3];
         }
             break;
         case 2:
@@ -175,14 +185,20 @@
                             _photo.item = event.name;
                             _photo.subItem = @"";
                             _photo.subItem2 = @"";
+                            _photo.subItem3 = @"";
                             break;
                         case 1:
                             _photo.subItem = event.name;
                             _photo.subEvent = event;
                             _photo.subItem2 = @"";
+                            _photo.subItem3 = @"";
                             break;
                         case 2:
                             _photo.subItem2 = event.name;
+                            _photo.subItem3 = @"";
+                            break;
+                        case 3:
+                            _photo.subItem3 = event.name;
                             break;
                         default:
                             break;
@@ -204,14 +220,17 @@
                 for (int i = 0; i< itemArray.count; i++)
                 {
                     Event *event = itemArray[i];
-//                    switch (i) {
-//                        case 0:
-//                            _photo.subItem2 = event.name;
-//                            break;
-//                        default:
-//                            break;
-//                    }
-                    _photo.subItem2 = event.name;
+                    switch (i) {
+                        case 0:
+                            _photo.subItem2 = event.name;
+                            _photo.subItem3 = @"";
+                            break;
+                        case 1:
+                            _photo.subItem3 = event.name;
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 [weakSelf.tableView reloadData];
             };

@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *item;
 @property (nonatomic, copy) NSString *subItem;
 @property (nonatomic, copy) NSString *subItem2;
+@property (nonatomic, copy) NSString *subItem3;
 @property (nonatomic, copy) NSString *responsibility;
 @property (nonatomic, copy) NSString *repair_time;
 

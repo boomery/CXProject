@@ -13,6 +13,7 @@
 #import "Risk_Progress_PhotoEditorViewController.h"
 #import "CXDataBaseUtil.h"
 #import "Photo+Addtion.h"
+#import "FileManager.h"
 @interface Risk_Progress_ViewController () <ViewPagerDelegate, ViewPagerDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *controllerArray;
@@ -118,33 +119,13 @@ static NSString *headerIdentifier = @"sectionHeader";
     [picker pushViewController:editor animated:YES];
     editor.image = image;
     
-    editor.imageBlock = ^(UIImage *image, NSInteger index){
-        
-        NSString *imageName = [CXDataBaseUtil imageName];
+    editor.imageBlock = ^(Photo *photo){
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ([CXDataBaseUtil saveImage:image withRatio:0.5 imageName:imageName])
+        if ([FileManager saveImage:photo.image withRatio:0.5 imageName:photo.photoName])
         {
-            Photo *photo = [[Photo alloc] init];
-            photo.projectID = [User editingProject].fileName;
-            photo.photoName = imageName;
-            
-            NSDate *date = [NSDate date];
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"yyyy-MM-dd-hh_mm_ss"];
-            NSString *dateString = [formatter stringFromDate:date];
-            photo.save_time = dateString;
-            photo.place = @"";
-            photo.kind = [Photo textKindForIndex:index];
-            photo.item = @"";
-            photo.subItem = @"";
-            photo.subItem2 = @"";
-            photo.responsibility = @"";
-            photo.repair_time = @"";
-            
             [Photo insertNewPhoto:photo];
             [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
         }
-        
         [picker dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarHidden:NO];
             // 改变状态栏的颜色  改变为白色

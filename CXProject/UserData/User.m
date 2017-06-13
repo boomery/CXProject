@@ -158,7 +158,7 @@ static User *sharedUser = nil;
 {
     NSDate *date = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd-hh_mm_ss"];
+    [formatter setDateFormat:@"yyyy-MM-dd-HH_mm_ss"];
     NSString *dateString = [formatter stringFromDate:date];
     NSString *fileName = [NSString stringWithFormat:@"project_create_at_%@",dateString];
     return fileName;
