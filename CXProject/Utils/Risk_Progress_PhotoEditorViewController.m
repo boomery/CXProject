@@ -88,6 +88,8 @@
 - (IBAction)confirmButtonClick:(id)sender
 {
     [_drawView save];
+    _photo.image = _drawView.editedImage;
+    _photo.kind = [Photo textKindForIndex:_selectedButton.tag];
     self.imageBlock(_photo);
 }
 

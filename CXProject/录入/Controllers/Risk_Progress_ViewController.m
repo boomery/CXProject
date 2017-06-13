@@ -113,7 +113,6 @@ static NSString *headerIdentifier = @"sectionHeader";
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    
     Risk_Progress_PhotoEditorViewController *editor = [[Risk_Progress_PhotoEditorViewController alloc] init];
     editor.haveTag = YES;
     [picker pushViewController:editor animated:YES];
