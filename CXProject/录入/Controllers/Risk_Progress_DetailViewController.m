@@ -10,10 +10,12 @@
 #import "UIViewController+BackButtonHandler.h"
 #import "Risk_Progress_ItemViewController.h"
 #import "Photo+Addtion.h"
-@interface Risk_Progress_DetailViewController ()<UITableViewDataSource, UITableViewDelegate>
+#import "XLPhotoBrowser.h"
+@interface Risk_Progress_DetailViewController ()<UITableViewDataSource, UITableViewDelegate, XLPhotoBrowserDatasource, XLPhotoBrowserDelegate>
 {
     NSArray *_titleArray;
     BOOL _haveChanged;
+    UIImageView *_headImageView;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @end
@@ -43,11 +45,17 @@
     headerView.frame = CGRectMake(0, 0, self.view.width, self.view.width);
     
     UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
+    imageView.userInteractionEnabled = YES;
     [headerView addSubview:imageView];
     [imageView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
     imageView.backgroundColor = LINE_COLOR;
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     imageView.image = self.photo.image;
+    _headImageView = imageView;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewImages)];
+    tap.numberOfTapsRequired = 1;
+    [imageView addGestureRecognizer:tap];
     
     UIView *lineView = [[UIView alloc] initForAutoLayout];
     [headerView addSubview:lineView];
@@ -94,6 +102,51 @@
     {
         [Photo insertNewPhoto:_photo];
     }
+}
+
+- (void)viewImages
+{
+    [XLPhotoBrowser showPhotoBrowserWithCurrentImageIndex:_photo.tag imageCount:self.photoArray.count datasource:self delegate:self];
+}
+
+#pragma mark - XLPhotoBrowserDatasource
+/**
+ *  返回这个位置的占位图片 , 也可以是原图
+ *  如果不实现此方法,会默认使用placeholderImage
+ *
+ *  @param browser 浏览器
+ *  @param index   位置索引
+ *
+ *  @return 占位图片
+ */
+- (UIImage *)photoBrowser:(XLPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    Photo *p = self.photoArray[index];
+    return p.image;
+}
+
+/**
+ *  返回指定位置图片的UIImageView,用于做图片浏览器弹出放大和消失回缩动画等
+ *  如果没有实现这个方法,没有回缩动画,如果传过来的view不正确,可能会影响回缩动画效果
+ *
+ *  @param browser 浏览器
+ *  @param index   位置索引
+ *
+ *  @return 展示图片的容器视图,如UIImageView等
+ */
+- (UIView *)photoBrowser:(XLPhotoBrowser *)browser sourceImageViewForIndex:(NSInteger)index
+{
+    return _headImageView;
+}
+
+#pragma mark - XLPhotoBrowserDelegate
+- (void)photoBrowser:(XLPhotoBrowser *)browser moveToImageIndex:(NSInteger)currentImageIndex
+{
+    _photo = _photoArray[currentImageIndex];
+    _photo.tag = currentImageIndex;
+    _headImageView.image = _photo.image;
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource

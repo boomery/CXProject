@@ -27,4 +27,5 @@
 
 @property (nonatomic, strong) Event *subEvent;
 
+@property (nonatomic, assign) NSInteger tag;
 @end

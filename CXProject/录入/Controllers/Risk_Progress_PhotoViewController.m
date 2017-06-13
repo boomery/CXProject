@@ -146,12 +146,23 @@ static NSString *headerIdentifier = @"sectionHeader";
     if (self.kind)
     {
         photo = self.sourceArray[indexPath.row];
-        
+        //
+        detailVC.photoArray = self.sourceArray;
+        photo.tag = indexPath.row;
     }
     else
     {
-        NSArray *array = [_arrayDict valueForKey:[_arrayDict allKeys][indexPath.section]];
-        photo = array[indexPath.row];
+        NSArray *photoArray = [_arrayDict valueForKey:[_arrayDict allKeys][indexPath.section]];
+        photo = photoArray[indexPath.row];
+        //
+        NSArray *arraies = [_arrayDict allValues];
+        NSMutableArray *arr = [[NSMutableArray alloc] init];
+        for (NSArray *a in arraies)
+        {
+            [arr addObjectsFromArray:a];
+        }
+        detailVC.photoArray = arr;
+        photo.tag = [detailVC.photoArray indexOfObject:photo];
     }
     detailVC.photo = photo;
     [self.navigationController pushViewController:detailVC animated:YES];

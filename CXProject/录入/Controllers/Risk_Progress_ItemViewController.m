@@ -27,15 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
-//    self.navigationItem.rightBarButtonItem = item;
     [self initData];
     self.tableView.tableFooterView = [[UIView alloc] init];
-}
-
-- (void)save
-{
-    
 }
 
 - (void)initData

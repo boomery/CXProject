@@ -10,6 +10,8 @@
 #import "Photo.h"
 @interface Risk_Progress_DetailViewController : BaseViewController
 
+@property (nonatomic, strong) NSArray *photoArray;
+
 @property (nonatomic, strong) Photo *photo;
 @property (nonatomic, copy) void(^saveBlock)(Photo *photo);
 
