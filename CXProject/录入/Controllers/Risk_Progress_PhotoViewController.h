@@ -11,5 +11,7 @@
 @interface Risk_Progress_PhotoViewController : BaseViewController
 
 @property (nonatomic, copy) NSString *kind;
+@property (nonatomic, strong) Event *event;
+//@property (nonatomic, strong) 
 
 @end

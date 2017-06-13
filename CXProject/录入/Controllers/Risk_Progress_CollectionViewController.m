@@ -20,6 +20,12 @@
 
 static NSString *fileCellIdentifier = @"FileCell";
 static NSString *headerIdentifier = @"sectionHeader";
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.collectionView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -72,30 +78,39 @@ static NSString *headerIdentifier = @"sectionHeader";
     {
         Event *event = self.sourceArray[indexPath.row];
         cell.nameLabel.text = event.name;
-        [cell.circleButton setTitle:@"98%" forState:UIControlStateNormal];
+        [Photo countPhotoForProjectID:[User editingProject].fileName kind:[Photo textKindForIndex:self.index] item:event.name completionBlock:^(NSString *index) {
+            [cell.circleButton setTitle:index forState:UIControlStateNormal];
+        }];
     }
     else
     {
         cell.nameLabel.text = @"未分类";
-        [cell.circleButton setTitle:@"😨" forState:UIControlStateNormal];
+        [Photo countPhotoForProjectID:[User editingProject].fileName kind:[Photo textKindForIndex:self.index] item:@"" completionBlock:^(NSString *index) {
+            [cell.circleButton setTitle:index forState:UIControlStateNormal];
+        }];
     }
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    Risk_Progress_PhotoViewController *photoVC = [[Risk_Progress_PhotoViewController alloc] init];
     if (self.sourceArray.count > indexPath.row)
     {
+//        Event *event = self.sourceArray[indexPath.row];
+//        Risk_Progress_CollectionViewController *collection = [[Risk_Progress_CollectionViewController alloc] init];
+//        collection.title = event.name;
+//        collection.sourceArray = event.events;
+//        [self.navigationController pushViewController:collection animated:YES];
         Event *event = self.sourceArray[indexPath.row];
-        Risk_Progress_CollectionViewController *collection = [[Risk_Progress_CollectionViewController alloc] init];
-        collection.title = event.name;
-        collection.sourceArray = event.events;
-        [self.navigationController pushViewController:collection animated:YES];
-
+        Risk_Progress_PhotoViewController *photoVC = [[Risk_Progress_PhotoViewController alloc] init];
+        photoVC.title =event.name;
+        photoVC.event = event;
+        [self.navigationController pushViewController:photoVC animated:YES];
+        
     }
     else
     {
+        Risk_Progress_PhotoViewController *photoVC = [[Risk_Progress_PhotoViewController alloc] init];
         photoVC.title = @"未分类";
         photoVC.kind = [Photo textKindForIndex:self.index];
         [self.navigationController pushViewController:photoVC animated:YES];

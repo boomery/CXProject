@@ -13,7 +13,8 @@
 @interface Risk_Progress_PhotoViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, DZNEmptyDataSetSource>
 
 @property (nonatomic, strong)  UICollectionView *collectionView;
-@property (nonatomic, strong) NSArray *sourceArray;
+@property (nonatomic, strong) NSMutableArray *sourceArray;
+@property (nonatomic, strong) NSMutableDictionary *arrayDict;
 
 @end
 
@@ -25,13 +26,44 @@ static NSString *headerIdentifier = @"sectionHeader";
 {
     [super viewDidLoad];
     [self initViews];
+//    [self initData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self initData];
 }
 
 - (void)initData
 {
-    self.sourceArray = [Photo unsortedPhotosForProjectID:[User editingProject].fileName kind:self.kind];
-    [self.collectionView reloadData];
+    _sourceArray = [[NSMutableArray alloc] init];
+    _arrayDict = [[NSMutableDictionary alloc] init];
+    if (self.kind)
+    {
+        self.sourceArray = [Photo unsortedPhotosForProjectID:[User editingProject].fileName kind:self.kind];
+        [self.collectionView reloadData];
+    }
+    else if (_event.events.count >0)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            for (int i = 0; i < _event.events.count; i++)
+            {
+                Event *event = _event.events[i];
+                [Photo photosForProjectID:[User editingProject].fileName item:_event.name subItem:event.name completionBlock:^(NSMutableArray *resultArray) {
+                    if (resultArray.count > 0)
+                    {
+                        [_arrayDict setValue:resultArray forKey:[NSString stringWithFormat:@"%d",i]];
+                    }
+                }];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.collectionView reloadData];
+            });
+        });
+
+    }
 }
 
 - (void)initViews
@@ -43,24 +75,52 @@ static NSString *headerIdentifier = @"sectionHeader";
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.alwaysBounceVertical = YES;
     self.collectionView.emptyDataSetSource = self;
     [self.view addSubview:self.collectionView];
     
-    self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.collectionView registerClass:[ImageViewCell class] forCellWithReuseIdentifier:fileCellIdentifier];
     [self.collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier];
 }
 
 #pragma mark - UICollectionViewDataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    if (self.kind)
+    {
+        return 1;
+    }
+    return [_arrayDict allKeys].count;
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _sourceArray.count;
+    if (self.kind)
+    {
+        return _sourceArray.count;
+    }
+    else
+    {
+        NSArray *array = [_arrayDict valueForKey:[_arrayDict allKeys][section]];
+        return array.count;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:fileCellIdentifier forIndexPath:indexPath];
-    Photo *photo = self.sourceArray[indexPath.row];
+    Photo *photo = nil;
+
+    if (self.kind)
+    {
+        photo = self.sourceArray[indexPath.row];
+
+    }
+    else
+    {
+        NSArray *array = [_arrayDict valueForKey:[_arrayDict allKeys][indexPath.section]];
+        photo = array[indexPath.row];
+    }
     if (!photo.image)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -81,26 +141,59 @@ static NSString *headerIdentifier = @"sectionHeader";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Risk_Progress_DetailViewController *detailVC = [[Risk_Progress_DetailViewController alloc] init];
-    Photo *photo = self.sourceArray[indexPath.row];
+    Photo *photo = nil;
+    
+    if (self.kind)
+    {
+        photo = self.sourceArray[indexPath.row];
+        
+    }
+    else
+    {
+        NSArray *array = [_arrayDict valueForKey:[_arrayDict allKeys][indexPath.section]];
+        photo = array[indexPath.row];
+    }
     detailVC.photo = photo;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    return CGSizeMake(DEF_SCREEN_WIDTH, 5);
+    return CGSizeMake(DEF_SCREEN_WIDTH, 44);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerIdentifier forIndexPath:indexPath];
-    UIView *lineView = [UIView newAutoLayoutView];
-    lineView.backgroundColor = [UIColor colorWithRed:0.87 green:0.87 blue:0.88 alpha:1.00];
-    [view addSubview:lineView];
-    [lineView autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:view];
-    [lineView autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:view];
-    [lineView autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:view];
-    [lineView autoSetDimension:ALDimensionHeight toSize:0.5];
+    [view removeAllSubviews];
+    
+    UILabel *titleLabel = [UILabel newAutoLayoutView];
+    [view addSubview:titleLabel];
+    [titleLabel autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:view];
+    [titleLabel autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:view];
+    [titleLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:view withOffset:5];
+    [titleLabel autoSetDimension:ALDimensionHeight toSize:40];
+
+    titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.backgroundColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.15 alpha:1.00];
+    titleLabel.layer.cornerRadius = 5;
+    titleLabel.clipsToBounds = YES;
+    titleLabel.textColor = [UIColor whiteColor];
+    if (!self.kind)
+    {
+        NSInteger index = [[_arrayDict allKeys][indexPath.section] integerValue];
+        Event *event = _event.events[index];
+        titleLabel.text = event.name;
+    }
+    
+//    UIView *lineView = [UIView newAutoLayoutView];
+//    lineView.backgroundColor = [UIColor colorWithRed:0.42 green:0.63 blue:0.91 alpha:1.00];
+//    [view addSubview:lineView];
+//    [lineView autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:view];
+//    [lineView autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:view];
+//    [lineView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:titleLabel withOffset:0];
+//    [lineView autoSetDimension:ALDimensionHeight toSize:5];
     return view;
 }
 
@@ -117,11 +210,6 @@ static NSString *headerIdentifier = @"sectionHeader";
     return UIEdgeInsetsMake(10, 10, 10, 10);//分别为上、左、下、右
 }
 
-//    //这个是两行cell之间的间距（上下行cell的间距）
-//    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section;
-
-//    //两个cell之间的间距（同一行的cell的间距）
-//    - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section;
 #pragma mark - DZNEmptyDataSetSource
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {

@@ -69,6 +69,54 @@
     [db close];
     return photosArray;
 }
+
++ (void)countPhotoForProjectID:(NSString *)projectID kind:(NSString *)kind item:(NSString *)item completionBlock:(void(^)(NSString *index))block
+{
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[CXDataBaseUtil getDatabasePath]];
+    [queue inDatabase:^(FMDatabase *db) {
+        
+        NSString *querySql=  [NSString stringWithFormat:
+                              @"select count(*) as 'count' from '%@' where projectID='%@' and kind == '%@' and item = '%@'",[CXDataBaseUtil riskProgressTableName], projectID, kind, item];
+        FMResultSet *res = [db executeQuery:querySql];
+        while ([res next])
+        {
+            NSString *count = [res stringForColumn:@"count"];
+            block(count);
+        }
+        [res close];
+    }];
+}
+
++ (void)photosForProjectID:(NSString *)projectID item:(NSString *)item subItem:(NSString *)subItem completionBlock:(void(^)(NSMutableArray *resultArray))block
+{
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[CXDataBaseUtil getDatabasePath]];
+    [queue inDatabase:^(FMDatabase *db) {
+        NSMutableArray *photosArray = [[NSMutableArray alloc] init];
+
+        NSString *querySql= [NSString stringWithFormat:
+                             @"select *from %@ where projectID = '%@' and item = '%@' and subItem = '%@'",[CXDataBaseUtil riskProgressTableName],projectID, item, subItem];
+        FMResultSet *res = [db executeQuery:querySql];
+        while ([res next])
+        {
+            Photo *photo = [[Photo alloc] init];
+            photo.projectID = [res stringForColumn:@"projectID"];
+            photo.photoName = [res stringForColumn:@"photoName"];
+            photo.save_time = [res stringForColumn:@"save_time"];
+            photo.place = [res stringForColumn:@"place"];
+            photo.photoFilePath = [CXDataBaseUtil imagePathForName:[res stringForColumn:@"photoName"]];
+            photo.kind = [res stringForColumn:@"kind"];
+            photo.item = [res stringForColumn:@"item"];
+            photo.subItem = [res stringForColumn:@"subItem"];
+            photo.subItem2 = [res stringForColumn:@"subItem2"];
+            photo.responsibility = [res stringForColumn:@"responsibility"];
+            photo.repair_time = [res stringForColumn:@"repair_time"];
+            [photosArray addObject:photo];
+        }
+        [res close];
+        block(photosArray);
+    }];
+}
+
 + (NSString *)textKindForIndex:(NSInteger)index
 {
     NSArray *array = @[@"安全文明", @"质量风险", @"优秀照片"];

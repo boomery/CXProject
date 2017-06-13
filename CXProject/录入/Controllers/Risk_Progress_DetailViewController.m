@@ -173,10 +173,13 @@
                     switch (i) {
                         case 0:
                             _photo.item = event.name;
+                            _photo.subItem = @"";
+                            _photo.subItem2 = @"";
                             break;
                         case 1:
                             _photo.subItem = event.name;
                             _photo.subEvent = event;
+                            _photo.subItem2 = @"";
                             break;
                         case 2:
                             _photo.subItem2 = event.name;
@@ -201,13 +204,14 @@
                 for (int i = 0; i< itemArray.count; i++)
                 {
                     Event *event = itemArray[i];
-                    switch (i) {
-                        case 0:
-                            _photo.subItem2 = event.name;
-                            break;
-                        default:
-                            break;
-                    }
+//                    switch (i) {
+//                        case 0:
+//                            _photo.subItem2 = event.name;
+//                            break;
+//                        default:
+//                            break;
+//                    }
+                    _photo.subItem2 = event.name;
                 }
                 [weakSelf.tableView reloadData];
             };
