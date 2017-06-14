@@ -60,7 +60,10 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZq-q8-dyz">
                     <rect key="frame" x="213" y="442" width="132" height="167.5"/>
-                    <state key="normal" backgroundImage="upload_project"/>
+                    <state key="normal" backgroundImage="management"/>
+                    <connections>
+                        <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="aIU-2N-Y9J"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QH3-W8-chC">
                     <rect key="frame" x="0.0" y="257" width="375" height="1"/>
@@ -136,8 +139,8 @@
         <image name="auto_select" width="118" height="150"/>
         <image name="edit_project" width="118" height="150"/>
         <image name="group_measure" width="118" height="150"/>
+        <image name="management" width="118" height="149"/>
         <image name="measure_project" width="118" height="151"/>
         <image name="measure_risk" width="118" height="151"/>
-        <image name="upload_project" width="118" height="149"/>
     </resources>
 </document>

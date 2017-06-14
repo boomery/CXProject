@@ -83,6 +83,10 @@
     newVC.title = @"团队互评";
     [self.navigationController pushViewController:newVC animated:YES];
 }
+- (IBAction)managementClick:(id)sender
+{
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
