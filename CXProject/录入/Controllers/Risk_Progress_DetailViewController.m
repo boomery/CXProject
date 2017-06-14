@@ -12,6 +12,7 @@
 #import "Photo+Addtion.h"
 #import "XLPhotoBrowser.h"
 #import "FileManager.h"
+#import "SimpleItemTableViewController.h"
 @interface Risk_Progress_DetailViewController ()<UITableViewDataSource, UITableViewDelegate, XLPhotoBrowserDatasource, XLPhotoBrowserDelegate>
 {
     NSArray *_titleArray;
@@ -32,7 +33,7 @@
 }
 - (void)initData
 {
-    _titleArray = @[@"检查大项：", @"检查子项：", @"责任单位：", @"整改时间：", @"拍摄时间：", @"拍摄地点："];
+    _titleArray = @[@"检查大项：", @"检查子项：", @"责任单位：", @"整改截止时间：", @"拍摄时间：", @"拍摄地点："];
 }
 
 - (void)initViews
@@ -62,7 +63,7 @@
     [imageView addSubview:button];
     [button autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:imageView];
     [button autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:imageView];
-    [button autoSetDimensionsToSize:CGSizeMake(40, 40)];
+    [button autoSetDimensionsToSize:CGSizeMake(40, 40 )];
     [button setBackgroundImage:[UIImage imageNamed:@"delete_photo"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(deletePhoto) forControlEvents:UIControlEventTouchUpInside];
     
@@ -209,12 +210,12 @@
             break;
         case 2:
         {
-            cell.detailTextLabel.text = @"施工单位";
+            cell.detailTextLabel.text = _photo.responsibility;
         }
             break;
         case 3:
         {
-            
+            cell.detailTextLabel.text = _photo.repair_time;
         }
             break;
         case 4:
@@ -316,12 +317,27 @@
             break;
         case 2:
         {
-            
+            SimpleItemTableViewController *simpleVC = [[SimpleItemTableViewController alloc] init];
+            simpleVC.itemArray = @[@"精装单位", @"机电单位", @"门窗单位", @"总包单位"];
+            __weak typeof(self) weakSelf = self;
+            simpleVC.saveBlock = ^(NSString *string) {
+                _photo.responsibility = string;
+                [weakSelf.tableView reloadData];
+            };
+            [self.navigationController pushViewController:simpleVC animated:YES];
         }
             break;
         case 3:
         {
-            
+            SimpleItemTableViewController *simpleVC = [[SimpleItemTableViewController alloc] init];
+            simpleVC.itemArray = @[@"5日内", @"10日内", @"15日内", @"30日内"];
+            __weak typeof(self) weakSelf = self;
+            simpleVC.saveBlock = ^(NSString *string) {
+                NSString *numStr = [string stringByReplacingOccurrencesOfString:@"日内" withString:@""];
+                 _photo.repair_time = [self computeDateWithDays:[numStr integerValue]];
+                [weakSelf.tableView reloadData];
+            };
+            [self.navigationController pushViewController:simpleVC animated:YES];
         }
             break;
         case 4:
@@ -337,6 +353,16 @@
         default:
             break;
     }
+}
+
+//计算天数后的新日期
+- (NSString *)computeDateWithDays:(NSInteger)days
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *myDate = [NSDate date];
+    NSDate *newDate = [myDate dateByAddingTimeInterval:60 * 60 * 24 * days];
+    return [dateFormatter stringFromDate:newDate];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

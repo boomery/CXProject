@@ -22,7 +22,7 @@
     
     NSString *insertSql= [NSString stringWithFormat:
                           @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.subItem3,photo.responsibility, photo.responsibility];
+                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.subItem3,photo.responsibility, photo.repair_time];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {

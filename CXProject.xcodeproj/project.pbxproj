@@ -133,6 +133,7 @@
 		906E85261EEFE16F00A40E33 /* XLPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85031EEFE16E00A40E33 /* XLPhotoBrowser.m */; };
 		906E85271EEFE16F00A40E33 /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85071EEFE16E00A40E33 /* XLProgressView.m */; };
 		906E85281EEFE16F00A40E33 /* XLZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85091EEFE16E00A40E33 /* XLZoomingScrollView.m */; };
+		906E852B1EF1010C00A40E33 /* SimpleItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E852A1EF1010C00A40E33 /* SimpleItemTableViewController.m */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -454,6 +455,8 @@
 		906E85071EEFE16E00A40E33 /* XLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLProgressView.m; sourceTree = "<group>"; };
 		906E85081EEFE16E00A40E33 /* XLZoomingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLZoomingScrollView.h; sourceTree = "<group>"; };
 		906E85091EEFE16E00A40E33 /* XLZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLZoomingScrollView.m; sourceTree = "<group>"; };
+		906E85291EF1010C00A40E33 /* SimpleItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleItemTableViewController.h; sourceTree = "<group>"; };
+		906E852A1EF1010C00A40E33 /* SimpleItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleItemTableViewController.m; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -1311,6 +1314,8 @@
 				90635C831EE78E6F009725E0 /* Risk_Progress_DetailViewController.m */,
 				90635C8A1EE7F331009725E0 /* Risk_Progress_ItemViewController.h */,
 				90635C8B1EE7F331009725E0 /* Risk_Progress_ItemViewController.m */,
+				906E85291EF1010C00A40E33 /* SimpleItemTableViewController.h */,
+				906E852A1EF1010C00A40E33 /* SimpleItemTableViewController.m */,
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
@@ -1679,6 +1684,7 @@
 				906E85251EEFE16F00A40E33 /* TAPageControl.m in Sources */,
 				906E85271EEFE16F00A40E33 /* XLProgressView.m in Sources */,
 				9028C9F11EC54EBB003DA545 /* RiskLineCell.m in Sources */,
+				906E852B1EF1010C00A40E33 /* SimpleItemTableViewController.m in Sources */,
 				9028C9E31EC3F961003DA545 /* RiskViewController.m in Sources */,
 				9028C9651EADC6C2003DA545 /* BridgeUtil.m in Sources */,
 				90F5BA751ED9175800C2CE7F /* ImageViewController.m in Sources */,
