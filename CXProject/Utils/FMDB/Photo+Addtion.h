@@ -12,6 +12,8 @@
 
 + (void)insertNewPhoto:(Photo *)photo;
 
++ (BOOL)deletePhoto:(Photo *)photo;
+
 + (NSMutableArray *)unsortedPhotosForProjectID:(NSString *)projectID kind:(NSString *)kind;
 
 + (void)countPhotoForProjectID:(NSString *)projectID kind:(NSString *)kind item:(NSString *)item completionBlock:(void(^)(NSString *index))block;

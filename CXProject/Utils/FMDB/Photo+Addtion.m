@@ -26,13 +26,39 @@
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
-        [SVProgressHUD showSuccessWithStatus:@"数据保存成功"];
+        [SVProgressHUD showSuccessWithStatus:@"照片数据库记录保存成功"];
     }
     else
     {
-        [SVProgressHUD showErrorWithStatus:@"数据保存失败"];
+        [SVProgressHUD showErrorWithStatus:@"照片数据库记录保存失败"];
     }
     [db close];
+}
+
++ (BOOL)deletePhoto:(Photo *)photo
+{
+    FMDatabase *db = [CXDataBaseUtil database];
+    if (![db open])
+    {
+        [db close];
+        NSAssert([db open], @"数据库打开失败");
+    }
+    [db setShouldCacheStatements:YES];
+    
+    NSString *insertSql= [NSString stringWithFormat:
+                          @"delete from %@ where projectID = '%@' and photoName = '%@'",
+                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName];
+    BOOL res = [db executeUpdate:insertSql];
+    if (res)
+    {
+        [SVProgressHUD showSuccessWithStatus:@"照片数据库记录删除成功"];
+    }
+    else
+    {
+        [SVProgressHUD showErrorWithStatus:@"照片数据库记录删除失败"];
+    }
+    [db close];
+    return res;
 }
 
 + (NSMutableArray *)unsortedPhotosForProjectID:(NSString *)projectID kind:(NSString *)kind

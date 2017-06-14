@@ -11,6 +11,7 @@
 #import "Risk_Progress_ItemViewController.h"
 #import "Photo+Addtion.h"
 #import "XLPhotoBrowser.h"
+#import "FileManager.h"
 @interface Risk_Progress_DetailViewController ()<UITableViewDataSource, UITableViewDelegate, XLPhotoBrowserDatasource, XLPhotoBrowserDelegate>
 {
     NSArray *_titleArray;
@@ -56,6 +57,14 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewImages)];
     tap.numberOfTapsRequired = 1;
     [imageView addGestureRecognizer:tap];
+    
+    UIButton *button = [[UIButton alloc] initForAutoLayout];
+    [imageView addSubview:button];
+    [button autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:imageView];
+    [button autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:imageView];
+    [button autoSetDimensionsToSize:CGSizeMake(40, 40)];
+    [button setBackgroundImage:[UIImage imageNamed:@"delete_photo"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(deletePhoto) forControlEvents:UIControlEventTouchUpInside];
     
     UIView *lineView = [[UIView alloc] initForAutoLayout];
     [headerView addSubview:lineView];
@@ -107,6 +116,19 @@
 - (void)viewImages
 {
     [XLPhotoBrowser showPhotoBrowserWithCurrentImageIndex:_photo.tag imageCount:self.photoArray.count datasource:self delegate:self];
+}
+
+- (void)deletePhoto
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定删除这张照片吗?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        if ([FileManager deleteImageForPhotoFilePath:_photo.photoFilePath] && [Photo deletePhoto:_photo])
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - XLPhotoBrowserDatasource

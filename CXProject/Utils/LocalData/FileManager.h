@@ -20,5 +20,6 @@
 
 + (BOOL)saveImage:(UIImage *)image withRatio:(CGFloat)ratio imageName:(NSString *)imageName;
 
++ (BOOL)deleteImageForPhotoFilePath:(NSString *)filePath;
 
 @end

@@ -64,4 +64,10 @@
     return [UIImageJPEGRepresentation(image, ratio) writeToFile:[FileManager imagePathForName:imageName] atomically:YES];
 }
 
++ (BOOL)deleteImageForPhotoFilePath:(NSString *)filePath
+{
+    NSError *error;
+    return [[self defaultManager] removeItemAtPath:filePath error:&error];
+}
+
 @end
