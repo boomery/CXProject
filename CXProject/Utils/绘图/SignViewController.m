@@ -39,7 +39,7 @@
 
 - (IBAction)undoButtonClick:(id)sender
 {
-    [_drawView unDo];
+    [_drawView clean];
 }
 
 - (void)didReceiveMemoryWarning
