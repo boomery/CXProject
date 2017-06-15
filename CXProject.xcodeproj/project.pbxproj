@@ -134,6 +134,12 @@
 		906E85271EEFE16F00A40E33 /* XLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85071EEFE16E00A40E33 /* XLProgressView.m */; };
 		906E85281EEFE16F00A40E33 /* XLZoomingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85091EEFE16E00A40E33 /* XLZoomingScrollView.m */; };
 		906E852B1EF1010C00A40E33 /* SimpleItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E852A1EF1010C00A40E33 /* SimpleItemTableViewController.m */; };
+		906E852E1EF1204A00A40E33 /* ManagementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E852D1EF1204A00A40E33 /* ManagementViewController.m */; };
+		906E85311EF120D400A40E33 /* Management_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85301EF120D400A40E33 /* Management_ViewController.m */; };
+		906E85351EF129EE00A40E33 /* ManagementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85331EF129EE00A40E33 /* ManagementCell.m */; };
+		906E85361EF129EE00A40E33 /* ManagementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906E85341EF129EE00A40E33 /* ManagementCell.xib */; };
+		906E853A1EF2288300A40E33 /* Management_PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85381EF2288300A40E33 /* Management_PhotoEditorViewController.m */; };
+		906E853B1EF2288300A40E33 /* Management_PhotoEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906E85391EF2288300A40E33 /* Management_PhotoEditorViewController.xib */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -457,6 +463,16 @@
 		906E85091EEFE16E00A40E33 /* XLZoomingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLZoomingScrollView.m; sourceTree = "<group>"; };
 		906E85291EF1010C00A40E33 /* SimpleItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleItemTableViewController.h; sourceTree = "<group>"; };
 		906E852A1EF1010C00A40E33 /* SimpleItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleItemTableViewController.m; sourceTree = "<group>"; };
+		906E852C1EF1204A00A40E33 /* ManagementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagementViewController.h; sourceTree = "<group>"; };
+		906E852D1EF1204A00A40E33 /* ManagementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagementViewController.m; sourceTree = "<group>"; };
+		906E852F1EF120D400A40E33 /* Management_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Management_ViewController.h; sourceTree = "<group>"; };
+		906E85301EF120D400A40E33 /* Management_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Management_ViewController.m; sourceTree = "<group>"; };
+		906E85321EF129EE00A40E33 /* ManagementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagementCell.h; sourceTree = "<group>"; };
+		906E85331EF129EE00A40E33 /* ManagementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagementCell.m; sourceTree = "<group>"; };
+		906E85341EF129EE00A40E33 /* ManagementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagementCell.xib; sourceTree = "<group>"; };
+		906E85371EF2288300A40E33 /* Management_PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Management_PhotoEditorViewController.h; sourceTree = "<group>"; };
+		906E85381EF2288300A40E33 /* Management_PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Management_PhotoEditorViewController.m; sourceTree = "<group>"; };
+		906E85391EF2288300A40E33 /* Management_PhotoEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Management_PhotoEditorViewController.xib; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -684,6 +700,9 @@
 				90635C7A1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.h */,
 				90635C7B1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.m */,
 				90635C7C1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.xib */,
+				906E85371EF2288300A40E33 /* Management_PhotoEditorViewController.h */,
+				906E85381EF2288300A40E33 /* Management_PhotoEditorViewController.m */,
+				906E85391EF2288300A40E33 /* Management_PhotoEditorViewController.xib */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1280,6 +1299,9 @@
 				90BCA6981ED5174D003C85CB /* DetailMeasureCell.h */,
 				90BCA69A1ED5174D003C85CB /* DetailMeasureCell.m */,
 				90BCA6991ED5174D003C85CB /* DetailMeasureCell.xib */,
+				906E85321EF129EE00A40E33 /* ManagementCell.h */,
+				906E85331EF129EE00A40E33 /* ManagementCell.m */,
+				906E85341EF129EE00A40E33 /* ManagementCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1319,6 +1341,10 @@
 				9028C96B1EB1C623003DA545 /* MeasureRiskViewController.h */,
 				9028C96C1EB1C623003DA545 /* MeasureRiskViewController.m */,
 				9028C96E1EB1CB8C003DA545 /* MeasureRiskViewController.xib */,
+				906E852C1EF1204A00A40E33 /* ManagementViewController.h */,
+				906E852D1EF1204A00A40E33 /* ManagementViewController.m */,
+				906E852F1EF120D400A40E33 /* Management_ViewController.h */,
+				906E85301EF120D400A40E33 /* Management_ViewController.m */,
 				9028C9751EB1DF18003DA545 /* ExtractionResultViewController.h */,
 				9028C9761EB1DF18003DA545 /* ExtractionResultViewController.m */,
 				9028C97A1EB1DF81003DA545 /* GroupEvaluateViewController.h */,
@@ -1457,9 +1483,11 @@
 				9028C98B1EB2D937003DA545 /* star_gray.png in Resources */,
 				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
 				90F5BA861EDFAF8B00C2CE7F /* MyProjectCell.xib in Resources */,
+				906E85361EF129EE00A40E33 /* ManagementCell.xib in Resources */,
 				90F5BA771ED9177400C2CE7F /* ImageViewController.xib in Resources */,
 				906E85211EEFE16F00A40E33 /* FSActionSheet_cancel@3x.png in Resources */,
 				9028C9F21EC54EBB003DA545 /* RiskLineCell.xib in Resources */,
+				906E853B1EF2288300A40E33 /* Management_PhotoEditorViewController.xib in Resources */,
 				904340161E89FAA400D33ED9 /* LoginViewController.xib in Resources */,
 				908BFE4C1E97265400937372 /* InputCell3.xib in Resources */,
 				908C82401E9B31720086EDCD /* InputCell4.xib in Resources */,
@@ -1595,6 +1623,7 @@
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
 				90635C841EE78E6F009725E0 /* Risk_Progress_DetailViewController.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,
+				906E852E1EF1204A00A40E33 /* ManagementViewController.m in Sources */,
 				9028C9CB1EB87E3E003DA545 /* PYSearchConst.m in Sources */,
 				9028C9781EB1DF18003DA545 /* ExtractionResultViewController.m in Sources */,
 				90CB98761E8F7F55000FB2BC /* LSDrawView.m in Sources */,
@@ -1606,6 +1635,7 @@
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				906E85241EEFE16F00A40E33 /* TADotView.m in Sources */,
 				906E851A1EEFE16E00A40E33 /* UIImage+XLExtension.m in Sources */,
+				906E85311EF120D400A40E33 /* Management_ViewController.m in Sources */,
 				908BFE3A1E96054E00937372 /* MHKeyboardObjects.m in Sources */,
 				906E850E1EEFE16E00A40E33 /* SDWebImageDecoder.m in Sources */,
 				908C823F1E9B31720086EDCD /* InputCell4.m in Sources */,
@@ -1656,6 +1686,7 @@
 				908BFE461E97264600937372 /* InputCell2.m in Sources */,
 				9028C9A91EB30A17003DA545 /* PhotoCell.m in Sources */,
 				9028C9AA1EB30A17003DA545 /* UploadImageView.m in Sources */,
+				906E85351EF129EE00A40E33 /* ManagementCell.m in Sources */,
 				90D4DF501E83C54A000A1918 /* DataModel.m in Sources */,
 				906E85151EEFE16E00A40E33 /* UIImage+MultiFormat.m in Sources */,
 				9028C9CE1EB87E3E003DA545 /* UIColor+PYSearchExtension.m in Sources */,
@@ -1692,6 +1723,7 @@
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */,
 				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
+				906E853A1EF2288300A40E33 /* Management_PhotoEditorViewController.m in Sources */,
 				906E850D1EEFE16E00A40E33 /* SDWebImageCompat.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,

@@ -116,7 +116,8 @@
 
 - (void)viewImages
 {
-    [XLPhotoBrowser showPhotoBrowserWithCurrentImageIndex:_photo.tag imageCount:self.photoArray.count datasource:self delegate:self];
+    XLPhotoBrowser *browser = [XLPhotoBrowser showPhotoBrowserWithCurrentImageIndex:_photo.tag imageCount:self.photoArray.count datasource:self delegate:self];
+    browser.browserStyle = XLPhotoBrowserStyleIndexLabel; // 微博样式
 }
 
 - (void)deletePhoto

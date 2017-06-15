@@ -60,7 +60,7 @@ static FMDatabase *_db = nil;
         NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT, score TEXT, level TEXT, result TEXT, responsibility TEXT, photoName TEXT, PRIMARY KEY(projectID, itemName, subItemName, photoName))",[CXDataBaseUtil riskTableName]];
         if ([db executeUpdate:createSql])
         {
-            NSLog(@"风险交付评估建表成功");
+            NSLog(@"风险评估交付建表成功");
         }
     }
     if(![db tableExists:[CXDataBaseUtil riskProgressTableName]])
@@ -68,7 +68,7 @@ static FMDatabase *_db = nil;
         NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, photoName TEXT, save_time TEXT, place TEXT, kind TEXT, item TEXT, subItem TEXT, subItem2 TEXT, subItem3 TEXT, responsibility TEXT, repair_time TEXT,PRIMARY KEY(projectID, photoName))",[CXDataBaseUtil riskProgressTableName]];
         if ([db executeUpdate:createSql])
         {
-            NSLog(@"风险过程评估建表成功");
+            NSLog(@"风险评估过程建表成功");
         }
     }
 }

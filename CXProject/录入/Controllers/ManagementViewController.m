@@ -1,27 +1,24 @@
 //
-//  Risk_Progress_ViewController.m
+//  ManagementViewController.m
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/6/5.
+//  Created by zhangchaoxin on 2017/6/14.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
-#import "Risk_Progress_ViewController.h"
-#import "Risk_Progress_CollectionViewController.h"
-#import "DataProvider.h"
+#import "ManagementViewController.h"
+#import "Management_ViewController.h"
 #import <Photos/Photos.h>
-#import "Risk_Progress_PhotoEditorViewController.h"
-#import "CXDataBaseUtil.h"
-#import "Photo+Addtion.h"
+#import "Management_PhotoEditorViewController.h"
 #import "FileManager.h"
-@interface Risk_Progress_ViewController () <ViewPagerDelegate, ViewPagerDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ManagementViewController ()<ViewPagerDelegate, ViewPagerDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *controllerArray;
 @property (nonatomic, strong) NSArray *titleArray;
 
 @end
 
-@implementation Risk_Progress_ViewController
+@implementation ManagementViewController
 static NSString *fileCellIdentifier = @"FileCell";
 static NSString *headerIdentifier = @"sectionHeader";
 
@@ -36,23 +33,22 @@ static NSString *headerIdentifier = @"sectionHeader";
 {
     self.dataSource = self;
     self.delegate = self;
-    
     self.controllerArray = [[NSMutableArray alloc] init];
-    self.titleArray = @[@"安全文明", @"质量风险", @"优秀照片"];
     NSArray *array = [DataProvider riskProgressItems];
-    
-    for (int i = 0; i < _titleArray.count; i++)
+    for (Event *event in array)
     {
-        Risk_Progress_CollectionViewController *c = [[Risk_Progress_CollectionViewController alloc] init];
-        if (i < 2)
+        if ([event.name isEqualToString:@"管理行为"])
         {
-            Event *event = array[i];
-            c.sourceArray = event.events;
+            _titleArray = event.events;
+            for (Event *subEvent in event.events)
+            {
+                Management_ViewController *c = [[Management_ViewController alloc] init];
+                c.view.backgroundColor = [UIColor clearColor];
+                c.event = subEvent;
+                c.sourceArray = subEvent.events;
+                [self.controllerArray addObject:c];
+            }
         }
-        c.showUnsorted = YES;
-        c.isShort = YES;
-        c.index = i;
-        [self.controllerArray addObject:c];
     }
 }
 
@@ -113,10 +109,11 @@ static NSString *headerIdentifier = @"sectionHeader";
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    Risk_Progress_PhotoEditorViewController *editor = [[Risk_Progress_PhotoEditorViewController alloc] init];
+    Management_PhotoEditorViewController *editor = [[Management_PhotoEditorViewController alloc] init];
     [picker pushViewController:editor animated:YES];
+    Event *subEvent = _titleArray[self.activeTabIndex];
+    editor.kindName = subEvent.name;
     editor.image = image;
-    
     editor.imageBlock = ^(Photo *photo){
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
         if ([FileManager saveImage:photo.image withRatio:0.5 imageName:photo.photoName])
@@ -142,7 +139,8 @@ static NSString *headerIdentifier = @"sectionHeader";
     UILabel *label = [UILabel new];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont systemFontOfSize:13.0];
-    label.text = [NSString stringWithFormat:@"%@", _titleArray[index]];
+    Event *subEvent = _titleArray[index];
+    label.text = [NSString stringWithFormat:@"%@", subEvent.name];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = [UIColor blackColor];
     [label sizeToFit];
@@ -186,22 +184,5 @@ static NSString *headerIdentifier = @"sectionHeader";
     }
     return color;
 }
-
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

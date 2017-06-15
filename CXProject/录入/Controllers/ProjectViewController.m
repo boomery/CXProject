@@ -13,6 +13,7 @@
 #import "ExtractionResultViewController.h"
 #import "GroupEvaluateViewController.h"
 #import "Risk_Progress_ViewController.h"
+#import "ManagementViewController.h"
 @interface ProjectViewController ()
 
 @end
@@ -23,19 +24,30 @@
 {
     [super viewDidLoad];
     self.title = @"录入菜单";
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(upload)];
+    
+    UIButton *uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    uploadButton.frame = CGRectMake(0, 0, 40, 40);
+    uploadButton.titleLabel.font = [UIFont systemFontOfSize:10];
+    [uploadButton addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
+    [uploadButton setImage:[UIImage imageNamed:@"upload"] forState:UIControlStateNormal];
+    [uploadButton setTitle:@"上传" forState:UIControlStateNormal];
+    [uploadButton setTitleEdgeInsets:UIEdgeInsetsMake(25, -10, 0, -10)];
+    [uploadButton setImageEdgeInsets:UIEdgeInsetsMake(5, 20, 15, -10)];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:uploadButton];
     self.navigationItem.rightBarButtonItem = item;
     // Do any additional setup after loading the view from its nib.
 }
 - (void)upload
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"项目完成后无法修改" message:@"确定完成吗？" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [SVProgressHUD showSuccessWithStatus:@"项目已经完成"];
-        [self.navigationController popViewControllerAnimated:YES];
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"项目完成后无法修改" message:@"确定完成吗？" preferredStyle:UIAlertControllerStyleAlert];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+//    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//        [SVProgressHUD showSuccessWithStatus:@"项目已经完成"];
+//        [self.navigationController popViewControllerAnimated:YES];
+//    }]];
+//    [self presentViewController:alert animated:YES completion:nil];
+    [SVProgressHUD showSuccessWithStatus:@"上传完成"];
 }
 
 #pragma mark - 实测实量
@@ -85,7 +97,9 @@
 }
 - (IBAction)managementClick:(id)sender
 {
-    
+    ManagementViewController *newVC = [[ManagementViewController alloc] init];
+    newVC.title = @"管理行为";
+    [self.navigationController pushViewController:newVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
