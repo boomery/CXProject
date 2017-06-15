@@ -14,6 +14,7 @@
 #import "GroupEvaluateViewController.h"
 #import "Risk_Progress_ViewController.h"
 #import "ManagementViewController.h"
+#import "SignViewController.h"
 @interface ProjectViewController ()
 
 @end
@@ -74,7 +75,8 @@
 #pragma mark - 抽取结果
 - (IBAction)extractionResult:(id)sender
 {
-    ExtractionResultViewController *newVC = [[ExtractionResultViewController alloc] init];
+//    ExtractionResultViewController *newVC = [[ExtractionResultViewController alloc] init];
+    SignViewController *newVC = [[SignViewController alloc] init];
     newVC.title = @"抽取结果";
     [self.navigationController pushViewController:newVC animated:YES];
 }

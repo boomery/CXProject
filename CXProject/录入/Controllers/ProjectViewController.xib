@@ -46,9 +46,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Af-Dnq" userLabel="编辑项目">
                     <rect key="frame" x="213" y="263" width="132" height="168"/>
-                    <state key="normal" backgroundImage="edit_project"/>
+                    <state key="normal" backgroundImage="management"/>
                     <connections>
-                        <action selector="editProject:" destination="-1" eventType="touchUpInside" id="h2g-W3-6xW"/>
+                        <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="i5X-W1-S9n"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-gc-vJD">
@@ -60,9 +60,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZq-q8-dyz">
                     <rect key="frame" x="213" y="442" width="132" height="167.5"/>
-                    <state key="normal" backgroundImage="management"/>
+                    <state key="normal" backgroundImage="edit_project"/>
                     <connections>
-                        <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="aIU-2N-Y9J"/>
+                        <action selector="editProject:" destination="-1" eventType="touchUpInside" id="G54-hq-4nb"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QH3-W8-chC">
@@ -124,7 +124,7 @@
                 <constraint firstItem="lZq-q8-dyz" firstAttribute="height" secondItem="cAk-gc-vJD" secondAttribute="height" id="xug-nO-5eb"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-1472" y="-830"/>
+            <point key="canvasLocation" x="-1892" y="-941"/>
         </view>
         <navigationBar contentMode="scaleToFill" id="vge-zw-GG8">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

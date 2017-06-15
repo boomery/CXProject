@@ -140,6 +140,8 @@
 		906E85361EF129EE00A40E33 /* ManagementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906E85341EF129EE00A40E33 /* ManagementCell.xib */; };
 		906E853A1EF2288300A40E33 /* Management_PhotoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E85381EF2288300A40E33 /* Management_PhotoEditorViewController.m */; };
 		906E853B1EF2288300A40E33 /* Management_PhotoEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906E85391EF2288300A40E33 /* Management_PhotoEditorViewController.xib */; };
+		906E853F1EF2625D00A40E33 /* SignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 906E853D1EF2625D00A40E33 /* SignViewController.m */; };
+		906E85401EF2625D00A40E33 /* SignViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906E853E1EF2625D00A40E33 /* SignViewController.xib */; };
 		908BFE261E95E2DC00937372 /* NewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE251E95E2DC00937372 /* NewProjectViewController.m */; };
 		908BFE2A1E95E9AB00937372 /* InputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 908BFE281E95E9AB00937372 /* InputCell.m */; };
 		908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 908BFE291E95E9AB00937372 /* InputCell.xib */; };
@@ -473,6 +475,9 @@
 		906E85371EF2288300A40E33 /* Management_PhotoEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Management_PhotoEditorViewController.h; sourceTree = "<group>"; };
 		906E85381EF2288300A40E33 /* Management_PhotoEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Management_PhotoEditorViewController.m; sourceTree = "<group>"; };
 		906E85391EF2288300A40E33 /* Management_PhotoEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Management_PhotoEditorViewController.xib; sourceTree = "<group>"; };
+		906E853C1EF2625D00A40E33 /* SignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignViewController.h; path = "绘图/SignViewController.h"; sourceTree = "<group>"; };
+		906E853D1EF2625D00A40E33 /* SignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignViewController.m; path = "绘图/SignViewController.m"; sourceTree = "<group>"; };
+		906E853E1EF2625D00A40E33 /* SignViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignViewController.xib; path = "绘图/SignViewController.xib"; sourceTree = "<group>"; };
 		908BFE241E95E2DC00937372 /* NewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectViewController.h; sourceTree = "<group>"; };
 		908BFE251E95E2DC00937372 /* NewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectViewController.m; sourceTree = "<group>"; };
 		908BFE271E95E9AB00937372 /* InputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputCell.h; sourceTree = "<group>"; };
@@ -694,6 +699,9 @@
 				908BFE3C1E96269500937372 /* 时间选择器 */,
 				908BFE2C1E96054E00937372 /* MHKeyboard */,
 				90CB986B1E8F7F0F000FB2BC /* 绘图 */,
+				906E853C1EF2625D00A40E33 /* SignViewController.h */,
+				906E853D1EF2625D00A40E33 /* SignViewController.m */,
+				906E853E1EF2625D00A40E33 /* SignViewController.xib */,
 				90CB98661E8F7204000FB2BC /* PhotoEditorViewController.h */,
 				90CB98671E8F7204000FB2BC /* PhotoEditorViewController.m */,
 				90CB987A1E8F8A19000FB2BC /* PhotoEditorViewController.xib */,
@@ -1534,6 +1542,7 @@
 				90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */,
 				908C823B1E9B28060086EDCD /* ProjectViewController.xib in Resources */,
 				901781611E8276C600D6E8A1 /* CountCell.xib in Resources */,
+				906E85401EF2625D00A40E33 /* SignViewController.xib in Resources */,
 				90BCA69B1ED5174D003C85CB /* DetailMeasureCell.xib in Resources */,
 				906E85201EEFE16F00A40E33 /* FSActionSheet_cancel@2x.png in Resources */,
 			);
@@ -1748,6 +1757,7 @@
 				908BFE3B1E96054E00937372 /* UIView+MHKeyboardFirstResponderNotify.m in Sources */,
 				90635C6D1EE5018E009725E0 /* Risk_Progress_ViewController.m in Sources */,
 				90F5BA8F1EE0098500C2CE7F /* M_ViewFileViewController.m in Sources */,
+				906E853F1EF2625D00A40E33 /* SignViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
