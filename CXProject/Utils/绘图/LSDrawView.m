@@ -119,6 +119,41 @@
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
+    
+    _brushArray = [NSMutableArray new];
+    _undoArray = [NSMutableArray new];
+    _redoArray = [NSMutableArray new];
+    
+    _bgImgView = [UIImageView new];
+    _bgImgView.contentMode = UIViewContentModeScaleAspectFit;
+    _bgImgView.frame = self.bounds;
+    [self addSubview:_bgImgView];
+    
+    _composeView = [UIImageView new];
+    _composeView.contentMode = UIViewContentModeScaleAspectFit;
+    _composeView.frame = self.bounds;
+    //        _composeView.image = [self getAlphaImg];
+    [self addSubview:_composeView];
+    
+    _canvasView = [LSCanvas new];
+    _canvasView.frame = _composeView.bounds;
+    
+    [_composeView addSubview:_canvasView];
+    
+    _brushColor = LSDEF_BRUSH_COLOR;
+    _brushWidth = LSDEF_BRUSH_WIDTH;
+    _isEraser = NO;
+    _shapeType = LSDEF_BRUSH_SHAPE;
+    
+    //linyl
+    _dwawFile = [LSDrawFile new];
+    _dwawFile.packageArray = [NSMutableArray new];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     CGPoint point = [[touches anyObject] locationInView:self];
@@ -321,7 +356,8 @@
     [self.layer renderInContext:context];
     
     UIImage *getImage = UIGraphicsGetImageFromCurrentImageContext();
-    _editedImage = getImage;
+    _editedImage = [self cut_ImageFromImage:getImage inRect:[self rectForImage:_bgImgView.image]];
+    
 //    UIImageWriteToSavedPhotosAlbum(getImage, nil, nil, nil);
     UIGraphicsEndImageContext();
     /*
@@ -332,6 +368,47 @@
     [self addModelToPackage:actionModel];
     //linyl
      */
+}
+
+- (CGRect)rectForImage:(UIImage *)image
+{
+    CGSize imageSize = image.size;
+    CGSize size = self.frame.size;
+    CGFloat scale = imageSize.width/imageSize.height;
+    if (scale >= 1)
+    {
+        size.height = size.height/scale;
+    }
+    else
+    {
+        size.width = size.width * scale;
+    }
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    if (size.width >= size.height)
+    {
+        rect.origin.x = 0;
+        rect.origin.y = (size.width - size.height)/2.0;
+    }
+    else
+    {
+        rect.origin.x = (size.height - size.width)/2.0;
+        rect.origin.y = 0;
+    }
+    return rect;
+}
+
+- (UIImage *)cut_ImageFromImage:(UIImage *)image inRect:(CGRect)rect{
+    
+    //把像 素rect 转化为 点rect（如无转化则按原图像素取部分图片）
+    CGFloat scale = [UIScreen mainScreen].scale;
+    CGFloat x= rect.origin.x*scale,y=rect.origin.y*scale,w=rect.size.width*scale,h=rect.size.height*scale;
+    CGRect dianRect = CGRectMake(x, y, w, h);
+    
+    //截取部分图片并生成新图片
+    CGImageRef sourceImageRef = [image CGImage];
+    CGImageRef newImageRef = CGImageCreateWithImageInRect(sourceImageRef, dianRect);
+    UIImage *newImage = [UIImage imageWithCGImage:newImageRef scale:[UIScreen mainScreen].scale orientation:UIImageOrientationUp];
+    return newImage;
 }
 
 - (void)setEraserMode:(LSBrush*)brush

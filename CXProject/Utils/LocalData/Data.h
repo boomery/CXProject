@@ -21,5 +21,6 @@
 
 + (Data *)measureDataWithDict:(NSDictionary *)dict;
 + (Data *)riskDataWithDict:(NSDictionary *)dict;
++ (Data *)riskProgressDataWithDict:(NSDictionary *)dict;
 
 @end

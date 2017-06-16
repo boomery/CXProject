@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Management_PhotoEditorViewController">
+            <connections>
+                <outlet property="_drawView" destination="sMc-N0-ZPI" id="FjO-8W-Kym"/>
+                <outlet property="view" destination="PAB-qJ-FPW" id="Mau-1k-zLl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="PAB-qJ-FPW">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9T-Ib-Anq">
+                    <rect key="frame" x="256.5" y="473.5" width="98.5" height="44"/>
+                    <color key="backgroundColor" red="0.3523422182" green="0.70170831680000001" blue="0.25881084799999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="确定"/>
+                    <connections>
+                        <action selector="confirmButtonClick:" destination="-1" eventType="touchUpInside" id="UOk-6z-IMD"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Las-Pa-i46">
+                    <rect key="frame" x="20" y="473.5" width="98.5" height="44"/>
+                    <color key="backgroundColor" red="0.8281588554" green="0.17817467449999999" blue="0.14907233419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Gwy-yQ-7Nd"/>
+                    </constraints>
+                    <state key="normal" title="撤销">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="undoButtonClick:" destination="-1" eventType="touchUpInside" id="QCM-p8-w5n"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1j5-53-m7e">
+                    <rect key="frame" x="138.5" y="473.5" width="98" height="44"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="详细信息">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="editDetail:" destination="-1" eventType="touchUpInside" id="qRR-7A-9Qo"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMc-N0-ZPI" customClass="LSDrawView">
+                    <rect key="frame" x="40" y="74" width="295" height="295"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="sMc-N0-ZPI" secondAttribute="height" multiplier="1:1" id="wCr-EC-jau"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDH-wk-gpd">
+                    <rect key="frame" x="20" y="453" width="335" height="0.5"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="GRN-mf-ATy"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="sMc-N0-ZPI" firstAttribute="top" secondItem="PAB-qJ-FPW" secondAttribute="top" constant="74" id="0mB-NW-yiW"/>
+                <constraint firstItem="1j5-53-m7e" firstAttribute="height" secondItem="Las-Pa-i46" secondAttribute="height" id="40Q-5B-yDk"/>
+                <constraint firstItem="1j5-53-m7e" firstAttribute="bottom" secondItem="Las-Pa-i46" secondAttribute="bottom" id="Bi3-iV-Evw"/>
+                <constraint firstItem="I9T-Ib-Anq" firstAttribute="top" secondItem="jDH-wk-gpd" secondAttribute="bottom" constant="20" id="NcA-zx-tEe"/>
+                <constraint firstItem="sMc-N0-ZPI" firstAttribute="leading" secondItem="PAB-qJ-FPW" secondAttribute="leading" constant="40" id="T2a-j5-1o8"/>
+                <constraint firstItem="1j5-53-m7e" firstAttribute="top" secondItem="jDH-wk-gpd" secondAttribute="bottom" constant="20" id="TFZ-LC-aST"/>
+                <constraint firstAttribute="trailing" secondItem="sMc-N0-ZPI" secondAttribute="trailing" constant="40" id="UfZ-cf-wO8"/>
+                <constraint firstItem="I9T-Ib-Anq" firstAttribute="width" secondItem="Las-Pa-i46" secondAttribute="width" id="YVX-Ww-xqv"/>
+                <constraint firstItem="jDH-wk-gpd" firstAttribute="trailing" secondItem="I9T-Ib-Anq" secondAttribute="trailing" id="afB-YA-gfm"/>
+                <constraint firstItem="1j5-53-m7e" firstAttribute="width" secondItem="Las-Pa-i46" secondAttribute="width" id="bQE-A8-NKb"/>
+                <constraint firstItem="1j5-53-m7e" firstAttribute="leading" secondItem="Las-Pa-i46" secondAttribute="trailing" constant="20" id="cYS-vE-YUf"/>
+                <constraint firstAttribute="trailing" secondItem="I9T-Ib-Anq" secondAttribute="trailing" constant="20" id="e0m-Fo-Ujp"/>
+                <constraint firstItem="I9T-Ib-Anq" firstAttribute="height" secondItem="Las-Pa-i46" secondAttribute="height" id="g6a-F9-nRL"/>
+                <constraint firstItem="Las-Pa-i46" firstAttribute="leading" secondItem="PAB-qJ-FPW" secondAttribute="leading" constant="20" id="jPS-yo-sL0"/>
+                <constraint firstItem="jDH-wk-gpd" firstAttribute="leading" secondItem="Las-Pa-i46" secondAttribute="leading" id="kG1-Ab-gLS"/>
+                <constraint firstItem="jDH-wk-gpd" firstAttribute="top" secondItem="sMc-N0-ZPI" secondAttribute="bottom" constant="84" id="lta-XK-0Cj"/>
+                <constraint firstItem="I9T-Ib-Anq" firstAttribute="bottom" secondItem="1j5-53-m7e" secondAttribute="bottom" id="seA-vc-H7F"/>
+                <constraint firstItem="I9T-Ib-Anq" firstAttribute="leading" secondItem="1j5-53-m7e" secondAttribute="trailing" constant="20" id="tLw-zi-zYh"/>
+                <constraint firstItem="Las-Pa-i46" firstAttribute="top" secondItem="jDH-wk-gpd" secondAttribute="bottom" constant="20" id="zOr-aV-mok"/>
+            </constraints>
+            <point key="canvasLocation" x="-905" y="87"/>
+        </view>
+    </objects>
+</document>

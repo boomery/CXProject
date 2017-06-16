@@ -98,4 +98,22 @@
     return data;
 }
 
++ (Data *)riskProgressDataWithDict:(NSDictionary *)dict
+{
+    NSMutableArray *eventArray = [[NSMutableArray alloc] init];
+    Data *data = [[Data alloc] init];
+    data.key = @"events";
+    
+    NSArray *eventsArray = dict[data.key];
+    for (NSDictionary *dict in eventsArray)
+    {
+        Event *event = [Event eventWithDictionary:dict];
+        event.name = dict[@"name"];
+        [eventArray addObject:event];
+        data.events = eventArray;
+    }
+    return data;
+}
+
+
 @end

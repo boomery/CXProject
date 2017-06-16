@@ -11,6 +11,7 @@
 @interface DataProvider()
 @property (nonatomic, strong) Data *measureData;
 @property (nonatomic, strong) Data *riskData;
+@property (nonatomic, strong) Data *riskProgressData;
 @end
 
 @implementation DataProvider
@@ -40,9 +41,14 @@ static DataProvider *provider = nil;
             if ([name isEqualToString:@"Measure"])
             {
                 sharedProvider.measureData = [self parseJsonWithString:jsonData type:1];
-            }else
+            }
+            else if([name isEqualToString:@"Risk"])
             {
                 sharedProvider.riskData = [self parseJsonWithString:jsonData type:2];
+            }
+            else
+            {
+                sharedProvider.riskProgressData = [self parseJsonWithString:jsonData type:3];
             }
         });
         return YES;
@@ -59,9 +65,13 @@ static DataProvider *provider = nil;
         {
             data = [Data measureDataWithDict:dict];
         }
-        else if (type ==2)
+        else if (type == 2)
         {
             data = [Data riskDataWithDict:dict];
+        }
+        else if (type == 3)
+        {
+            data = [Data riskProgressDataWithDict:dict];
         }
         return data;
     }
@@ -75,5 +85,9 @@ static DataProvider *provider = nil;
 + (NSArray *)riskItems
 {
     return provider.riskData.events;
+}
++ (NSArray *)riskProgressItems
+{
+    return provider.riskProgressData.events;
 }
 @end

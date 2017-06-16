@@ -1,6 +1,6 @@
 {
     "version": "1.0",
-    "Measuretype": "过程评估",
+    "Measuretype": "交付评估",
     "type": "风险评估",
     "houseType": "住宅精装类",
     "unit": "mm",

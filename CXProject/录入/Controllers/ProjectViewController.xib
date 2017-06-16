@@ -46,9 +46,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Af-Dnq" userLabel="编辑项目">
                     <rect key="frame" x="213" y="263" width="132" height="168"/>
-                    <state key="normal" backgroundImage="edit_project"/>
+                    <state key="normal" backgroundImage="management"/>
                     <connections>
-                        <action selector="editProject:" destination="-1" eventType="touchUpInside" id="h2g-W3-6xW"/>
+                        <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="i5X-W1-S9n"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-gc-vJD">
@@ -60,7 +60,10 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZq-q8-dyz">
                     <rect key="frame" x="213" y="442" width="132" height="167.5"/>
-                    <state key="normal" backgroundImage="upload_project"/>
+                    <state key="normal" backgroundImage="edit_project"/>
+                    <connections>
+                        <action selector="editProject:" destination="-1" eventType="touchUpInside" id="G54-hq-4nb"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QH3-W8-chC">
                     <rect key="frame" x="0.0" y="257" width="375" height="1"/>
@@ -121,7 +124,7 @@
                 <constraint firstItem="lZq-q8-dyz" firstAttribute="height" secondItem="cAk-gc-vJD" secondAttribute="height" id="xug-nO-5eb"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-1472" y="-830"/>
+            <point key="canvasLocation" x="-1892" y="-941"/>
         </view>
         <navigationBar contentMode="scaleToFill" id="vge-zw-GG8">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -136,8 +139,8 @@
         <image name="auto_select" width="118" height="150"/>
         <image name="edit_project" width="118" height="150"/>
         <image name="group_measure" width="118" height="150"/>
+        <image name="management" width="118" height="149"/>
         <image name="measure_project" width="118" height="151"/>
         <image name="measure_risk" width="118" height="151"/>
-        <image name="upload_project" width="118" height="149"/>
     </resources>
 </document>

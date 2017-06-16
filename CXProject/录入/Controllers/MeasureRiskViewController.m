@@ -13,6 +13,7 @@
 #import "RiskResult+Addition.h"
 #import "PhotoCell.h"
 #import "LabelReusableView.h"
+#import "FileManager.h"
 @interface MeasureRiskViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 {
     IBOutlet UIScrollView *_contentScrollView;
@@ -204,7 +205,7 @@ static NSString *headerIdentifier = @"sectionHeader";
         
         NSString *mediaType = AVMediaTypeVideo;
         AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusNotDetermined){
+        if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
             [SVProgressHUD showErrorWithStatus:@"需要访问您的相机。\n请启用-设置/隐私/相机"];
             return;
         }
@@ -340,9 +341,9 @@ static NSString *headerIdentifier = @"sectionHeader";
     
     editor.imageBlock = ^(UIImage *image){
         
-        NSString *imageName = [CXDataBaseUtil imageName];
+        NSString *imageName = [FileManager imageName];
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ( [UIImageJPEGRepresentation(image, 0.5) writeToFile:[CXDataBaseUtil imagePathForName:imageName]  atomically:YES])
+        if ([FileManager saveImage:image withRatio:0.5 imageName:imageName])
         {
 //            MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
 //            if (res.measurePhoto.length != 0)

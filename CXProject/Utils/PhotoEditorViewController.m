@@ -32,7 +32,7 @@
     [self.view addSubview:_drawView];
     [_drawView autoCenterInSuperview];
     [_drawView autoSetDimensionsToSize:CGSizeMake(self.view.width*0.8, self.view.width*0.8)];
-    _drawView.backgroundColor = [UIColor colorWithRed:0.83 green:0.18 blue:0.13 alpha:1.00];
+    _drawView.backgroundColor = [UIColor blackColor];
     _drawView.brushColor = [UIColor redColor];
     _drawView.brushWidth = 3;
     _drawView.shapeType = LSShapeEllipse;

@@ -16,6 +16,7 @@
 #import "CXDataBaseUtil.h"
 #import "NSString+isValid.h"
 #import "DetailMeasureCell.h"
+#import "FileManager.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
 {
     NSArray *_titleArray;
@@ -202,11 +203,12 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
             [view addGestureRecognizer:tap];
             
             UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
             [self.view addSubview:imageView];
             _imageView = imageView;
             [imageView autoCenterInSuperview];
             [imageView autoSetDimensionsToSize:CGSizeMake(300, 300)];
-            imageView.image = [UIImage imageWithContentsOfFile:[CXDataBaseUtil imagePathForName:res.measurePhoto]];
+            imageView.image = [UIImage imageWithContentsOfFile:[FileManager imagePathForName:res.measurePhoto]];
             _showPhoto = !_showPhoto;
         }
     }
@@ -268,21 +270,20 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
     
     editor.imageBlock = ^(UIImage *image){
         
-        NSString *imageName = [CXDataBaseUtil imageName];
+        NSString *imageName = [FileManager imageName];
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ( [UIImageJPEGRepresentation(image, 0.5) writeToFile:[CXDataBaseUtil imagePathForName:imageName]  atomically:YES])
+        if ([FileManager saveImage:image withRatio:0.5 imageName:imageName])
         {
             MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
             if (res.measurePhoto.length != 0)
             {
-                [[NSFileManager defaultManager] removeItemAtPath:[CXDataBaseUtil imagePathForName:res.measurePhoto] error:nil];
+                [[NSFileManager defaultManager] removeItemAtPath:[FileManager imagePathForName:res.measurePhoto] error:nil];
                 NSLog(@"移除旧照片");
             }
             res.measurePhoto = imageName;
             [MeasureResult insertNewMeasureResult:res];
             [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
         }
-        
         [picker dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarHidden:NO];
             // 改变状态栏的颜色  改变为白色

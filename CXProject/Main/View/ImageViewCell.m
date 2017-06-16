@@ -15,6 +15,7 @@
     if (self = [super initWithFrame:frame])
     {
         UIImageView *imageView = [[UIImageView alloc] initForAutoLayout];
+        imageView.contentMode = UIViewContentModeScaleToFill;
         [self addSubview:imageView];
         [imageView autoPinEdgesToSuperviewEdges];
         _imageView = imageView;

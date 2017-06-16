@@ -18,10 +18,7 @@
 
 + (NSString *)measureTableName;
 + (NSString *)riskTableName;
-
-+ (NSString *)imageName;
-
-+ (NSString *)imagePathForName:(NSString *)imageName;
++ (NSString *)riskProgressTableName;
 
 + (NSString *)getDatabasePath;
 
