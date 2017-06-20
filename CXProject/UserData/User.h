@@ -13,6 +13,8 @@ typedef void(^completion)(BOOL loginStatus);
 
 + (instancetype)sharedUser;
 
++ (NSString *)userName;
+
 + (void)loginWithUserName:(NSString *)name password:(NSString *)password remberPassword:(BOOL)remberPassword completionBlock:(completion)completionBlock;
 
 + (void)logoutWithBlock:(completion)completionBlock;

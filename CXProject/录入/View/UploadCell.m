@@ -8,6 +8,8 @@
 
 #import "UploadCell.h"
 @interface UploadCell ()
+@property (weak, nonatomic) IBOutlet UILabel *kindLabel;
+@property (weak, nonatomic) IBOutlet UILabel *takenByLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @end
 
@@ -21,6 +23,8 @@
 - (void)setPhoto:(Photo *)photo
 {
     _photo = photo;
+    _kindLabel.text = [NSString stringWithFormat:@"类别：%@", photo.kind];
+    _takenByLabel.text = [NSString stringWithFormat:@"拍摄人：%@", photo.takenBy];
     if (!photo.image)
     {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

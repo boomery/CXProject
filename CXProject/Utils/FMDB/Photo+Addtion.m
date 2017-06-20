@@ -21,8 +21,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.subItem3,photo.responsibility, photo.repair_time, photo.hasUpload];
+                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.subItem3,photo.responsibility, photo.repair_time, photo.hasUpload, photo.takenBy];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -183,6 +183,7 @@
     photo.subItem3 = [res stringForColumn:@"subItem3"];
     photo.responsibility = [res stringForColumn:@"responsibility"];
     photo.repair_time = [res stringForColumn:@"repair_time"];
+    photo.takenBy = [res stringForColumn:@"takenBy"];
     return photo;
 }
 

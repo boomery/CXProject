@@ -36,29 +36,35 @@ static User *sharedUser = nil;
     return self;
 }
 
++ (NSString *)userName
+{
+    return sharedUser.name;
+}
+
 #pragma mark - 登录
 + (void)loginWithUserName:(NSString *)name password:(NSString *)password remberPassword:(BOOL)remberPassword completionBlock:(completion)completionBlock
 {
-    [NetworkAPI loginWithUserName:name password:password showHUD:YES successBlock:^(id returnData) {
-        [SVProgressHUD dismissWithCompletion:^{
+//    [NetworkAPI loginWithUserName:name password:password showHUD:YES successBlock:^(id returnData) {
+//        [SVProgressHUD dismissWithCompletion:^{
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
             if (remberPassword)
             {
                 [self setUserLoginStatus:YES];
             }
             [self setuserIsOurStaff:YES];
+            sharedUser.name = name;
             sharedUser.loginStatus = YES;
             sharedUser.isOurStaff = YES;
             
             completionBlock(YES);
-        }];
-    } failureBlock:^(NSError *error) {
-        [SVProgressHUD dismissWithCompletion:^{
-            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
-            completionBlock(NO);
-            
-        }];
-    }];
+//        }];
+//    } failureBlock:^(NSError *error) {
+//        [SVProgressHUD dismissWithCompletion:^{
+//            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+//            completionBlock(NO);
+//            
+//        }];
+//    }];
 }
 
 #pragma mark - 退出登录
@@ -69,7 +75,7 @@ static User *sharedUser = nil;
         [SVProgressHUD dismissWithCompletion:^{
             [self setUserLoginStatus:NO];
             [self setuserIsOurStaff:NO];
-            
+            sharedUser.name = nil;
             sharedUser.loginStatus = NO;
             sharedUser.isOurStaff = NO;
             

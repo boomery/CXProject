@@ -86,7 +86,7 @@ static NSString *imageViewCellIdentifier = @"ImageViewCell";
     label.backgroundColor = [UIColor colorWithRed:0.23 green:0.56 blue:0.96 alpha:1.00];
     label.textColor = [UIColor whiteColor];
     label.textAlignment = 1;
-    label.text = @"保存";
+    label.text = @"上传分数";
 }
 
 - (void)initData
