@@ -23,6 +23,7 @@ static SelectionView *sharedView = nil;
 + (void)showInView:(UIView *)view delegate:(id <SelectionViewDelegate>)delegate
 {
     SelectionView *sharedView = [self sharedView];
+    sharedView.bgView.frame = CGRectMake(0, view.height - 60, view.width, 60);
     if (!sharedView.bgView)
     {
         UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, view.height - 60, view.width, 60)];

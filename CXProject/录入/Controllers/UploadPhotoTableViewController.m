@@ -62,7 +62,16 @@
 #pragma mark - SelectionViewDelegate
 - (void)didClickUpload
 {
-    
+    if (_selectedArray.count == 0)
+    {
+        [SVProgressHUD showInfoWithStatus:@"尚未选择项目"];
+        return;
+    }
+    [SelectionView dismiss];
+    _bottomConstraint.constant = 0;
+    [_selectedArray removeAllObjects];
+    [self.tableView reloadData];
+
 }
 - (void)didClickSelectAll
 {
