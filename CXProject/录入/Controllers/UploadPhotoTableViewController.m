@@ -31,8 +31,10 @@
 
 - (void)initData
 {
+    _selectedArray = [[NSMutableArray alloc] init];
     __weak typeof(self) weakSelf = self;
-    self.selectBlock = ^{
+    self.selectBlock = ^(BOOL select) {
+        weakSelf.isMultiSelect = select;
         if (!weakSelf.isMultiSelect)
         {
             //点击多选
@@ -47,7 +49,7 @@
             [SelectionView dismiss];
             weakSelf.bottomConstraint.constant = 0;
             [weakSelf.selectedArray removeAllObjects];
-            [weakSelf.tableView reloadData];        
+            [weakSelf.tableView reloadData];
         }
         _isMultiSelect = !_isMultiSelect;
     };
@@ -64,7 +66,8 @@
 }
 - (void)didClickSelectAll
 {
-    
+    _selectedArray = [NSMutableArray arrayWithArray:_photosArray];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDataSource
@@ -76,6 +79,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UploadCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UploadCell.h" forIndexPath:indexPath];
+    cell.selectButton.hidden = YES;
+
     Photo *photo = _photosArray[indexPath.row];
     cell.photo = photo;
     //非多选

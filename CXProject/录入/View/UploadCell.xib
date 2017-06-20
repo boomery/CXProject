@@ -21,12 +21,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYp-Y7-Tdy">
-                        <rect key="frame" x="279" y="32.5" width="23" height="23"/>
+                        <rect key="frame" x="270" y="28" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="GYp-Y7-Tdy" secondAttribute="height" multiplier="23:23" id="tzL-8u-SqQ"/>
                         </constraints>
-                        <state key="normal" backgroundImage="delete_photo"/>
-                        <state key="selected" backgroundImage="pass_icon"/>
+                        <state key="normal" backgroundImage="button_unSelected"/>
+                        <state key="selected" backgroundImage="button_selected"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0L-ur-Xrd">
                         <rect key="frame" x="18" y="10" width="69" height="69"/>
@@ -51,7 +51,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="delete_photo" width="23" height="23"/>
-        <image name="pass_icon" width="25" height="25"/>
+        <image name="button_selected" width="32" height="32"/>
+        <image name="button_unSelected" width="32" height="32"/>
     </resources>
 </document>

@@ -12,6 +12,6 @@
 
 @property (nonatomic, assign) BOOL isMultiSelect;
 @property (nonatomic, assign) BOOL hasUpload;
-@property (nonatomic, copy) void(^selectBlock)();
+@property (nonatomic, copy) void(^selectBlock)(BOOL select);
 
 @end

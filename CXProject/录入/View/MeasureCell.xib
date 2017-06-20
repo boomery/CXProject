@@ -38,10 +38,10 @@
                             <constraint firstAttribute="width" secondItem="5MU-Gl-URg" secondAttribute="height" multiplier="1:1" id="ZlM-q3-ues"/>
                             <constraint firstAttribute="height" constant="23" id="reQ-ek-4Wn"/>
                         </constraints>
-                        <state key="normal" backgroundImage="delete_photo">
+                        <state key="normal" backgroundImage="button_unSelected">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
-                        <state key="selected" backgroundImage="pass_icon"/>
+                        <state key="selected" backgroundImage="button_selected"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最后上传时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEd-FG-Rsi">
                         <rect key="frame" x="183" y="18" width="86" height="17"/>
@@ -71,7 +71,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="delete_photo" width="23" height="23"/>
-        <image name="pass_icon" width="25" height="25"/>
+        <image name="button_selected" width="32" height="32"/>
+        <image name="button_unSelected" width="32" height="32"/>
     </resources>
 </document>
