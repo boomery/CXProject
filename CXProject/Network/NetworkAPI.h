@@ -15,6 +15,14 @@
 @class ThreadModel;
 @interface NetworkAPI : NSObject
 
+//用户登录
++ (void)loginWithUserName:(NSString *)name
+                 password:(NSString *)password
+                  showHUD:(BOOL)showHUD
+             successBlock:(SuccessBlock)successBlock
+             failureBlock:(FailureBlock)failureBlock;
+
+//上传图片
 + (void)uploadImage:(UIImage *)image
                type:(NSString *)type
           projectID:(NSString *)projectID

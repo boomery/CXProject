@@ -13,5 +13,69 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CXProject/Network/NetworkAPI.m"
+            timestampString = "519558116.043802"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "+uploadImage:type:projectID:showHUD:successBlock:failureBlock:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__75+[NetworkAPI uploadImage:type:projectID:showHUD:successBlock:failureBlock:]_block_invoke_2"
+                  moduleName = "CXProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangchaoxin/Desktop/CXProject/CXProject/Network/NetworkAPI.m"
+                  timestampString = "519613826.186191"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__75+[NetworkAPI uploadImage:type:projectID:showHUD:successBlock:failureBlock:]_block_invoke_3"
+                  moduleName = "CXProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhangchaoxin/Desktop/CXProject/CXProject/Network/NetworkAPI.m"
+                  timestampString = "519613826.190151"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "83">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CXProject/Network/NetworkAPI.m"
+            timestampString = "519558117.911014"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "+uploadImage:type:projectID:showHUD:successBlock:failureBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -15,6 +15,7 @@
 
 + (NSURLSessionDataTask *)POST:(NSString *)URLString
                     parameters:(id)parameters
+                          body:(NSData *)body
                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure showHud:(BOOL)showHud;
 

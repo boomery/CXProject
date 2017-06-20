@@ -156,6 +156,8 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
  */
 @property (readonly, nonatomic, strong) NSDictionary <NSString *, NSString *> *HTTPRequestHeaders;
 
+@property (nonatomic, strong) NSData *body;
+
 /**
  Creates and returns a serializer with default configuration.
  */

@@ -30,7 +30,7 @@
                         <action selector="measure:" destination="-1" eventType="touchUpInside" id="DP0-Yj-QAY"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A92-Q1-Iz7" userLabel="自动抽取">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A92-Q1-Iz7" userLabel="抽取结果">
                     <rect key="frame" x="30" y="263" width="132" height="168"/>
                     <state key="normal" backgroundImage="auto_select"/>
                     <connections>
@@ -44,21 +44,21 @@
                         <action selector="riskEvaluate:" destination="-1" eventType="touchUpInside" id="hL0-Vw-f7H"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Af-Dnq" userLabel="编辑项目">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Af-Dnq" userLabel="管理行为">
                     <rect key="frame" x="213" y="263" width="132" height="168"/>
                     <state key="normal" backgroundImage="management"/>
                     <connections>
                         <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="i5X-W1-S9n"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-gc-vJD">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-gc-vJD" userLabel="团队互评">
                     <rect key="frame" x="30" y="442" width="132" height="167.5"/>
                     <state key="normal" backgroundImage="group_measure"/>
                     <connections>
                         <action selector="groupEvaluate:" destination="-1" eventType="touchUpInside" id="q5q-MQ-xAV"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZq-q8-dyz">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZq-q8-dyz" userLabel="编辑项目">
                     <rect key="frame" x="213" y="442" width="132" height="167.5"/>
                     <state key="normal" backgroundImage="edit_project"/>
                     <connections>

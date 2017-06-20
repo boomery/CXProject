@@ -61,7 +61,7 @@
     if ([self isValidLogin])
     {
         //执行登录
-        [User loginWithRemberPassword:_remberButton.selected completionBlock:^(BOOL loginStatus) {
+        [User loginWithUserName:_nameTextField.text password:_passwordTextField.text remberPassword:_remberButton.selected completionBlock:^(BOOL loginStatus) {
             if (loginStatus)
             {
                 [self dismissViewControllerAnimated:YES completion:nil];

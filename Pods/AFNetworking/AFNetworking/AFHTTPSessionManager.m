@@ -250,6 +250,8 @@
     return dataTask;
 }
 
+#define CXErrorDomain @"com.CxProject.Domain"
+
 - (NSURLSessionDataTask *)dataTaskWithHTTPMethod:(NSString *)method
                                        URLString:(NSString *)URLString
                                       parameters:(id)parameters
@@ -284,7 +286,26 @@
             }
         } else {
             if (success) {
-                success(dataTask, responseObject);
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+                NSString *code = dict[@"code"];
+                NSString *msg = dict[@"msg"];
+                NSDictionary *dataDict = dict[@"data"];
+                
+                if ([code isEqualToString:@"0"])
+                {
+                    //产生错误信息
+                    NSDictionary *userInfo = @{
+                                               NSLocalizedDescriptionKey: NSLocalizedString(msg, nil),
+                                               NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"未知原因", nil),
+                                               NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"稍后再试", nil)
+                                               };
+                    NSError * error = [NSError errorWithDomain:CXErrorDomain code:[code integerValue] userInfo:userInfo];
+                    failure(dataTask, error);
+                }
+                else
+                {
+                    success(dataTask, dataDict);
+                }
             }
         }
     }];

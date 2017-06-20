@@ -367,6 +367,9 @@ forHTTPHeaderField:(NSString *)field
 
     mutableRequest = [[self requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];
 
+    [mutableRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    // 设置body
+    [mutableRequest setHTTPBody:_body];
 	return mutableRequest;
 }
 
@@ -380,6 +383,9 @@ forHTTPHeaderField:(NSString *)field
     NSParameterAssert(![method isEqualToString:@"GET"] && ![method isEqualToString:@"HEAD"]);
 
     NSMutableURLRequest *mutableRequest = [self requestWithMethod:method URLString:URLString parameters:nil error:error];
+    
+    // 设置body
+//    [mutableRequest setHTTPBody:_body];
 
     __block AFStreamingMultipartFormData *formData = [[AFStreamingMultipartFormData alloc] initWithURLRequest:mutableRequest stringEncoding:NSUTF8StringEncoding];
 

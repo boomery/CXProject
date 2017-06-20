@@ -13,23 +13,22 @@
  *  栏目详细接口前缀
  */
 
-#define API_HOST @"http://h.koukuko.com/api"
+#define API_HOST @"http://10.3.2.156:8080"
 
-#define DEF_API_PATH(name,page) [NSString stringWithFormat:@"%@?page=%ld",name,page]
+// 接口路径全拼
+#define PATH(_path) [NSString stringWithFormat:@"%@/%@", API_HOST, _path]
 
-#define DEF_API_THREAD(name,page) [NSString stringWithFormat:@"t/%ld?page=%ld",name,page]
 
 
 /**
- *  获取栏目与图片前缀
+ *  请在此定义请求URL
  */
 
-#define DEF_API_FILE @"http://static.koukuko.com/h"
+#pragma mark - 用户登录
 
+#define DEF_API_LOGIN @"PDManage/userAction/login"
 
-#define PATH(_path) [NSString stringWithFormat:@"%@/%@", DEF_API_FILE,_path]
+#define DEF_API_UPLOAD @"PDManage/shiceAction/save"
 
-//接口路径拼接
-#define DEF_API_MAIN PATH(@"/cnn1.json")
 
 #endif /* NetworkURLDefine_h */

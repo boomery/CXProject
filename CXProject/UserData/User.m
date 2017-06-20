@@ -37,10 +37,9 @@ static User *sharedUser = nil;
 }
 
 #pragma mark - 登录
-+ (void)loginWithRemberPassword:(BOOL)remberPassword completionBlock:(completion)completionBlock
++ (void)loginWithUserName:(NSString *)name password:(NSString *)password remberPassword:(BOOL)remberPassword completionBlock:(completion)completionBlock
 {
-    [SVProgressHUD show];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    [NetworkAPI loginWithUserName:name password:password showHUD:YES successBlock:^(id returnData) {
         [SVProgressHUD dismissWithCompletion:^{
             [SVProgressHUD showSuccessWithStatus:@"登录成功"];
             if (remberPassword)
@@ -53,7 +52,13 @@ static User *sharedUser = nil;
             
             completionBlock(YES);
         }];
-    });
+    } failureBlock:^(NSError *error) {
+        [SVProgressHUD dismissWithCompletion:^{
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
+            completionBlock(NO);
+            
+        }];
+    }];
 }
 
 #pragma mark - 退出登录
