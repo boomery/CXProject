@@ -121,20 +121,9 @@ static NSString *headerIdentifier = @"sectionHeader";
         NSArray *array = [_arrayDict valueForKey:[_arrayDict allKeys][indexPath.section]];
         photo = array[indexPath.row];
     }
-    if (!photo.image)
-    {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            UIImage *image = [UIImage imageWithContentsOfFile:photo.photoFilePath];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                photo.image = image;
-                cell.imageView.image = image;
-            });
-        });
-    }
-    else
-    {
-        cell.imageView.image = photo.image;
-    }
+    
+    cell.photo = photo;
+    
     return cell;
 }
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MeasureViewController : UITableViewController
+@interface MeasureViewController : BaseViewController
 
 @end

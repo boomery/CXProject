@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProjectViewController">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="bc1-vJ-kMv" id="ghe-H1-ipJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -30,7 +30,7 @@
                         <action selector="measure:" destination="-1" eventType="touchUpInside" id="DP0-Yj-QAY"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A92-Q1-Iz7" userLabel="抽取结果">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A92-Q1-Iz7" userLabel="自动抽取">
                     <rect key="frame" x="30" y="263" width="132" height="168"/>
                     <state key="normal" backgroundImage="auto_select"/>
                     <connections>
@@ -44,21 +44,21 @@
                         <action selector="riskEvaluate:" destination="-1" eventType="touchUpInside" id="hL0-Vw-f7H"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Af-Dnq" userLabel="管理行为">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CfJ-Af-Dnq" userLabel="编辑项目">
                     <rect key="frame" x="213" y="263" width="132" height="168"/>
                     <state key="normal" backgroundImage="management"/>
                     <connections>
                         <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="i5X-W1-S9n"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-gc-vJD" userLabel="团队互评">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAk-gc-vJD">
                     <rect key="frame" x="30" y="442" width="132" height="167.5"/>
                     <state key="normal" backgroundImage="group_measure"/>
                     <connections>
                         <action selector="groupEvaluate:" destination="-1" eventType="touchUpInside" id="q5q-MQ-xAV"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZq-q8-dyz" userLabel="编辑项目">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZq-q8-dyz">
                     <rect key="frame" x="213" y="442" width="132" height="167.5"/>
                     <state key="normal" backgroundImage="edit_project"/>
                     <connections>
@@ -124,7 +124,7 @@
                 <constraint firstItem="lZq-q8-dyz" firstAttribute="height" secondItem="cAk-gc-vJD" secondAttribute="height" id="xug-nO-5eb"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-1892" y="-941"/>
+            <point key="canvasLocation" x="-1725" y="-1056"/>
         </view>
         <navigationBar contentMode="scaleToFill" id="vge-zw-GG8">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -134,6 +134,96 @@
             </items>
             <point key="canvasLocation" x="-111" y="-713"/>
         </navigationBar>
+        <view contentMode="scaleToFill" id="bc1-vJ-kMv">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xlk-YD-wnS" userLabel="风险评估">
+                    <rect key="frame" x="16" y="84" width="99.5" height="127.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Xlk-YD-wnS" secondAttribute="height" multiplier="118:151" id="Nrc-MH-5UJ"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="measure_project"/>
+                    <connections>
+                        <action selector="measure:" destination="-1" eventType="touchUpInside" id="mjQ-DR-ekQ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3n-CD-Qlj" userLabel="风险评估">
+                    <rect key="frame" x="135.5" y="84" width="100" height="127.5"/>
+                    <state key="normal" backgroundImage="measure_risk"/>
+                    <connections>
+                        <action selector="riskEvaluate:" destination="-1" eventType="touchUpInside" id="bBw-ni-urX"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGL-Ui-ZoV" userLabel="风险评估">
+                    <rect key="frame" x="255.5" y="84" width="99.5" height="127.5"/>
+                    <state key="normal" backgroundImage="auto_select"/>
+                    <connections>
+                        <action selector="extractionResult:" destination="-1" eventType="touchUpInside" id="oIp-1N-3Ii"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndQ-8Y-8hw" userLabel="风险评估">
+                    <rect key="frame" x="135.5" y="231.5" width="100" height="127.5"/>
+                    <state key="normal" backgroundImage="group_measure"/>
+                    <connections>
+                        <action selector="groupEvaluate:" destination="-1" eventType="touchUpInside" id="SCt-cx-igO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXs-1Y-h4D" userLabel="风险评估">
+                    <rect key="frame" x="256" y="231.5" width="99.5" height="127.5"/>
+                    <state key="normal" backgroundImage="edit_project"/>
+                    <connections>
+                        <action selector="editProject:" destination="-1" eventType="touchUpInside" id="GGu-K4-Keq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQN-zW-jk9" userLabel="风险评估">
+                    <rect key="frame" x="16" y="379" width="99.5" height="127.5"/>
+                    <state key="normal" backgroundImage="measure_project"/>
+                    <connections>
+                        <action selector="uploadPhotoClick:" destination="-1" eventType="touchUpInside" id="qfx-VC-V4W"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilt-fO-ZyP" userLabel="风险评估">
+                    <rect key="frame" x="16" y="231.5" width="99.5" height="127.5"/>
+                    <state key="normal" backgroundImage="management"/>
+                    <connections>
+                        <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="l6W-VO-1Lv"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fGL-Ui-ZoV" secondAttribute="trailing" constant="20" id="9FK-cs-Os7"/>
+                <constraint firstItem="ndQ-8Y-8hw" firstAttribute="top" secondItem="Ilt-fO-ZyP" secondAttribute="top" id="AdG-LA-JbT"/>
+                <constraint firstItem="ndQ-8Y-8hw" firstAttribute="width" secondItem="p3n-CD-Qlj" secondAttribute="width" id="BVo-xG-U6Q"/>
+                <constraint firstItem="Ilt-fO-ZyP" firstAttribute="height" secondItem="Xlk-YD-wnS" secondAttribute="height" id="BhX-jK-IAq"/>
+                <constraint firstItem="fGL-Ui-ZoV" firstAttribute="width" secondItem="Xlk-YD-wnS" secondAttribute="width" id="DI3-lY-P1r"/>
+                <constraint firstItem="AXs-1Y-h4D" firstAttribute="top" secondItem="ndQ-8Y-8hw" secondAttribute="top" id="DcT-Pz-q9X"/>
+                <constraint firstItem="p3n-CD-Qlj" firstAttribute="height" secondItem="Xlk-YD-wnS" secondAttribute="height" id="Dw2-rF-vdL"/>
+                <constraint firstItem="ndQ-8Y-8hw" firstAttribute="height" secondItem="p3n-CD-Qlj" secondAttribute="height" id="EPx-2Q-zuf"/>
+                <constraint firstItem="AXs-1Y-h4D" firstAttribute="width" secondItem="fGL-Ui-ZoV" secondAttribute="width" id="H6C-rS-KVe"/>
+                <constraint firstItem="p3n-CD-Qlj" firstAttribute="width" secondItem="Xlk-YD-wnS" secondAttribute="width" id="Hjc-Ou-PhQ"/>
+                <constraint firstItem="Ilt-fO-ZyP" firstAttribute="top" secondItem="Xlk-YD-wnS" secondAttribute="bottom" constant="20" id="J1Z-0h-Wl8"/>
+                <constraint firstItem="rQN-zW-jk9" firstAttribute="width" secondItem="Ilt-fO-ZyP" secondAttribute="width" id="Mwz-z1-bXK"/>
+                <constraint firstItem="Ilt-fO-ZyP" firstAttribute="leading" secondItem="Xlk-YD-wnS" secondAttribute="leading" id="QUv-Mx-E5v"/>
+                <constraint firstItem="Xlk-YD-wnS" firstAttribute="top" secondItem="bc1-vJ-kMv" secondAttribute="top" constant="84" id="S15-Il-m17"/>
+                <constraint firstItem="ndQ-8Y-8hw" firstAttribute="leading" secondItem="p3n-CD-Qlj" secondAttribute="leading" id="TwT-2V-0zx"/>
+                <constraint firstItem="p3n-CD-Qlj" firstAttribute="top" secondItem="Xlk-YD-wnS" secondAttribute="top" id="ULU-wf-gCU"/>
+                <constraint firstItem="rQN-zW-jk9" firstAttribute="leading" secondItem="Ilt-fO-ZyP" secondAttribute="leading" id="V44-Hm-clk"/>
+                <constraint firstItem="AXs-1Y-h4D" firstAttribute="height" secondItem="fGL-Ui-ZoV" secondAttribute="height" id="XbB-Ac-Dq8"/>
+                <constraint firstItem="p3n-CD-Qlj" firstAttribute="leading" secondItem="Xlk-YD-wnS" secondAttribute="trailing" constant="20" id="a1z-pS-gko"/>
+                <constraint firstItem="rQN-zW-jk9" firstAttribute="top" secondItem="Ilt-fO-ZyP" secondAttribute="bottom" constant="20" id="afm-EX-NGF"/>
+                <constraint firstItem="Ilt-fO-ZyP" firstAttribute="width" secondItem="Xlk-YD-wnS" secondAttribute="width" id="dBT-T8-r9K"/>
+                <constraint firstItem="fGL-Ui-ZoV" firstAttribute="top" secondItem="p3n-CD-Qlj" secondAttribute="top" id="gBK-8B-Tdk"/>
+                <constraint firstItem="AXs-1Y-h4D" firstAttribute="leading" secondItem="fGL-Ui-ZoV" secondAttribute="leading" id="hai-Qu-umK"/>
+                <constraint firstItem="fGL-Ui-ZoV" firstAttribute="height" secondItem="Xlk-YD-wnS" secondAttribute="height" id="jUF-2c-ZoF"/>
+                <constraint firstItem="Xlk-YD-wnS" firstAttribute="leading" secondItem="bc1-vJ-kMv" secondAttribute="leading" constant="16" id="k6Z-a5-7AS"/>
+                <constraint firstItem="rQN-zW-jk9" firstAttribute="height" secondItem="Ilt-fO-ZyP" secondAttribute="height" id="rHq-SD-P8j"/>
+                <constraint firstItem="fGL-Ui-ZoV" firstAttribute="leading" secondItem="p3n-CD-Qlj" secondAttribute="trailing" constant="20" id="zWR-g8-8sH"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="-1223.5" y="-1055.5"/>
+        </view>
     </objects>
     <resources>
         <image name="auto_select" width="118" height="150"/>

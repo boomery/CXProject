@@ -13,7 +13,7 @@
  *  栏目详细接口前缀
  */
 
-#define API_HOST @"http://10.3.2.156:8080"
+#define API_HOST @"http://10.3.2.161:8080"
 
 // 接口路径全拼
 #define PATH(_path) [NSString stringWithFormat:@"%@/%@", API_HOST, _path]

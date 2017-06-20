@@ -1,16 +1,17 @@
 //
-//  ImageViewCell.h
+//  UploadCell.h
 //  CXProject
 //
-//  Created by zhangchaoxin on 2017/5/25.
+//  Created by zhangchaoxin on 2017/6/20.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "Photo.h"
-@interface ImageViewCell : UICollectionViewCell
+@interface UploadCell : UITableViewCell
 
-@property (nonatomic, strong) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+
 @property (nonatomic, strong) Photo *photo;
 
 @end

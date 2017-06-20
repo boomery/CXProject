@@ -9,8 +9,6 @@
 #import "NetworkAPI.h"
 @implementation NetworkAPI
 
-static dispatch_source_t timer;
-
 #pragma mark - 用户登录
 + (void)loginWithUserName:(NSString *)name
                  password:(NSString *)password
@@ -29,50 +27,46 @@ static dispatch_source_t timer;
 }
 
 #pragma mark - 上传照片
-+ (void)uploadImage:(UIImage *)image type:(NSString *)type projectID:(NSString *)projectID showHUD:(BOOL)showHUD successBlock:(SuccessBlock)successBlock
++ (void)uploadImage:(UIImage *)image
+          projectID:(NSString *)projectID
+               name:(NSString *)name
+           savetime:(NSString *)savetime
+              place:(NSString *)place
+               kind:(NSString *)kind
+               item:(NSString *)item
+            subitem:(NSString *)subitem
+           subitem2:(NSString *)subitem2
+           subitem3:(NSString *)subitem3
+     responsibility:(NSString *)responsibility
+         repairtime:(NSString *)repairtime
+            showHUD:(BOOL)showHUD
+       successBlock:(SuccessBlock)successBlock
        failureBlock:(FailureBlock)failureBlock
 {
-    [NetworkManager POST:DEF_API_UPLOAD parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFormData:[NSData data] name:@"image"];
-    } success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
-    } showHud:YES];
+//    UIImage *resizeImage = [image resizedImageToSize:CGSizeMake(150, 150)];
+    NSData *data = UIImagePNGRepresentation(image);
+    NSString *string = [data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+
+    NSDictionary *json = @{@"data" : string,
+                           @"projectID" : projectID,
+                           @"name" : name,
+                           @"savetime" : savetime,
+                           @"place" : place,
+                           @"kind" : kind,
+                           @"item" : item,
+                           @"subitem" : subitem,
+                           @"subitem2" : subitem2,
+                           @"subitem3" : subitem3,
+                           @"responsibility" : responsibility,
+                           @"repairtime" : repairtime};
+
+    NSData *dataBody = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil];
     
-//    __block float progress = 0.0;
-//    if (showHUD)
-//    {
-//        [SVProgressHUD showProgress:progress];
-//    }
-//    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
-//
-//    timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-//    //开始时间
-//    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
-//    
-//    //间隔时间
-//    uint64_t interval = 0.2 * NSEC_PER_SEC;
-//    
-//    dispatch_source_set_timer(timer, start, interval, 0);
-//    
-//    //设置回调
-//    dispatch_source_set_event_handler(timer, ^{
-//        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-//        [SVProgressHUD showProgress:progress status:@"上传中..."];
-//        if(progress < 1.0f)
-//        {
-//            progress += 0.05f;
-//        }
-//        else
-//        {
-//            dispatch_cancel(timer);
-//            [SVProgressHUD showSuccessWithStatus:@"上传成功"];
-//            successBlock(nil);
-//        }
-//    });
-//    //启动timer
-//    dispatch_resume(timer);
+    [NetworkManager POST:DEF_API_UPLOAD parameters:nil body:dataBody success:^(NSURLSessionDataTask *task, id responseObject) {
+        [SVProgressHUD showInfoWithStatus:@"成功"];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD showInfoWithStatus:error.localizedDescription];
+    } showHud:YES];
 }
 
 - (void)dismiss

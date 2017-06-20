@@ -147,13 +147,7 @@ static NSString *imageViewCellIdentifier = @"ImageViewCell";
 {
     ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:imageViewCellIdentifier forIndexPath:indexPath];
    Photo *photo = _photosArray[indexPath.row];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithContentsOfFile:photo.photoFilePath];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            photo.image = image;
-            cell.imageView.image = image;
-        });
-    });
+    cell.photo = photo;
     cell.backgroundColor = [UIColor redColor];
     return cell;
 }

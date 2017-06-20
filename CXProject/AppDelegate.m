@@ -46,12 +46,6 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [CXDataBaseUtil creatTable];
      });
-    
-//    [NetworkAPI uploadImage:nil type:nil projectID:nil showHUD:YES successBlock:^(id returnData) {
-//        
-//    } failureBlock:^(NSError *error) {
-//        
-//    }];
 }
 - (void)setTheme
 {

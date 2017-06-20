@@ -15,6 +15,7 @@
 #import "Risk_Progress_ViewController.h"
 #import "ManagementViewController.h"
 #import "SignViewController.h"
+#import "UploadPhotoViewController.h"
 @interface ProjectViewController ()
 
 @end
@@ -101,6 +102,13 @@
 {
     ManagementViewController *newVC = [[ManagementViewController alloc] init];
     newVC.title = @"管理行为";
+    [self.navigationController pushViewController:newVC animated:YES];
+}
+
+- (IBAction)uploadPhotoClick:(id)sender
+{
+    UploadPhotoViewController *newVC = [[UploadPhotoViewController alloc] init];
+    newVC.title = @"照片上传";
     [self.navigationController pushViewController:newVC animated:YES];
 }
 

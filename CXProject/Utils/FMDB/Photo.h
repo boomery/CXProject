@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSString *subItem3;
 @property (nonatomic, copy) NSString *responsibility;
 @property (nonatomic, copy) NSString *repair_time;
+@property (nonatomic, copy) NSString *hasUpload;
 
 @property (nonatomic, strong) UIImage *image;
 

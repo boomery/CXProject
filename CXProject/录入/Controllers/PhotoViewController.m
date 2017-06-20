@@ -69,15 +69,16 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 - (IBAction)reportButtonClicked:(id)sender
 {
-    [NetworkAPI uploadImage:_photoButton.currentBackgroundImage type:nil projectID:nil showHUD:YES successBlock:^(id returnData) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.navigationController popViewControllerAnimated:YES];
-        });
-    } failureBlock:^(NSError *error) {
-        
-    }];
+//    [NetworkAPI uploadImage:_photoButton.currentBackgroundImage type:nil projectID:nil showHUD:YES successBlock:^(id returnData) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.navigationController popViewControllerAnimated:YES];
+//        });
+//    } failureBlock:^(NSError *error) {
+//        
+//    }];
 }
 
 #pragma mark - UIImagePickerControllerDelegate

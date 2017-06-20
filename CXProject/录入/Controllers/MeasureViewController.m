@@ -9,10 +9,18 @@
 #import "MeasureViewController.h"
 #import "DetailMeasureViewController.h"
 #import "MeasureResult+Addtion.h"
-@interface MeasureViewController ()
+#import "SelectionView.h"
+#import "MeasureCell.h"
+@interface MeasureViewController () <SelectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     NSArray *_titleArray;
+    BOOL _isMultiSelect;
+    NSMutableArray *_selectedArray;
+
+    __weak IBOutlet NSLayoutConstraint *_bottomConstraint;
 }
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation MeasureViewController
@@ -29,29 +37,65 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
-//    UIButton *uploadButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    uploadButton.frame = CGRectMake(0, 0, 40, 40);
-//    uploadButton.titleLabel.font = [UIFont systemFontOfSize:10];
-//    [uploadButton addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
-//    [uploadButton setImage:[UIImage imageNamed:@"upload"] forState:UIControlStateNormal];
-//    [uploadButton setTitle:@"上传" forState:UIControlStateNormal];
-//    [uploadButton setTitleEdgeInsets:UIEdgeInsetsMake(25, -10, 0, -10)];
-//    [uploadButton setImageEdgeInsets:UIEdgeInsetsMake(5, 20, 15, -10)];
-//    
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:uploadButton];
-//    self.navigationItem.rightBarButtonItem = item;
-    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
+    self.navigationItem.rightBarButtonItem = item;
+    [self.tableView registerNib:[UINib nibWithNibName:@"MeasureCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"MeasureCell.h"];
     [self initData];
 }
 
-- (void)upload
+- (void)select
 {
-    [SVProgressHUD showSuccessWithStatus:@"上传完成"];
+    if (!_isMultiSelect)
+    {
+        //点击多选
+        [SelectionView showInView:self.view delegate:self];
+        _bottomConstraint.constant = 60;
+        [self.tableView reloadData];
+        
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+    else
+    {
+        //点击取消
+        [SelectionView dismiss];
+        _bottomConstraint.constant = 0;
+        [_selectedArray removeAllObjects];
+        [self.tableView reloadData];
+        
+        
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+    _isMultiSelect = !_isMultiSelect;
 }
 
 - (void)initData
 {
+    _selectedArray = [[NSMutableArray alloc] init];
     _titleArray = [DataProvider measureItems];
+}
+
+#pragma mark - SelectionViewDelegate
+- (void)didClickUpload
+{
+    if (_selectedArray.count == 0)
+    {
+        [SVProgressHUD showInfoWithStatus:@"尚未选择项目"];
+        return;
+    }
+    [SelectionView dismiss];
+    _bottomConstraint.constant = 0;
+    [_selectedArray removeAllObjects];
+    [self.tableView reloadData];
+    NSLog(@"上传");
+}
+
+- (void)didClickSelectAll
+{
+    _selectedArray = [NSMutableArray arrayWithArray:_titleArray];
+    [self.tableView reloadData];
+    NSLog(@"全选");
 }
 
 #pragma mark - UITableViewDataSource
@@ -62,25 +106,41 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIndentifier = @"UITableViewCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-    if (!cell)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
+    MeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeasureCell.h" forIndexPath:indexPath];
+    cell.selectButton.hidden = YES;
+    cell.uploadTime.text = @"无上传记录";
     Event *event = _titleArray[indexPath.row];
-    cell.textLabel.text = event.name;
+    cell.nameLabel.text = event.name;
     
     NSInteger results = [MeasureResult tNumOfResultsForProjectID:[User editingProject].fileName itemName:event.name];
     NSInteger qualified = [MeasureResult tNumOfQualifiedForProjectID:[User editingProject].fileName itemName:event.name];
     if (results == 0)
     {
-        cell.detailTextLabel.text = @"合格率";
+        cell.qualifiedLabel.text = @"无录入点记录";
     }
     else
     {
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"合格率:%.0f%%", (float)qualified/results*100];
+        cell.qualifiedLabel.text = [NSString stringWithFormat:@"合格率:%.0f%%", (float)qualified/results*100];
+    }
+    
+    //非多选
+    if (!_isMultiSelect)
+    {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    //多选模式
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.selectButton.hidden = NO;
+        if ([_selectedArray containsObject:event])
+        {
+            cell.selectButton.selected = YES;
+        }
+        else
+        {
+            cell.selectButton.selected = NO;
+        }
     }
     return cell;
 }
@@ -88,12 +148,32 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DetailMeasureViewController *detail = [[DetailMeasureViewController alloc] init];
     Event *event = _titleArray[indexPath.row];
-    detail.event = event;
-    detail.title = event.name;
-    [self.navigationController pushViewController:detail animated:YES];
+    if (!_isMultiSelect)
+    {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        DetailMeasureViewController *detail = [[DetailMeasureViewController alloc] init];
+        detail.event = event;
+        detail.title = event.name;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+    else
+    {
+        if ([_selectedArray containsObject:event])
+        {
+            [_selectedArray removeObject:event];
+        }
+        else
+        {
+            [_selectedArray addObject:event];
+        }
+        [self.tableView reloadData];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
 }
 
 - (void)didReceiveMemoryWarning {

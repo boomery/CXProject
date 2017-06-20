@@ -110,6 +110,11 @@
     //先保存后编辑详细分类执行
     else
     {
+        [NetworkAPI uploadImage:_photo.image projectID:_photo.projectID name:_photo.photoName savetime:_photo.save_time place:_photo.place kind:_photo.kind item:_photo.item subitem:_photo.subItem subitem2:_photo.subItem2 subitem3:_photo.subItem3 responsibility:_photo.responsibility repairtime:_photo.repair_time showHUD:YES successBlock:^(id returnData) {
+            
+        } failureBlock:^(NSError *error) {
+            
+        }];
         [Photo insertNewPhoto:_photo];
     }
 }

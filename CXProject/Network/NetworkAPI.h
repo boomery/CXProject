@@ -24,8 +24,17 @@
 
 //上传图片
 + (void)uploadImage:(UIImage *)image
-               type:(NSString *)type
           projectID:(NSString *)projectID
+               name:(NSString *)name
+           savetime:(NSString *)savetime
+              place:(NSString *)place
+               kind:(NSString *)kind
+               item:(NSString *)item
+            subitem:(NSString *)subitem
+           subitem2:(NSString *)subitem2
+           subitem3:(NSString *)subitem3
+     responsibility:(NSString *)responsibility
+         repairtime:(NSString *)repairtime
             showHUD:(BOOL)showHUD
        successBlock:(SuccessBlock)successBlock
        failureBlock:(FailureBlock)failureBlock;
