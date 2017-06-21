@@ -116,7 +116,7 @@ static NSString *headerIdentifier = @"sectionHeader";
     editor.image = image;
     editor.imageBlock = ^(Photo *photo){
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ([FileManager saveImage:photo.image withRatio:0.5 imageName:photo.photoName])
+        if ([FileManager savePhoto:photo])
         {
             [Photo insertNewPhoto:photo];
             [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];

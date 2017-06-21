@@ -8,6 +8,8 @@
 
 #import "MeasureResult+Addtion.h"
 #import "CXDataBaseUtil.h"
+#import "Photo.h"
+#import "FileManager.h"
 @implementation MeasureResult (Addtion)
 + (void)deleteMeasureResult:(MeasureResult *)result
 {
@@ -24,11 +26,21 @@
     if (res)
     {
         [SVProgressHUD showSuccessWithStatus:@"数据删除成功"];
+        if (result.measurePhoto.length != 0)
+        {
+            Photo *photo = [[Photo alloc] init];
+            photo.projectID = result.projectID;
+            photo.kind = @"实测实量";
+            photo.photoName = result.measurePhoto;
+            [[NSFileManager defaultManager] removeItemAtPath:[FileManager imagePathForPhoto:photo] error:nil];
+            NSLog(@"移除旧照片");
+        }
     }
     else
     {
         [SVProgressHUD showErrorWithStatus:@"数据删除失败"];
     }
+    
 }
 
 + (void)insertNewMeasureResult:(MeasureResult *)result
@@ -42,8 +54,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil measureTableName], result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace,  result.measurePhoto, result.mesaureIndex];
+                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          [CXDataBaseUtil measureTableName], result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace,  result.measurePhoto, result.mesaureIndex, result.hasUpload, result.takenBy];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -102,18 +114,7 @@
     FMResultSet *res = [db executeQuery:querySql];
     while ([res next])
     {
-        MeasureResult *result = [[MeasureResult alloc] init];
-        result.projectID = [res stringForColumn:@"projectID"];
-        result.itemName = [res stringForColumn:@"itemName"];
-        result.subItemName = [res stringForColumn:@"subItemName"];
-        result.measureArea = [res stringForColumn:@"measureArea"];
-        result.measurePoint = [res stringForColumn:@"measurePoint"];
-        result.measureValues = [res stringForColumn:@"measureValues"];
-        result.designValues = [res stringForColumn:@"designValues"];
-        result.measureResult = [res stringForColumn:@"measureResult"];
-        result.measurePlace = [res stringForColumn:@"measurePlace"];
-        result.measurePhoto = [res stringForColumn:@"measurePhoto"];
-        result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
+        MeasureResult *result = [self resultForFMResultSet:res];
         [resultsDict setValue:result forKey:result.mesaureIndex];
         NSArray *results = [result.measureResult componentsSeparatedByString:@";"];
         for (NSString *str in results)
@@ -159,18 +160,7 @@
     FMResultSet *res = [db executeQuery:querySql];
     while ([res next])
     {
-        MeasureResult *result = [[MeasureResult alloc] init];
-        result.projectID = [res stringForColumn:@"projectID"];
-        result.itemName = [res stringForColumn:@"itemName"];
-        result.subItemName = [res stringForColumn:@"subItemName"];
-        result.measureArea = [res stringForColumn:@"measureArea"];
-        result.measurePoint = [res stringForColumn:@"measurePoint"];
-        result.measureValues = [res stringForColumn:@"measureValues"];
-        result.designValues = [res stringForColumn:@"designValues"];
-        result.measureResult = [res stringForColumn:@"measureResult"];
-        result.measurePlace = [res stringForColumn:@"measurePlace"];
-        result.measurePhoto = [res stringForColumn:@"measurePhoto"];
-        result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
+        MeasureResult *result = [self resultForFMResultSet:res];
         [resultsDict setValue:result forKey:result.mesaureIndex];
         NSArray *results = [result.measureResult componentsSeparatedByString:@";"];
         for (NSString *str in results)
@@ -192,6 +182,25 @@
     //保存大项合格点
     [[NSUserDefaults standardUserDefaults] setInteger:t_qualified forKey:T_QUALIFIED_NUM_KEY];
     return resultsDict;
+}
+
++ (MeasureResult *)resultForFMResultSet:(FMResultSet *)res
+{
+    MeasureResult *result = [[MeasureResult alloc] init];
+    result.projectID = [res stringForColumn:@"projectID"];
+    result.itemName = [res stringForColumn:@"itemName"];
+    result.subItemName = [res stringForColumn:@"subItemName"];
+    result.measureArea = [res stringForColumn:@"measureArea"];
+    result.measurePoint = [res stringForColumn:@"measurePoint"];
+    result.measureValues = [res stringForColumn:@"measureValues"];
+    result.designValues = [res stringForColumn:@"designValues"];
+    result.measureResult = [res stringForColumn:@"measureResult"];
+    result.measurePlace = [res stringForColumn:@"measurePlace"];
+    result.measurePhoto = [res stringForColumn:@"measurePhoto"];
+    result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
+    result.hasUpload = [res stringForColumn:@"hasUpload"];
+    result.takenBy = [res stringForColumn:@"takenBy"];
+    return result;
 }
 
 //#pragma mark - 更新录入照片名字

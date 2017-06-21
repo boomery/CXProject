@@ -30,44 +30,44 @@
     return imageName;
 }
 
-+ (NSString *)imagePathForName:(NSString *)imageName
-{
-    //首先,需要获取沙盒路径
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    // 拼接图片名为"currentImage.png"的路径
-    NSString *imageFilePath = [path stringByAppendingPathComponent:imageName];
-    return imageFilePath;
-}
-
-+ (NSString *)imagePathForName:(NSString *)imageName photo:(Photo *)photo
-{
-    //首先,需要获取沙盒路径
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    //拼接文件夹
-    NSString *fileString = [path stringByAppendingPathComponent:[self fileStringForPhoto:photo]];
-    // 拼接图片名为".png"的路径
-    NSString *imageFilePath = [fileString stringByAppendingPathComponent:imageName];
-    return imageFilePath;
-}
-
-+ (NSString *)fileStringForPhoto:(Photo *)photo
-{
-    if (!photo.item)
-    {
-        return [[[User editingProject].fileName stringByAppendingPathComponent:photo.kind] stringByAppendingPathComponent:@"未分类"];
-    }
-    return [[[User editingProject].fileName stringByAppendingPathComponent:photo.kind] stringByAppendingPathComponent:photo.item];
-}
-
-+ (BOOL)saveImage:(UIImage *)image withRatio:(CGFloat)ratio imageName:(NSString *)imageName
-{
-    return [UIImageJPEGRepresentation(image, ratio) writeToFile:[FileManager imagePathForName:imageName] atomically:YES];
-}
-
 + (BOOL)deleteImageForPhotoFilePath:(NSString *)filePath
 {
     NSError *error;
     return [[self defaultManager] removeItemAtPath:filePath error:&error];
 }
 
++ (BOOL)savePhoto:(Photo *)photo
+{
+    return [UIImageJPEGRepresentation(photo.image, 0.5) writeToFile:[FileManager imagePathForPhoto:photo] atomically:YES];
+}
+
++ (NSString *)imagePathForPhoto:(Photo *)photo
+{
+    //首先,需要获取沙盒路径
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    //拼接文件夹
+    NSString *fileString = [path stringByAppendingPathComponent:[self fileStringForPhoto:photo]];
+    
+    BOOL isDirectory;
+    if(![[self defaultManager] fileExistsAtPath:fileString isDirectory:&isDirectory])
+    {
+        NSError *error = nil;
+        if ([[self defaultManager] createDirectoryAtPath:fileString withIntermediateDirectories:YES attributes:nil error:&error])
+        {
+            NSLog(@"%@文件夹创建成功", fileString);
+        }
+        else
+        {
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }
+    // 拼接图片名为".png"的路径
+    NSString *imageFilePath = [fileString stringByAppendingPathComponent:photo.photoName];
+    return imageFilePath;
+}
+
++ (NSString *)fileStringForPhoto:(Photo *)photo
+{
+   return [[NSString stringWithFormat:@"项目：%@", photo.projectID] stringByAppendingPathComponent:photo.kind];
+}
 @end

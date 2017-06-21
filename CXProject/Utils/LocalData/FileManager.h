@@ -14,12 +14,9 @@
 
 + (NSString *)imageName;
 
-+ (NSString *)imagePathForName:(NSString *)imageName;
-
-+ (NSString *)imagePathForName:(NSString *)imageName photo:(Photo *)photo;
-
-+ (BOOL)saveImage:(UIImage *)image withRatio:(CGFloat)ratio imageName:(NSString *)imageName;
-
 + (BOOL)deleteImageForPhotoFilePath:(NSString *)filePath;
 
++ (BOOL)savePhoto:(Photo *)photo;
+
++ (NSString *)imagePathForPhoto:(Photo *)photo;
 @end

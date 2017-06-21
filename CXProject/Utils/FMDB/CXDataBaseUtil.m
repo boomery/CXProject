@@ -39,16 +39,26 @@ static FMDatabase *_db = nil;
     //为数据库设置缓存，提高查询效率
     [db setShouldCacheStatements:YES];
     
-//    NSString *deleteTable = @"drop table risk_progress_table";
+//    NSString *deleteTable = @"drop table MEASURE_TABLE";
 //    if ([db executeUpdate:deleteTable])
 //    {
-//        NSLog(@"删除表");
+//        NSLog(@"删除实测表");
+//    }
+//    NSString *deleteTable2 = @"drop table RISK_TABLE";
+//    if ([db executeUpdate:deleteTable2])
+//    {
+//        NSLog(@"删除交付表");
+//    }
+//    NSString *deleteTable3 = @"drop table risk_progress_table";
+//    if ([db executeUpdate:deleteTable3])
+//    {
+//        NSLog(@"删除过程表");
 //    }
     
    	//判断数据库中是否已经存在这个表，如果不存在则创建该表
     if(![db tableExists:[CXDataBaseUtil measureTableName]])
     {
-        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT, measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT, measurePhoto TEXT, mesaureIndex TEXT, PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",[CXDataBaseUtil measureTableName]];
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT, measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT, measurePhoto TEXT, mesaureIndex TEXT, hasUpload TEXT, takenBy TEXT, PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",[CXDataBaseUtil measureTableName]];
         if ([db executeUpdate:createSql])
         {
             NSLog(@"实测实量建表成功");

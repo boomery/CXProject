@@ -17,6 +17,7 @@
 #import "NSString+isValid.h"
 #import "DetailMeasureCell.h"
 #import "FileManager.h"
+#import "Photo.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
 {
     NSArray *_titleArray;
@@ -208,7 +209,11 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
             _imageView = imageView;
             [imageView autoCenterInSuperview];
             [imageView autoSetDimensionsToSize:CGSizeMake(300, 300)];
-            imageView.image = [UIImage imageWithContentsOfFile:[FileManager imagePathForName:res.measurePhoto]];
+            Photo *photo = [[Photo alloc] init];
+            photo.projectID = res.projectID;
+            photo.photoName = res.measurePhoto;
+            photo.kind = @"实测实量";
+            imageView.image = [UIImage imageWithContentsOfFile:[FileManager imagePathForPhoto:photo]];
             _showPhoto = !_showPhoto;
         }
     }
@@ -272,12 +277,21 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         
         NSString *imageName = [FileManager imageName];
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ([FileManager saveImage:image withRatio:0.5 imageName:imageName])
+        
+        MeasureResult *result = [self exsistMeasureResultForIndexPath:self.indexPath];
+        Photo *photo = [[Photo alloc] init];
+        photo.projectID = result.projectID;
+        photo.kind = @"实测实量";
+        photo.image = image;
+        photo.photoName = imageName;
+        
+        if ([FileManager savePhoto:photo])
         {
             MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
             if (res.measurePhoto.length != 0)
             {
-                [[NSFileManager defaultManager] removeItemAtPath:[FileManager imagePathForName:res.measurePhoto] error:nil];
+                photo.photoName = res.measurePhoto;
+                [[NSFileManager defaultManager] removeItemAtPath:[FileManager imagePathForPhoto:photo] error:nil];
                 NSLog(@"移除旧照片");
             }
             res.measurePhoto = imageName;
@@ -384,6 +398,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         
         result.mesaureIndex = [NSString stringWithFormat:@"%ld",index];
         
+        result.takenBy = [User userName];
         //插入数据库
         [MeasureResult insertNewMeasureResult:result];
         

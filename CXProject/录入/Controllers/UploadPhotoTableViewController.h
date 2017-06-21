@@ -14,4 +14,5 @@
 @property (nonatomic, assign) BOOL hasUpload;
 @property (nonatomic, copy) void(^selectBlock)(BOOL select);
 
+@property (nonatomic, copy) void(^uploadBlock)();
 @end

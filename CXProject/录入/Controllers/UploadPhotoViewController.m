@@ -41,6 +41,9 @@ static NSString *headerIdentifier = @"sectionHeader";
         {
             c.hasUpload = YES;
         }
+        c.uploadBlock = ^{
+            [self select];
+        };
         [self.controllerArray addObject:c];
     }
 }

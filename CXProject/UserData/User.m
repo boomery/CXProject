@@ -8,14 +8,15 @@
 
 #import "User.h"
 #define USER_LOGIN_STATUS @"USER_LOGIN_STATUS"
+#define USER_NAME @"USER_NAME"
 #define USER_IS_OURSTAFF @"USER_IS_OURSTAFF"
 
 @interface User ()
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) BOOL isOurStaff;
-@property (nonatomic, assign) BOOL loginStatus;
+
 @property (nonatomic, strong) Project *editingProject;
+
 @end
+
 static User *sharedUser = nil;
 @implementation User
 + (instancetype)sharedUser
@@ -36,11 +37,6 @@ static User *sharedUser = nil;
     return self;
 }
 
-+ (NSString *)userName
-{
-    return sharedUser.name;
-}
-
 #pragma mark - 登录
 + (void)loginWithUserName:(NSString *)name password:(NSString *)password remberPassword:(BOOL)remberPassword completionBlock:(completion)completionBlock
 {
@@ -52,10 +48,8 @@ static User *sharedUser = nil;
                 [self setUserLoginStatus:YES];
             }
             [self setuserIsOurStaff:YES];
-            sharedUser.name = name;
-            sharedUser.loginStatus = YES;
-            sharedUser.isOurStaff = YES;
-            
+            [self setUserName:name];
+    
             completionBlock(YES);
 //        }];
 //    } failureBlock:^(NSError *error) {
@@ -75,24 +69,27 @@ static User *sharedUser = nil;
         [SVProgressHUD dismissWithCompletion:^{
             [self setUserLoginStatus:NO];
             [self setuserIsOurStaff:NO];
-            sharedUser.name = nil;
-            sharedUser.loginStatus = NO;
-            sharedUser.isOurStaff = NO;
-            
+            [self setUserName:nil];
             completionBlock(YES);
         }];
     });
 }
 
-+ (BOOL)isOurStaff
+#pragma mark - 用户姓名
++ (NSString *)userName
 {
-    return sharedUser.isOurStaff || [self userIsOurStaff];
+    return [[NSUserDefaults standardUserDefaults] stringForKey:USER_NAME];
+}
+
++ (void)setUserName:(NSString *)name
+{
+    [[NSUserDefaults standardUserDefaults] setValue:name forKey:USER_NAME];
 }
 
 #pragma mark - 用户信息
 + (BOOL)userIsOurStaff
 {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_IS_OURSTAFF] || sharedUser.isOurStaff;
+    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_IS_OURSTAFF];
 }
 
 + (void)setuserIsOurStaff:(BOOL)isOurStaff
@@ -103,7 +100,7 @@ static User *sharedUser = nil;
 #pragma mark - 用户登录状态
 + (BOOL)userLoginStatus
 {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS] || sharedUser.loginStatus;
+    return [[NSUserDefaults standardUserDefaults] boolForKey:USER_LOGIN_STATUS];
 }
 
 + (void)setUserLoginStatus:(BOOL)hasLogin
@@ -112,17 +109,18 @@ static User *sharedUser = nil;
 }
 
 #define KEY_PROJECT_LIST @"projectList"
-
 + (NSMutableArray *)projectList
 {
     NSMutableArray *listArray = [[NSMutableArray alloc] init];
     
-    NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSArray *projectArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentPath error:nil];
+    NSString *projectPath = [self filePathForFileName:nil];
+    
+    NSArray *projectArray = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:projectPath error:nil];
+    
     [projectArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[NSString class]])
         {
-            NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[documentPath stringByAppendingPathComponent:obj]];
+            NSData *data = [[NSMutableData alloc] initWithContentsOfFile:[projectPath stringByAppendingPathComponent:obj]];
             NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
             Project *project = [unarchiver decodeObjectForKey:KEY_PROJECT_LIST];
             [unarchiver finishDecoding];
@@ -134,6 +132,7 @@ static User *sharedUser = nil;
     }];
     return listArray;
 }
+
 + (void)saveProject:(Project *)project
 {
     if (!project.fileName)
@@ -161,7 +160,25 @@ static User *sharedUser = nil;
 {
     //documentPath 模拟器中运行后会发生变动，因此每次动态获取路径
     NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSString *filePath = [documentPath stringByAppendingPathComponent:fileName];
+    
+    NSString *projectPath = [documentPath stringByAppendingPathComponent:@"projects"];
+    
+    BOOL isDirectory;
+    if(![[NSFileManager defaultManager] fileExistsAtPath:projectPath isDirectory:&isDirectory])
+    {
+        NSError *error = nil;
+        if ([[NSFileManager defaultManager] createDirectoryAtPath:projectPath withIntermediateDirectories:YES attributes:nil error:&error])
+        {
+            NSLog(@"%@文件夹创建成功", projectPath);
+        }
+        else
+        {
+            NSLog(@"%@",error.localizedDescription);
+        }
+    }
+    
+    NSString *filePath = [projectPath stringByAppendingPathComponent:fileName];
+    
     return filePath;
 }
 
@@ -179,6 +196,7 @@ static User *sharedUser = nil;
 {
     sharedUser.editingProject = project;
 }
+
 + (Project *)editingProject
 {
     return sharedUser.editingProject;

@@ -10,4 +10,13 @@
 
 @implementation MeasureResult
 
+- (id)init
+{
+    if (self = [super init])
+    {
+        _hasUpload = @"NO";
+    }
+    return self;
+}
+
 @end

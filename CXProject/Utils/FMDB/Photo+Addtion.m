@@ -103,6 +103,7 @@
     }];
 }
 
+//风险评估与管理行为照片
 + (void)photosForProjectID:(NSString *)projectID hasUpload:(BOOL)hasUpload completionBlock:(void(^)(NSMutableArray *resultArray))block
 {
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[CXDataBaseUtil getDatabasePath]];
@@ -123,6 +124,49 @@
         while ([res next])
         {
             Photo *photo = [self photoForFMResultSet:res];
+            [photosArray addObject:photo];
+        }
+        [res close];
+        block(photosArray);
+    }];
+}
+
+//实测实量照片
++ (void)measurePhotosForProjectID:(NSString *)projectID hasUpload:(BOOL)hasUpload completionBlock:(void(^)(NSMutableArray *resultArray))block
+{
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[CXDataBaseUtil getDatabasePath]];
+    [queue inDatabase:^(FMDatabase *db) {
+        NSMutableArray *photosArray = [[NSMutableArray alloc] init];
+        
+        NSString *status = nil;
+        if (hasUpload) {
+            status = @"YES";
+        }
+        else
+        {
+            status = @"NO";
+        }
+        NSString *querySql= [NSString stringWithFormat:
+                             @"select *from %@ where projectID = '%@' and measurePhoto != '' and hasUpload = '%@'",[CXDataBaseUtil measureTableName], projectID, status];
+        FMResultSet *res = [db executeQuery:querySql];
+        while ([res next])
+        {
+            Photo *photo = [[Photo alloc] init];
+            photo.projectID = [res stringForColumn:@"projectID"];
+            photo.photoName = [res stringForColumn:@"measurePhoto"];
+//            photo.save_time = [res stringForColumn:@"save_time"];
+            photo.place = [res stringForColumn:@"measurePlace"];
+            photo.kind = @"实测实量";
+            photo.photoFilePath = [FileManager imagePathForPhoto:photo];
+            photo.item = [res stringForColumn:@"itemName"];
+            photo.subItem = [res stringForColumn:@"subItemName"];
+//            photo.subItem2 = [res stringForColumn:@"subItem2"];
+//            photo.subItem3 = [res stringForColumn:@"subItem3"];
+//            photo.responsibility = [res stringForColumn:@"responsibility"];
+//            photo.repair_time = [res stringForColumn:@"repair_time"];
+            photo.hasUpload = [res stringForColumn:@"hasUpload"];
+            photo.takenBy = [res stringForColumn:@"takenBy"];
+
             [photosArray addObject:photo];
         }
         [res close];
@@ -175,14 +219,15 @@
     photo.photoName = [res stringForColumn:@"photoName"];
     photo.save_time = [res stringForColumn:@"save_time"];
     photo.place = [res stringForColumn:@"place"];
-    photo.photoFilePath = [FileManager imagePathForName:[res stringForColumn:@"photoName"]];
     photo.kind = [res stringForColumn:@"kind"];
+    photo.photoFilePath = [FileManager imagePathForPhoto:photo];
     photo.item = [res stringForColumn:@"item"];
     photo.subItem = [res stringForColumn:@"subItem"];
     photo.subItem2 = [res stringForColumn:@"subItem2"];
     photo.subItem3 = [res stringForColumn:@"subItem3"];
     photo.responsibility = [res stringForColumn:@"responsibility"];
     photo.repair_time = [res stringForColumn:@"repair_time"];
+    photo.hasUpload = [res stringForColumn:@"hasUpload"];
     photo.takenBy = [res stringForColumn:@"takenBy"];
     return photo;
 }

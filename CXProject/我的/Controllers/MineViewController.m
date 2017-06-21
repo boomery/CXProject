@@ -32,7 +32,7 @@
 {
     [super viewWillAppear:animated];
     
-    if ([User isOurStaff])
+    if ([User userIsOurStaff])
     {
         _imageNameDict = @{@"0":@[@"my_project", @"attence", @"key_dict"], @"1":@[@"feedback", @"version", @"contact"]};
         _titleDict = @{@"0":@[ @"我的项目", @"现场考勤", @"关键词字典"], @"1":@[@"意见反馈", @"关于平大", @"联系我们"]};

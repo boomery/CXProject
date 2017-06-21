@@ -14,7 +14,9 @@
 @property (nonatomic, copy) NSString *photoName;
 @property (nonatomic, copy) NSString *save_time;
 @property (nonatomic, copy) NSString *place;
+
 @property (nonatomic, copy) NSString *photoFilePath;
+
 @property (nonatomic, copy) NSString *kind;
 @property (nonatomic, copy) NSString *item;
 @property (nonatomic, copy) NSString *subItem;

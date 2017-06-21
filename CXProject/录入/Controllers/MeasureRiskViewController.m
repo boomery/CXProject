@@ -343,8 +343,8 @@ static NSString *headerIdentifier = @"sectionHeader";
         
         NSString *imageName = [FileManager imageName];
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ([FileManager saveImage:image withRatio:0.5 imageName:imageName])
-        {
+//        if ([FileManager saveImage:image withRatio:0.5 imageName:imageName])
+//        {
 //            MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
 //            if (res.measurePhoto.length != 0)
 //            {
@@ -353,8 +353,8 @@ static NSString *headerIdentifier = @"sectionHeader";
 //            }
 //            res.measurePhoto = imageName;
 //            [MeasureResult insertNewMeasureResult:res];
-            [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
-        }
+//            [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
+//        }
         
         [picker dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarHidden:NO];

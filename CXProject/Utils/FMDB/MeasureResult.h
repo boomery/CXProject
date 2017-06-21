@@ -22,4 +22,6 @@
 @property (nonatomic, copy) NSString *measurePhoto;
 @property (nonatomic, copy) NSString *mesaureIndex;
 
+@property (nonatomic, copy) NSString *hasUpload;
+@property (nonatomic, copy) NSString *takenBy;
 @end

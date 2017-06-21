@@ -88,6 +88,7 @@
     _bottomConstraint.constant = 0;
     [_selectedArray removeAllObjects];
     [self.tableView reloadData];
+    [self select];
     NSLog(@"上传");
 }
 

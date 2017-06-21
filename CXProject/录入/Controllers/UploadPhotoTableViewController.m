@@ -58,6 +58,10 @@
         _photosArray = resultArray;
         [self.tableView reloadData];
     }];
+    [Photo measurePhotosForProjectID:[User editingProject].fileName hasUpload:self.hasUpload completionBlock:^(NSMutableArray *resultArray) {
+        [_photosArray addObjectsFromArray:resultArray];
+        [self.tableView reloadData];
+    }];
 }
 #pragma mark - SelectionViewDelegate
 - (void)didClickUpload
@@ -71,7 +75,10 @@
     _bottomConstraint.constant = 0;
     [_selectedArray removeAllObjects];
     [self.tableView reloadData];
-
+    if (self.uploadBlock)
+    {
+        self.uploadBlock();
+    }
 }
 - (void)didClickSelectAll
 {
