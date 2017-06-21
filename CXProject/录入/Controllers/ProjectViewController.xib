@@ -157,9 +157,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGL-Ui-ZoV" userLabel="风险评估">
                     <rect key="frame" x="255.5" y="84" width="99.5" height="127.5"/>
-                    <state key="normal" backgroundImage="auto_select"/>
+                    <state key="normal" backgroundImage="management"/>
                     <connections>
-                        <action selector="extractionResult:" destination="-1" eventType="touchUpInside" id="oIp-1N-3Ii"/>
+                        <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="pHb-IA-VZW"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndQ-8Y-8hw" userLabel="风险评估">
@@ -178,16 +178,16 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQN-zW-jk9" userLabel="风险评估">
                     <rect key="frame" x="16" y="379" width="99.5" height="127.5"/>
-                    <state key="normal" backgroundImage="measure_project"/>
+                    <state key="normal" backgroundImage="uploadProject"/>
                     <connections>
                         <action selector="uploadPhotoClick:" destination="-1" eventType="touchUpInside" id="qfx-VC-V4W"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ilt-fO-ZyP" userLabel="风险评估">
                     <rect key="frame" x="16" y="231.5" width="99.5" height="127.5"/>
-                    <state key="normal" backgroundImage="management"/>
+                    <state key="normal" backgroundImage="auto_select"/>
                     <connections>
-                        <action selector="managementClick:" destination="-1" eventType="touchUpInside" id="l6W-VO-1Lv"/>
+                        <action selector="extractionResult:" destination="-1" eventType="touchUpInside" id="xnB-hm-J9O"/>
                     </connections>
                 </button>
             </subviews>
@@ -232,5 +232,6 @@
         <image name="management" width="118" height="149"/>
         <image name="measure_project" width="118" height="151"/>
         <image name="measure_risk" width="118" height="151"/>
+        <image name="uploadProject" width="65" height="94"/>
     </resources>
 </document>

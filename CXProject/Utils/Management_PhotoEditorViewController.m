@@ -49,6 +49,7 @@
     photo.subItem3 = @"";
     photo.responsibility = @"";
     photo.repair_time = @"";
+    photo.takenBy = [User userName];
     photo.image = nil;
     _photo = photo;
 }
