@@ -62,6 +62,11 @@
 {
     if (sender != _selectedButton)
     {
+        _photo.item = @"";
+        _photo.subItem = @"";
+        _photo.subItem2 = @"";
+        _photo.subItem3 = @"";
+        
         _selectedButton.backgroundColor = [UIColor whiteColor];
         _selectedButton.selected = NO;
         _selectedButton = sender;
