@@ -21,8 +21,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.subItem3,photo.responsibility, photo.repair_time, photo.hasUpload, photo.takenBy];
+                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@','%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          [CXDataBaseUtil riskProgressTableName], photo.projectID, photo.photoName, photo.save_time, photo.place, photo.kind, photo.item, photo.subItem, photo.subItem2, photo.subItem3,photo.responsibility, photo.repair_time, photo.hasUpload, photo.uploadTime,photo.takenBy];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -119,7 +119,7 @@
             status = @"NO";
         }
         NSString *querySql= [NSString stringWithFormat:
-                             @"select *from %@ where projectID = '%@' and hasUpload = '%@'",[CXDataBaseUtil riskProgressTableName], projectID, status];
+                             @"select *from %@ where projectID = '%@' and hasUpload = '%@' order by uploadTime desc",[CXDataBaseUtil riskProgressTableName], projectID, status];
         FMResultSet *res = [db executeQuery:querySql];
         while ([res next])
         {
@@ -147,23 +147,23 @@
             status = @"NO";
         }
         NSString *querySql= [NSString stringWithFormat:
-                             @"select *from %@ where projectID = '%@' and measurePhoto != '' and hasUpload = '%@'",[CXDataBaseUtil measureTableName], projectID, status];
+                             @"select *from %@ where projectID = '%@' and measurePhoto != '' and hasUpload = '%@' order by uploadTime desc",[CXDataBaseUtil measureTableName], projectID, status];
         FMResultSet *res = [db executeQuery:querySql];
         while ([res next])
         {
             Photo *photo = [[Photo alloc] init];
             photo.projectID = [res stringForColumn:@"projectID"];
             photo.photoName = [res stringForColumn:@"measurePhoto"];
-//            photo.save_time = [res stringForColumn:@"save_time"];
+            photo.save_time = @"";
             photo.place = [res stringForColumn:@"measurePlace"];
             photo.kind = @"实测实量";
             photo.photoFilePath = [FileManager imagePathForPhoto:photo];
             photo.item = [res stringForColumn:@"itemName"];
             photo.subItem = [res stringForColumn:@"subItemName"];
-//            photo.subItem2 = [res stringForColumn:@"subItem2"];
-//            photo.subItem3 = [res stringForColumn:@"subItem3"];
-//            photo.responsibility = [res stringForColumn:@"responsibility"];
-//            photo.repair_time = [res stringForColumn:@"repair_time"];
+            photo.subItem2 = @"";
+            photo.subItem3 = @"";
+            photo.responsibility = @"";
+            photo.repair_time = @"";
             photo.hasUpload = [res stringForColumn:@"hasUpload"];
             photo.takenBy = [res stringForColumn:@"takenBy"];
 
@@ -228,6 +228,7 @@
     photo.responsibility = [res stringForColumn:@"responsibility"];
     photo.repair_time = [res stringForColumn:@"repair_time"];
     photo.hasUpload = [res stringForColumn:@"hasUpload"];
+    photo.uploadTime = [res stringForColumn:@"uploadTime"];
     photo.takenBy = [res stringForColumn:@"takenBy"];
     return photo;
 }

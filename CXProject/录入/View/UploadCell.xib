@@ -40,8 +40,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="takenByLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ja-Yb-daZ">
-                        <rect key="frame" x="107" y="47" width="87.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uploadTimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ja-Yb-daZ">
+                        <rect key="frame" x="107" y="54" width="111" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="takenByLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMc-rN-Wsv">
+                        <rect key="frame" x="107" y="32" width="88" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -49,11 +55,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="dDx-7F-oe9" firstAttribute="top" secondItem="M0L-ur-Xrd" secondAttribute="top" id="7Fc-FC-bF9"/>
+                    <constraint firstItem="XMc-rN-Wsv" firstAttribute="top" secondItem="dDx-7F-oe9" secondAttribute="bottom" constant="5" id="GUk-80-uUr"/>
                     <constraint firstItem="GYp-Y7-Tdy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ISP-xG-RWO"/>
                     <constraint firstAttribute="trailingMargin" secondItem="GYp-Y7-Tdy" secondAttribute="trailing" constant="10" id="K4R-6T-CtJ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="M0L-ur-Xrd" secondAttribute="bottom" constant="0.5" id="NIS-4J-iU6"/>
-                    <constraint firstItem="4Ja-Yb-daZ" firstAttribute="top" secondItem="dDx-7F-oe9" secondAttribute="bottom" constant="20" id="Ogx-om-EFE"/>
+                    <constraint firstItem="4Ja-Yb-daZ" firstAttribute="top" secondItem="XMc-rN-Wsv" secondAttribute="bottom" constant="5" id="Tq0-ML-SSi"/>
                     <constraint firstItem="dDx-7F-oe9" firstAttribute="leading" secondItem="M0L-ur-Xrd" secondAttribute="trailing" constant="20" id="dzf-UT-7Zx"/>
+                    <constraint firstItem="XMc-rN-Wsv" firstAttribute="leading" secondItem="dDx-7F-oe9" secondAttribute="leading" id="gVx-kw-bpH"/>
                     <constraint firstItem="M0L-ur-Xrd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="guw-TL-yeI"/>
                     <constraint firstItem="4Ja-Yb-daZ" firstAttribute="leading" secondItem="dDx-7F-oe9" secondAttribute="leading" id="jWR-tF-bVs"/>
                     <constraint firstItem="M0L-ur-Xrd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="yGb-Al-nsY"/>
@@ -63,9 +71,10 @@
                 <outlet property="kindLabel" destination="dDx-7F-oe9" id="1V2-aT-4Th"/>
                 <outlet property="photoImageView" destination="M0L-ur-Xrd" id="xnT-TX-s1B"/>
                 <outlet property="selectButton" destination="GYp-Y7-Tdy" id="LGM-JP-QRE"/>
-                <outlet property="takenByLabel" destination="4Ja-Yb-daZ" id="AZK-Ws-RgV"/>
+                <outlet property="takenByLabel" destination="XMc-rN-Wsv" id="Gvw-mb-qjR"/>
+                <outlet property="uploadTimeLabel" destination="4Ja-Yb-daZ" id="rTP-xK-lQt"/>
             </connections>
-            <point key="canvasLocation" x="-620" y="-51"/>
+            <point key="canvasLocation" x="-841" y="-20"/>
         </tableViewCell>
     </objects>
     <resources>

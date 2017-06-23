@@ -124,7 +124,7 @@
                 <constraint firstItem="lZq-q8-dyz" firstAttribute="height" secondItem="cAk-gc-vJD" secondAttribute="height" id="xug-nO-5eb"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-1725" y="-1056"/>
+            <point key="canvasLocation" x="-1853" y="-1088"/>
         </view>
         <navigationBar contentMode="scaleToFill" id="vge-zw-GG8">
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -222,7 +222,7 @@
                 <constraint firstItem="fGL-Ui-ZoV" firstAttribute="leading" secondItem="p3n-CD-Qlj" secondAttribute="trailing" constant="20" id="zWR-g8-8sH"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="-1223.5" y="-1055.5"/>
+            <point key="canvasLocation" x="-1335" y="-1096"/>
         </view>
     </objects>
     <resources>

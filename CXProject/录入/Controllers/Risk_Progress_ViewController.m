@@ -119,11 +119,16 @@ static NSString *headerIdentifier = @"sectionHeader";
     
     editor.imageBlock = ^(Photo *photo){
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-        if ([FileManager savePhoto:photo])
-        {
-            [Photo insertNewPhoto:photo];
-            [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
-        }
+//        for (int i = 0; i < 10; i++)
+//        {
+//            photo.photoName = [NSString stringWithFormat:@"%d%@",i,photo.photoName];
+            if ([FileManager savePhoto:photo])
+            {
+                [Photo insertNewPhoto:photo];
+                [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
+            }
+//        }
+       
         [picker dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] setStatusBarHidden:NO];
             // 改变状态栏的颜色  改变为白色

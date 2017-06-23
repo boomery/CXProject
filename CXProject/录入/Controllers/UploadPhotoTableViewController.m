@@ -11,6 +11,7 @@
 #import "UploadCell.h"
 #import "DetailMeasureViewController.h"
 #import "SelectionView.h"
+#import "FileManager.h"
 @interface UploadPhotoTableViewController () <UITableViewDataSource, UITableViewDelegate, DZNEmptyDataSetSource, SelectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *photosArray;
@@ -63,6 +64,7 @@
         [self.tableView reloadData];
     }];
 }
+
 #pragma mark - SelectionViewDelegate
 - (void)didClickUpload
 {
@@ -71,15 +73,49 @@
         [SVProgressHUD showInfoWithStatus:@"尚未选择项目"];
         return;
     }
-    [SelectionView dismiss];
-    _bottomConstraint.constant = 0;
-    [_selectedArray removeAllObjects];
-    [self.tableView reloadData];
-    if (self.uploadBlock)
+    for (Photo *photo in _selectedArray)
     {
-        self.uploadBlock();
+        
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                if (!photo.image)
+                {
+                    UIImage *image = [UIImage imageWithContentsOfFile:photo.photoFilePath];
+                    photo.image = image;
+                }
+                [NetworkAPI uploadImage:photo.image projectID:photo.projectID name:photo.photoName savetime:photo.save_time place:photo.place kind:photo.kind item:photo.item subitem:photo.subItem subitem2:photo.subItem2 subitem3:photo.subItem3 responsibility:photo.responsibility repairtime:photo.repair_time showHUD:YES successBlock:^(id returnData) {
+                    
+                    NSInteger index = [_photosArray indexOfObject:photo];
+                    
+                    NSLog(@"%ld",index);
+                    [_photosArray removeObject:photo];
+                    [self.tableView beginUpdates];
+                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+                    [self.tableView endUpdates];
+                    
+                    //改变上传状态  更改数据库记录状态  置空imgae释放内存
+                    photo.uploadTime = [FileManager currentTime];
+                    photo.hasUpload = @"YES";
+                    [Photo insertNewPhoto:photo];
+                    photo.image = nil;
+
+                    //所有上传完成后隐藏底部的上传视图，更改底部约束，移除选中数组的对象
+                    if (photo == [_selectedArray lastObject])
+                    {
+                        [SelectionView dismiss];
+                        _bottomConstraint.constant = 0;
+                        [_selectedArray removeAllObjects];
+                        if (self.uploadBlock)
+                        {
+                            self.uploadBlock();
+                        }
+                    }
+                } failureBlock:^(NSError *error) {
+                    
+                }];
+            });
     }
 }
+
 - (void)didClickSelectAll
 {
     _selectedArray = [NSMutableArray arrayWithArray:_photosArray];

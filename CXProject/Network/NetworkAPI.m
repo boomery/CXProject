@@ -64,8 +64,10 @@
     
     [NetworkManager POST:DEF_API_UPLOAD parameters:nil body:dataBody success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD showInfoWithStatus:@"成功"];
+        successBlock(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD showInfoWithStatus:error.localizedDescription];
+        failureBlock(error);
     } showHud:YES];
 }
 

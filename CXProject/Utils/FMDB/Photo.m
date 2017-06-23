@@ -15,6 +15,7 @@
     if (self = [super init])
     {
         _hasUpload = @"NO";
+        _uploadTime = @"";
     }
     return self;
 }

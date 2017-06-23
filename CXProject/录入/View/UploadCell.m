@@ -10,6 +10,7 @@
 @interface UploadCell ()
 @property (weak, nonatomic) IBOutlet UILabel *kindLabel;
 @property (weak, nonatomic) IBOutlet UILabel *takenByLabel;
+@property (weak, nonatomic) IBOutlet UILabel *uploadTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @end
 
@@ -24,6 +25,7 @@
 {
     _photo = photo;
     _kindLabel.text = [NSString stringWithFormat:@"类别：%@", photo.kind];
+    _uploadTimeLabel.text = [NSString stringWithFormat:@"上传时间：%@", photo.uploadTime];
     _takenByLabel.text = [NSString stringWithFormat:@"拍摄人：%@", photo.takenBy];
     if (!photo.image)
     {

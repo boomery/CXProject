@@ -54,8 +54,8 @@
     [db setShouldCacheStatements:YES];
     
     NSString *insertSql= [NSString stringWithFormat:
-                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
-                          [CXDataBaseUtil measureTableName], result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace,  result.measurePhoto, result.mesaureIndex, result.hasUpload, result.takenBy];
+                          @"Insert Or Replace Into '%@' VALUES ('%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@', '%@')",
+                          [CXDataBaseUtil measureTableName], result.projectID, result.itemName, result.subItemName, result.measureArea, result.measurePoint, result.measureValues, result.designValues,result.measureResult, result.measurePlace,  result.measurePhoto, result.mesaureIndex, result.hasUpload, result.uploadTime,result.takenBy];
     BOOL res = [db executeUpdate:insertSql];
     if (res)
     {
@@ -199,6 +199,7 @@
     result.measurePhoto = [res stringForColumn:@"measurePhoto"];
     result.mesaureIndex = [res stringForColumn:@"mesaureIndex"];
     result.hasUpload = [res stringForColumn:@"hasUpload"];
+    result.uploadTime = [res stringForColumn:@"uploadTime"];
     result.takenBy = [res stringForColumn:@"takenBy"];
     return result;
 }

@@ -58,7 +58,7 @@ static FMDatabase *_db = nil;
    	//判断数据库中是否已经存在这个表，如果不存在则创建该表
     if(![db tableExists:[CXDataBaseUtil measureTableName]])
     {
-        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT, measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT, measurePhoto TEXT, mesaureIndex TEXT, hasUpload TEXT, takenBy TEXT, PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",[CXDataBaseUtil measureTableName]];
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, itemName TEXT, subItemName TEXT, measureArea TEXT, measurePoint TEXT, measureValues TEXT, designValues TEXT, measureResult TEXT, measurePlace TEXT, measurePhoto TEXT, mesaureIndex TEXT, hasUpload TEXT, uploadTime TEXT, takenBy TEXT, PRIMARY KEY(projectID, itemName,subItemName,mesaureIndex))",[CXDataBaseUtil measureTableName]];
         if ([db executeUpdate:createSql])
         {
             NSLog(@"实测实量建表成功");
@@ -75,7 +75,7 @@ static FMDatabase *_db = nil;
     }
     if(![db tableExists:[CXDataBaseUtil riskProgressTableName]])
     {
-        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, photoName TEXT, save_time TEXT, place TEXT, kind TEXT, item TEXT, subItem TEXT, subItem2 TEXT, subItem3 TEXT, responsibility TEXT, repair_time TEXT, hasUpload TEXT default 'NO', takenBy TEXT,PRIMARY KEY(projectID, photoName))",[CXDataBaseUtil riskProgressTableName]];
+        NSString *createSql = [NSString stringWithFormat:@"CREATE TABLE %@(projectID TEXT, photoName TEXT, save_time TEXT, place TEXT, kind TEXT, item TEXT, subItem TEXT, subItem2 TEXT, subItem3 TEXT, responsibility TEXT, repair_time TEXT, hasUpload TEXT default 'NO', uploadTime TEXT, takenBy TEXT,PRIMARY KEY(projectID, photoName))",[CXDataBaseUtil riskProgressTableName]];
         if ([db executeUpdate:createSql])
         {
             NSLog(@"风险评估过程建表成功");
