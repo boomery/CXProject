@@ -17,7 +17,7 @@
 #import "NSString+isValid.h"
 #import "DetailMeasureCell.h"
 #import "FileManager.h"
-#import "Photo.h"
+#import "Photo+Addtion.h"
 @interface DetailMeasureViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, InputViewDelegate>
 {
     NSArray *_titleArray;
@@ -209,6 +209,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
             _imageView = imageView;
             [imageView autoCenterInSuperview];
             [imageView autoSetDimensionsToSize:CGSizeMake(300, 300)];
+            
             Photo *photo = [[Photo alloc] init];
             photo.projectID = res.projectID;
             photo.photoName = res.measurePhoto;
@@ -268,7 +269,6 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-    
     PhotoEditorViewController *editor = [[PhotoEditorViewController alloc] init];
     [picker pushViewController:editor animated:YES];
     editor.image = image;
@@ -279,23 +279,30 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
         //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
         
         MeasureResult *result = [self exsistMeasureResultForIndexPath:self.indexPath];
+        
         Photo *photo = [[Photo alloc] init];
         photo.projectID = result.projectID;
         photo.kind = @"实测实量";
         photo.image = image;
-        photo.photoName = imageName;
+        if (result.measurePhoto.length == 0)
+        {
+            photo.photoName = [FileManager imageName];
+            result.measurePhoto = imageName;
+        }
+        else
+        {
+            photo.photoName = result.measurePhoto;
+            [[NSFileManager defaultManager] removeItemAtPath:[FileManager imagePathForPhoto:photo] error:nil];
+        }
+        photo.save_time = [FileManager currentTime];
+        photo.item = result.itemName;
+        photo.subItem = result.subItemName;
+        photo.takenBy = [User userName];
         
         if ([FileManager savePhoto:photo])
         {
-            MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
-            if (res.measurePhoto.length != 0)
-            {
-                photo.photoName = res.measurePhoto;
-                [[NSFileManager defaultManager] removeItemAtPath:[FileManager imagePathForPhoto:photo] error:nil];
-                NSLog(@"移除旧照片");
-            }
-            res.measurePhoto = imageName;
-            [MeasureResult insertNewMeasureResult:res];
+            [Photo insertNewPhoto:photo];
+            [MeasureResult insertNewMeasureResult:result];
             [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
         }
         [picker dismissViewControllerAnimated:YES completion:^{

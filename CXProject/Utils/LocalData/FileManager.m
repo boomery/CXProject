@@ -15,7 +15,7 @@
 {
     NSDate *date = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd-HH点mm分ss秒"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [formatter stringFromDate:date];
     return dateString;
 }
@@ -24,7 +24,7 @@
 {
     NSDate *date = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd-HH点mm分ss秒"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [formatter stringFromDate:date];
     NSString *imageName = [NSString stringWithFormat:@"image_create_at_%@.png",dateString];
     return imageName;

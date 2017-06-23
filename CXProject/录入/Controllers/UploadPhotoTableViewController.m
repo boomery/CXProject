@@ -59,10 +59,6 @@
         _photosArray = resultArray;
         [self.tableView reloadData];
     }];
-    [Photo measurePhotosForProjectID:[User editingProject].fileName hasUpload:self.hasUpload completionBlock:^(NSMutableArray *resultArray) {
-        [_photosArray addObjectsFromArray:resultArray];
-        [self.tableView reloadData];
-    }];
 }
 
 #pragma mark - SelectionViewDelegate
@@ -89,7 +85,7 @@
                     NSLog(@"%ld",index);
                     [_photosArray removeObject:photo];
                     [self.tableView beginUpdates];
-                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationRight];
                     [self.tableView endUpdates];
                     
                     //改变上传状态  更改数据库记录状态  置空imgae释放内存

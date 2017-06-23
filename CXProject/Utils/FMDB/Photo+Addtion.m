@@ -131,49 +131,6 @@
     }];
 }
 
-//实测实量照片
-+ (void)measurePhotosForProjectID:(NSString *)projectID hasUpload:(BOOL)hasUpload completionBlock:(void(^)(NSMutableArray *resultArray))block
-{
-    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[CXDataBaseUtil getDatabasePath]];
-    [queue inDatabase:^(FMDatabase *db) {
-        NSMutableArray *photosArray = [[NSMutableArray alloc] init];
-        
-        NSString *status = nil;
-        if (hasUpload) {
-            status = @"YES";
-        }
-        else
-        {
-            status = @"NO";
-        }
-        NSString *querySql= [NSString stringWithFormat:
-                             @"select *from %@ where projectID = '%@' and measurePhoto != '' and hasUpload = '%@' order by uploadTime desc",[CXDataBaseUtil measureTableName], projectID, status];
-        FMResultSet *res = [db executeQuery:querySql];
-        while ([res next])
-        {
-            Photo *photo = [[Photo alloc] init];
-            photo.projectID = [res stringForColumn:@"projectID"];
-            photo.photoName = [res stringForColumn:@"measurePhoto"];
-            photo.save_time = @"";
-            photo.place = [res stringForColumn:@"measurePlace"];
-            photo.kind = @"实测实量";
-            photo.photoFilePath = [FileManager imagePathForPhoto:photo];
-            photo.item = [res stringForColumn:@"itemName"];
-            photo.subItem = [res stringForColumn:@"subItemName"];
-            photo.subItem2 = @"";
-            photo.subItem3 = @"";
-            photo.responsibility = @"";
-            photo.repair_time = @"";
-            photo.hasUpload = [res stringForColumn:@"hasUpload"];
-            photo.takenBy = [res stringForColumn:@"takenBy"];
-
-            [photosArray addObject:photo];
-        }
-        [res close];
-        block(photosArray);
-    }];
-}
-
 + (void)photosForProjectID:(NSString *)projectID kind:(NSString *)kind item:(NSString *)item completionBlock:(void(^)(NSMutableArray *resultArray))block
 {
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:[CXDataBaseUtil getDatabasePath]];
