@@ -26,6 +26,7 @@
 + (NSInteger)tNumOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName;
 + (NSInteger)tNumOfDesignResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName;
 + (NSInteger)tNumOfQualifiedForProjectID:(NSString *)projectID itemName:(NSString *)itemName;
++ (NSString *)tUploadTimeForProjectID:(NSString *)projectID itemName:(NSString *)itemName;
 
 //分项
 + (NSInteger)numOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName;

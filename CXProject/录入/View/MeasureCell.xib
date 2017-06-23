@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合格率" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pQ-kP-3OI">
-                        <rect key="frame" x="18" y="47.5" width="43" height="17"/>
+                        <rect key="frame" x="216" y="20" width="43" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,20 +44,20 @@
                         <state key="selected" backgroundImage="button_selected"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最后上传时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEd-FG-Rsi">
-                        <rect key="frame" x="183" y="18" width="86" height="17"/>
+                        <rect key="frame" x="18" y="47.5" width="86" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="5pQ-kP-3OI" firstAttribute="leading" secondItem="ScT-yf-hQH" secondAttribute="leading" id="AST-4T-1kM"/>
-                    <constraint firstItem="5MU-Gl-URg" firstAttribute="leading" secondItem="UEd-FG-Rsi" secondAttribute="trailing" constant="10" id="AlN-hL-yyx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="5MU-Gl-URg" secondAttribute="trailing" constant="10" id="Bh9-XV-NrG"/>
-                    <constraint firstItem="UEd-FG-Rsi" firstAttribute="top" secondItem="ScT-yf-hQH" secondAttribute="top" id="MkQ-Ds-meG"/>
                     <constraint firstItem="5MU-Gl-URg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="S20-wB-PkF"/>
+                    <constraint firstItem="5MU-Gl-URg" firstAttribute="leading" secondItem="5pQ-kP-3OI" secondAttribute="trailing" constant="20" id="TGn-Et-hnj"/>
+                    <constraint firstItem="UEd-FG-Rsi" firstAttribute="top" secondItem="ScT-yf-hQH" secondAttribute="bottom" constant="10" id="Vyr-tJ-HUV"/>
                     <constraint firstItem="ScT-yf-hQH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="YbC-Ib-rrN"/>
-                    <constraint firstItem="5pQ-kP-3OI" firstAttribute="top" secondItem="ScT-yf-hQH" secondAttribute="bottom" constant="10" id="r7T-zP-r6E"/>
+                    <constraint firstItem="UEd-FG-Rsi" firstAttribute="leading" secondItem="ScT-yf-hQH" secondAttribute="leading" id="cV5-mu-c07"/>
+                    <constraint firstItem="5pQ-kP-3OI" firstAttribute="centerY" secondItem="ScT-yf-hQH" secondAttribute="centerY" id="oGU-LN-Jvd"/>
                     <constraint firstItem="ScT-yf-hQH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="wGC-YC-mCb"/>
                 </constraints>
             </tableViewCellContentView>
@@ -65,7 +65,7 @@
                 <outlet property="nameLabel" destination="ScT-yf-hQH" id="CAR-vP-vGU"/>
                 <outlet property="qualifiedLabel" destination="5pQ-kP-3OI" id="NFA-Mi-tHd"/>
                 <outlet property="selectButton" destination="5MU-Gl-URg" id="YRv-15-cG3"/>
-                <outlet property="uploadTime" destination="UEd-FG-Rsi" id="I4l-tE-hkR"/>
+                <outlet property="uploadTimeLabel" destination="UEd-FG-Rsi" id="maN-tG-gkF"/>
             </connections>
             <point key="canvasLocation" x="-925" y="-129"/>
         </tableViewCell>

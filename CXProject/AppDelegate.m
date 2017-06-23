@@ -36,6 +36,7 @@
     [self initData];
     return YES;
 }
+
 - (void)initData
 {
     [DataProvider loadDataWithJsonFileName:@"Measure"];
@@ -47,6 +48,7 @@
         [CXDataBaseUtil creatTable];
      });
 }
+
 - (void)setTheme
 {
     [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
@@ -67,6 +69,7 @@
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.90 green:0.20 blue:0.14 alpha:1.00]];
 }
+
 - (void)setupControllers
 {
     MainViewController *mainVC = [[MainViewController alloc] init];

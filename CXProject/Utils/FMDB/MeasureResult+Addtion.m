@@ -130,11 +130,11 @@
     [db close];
     
     //在数据库查询分项记录时   更新defaults中存储的分项点数
-    [[NSUserDefaults standardUserDefaults] setInteger:recordedNum forKey:RESULT_NUM_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:recordedNum forKey:RESULT_NUM_KEY(projectID, itemName, subItemName)];
     //设计的点数在detailMesaure界面存储
     
     //保存分项合格点
-    [[NSUserDefaults standardUserDefaults] setInteger:qualified forKey:QUALIFIED_NUM_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:qualified forKey:QUALIFIED_NUM_KEY(projectID, itemName, subItemName)];
     return resultsDict;
 }
 
@@ -176,11 +176,11 @@
     [db close];
     
     //在数据库查询分项记录时   更新defaults中存储的大项点数
-    [[NSUserDefaults standardUserDefaults] setInteger:t_recordedNum forKey:T_RESULT_NUM_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:t_recordedNum forKey:T_RESULT_NUM_KEY(projectID, itemName)];
     //设计的点数在detailMesaure界面存储
     
     //保存大项合格点
-    [[NSUserDefaults standardUserDefaults] setInteger:t_qualified forKey:T_QUALIFIED_NUM_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:t_qualified forKey:T_QUALIFIED_NUM_KEY(projectID, itemName)];
     return resultsDict;
 }
 
@@ -256,23 +256,29 @@
 #pragma mark - 大项数据
 + (NSInteger)tNumOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName
 {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:T_RESULT_NUM_KEY];
+    return [[NSUserDefaults standardUserDefaults] integerForKey:T_RESULT_NUM_KEY(projectID, itemName)];
 }
 
 + (NSInteger)tNumOfDesignResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName
 {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:T_DESIGN_NUM_KEY(projectID, itemName, subItemName)];
+    return [[NSUserDefaults standardUserDefaults] integerForKey:T_DESIGN_NUM_KEY(projectID, itemName)];
 }
 
 + (NSInteger)tNumOfQualifiedForProjectID:(NSString *)projectID itemName:(NSString *)itemName
 {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:T_QUALIFIED_NUM_KEY];
+    return [[NSUserDefaults standardUserDefaults] integerForKey:T_QUALIFIED_NUM_KEY(projectID, itemName)];
+}
+
++ (NSString *)tUploadTimeForProjectID:(NSString *)projectID itemName:(NSString *)itemName
+{
+    NSLog(@"%@", T_UPLOADTIME_KEY(projectID, itemName));
+    return [[NSUserDefaults standardUserDefaults] stringForKey:T_UPLOADTIME_KEY(projectID, itemName)];
 }
 
 #pragma mark - 分项数据
 + (NSInteger)numOfResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
 {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:RESULT_NUM_KEY];
+    return [[NSUserDefaults standardUserDefaults] integerForKey:RESULT_NUM_KEY(projectID, itemName, subItemName)];
 }
 
 + (NSInteger)numOfDesignResultsForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
@@ -282,6 +288,6 @@
 
 + (NSInteger)numOfQualifiedForProjectID:(NSString *)projectID itemName:(NSString *)itemName subItemName:(NSString *)subItemName
 {
-    return [[NSUserDefaults standardUserDefaults] integerForKey:QUALIFIED_NUM_KEY];
+    return [[NSUserDefaults standardUserDefaults] integerForKey:QUALIFIED_NUM_KEY(projectID, itemName, subItemName)];
 }
 @end

@@ -12,7 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *qualifiedLabel;
-@property (weak, nonatomic) IBOutlet UILabel *uploadTime;
+@property (weak, nonatomic) IBOutlet UILabel *uploadTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
 
+
+@property (nonatomic, assign) BOOL isMultiSelect;
+@property (nonatomic, strong) Event *event;
 @end
