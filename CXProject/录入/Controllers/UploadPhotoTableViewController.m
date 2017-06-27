@@ -25,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.emptyDataSetSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"UploadCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"UploadCell.h"];
@@ -148,21 +149,29 @@
 }
 
 #pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return _photosArray.count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UploadCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UploadCell.h" forIndexPath:indexPath];
+    
+    cell.bgView.layer.shadowColor = [UIColor grayColor].CGColor;
+    cell.bgView.layer.shadowOffset = CGSizeMake(3, 3);
+    cell.bgView.layer.shadowOpacity = 0.8;//阴影透明度，默认0
+    cell.bgView.layer.shadowRadius = 4;//阴影半径，默认3
+    
     cell.selectButton.hidden = YES;
 
-    Photo *photo = _photosArray[indexPath.row];
+    Photo *photo = _photosArray[indexPath.section];
     cell.photo = photo;
-    
-    NSLog(@"%d ~~ %d ", self.hasUpload ,_isMultiSelect);
-    
+
     //非多选
     if (!_isMultiSelect)
     {
@@ -188,7 +197,7 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Photo *photo = _photosArray[indexPath.row];
+    Photo *photo = _photosArray[indexPath.section];
     if (!_isMultiSelect)
     {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -196,7 +205,7 @@
         {
             Risk_Progress_DetailViewController *detailVC = [[Risk_Progress_DetailViewController alloc] init];
             detailVC.photoArray = _photosArray;
-            photo.tag = indexPath.row;
+            photo.tag = indexPath.section;
             photo.tag = [detailVC.photoArray indexOfObject:photo];
             detailVC.photo = photo;
             [self.navigationController pushViewController:detailVC animated:YES];
@@ -218,7 +227,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    return 100;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 5;
 }
 
 #pragma mark - DZNEmptyDataSetSource

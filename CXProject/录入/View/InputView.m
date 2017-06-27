@@ -104,7 +104,7 @@
     /*保存按钮布局*/
     UIButton *placeButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:placeButton];
-    [placeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-20];
+    [placeButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeBottom ofView:self withOffset:-10];
 
     UIButton *deleteButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:deleteButton];
@@ -112,26 +112,30 @@
     UIButton *saveButton = [[UIButton alloc] initForAutoLayout];
     [self addSubview:saveButton];
     
-
-    
-    NSArray *array = @[placeButton, deleteButton,saveButton];
+    NSArray *array = @[placeButton, deleteButton];
     
     [array autoSetViewsDimension:ALDimensionHeight toSize:height];
     [array autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:20.0 insetSpacing:YES matchedSizes:YES];
     
-    placeButton.layer.cornerRadius = 10;
+    [saveButton autoPinEdge:ALEdgeBottom toEdge:ALEdgeTop ofView:placeButton withOffset:-10];
+    [saveButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
+    [saveButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:placeButton];
+    [saveButton autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:deleteButton];
+    [saveButton autoMatchDimension:ALDimensionHeight toDimension:ALDimensionHeight ofView:placeButton];
+
+    placeButton.layer.cornerRadius = 5;
     placeButton.clipsToBounds = YES;
     placeButton.backgroundColor = [UIColor colorWithRed:0.89 green:0.54 blue:0.21 alpha:1.00];
     [placeButton setTitle:@"地点" forState:UIControlStateNormal];
     [placeButton addTarget:self action:@selector(showPlace) forControlEvents:UIControlEventTouchUpInside];
     
-    deleteButton.layer.cornerRadius = 10;
+    deleteButton.layer.cornerRadius = 5;
     deleteButton.clipsToBounds = YES;
     deleteButton.backgroundColor = [UIColor colorWithRed:0.74 green:0.15 blue:0.10 alpha:1.00];
     [deleteButton setTitle:@"删除" forState:UIControlStateNormal];
     [deleteButton addTarget:self action:@selector(delete) forControlEvents:UIControlEventTouchUpInside];
     
-    saveButton.layer.cornerRadius = 10;
+    saveButton.layer.cornerRadius = 5;
     saveButton.clipsToBounds = YES;
     saveButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
     [saveButton setTitle:@"保存" forState:UIControlStateNormal];

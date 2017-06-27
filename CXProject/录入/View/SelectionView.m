@@ -52,13 +52,13 @@ static SelectionView *sharedView = nil;
         [array autoSetViewsDimension:ALDimensionHeight toSize:40];
         [array autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:40.0 insetSpacing:YES matchedSizes:YES];
         
-        selectAllButton.layer.cornerRadius = 10;
+        selectAllButton.layer.cornerRadius = 5;
         selectAllButton.clipsToBounds = YES;
         selectAllButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
         [selectAllButton setTitle:leftTitle forState:UIControlStateNormal];
         [selectAllButton addTarget:self action:@selector(selectAll) forControlEvents:UIControlEventTouchUpInside];
         
-        uploadButton.layer.cornerRadius = 10;
+        uploadButton.layer.cornerRadius = 5;
         uploadButton.clipsToBounds = YES;
         uploadButton.backgroundColor = [UIColor colorWithRed:0.92 green:0.35 blue:0.17 alpha:1.00];
         [uploadButton setTitle:rightTitle forState:UIControlStateNormal];

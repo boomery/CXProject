@@ -13,72 +13,83 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="UploadCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="273" id="KGk-i7-Jjw" customClass="UploadCell">
+            <rect key="frame" x="0.0" y="0.0" width="509" height="273"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="509" height="272.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6n-4t-Q8g" userLabel="bgView">
+                        <rect key="frame" x="0.0" y="0.0" width="501" height="264.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYp-Y7-Tdy">
-                        <rect key="frame" x="270" y="28" width="32" height="32"/>
+                        <rect key="frame" x="476" y="129" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="GYp-Y7-Tdy" secondAttribute="height" multiplier="23:23" id="tzL-8u-SqQ"/>
                         </constraints>
-                        <state key="normal" backgroundImage="button_unSelected"/>
-                        <state key="selected" backgroundImage="button_selected"/>
+                        <state key="normal" backgroundImage="rember_"/>
+                        <state key="selected" backgroundImage="rember_selected"/>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0L-ur-Xrd">
-                        <rect key="frame" x="18" y="10" width="69" height="69"/>
+                        <rect key="frame" x="18" y="18" width="236.5" height="236.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="M0L-ur-Xrd" secondAttribute="height" multiplier="1:1" id="Gek-6o-Ej0"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kindLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDx-7F-oe9">
-                        <rect key="frame" x="107" y="10" width="62.5" height="17"/>
+                        <rect key="frame" x="264.5" y="18" width="62.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uploadTimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ja-Yb-daZ">
-                        <rect key="frame" x="107" y="54" width="97" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="264.5" y="62" width="104" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="takenByLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMc-rN-Wsv">
-                        <rect key="frame" x="107" y="32" width="88" height="17"/>
+                        <rect key="frame" x="264.5" y="40" width="88" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="dDx-7F-oe9" firstAttribute="top" secondItem="M0L-ur-Xrd" secondAttribute="top" id="7Fc-FC-bF9"/>
                     <constraint firstItem="XMc-rN-Wsv" firstAttribute="top" secondItem="dDx-7F-oe9" secondAttribute="bottom" constant="5" id="GUk-80-uUr"/>
                     <constraint firstItem="GYp-Y7-Tdy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ISP-xG-RWO"/>
                     <constraint firstAttribute="trailingMargin" secondItem="GYp-Y7-Tdy" secondAttribute="trailing" constant="10" id="K4R-6T-CtJ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="M0L-ur-Xrd" secondAttribute="bottom" constant="0.5" id="NIS-4J-iU6"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="M0L-ur-Xrd" secondAttribute="bottom" constant="10" id="NIS-4J-iU6"/>
                     <constraint firstItem="4Ja-Yb-daZ" firstAttribute="top" secondItem="XMc-rN-Wsv" secondAttribute="bottom" constant="5" id="Tq0-ML-SSi"/>
-                    <constraint firstItem="dDx-7F-oe9" firstAttribute="leading" secondItem="M0L-ur-Xrd" secondAttribute="trailing" constant="20" id="dzf-UT-7Zx"/>
+                    <constraint firstItem="V6n-4t-Q8g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="WeC-i8-lFz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="V6n-4t-Q8g" secondAttribute="bottom" id="dBT-QZ-rNg"/>
+                    <constraint firstItem="dDx-7F-oe9" firstAttribute="leading" secondItem="M0L-ur-Xrd" secondAttribute="trailing" constant="10" id="dzf-UT-7Zx"/>
                     <constraint firstItem="XMc-rN-Wsv" firstAttribute="leading" secondItem="dDx-7F-oe9" secondAttribute="leading" id="gVx-kw-bpH"/>
                     <constraint firstItem="M0L-ur-Xrd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="guw-TL-yeI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="V6n-4t-Q8g" secondAttribute="trailing" id="hlg-Xx-2yE"/>
                     <constraint firstItem="4Ja-Yb-daZ" firstAttribute="leading" secondItem="dDx-7F-oe9" secondAttribute="leading" id="jWR-tF-bVs"/>
-                    <constraint firstItem="M0L-ur-Xrd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="yGb-Al-nsY"/>
+                    <constraint firstItem="M0L-ur-Xrd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="yGb-Al-nsY"/>
+                    <constraint firstItem="V6n-4t-Q8g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="zFw-Wm-BcW"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="bgView" destination="V6n-4t-Q8g" id="Xv7-mH-KV5"/>
                 <outlet property="kindLabel" destination="dDx-7F-oe9" id="1V2-aT-4Th"/>
                 <outlet property="photoImageView" destination="M0L-ur-Xrd" id="xnT-TX-s1B"/>
                 <outlet property="selectButton" destination="GYp-Y7-Tdy" id="LGM-JP-QRE"/>
                 <outlet property="takenByLabel" destination="XMc-rN-Wsv" id="Gvw-mb-qjR"/>
                 <outlet property="uploadTimeLabel" destination="4Ja-Yb-daZ" id="rTP-xK-lQt"/>
             </connections>
-            <point key="canvasLocation" x="-841" y="-20"/>
+            <point key="canvasLocation" x="-719" y="-96"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="button_selected" width="32" height="32"/>
-        <image name="button_unSelected" width="32" height="32"/>
+        <image name="rember_" width="15" height="15"/>
+        <image name="rember_selected" width="15" height="15"/>
     </resources>
 </document>

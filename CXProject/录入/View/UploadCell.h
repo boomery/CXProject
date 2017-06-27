@@ -11,6 +11,7 @@
 @interface UploadCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *selectButton;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 
 @property (nonatomic, strong) Photo *photo;
 
