@@ -11,6 +11,7 @@
 #import "MeasureResult+Addtion.h"
 #import "SelectionView.h"
 #import "MeasureCell.h"
+#import "FileManager.h"
 @interface MeasureViewController () <SelectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     NSArray *_titleArray;
@@ -48,7 +49,7 @@
     if (!_isMultiSelect)
     {
         //点击多选
-        [SelectionView showInView:self.view delegate:self];
+        [SelectionView showInView:self.view leftTitle:@"全选" rightTitle:@"上传" delegate:self];
         _bottomConstraint.constant = 60;
         [self.tableView reloadData];
         
@@ -84,19 +85,40 @@
         [SVProgressHUD showInfoWithStatus:@"尚未选择项目"];
         return;
     }
-    [SelectionView dismiss];
-    _bottomConstraint.constant = 0;
-    [_selectedArray removeAllObjects];
+
+    for (Event *event in _selectedArray)
+    {
+        NSInteger index = [_titleArray indexOfObject:event];
+        
+        for (Event *subEvent in event.events)
+        {
+            //查询分项所有点数
+            NSMutableDictionary *resultsDict = [MeasureResult resultsForProjectID:[User editingProject].fileName itemName:event.name subItemName:subEvent.name];
+            //每个大项查询完毕
+            if (subEvent == [event.events lastObject])
+            {
+                [[NSUserDefaults standardUserDefaults] setObject:[FileManager currentTime] forKey:T_UPLOADTIME_KEY([User editingProject].fileName , event.name)];
+                
+                [self.tableView beginUpdates];
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView endUpdates];
+
+            }
+        }
+        if (event == [_selectedArray lastObject])
+        {
+            [_selectedArray removeAllObjects];
+            [self select];
+        }
+       
+    }
     [self.tableView reloadData];
-    [self select];
-    NSLog(@"上传");
 }
 
 - (void)didClickSelectAll
 {
     _selectedArray = [NSMutableArray arrayWithArray:_titleArray];
     [self.tableView reloadData];
-    NSLog(@"全选");
 }
 
 #pragma mark - UITableViewDataSource
@@ -109,39 +131,16 @@
 {
     MeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeasureCell.h" forIndexPath:indexPath];
     cell.selectButton.hidden = YES;
-    cell.uploadTime.text = @"无上传记录";
     Event *event = _titleArray[indexPath.row];
-    cell.nameLabel.text = event.name;
-    
-    NSInteger results = [MeasureResult tNumOfResultsForProjectID:[User editingProject].fileName itemName:event.name];
-    NSInteger qualified = [MeasureResult tNumOfQualifiedForProjectID:[User editingProject].fileName itemName:event.name];
-    if (results == 0)
+    cell.event = event;
+    cell.isMultiSelect = _isMultiSelect;
+    if ([_selectedArray containsObject:event])
     {
-        cell.qualifiedLabel.text = @"无录入点记录";
+        cell.selectButton.selected = YES;
     }
     else
     {
-        cell.qualifiedLabel.text = [NSString stringWithFormat:@"合格率:%.0f%%", (float)qualified/results*100];
-    }
-    
-    //非多选
-    if (!_isMultiSelect)
-    {
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    //多选模式
-    else
-    {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.selectButton.hidden = NO;
-        if ([_selectedArray containsObject:event])
-        {
-            cell.selectButton.selected = YES;
-        }
-        else
-        {
-            cell.selectButton.selected = NO;
-        }
+        cell.selectButton.selected = NO;
     }
     return cell;
 }

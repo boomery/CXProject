@@ -161,6 +161,8 @@ typedef NS_ENUM(NSUInteger, ViewPagerComponent) {
 @protocol ViewPagerDelegate <NSObject>
 
 @optional
+- (void)viewPager:(ViewPagerController *)viewPager willChangeTabToIndex:(NSUInteger)index;
+
 /**
  * delegate object must implement this method if wants to be informed when a tab changes
  *

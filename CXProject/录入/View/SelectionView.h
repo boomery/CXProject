@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIView *bgView;
 @property (nonatomic, weak) id <SelectionViewDelegate>delegate;
 
-+ (void)showInView:(UIView *)view delegate:(id <SelectionViewDelegate>)delegate;
++ (void)showInView:(UIView *)view leftTitle:(NSString *)leftTitle rightTitle:(NSString *)rightTitle delegate:(id <SelectionViewDelegate>)delegate;
 + (void)dismiss;
 @end
 

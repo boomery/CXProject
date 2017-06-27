@@ -94,19 +94,28 @@ static NSString *headerIdentifier = @"sectionHeader";
 }
 
 #pragma mark - ViewPagerDelegate
+- (void)viewPager:(ViewPagerController *)viewPager willChangeTabToIndex:(NSUInteger)index
+{
+    UploadPhotoTableViewController *vc = _controllerArray[self.activeTabIndex];
+    if (vc.selectBlock)
+    {
+        vc.selectBlock(YES);
+    }
+}
+
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index
 {
     UploadPhotoTableViewController *vc = _controllerArray[self.activeTabIndex];
-    if (vc.isMultiSelect)
-    {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
-        self.navigationItem.rightBarButtonItem = item;
-    }
-    else
-    {
+//    if (vc.isMultiSelect)
+//    {
+//        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
+//        self.navigationItem.rightBarButtonItem = item;
+//    }
+//    else
+//    {
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
         self.navigationItem.rightBarButtonItem = item;
-    }
+//    }
 }
 
 - (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value
