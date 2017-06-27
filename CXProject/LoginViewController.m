@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *passView;
 @property (weak, nonatomic) IBOutlet UIButton *remberButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -22,12 +23,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _userView.layer.borderWidth = 0.5;
-    _userView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _userView.layer.cornerRadius = 5;
-    _passView.layer.borderWidth = 0.5;
-    _passView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _userView.clipsToBounds = YES;
+    
     _passView.layer.cornerRadius = 5;
+    _passView.clipsToBounds = YES;
+    
+    _loginButton.layer.cornerRadius = 5;
+    _loginButton.clipsToBounds = YES;
     
     self.title = @"快速登录";
     
