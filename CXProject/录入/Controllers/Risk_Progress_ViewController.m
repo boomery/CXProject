@@ -36,7 +36,7 @@ static NSString *headerIdentifier = @"sectionHeader";
 {
     self.dataSource = self;
     self.delegate = self;
-    
+    self.extendedLayoutIncludesOpaqueBars = YES;
     self.controllerArray = [[NSMutableArray alloc] init];
     self.titleArray = @[@"安全文明", @"质量风险", @"优秀照片"];
     NSArray *array = [DataProvider riskProgressItems];

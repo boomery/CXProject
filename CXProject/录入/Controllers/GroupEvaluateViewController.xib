@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUq-rh-Izm">
-                    <rect key="frame" x="0.0" y="64" width="375" height="67"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="组员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ig2-6d-XDi">
                             <rect key="frame" x="72" y="12" width="35" height="44"/>
@@ -64,7 +64,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twP-So-LJu">
-                    <rect key="frame" x="0.0" y="141" width="375" height="122"/>
+                    <rect key="frame" x="0.0" y="77" width="375" height="137.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工作能力" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U0-ck-5FM">
                             <rect key="frame" x="37" y="10" width="70" height="44"/>
@@ -79,17 +79,17 @@
                             <rect key="frame" x="127" y="10" width="218" height="44"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RjJ-TG-L0K">
-                            <rect key="frame" x="37" y="59" width="308" height="58"/>
+                            <rect key="frame" x="37" y="59" width="308" height="73.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="evaluate_edit" translatesAutoresizingMaskIntoConstraints="NO" id="b9Z-RA-fnD">
-                                    <rect key="frame" x="50" y="19" width="20" height="20"/>
+                                    <rect key="frame" x="50" y="27" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="b9Z-RA-fnD" secondAttribute="height" multiplier="1:1" id="J35-FV-daK"/>
                                         <constraint firstAttribute="height" constant="20" id="ZpO-P9-BnK"/>
                                     </constraints>
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Bg-Sa-k2V">
-                                    <rect key="frame" x="90" y="0.0" width="218" height="58"/>
+                                    <rect key="frame" x="90" y="0.0" width="218" height="73.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -117,7 +117,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJc-AV-GS4">
-                    <rect key="frame" x="0.0" y="273" width="375" height="121"/>
+                    <rect key="frame" x="0.0" y="224.5" width="375" height="137.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="专业技能" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDg-HD-5CI">
                             <rect key="frame" x="37" y="10" width="70" height="44"/>
@@ -129,17 +129,17 @@
                             <rect key="frame" x="127" y="10" width="218" height="44"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8O-tE-82k">
-                            <rect key="frame" x="37" y="59" width="308" height="57"/>
+                            <rect key="frame" x="37" y="59" width="308" height="73.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="evaluate_edit" translatesAutoresizingMaskIntoConstraints="NO" id="q0G-wm-6Qa">
-                                    <rect key="frame" x="50" y="18" width="20" height="20"/>
+                                    <rect key="frame" x="50" y="26.5" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="uAq-WB-sr3"/>
                                         <constraint firstAttribute="width" secondItem="q0G-wm-6Qa" secondAttribute="height" multiplier="1:1" id="uHC-pM-bAp"/>
                                     </constraints>
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OXf-LK-Ner">
-                                    <rect key="frame" x="90" y="-1" width="218" height="58"/>
+                                    <rect key="frame" x="90" y="-0.5" width="218" height="73.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -163,7 +163,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-Qo-5yf">
-                    <rect key="frame" x="0.0" y="404" width="375" height="122"/>
+                    <rect key="frame" x="0.0" y="372" width="375" height="137.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="员工形象" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9o-5D-ZdH">
                             <rect key="frame" x="37" y="10" width="70" height="44"/>
@@ -175,17 +175,17 @@
                             <rect key="frame" x="127" y="10" width="218" height="44"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1a-ro-JXl">
-                            <rect key="frame" x="37" y="59" width="308" height="58"/>
+                            <rect key="frame" x="37" y="59" width="308" height="73.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="evaluate_edit" translatesAutoresizingMaskIntoConstraints="NO" id="YUG-8G-Xes">
-                                    <rect key="frame" x="50" y="19" width="20" height="20"/>
+                                    <rect key="frame" x="50" y="27" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="vD1-zF-gAn"/>
                                         <constraint firstAttribute="width" secondItem="YUG-8G-Xes" secondAttribute="height" multiplier="1:1" id="yy8-sD-Vsq"/>
                                     </constraints>
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Rxd-Dh-xr5">
-                                    <rect key="frame" x="90" y="0.0" width="218" height="58"/>
+                                    <rect key="frame" x="90" y="0.0" width="218" height="73.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -209,7 +209,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-aM-upb">
-                    <rect key="frame" x="0.0" y="536" width="375" height="121"/>
+                    <rect key="frame" x="0.0" y="519.5" width="375" height="137.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eke-N4-Bvl">
                             <rect key="frame" x="170" y="10" width="35" height="21"/>
@@ -218,17 +218,17 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4w-mp-vq0">
-                            <rect key="frame" x="48" y="32" width="278" height="84"/>
+                            <rect key="frame" x="48" y="32" width="278" height="100.5"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="evaluate_edit" translatesAutoresizingMaskIntoConstraints="NO" id="OM8-mG-Xzi">
-                                    <rect key="frame" x="39" y="32" width="20" height="20"/>
+                                    <rect key="frame" x="39" y="40.5" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="OM8-mG-Xzi" secondAttribute="height" multiplier="1:1" id="N5O-Bp-oha"/>
                                         <constraint firstAttribute="height" constant="20" id="wix-5h-wPn"/>
                                     </constraints>
                                 </imageView>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qlx-Pl-Wn0">
-                                    <rect key="frame" x="79" y="0.0" width="189" height="84"/>
+                                    <rect key="frame" x="79" y="0.0" width="189" height="100.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
@@ -281,7 +281,7 @@
                 <constraint firstAttribute="trailing" secondItem="SUq-rh-Izm" secondAttribute="trailing" id="bbp-GW-A7f"/>
                 <constraint firstItem="OM8-mG-Xzi" firstAttribute="leading" secondItem="YUG-8G-Xes" secondAttribute="leading" id="cgh-Wc-3R0"/>
                 <constraint firstItem="UXu-aM-upb" firstAttribute="leading" secondItem="qfR-Qo-5yf" secondAttribute="leading" id="cyS-QP-mD4"/>
-                <constraint firstItem="SUq-rh-Izm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="f9k-65-yiG"/>
+                <constraint firstItem="SUq-rh-Izm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f9k-65-yiG"/>
                 <constraint firstItem="qfR-Qo-5yf" firstAttribute="height" secondItem="YJc-AV-GS4" secondAttribute="height" id="ixV-Ir-Tec"/>
                 <constraint firstItem="YJc-AV-GS4" firstAttribute="leading" secondItem="twP-So-LJu" secondAttribute="leading" id="kBD-Ja-aG0"/>
                 <constraint firstItem="YUG-8G-Xes" firstAttribute="trailing" secondItem="q0G-wm-6Qa" secondAttribute="trailing" id="lGd-DP-aWb"/>
@@ -295,7 +295,7 @@
                 <constraint firstItem="qfR-Qo-5yf" firstAttribute="trailing" secondItem="YJc-AV-GS4" secondAttribute="trailing" id="ty0-XJ-5HD"/>
                 <constraint firstItem="D9o-5D-ZdH" firstAttribute="trailing" secondItem="qDg-HD-5CI" secondAttribute="trailing" id="z1z-rY-a8r"/>
             </constraints>
-            <point key="canvasLocation" x="-561.5" y="-555.5"/>
+            <point key="canvasLocation" x="-1047" y="-555"/>
         </view>
     </objects>
     <resources>

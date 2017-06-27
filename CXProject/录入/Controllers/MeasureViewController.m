@@ -64,7 +64,6 @@
         [_selectedArray removeAllObjects];
         [self.tableView reloadData];
         
-        
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
         self.navigationItem.rightBarButtonItem = item;
     }

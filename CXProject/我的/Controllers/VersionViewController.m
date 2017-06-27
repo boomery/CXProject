@@ -19,9 +19,6 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:0];
     self.navigationController.navigationBar.shadowImage = nil;
-    
-    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

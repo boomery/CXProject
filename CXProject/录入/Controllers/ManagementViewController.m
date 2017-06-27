@@ -55,6 +55,8 @@ static NSString *headerIdentifier = @"sectionHeader";
 - (void)initViews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+    self.extendedLayoutIncludesOpaqueBars = YES;
+
     UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
     photoButton.frame = CGRectMake(0, 0, 15*1.14, 15);
     [photoButton addTarget:self action:@selector(takePhoto) forControlEvents:UIControlEventTouchUpInside];

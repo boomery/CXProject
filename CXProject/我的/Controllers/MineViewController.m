@@ -23,6 +23,7 @@
 @implementation MineViewController
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.navigationController.navigationBar.translucent = YES;
     //导航栏变为透明
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:0];
     //让黑线消失的方法

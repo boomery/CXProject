@@ -57,14 +57,14 @@
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     //背景颜色
-    [[UINavigationBar appearance] setBarTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:1 green:0.34 blue:0.31 alpha:1.00]];
     //标题颜色
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:THEME_COLOR};
     [[UINavigationBar appearance] setTitleTextAttributes:navbarTitleTextAttributes];
     //左右侧字体颜色
     [[UINavigationBar appearance] setTintColor:THEME_COLOR];
     [UINavigationBar appearance].barStyle = UIBaselineAdjustmentNone;
-
+    [UINavigationBar appearance].translucent = NO;
     
     [[UITabBar appearance] setBarTintColor:THEME_COLOR];
     [[UITabBar appearance] setTintColor:[UIColor colorWithRed:0.90 green:0.20 blue:0.14 alpha:1.00]];

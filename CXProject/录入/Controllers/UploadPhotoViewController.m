@@ -51,6 +51,8 @@ static NSString *headerIdentifier = @"sectionHeader";
 - (void)initViews
 {
     self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+    self.extendedLayoutIncludesOpaqueBars = YES;
+
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:UIBarButtonItemStylePlain target:self action:@selector(select)];
     self.navigationItem.rightBarButtonItem = item;
 }

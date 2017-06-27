@@ -35,7 +35,6 @@ static NSString *myProjectCellIdentifier = @"MyProjectCell";
 {
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:0];
     self.navigationController.navigationBar.shadowImage = nil;
-    [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
     searchButton.frame = CGRectMake(0, 0, 15, 15);

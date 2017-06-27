@@ -50,7 +50,7 @@ static SelectionView *sharedView = nil;
         NSArray *array = @[selectAllButton, uploadButton];
         
         [array autoSetViewsDimension:ALDimensionHeight toSize:40];
-        [array autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:20.0 insetSpacing:YES matchedSizes:YES];
+        [array autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:40.0 insetSpacing:YES matchedSizes:YES];
         
         selectAllButton.layer.cornerRadius = 10;
         selectAllButton.clipsToBounds = YES;
@@ -60,7 +60,7 @@ static SelectionView *sharedView = nil;
         
         uploadButton.layer.cornerRadius = 10;
         uploadButton.clipsToBounds = YES;
-        uploadButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
+        uploadButton.backgroundColor = [UIColor colorWithRed:0.92 green:0.35 blue:0.17 alpha:1.00];
         [uploadButton setTitle:rightTitle forState:UIControlStateNormal];
         [uploadButton addTarget:self action:@selector(upload) forControlEvents:UIControlEventTouchUpInside];
     }

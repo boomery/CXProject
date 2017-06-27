@@ -8,6 +8,11 @@
 
 #import "MeasureCell.h"
 #import "MeasureResult+Addtion.h"
+@interface MeasureCell ()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
+
+@end
 @implementation MeasureCell
 
 - (void)awakeFromNib {
@@ -47,11 +52,13 @@
     //非多选
     if (!_isMultiSelect)
     {
+        _leftConstraint.constant = 0;
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     //多选模式
     else
     {
+        _leftConstraint.constant = 25;
         self.accessoryType = UITableViewCellAccessoryNone;
         self.selectButton.hidden = NO;
     }

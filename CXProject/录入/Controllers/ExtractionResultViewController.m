@@ -35,7 +35,7 @@ static NSString *extactResultCell = @"extactResultCell";
     [_titleArray3 addObject:@"抽检范围"];
     [_titleArray3 addObject:@"备注"];
 
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT-64) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT-64) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.dataSource = self;
