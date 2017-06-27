@@ -30,6 +30,8 @@
     [self removeAllSubviews];
     
     UITextField *measureTextField = [self textFieldEditable:NO text:@"测量值"];
+    measureTextField.borderStyle = UITextBorderStyleNone;
+    measureTextField.backgroundColor = [UIColor clearColor];
     [self addSubview:measureTextField];
     [measureTextField autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self];
     [measureTextField autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self];
@@ -58,7 +60,7 @@
                 text.returnKeyType = UIReturnKeyDone;
             }
             [views autoSetViewsDimension:ALDimensionHeight toSize:height];
-            [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:0 insetSpacing:YES matchedSizes:YES];
+            [views autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5 insetSpacing:YES matchedSizes:YES];
         }
     }
     //设计值与标签设计值输入框
@@ -67,6 +69,8 @@
         /*设计值布局*/
         UITextField *desginTextField = [self textFieldEditable:NO text:@"设计值"];
         [self addSubview:desginTextField];
+        desginTextField.borderStyle = UITextBorderStyleNone;
+        desginTextField.backgroundColor = [UIColor clearColor];
         [desginTextField autoPinEdge:ALEdgeLeft toEdge:ALEdgeLeft ofView:self];
         [desginTextField autoPinEdge:ALEdgeRight toEdge:ALEdgeRight ofView:self];
         [desginTextField autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:measureTextField withOffset:height];
@@ -92,7 +96,7 @@
             {
                 text.returnKeyType = UIReturnKeyDone;
                 [subViews autoSetViewsDimension:ALDimensionHeight toSize:height];
-                [subViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:0 insetSpacing:YES matchedSizes:YES];
+                [subViews autoDistributeViewsAlongAxis:ALAxisHorizontal alignedTo:ALAttributeHorizontal withFixedSpacing:5 insetSpacing:YES matchedSizes:YES];
             }
         }
     }
@@ -117,13 +121,13 @@
     
     placeButton.layer.cornerRadius = 10;
     placeButton.clipsToBounds = YES;
-    placeButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
+    placeButton.backgroundColor = [UIColor colorWithRed:0.89 green:0.54 blue:0.21 alpha:1.00];
     [placeButton setTitle:@"地点" forState:UIControlStateNormal];
     [placeButton addTarget:self action:@selector(showPlace) forControlEvents:UIControlEventTouchUpInside];
     
     deleteButton.layer.cornerRadius = 10;
     deleteButton.clipsToBounds = YES;
-    deleteButton.backgroundColor = [UIColor colorWithRed:0.27 green:0.63 blue:0.96 alpha:1.00];
+    deleteButton.backgroundColor = [UIColor colorWithRed:0.74 green:0.15 blue:0.10 alpha:1.00];
     [deleteButton setTitle:@"删除" forState:UIControlStateNormal];
     [deleteButton addTarget:self action:@selector(delete) forControlEvents:UIControlEventTouchUpInside];
     
@@ -229,10 +233,12 @@
 - (UITextField *)textFieldEditable:(BOOL)editable  text:(NSString *)text
 {
     UITextField *textField = [[UITextField alloc] initForAutoLayout];
+    textField.borderStyle = UITextBorderStyleNone;
+    textField.backgroundColor = [UIColor whiteColor];
+    
     textField.enabled = editable;
     textField.delegate = self;
     textField.font = [UIFont systemFontOfSize:13];
-    textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textAlignment = NSTextAlignmentCenter;
     textField.keyboardType = UIKeyboardTypeDecimalPad;
     textField.returnKeyType = UIReturnKeyNext;

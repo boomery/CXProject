@@ -10,10 +10,12 @@
 
 @interface DetailMeasureCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 
-@property (weak, nonatomic) IBOutlet UILabel *doneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
+@property (nonatomic, strong) Event *event;
+@property (nonatomic, strong) Event *subEvent;
 @end

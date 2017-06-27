@@ -89,8 +89,8 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
     self.tableView.layer.borderWidth = 0.3;
     self.tableView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
-    _standardTextField.layer.borderWidth = 0.3;
-    _standardTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    _standardTextField.layer.borderWidth = 0.3;
+//    _standardTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     InputView *view = [[InputView alloc] initForAutoLayout];
     view.delegate = self;
@@ -708,13 +708,9 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailMeasureCell *cell = [tableView dequeueReusableCellWithIdentifier:detailMeasureCellIdentifier forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font = LABEL_FONT;
-    cell.textLabel.numberOfLines = 0;
-    Event *event = _event.events[indexPath.row];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.nameLabel.text = event.name;
-    cell.progressLabel.text = [NSString stringWithFormat:@"%ld/%ld",[MeasureResult numOfResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:event.name], [MeasureResult numOfDesignResultsForProjectID:[User editingProject].fileName itemName:_event.name subItemName:event.name]];
+    Event *subEvent = _event.events[indexPath.row];
+    cell.event = _event;
+    cell.subEvent = subEvent;
     return cell;
 }
 
@@ -735,7 +731,7 @@ static NSString *detailMeasureCellIdentifier = @"DetailMeasureCell";
     Event *event = _event.events[indexPath.row];
     NSDictionary *attribute = @{NSFontAttributeName:LABEL_FONT};
     CGSize size = [event.name boundingRectWithSize:CGSizeMake(DEF_SCREEN_WIDTH*0.25 , MAXFLOAT)options:NSStringDrawingUsesLineFragmentOrigin |NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-    return size.height + 50 + 40;
+    return size.height + 40 + 40;
 }
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

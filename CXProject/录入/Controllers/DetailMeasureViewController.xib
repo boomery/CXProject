@@ -39,7 +39,7 @@
                         <outlet property="delegate" destination="-1" id="bYf-3r-OCL"/>
                     </connections>
                 </collectionView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9qX-8U-GFe">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9qX-8U-GFe">
                     <rect key="frame" x="0.0" y="200" width="94" height="467"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -50,20 +50,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yJ-XE-Xkt" userLabel="right">
                     <rect key="frame" x="94" y="200" width="281.5" height="467"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="检测区" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZ8-22-n99">
-                            <rect key="frame" x="95" y="0.0" width="92.5" height="40"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="检测区" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZ8-22-n99">
+                            <rect key="frame" x="99" y="0.0" width="89" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="检测点" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-IC-GeY">
-                            <rect key="frame" x="188.5" y="0.0" width="93" height="40"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="检测点" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-IC-GeY">
+                            <rect key="frame" x="193" y="0.0" width="89" height="40"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="评估标准" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VuA-JF-bWC">
-                            <rect key="frame" x="1" y="0.0" width="93" height="40"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="评估标准" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VuA-JF-bWC">
+                            <rect key="frame" x="5" y="0.0" width="89" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="lnW-9q-nXY"/>
                             </constraints>
@@ -71,8 +71,9 @@
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-R6-AK3">
-                            <rect key="frame" x="95" y="40" width="92.5" height="40"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTj-R6-AK3">
+                            <rect key="frame" x="99" y="40" width="89" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
@@ -80,8 +81,9 @@
                                 <outlet property="delegate" destination="-1" id="CRd-i5-a6r"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cav-kh-tXV">
-                            <rect key="frame" x="188.5" y="40" width="93" height="40"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cav-kh-tXV">
+                            <rect key="frame" x="193" y="40" width="84" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
@@ -89,8 +91,9 @@
                                 <outlet property="delegate" destination="-1" id="bil-hT-E0b"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-n3-8ao">
-                            <rect key="frame" x="1" y="40" width="93" height="40"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1y-n3-8ao">
+                            <rect key="frame" x="5" y="40" width="89" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -99,13 +102,13 @@
                             </connections>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.9333423376083374" green="0.93334239721298218" blue="0.9333423376083374" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstItem="Cav-kh-tXV" firstAttribute="trailing" secondItem="9tI-IC-GeY" secondAttribute="trailing" id="3M7-pc-tuK"/>
-                        <constraint firstItem="GZ8-22-n99" firstAttribute="leading" secondItem="VuA-JF-bWC" secondAttribute="trailing" constant="1" id="5SJ-kB-Mqg"/>
+                        <constraint firstItem="Cav-kh-tXV" firstAttribute="trailing" secondItem="9tI-IC-GeY" secondAttribute="trailing" constant="-5" id="3M7-pc-tuK"/>
+                        <constraint firstItem="GZ8-22-n99" firstAttribute="leading" secondItem="VuA-JF-bWC" secondAttribute="trailing" constant="5" id="5SJ-kB-Mqg"/>
                         <constraint firstItem="Cav-kh-tXV" firstAttribute="height" secondItem="DTj-R6-AK3" secondAttribute="height" id="IbM-wD-KQN"/>
                         <constraint firstItem="DTj-R6-AK3" firstAttribute="width" secondItem="GZ8-22-n99" secondAttribute="width" id="Icd-EG-zj9"/>
-                        <constraint firstItem="VuA-JF-bWC" firstAttribute="width" secondItem="0yJ-XE-Xkt" secondAttribute="width" multiplier="1/3" constant="-1.5" id="JPe-7n-FH6"/>
+                        <constraint firstItem="VuA-JF-bWC" firstAttribute="width" secondItem="0yJ-XE-Xkt" secondAttribute="width" multiplier="1/3" constant="-5" id="JPe-7n-FH6"/>
                         <constraint firstItem="GZ8-22-n99" firstAttribute="height" secondItem="VuA-JF-bWC" secondAttribute="height" id="NCz-SU-mlB"/>
                         <constraint firstItem="Cav-kh-tXV" firstAttribute="top" secondItem="DTj-R6-AK3" secondAttribute="top" id="OGO-Nb-0qB"/>
                         <constraint firstItem="DTj-R6-AK3" firstAttribute="leading" secondItem="GZ8-22-n99" secondAttribute="leading" id="R0g-To-QXb"/>
@@ -113,8 +116,8 @@
                         <constraint firstItem="9tI-IC-GeY" firstAttribute="top" secondItem="GZ8-22-n99" secondAttribute="top" id="Wya-M0-oNw"/>
                         <constraint firstItem="GZ8-22-n99" firstAttribute="width" secondItem="VuA-JF-bWC" secondAttribute="width" id="X4G-o2-Kot"/>
                         <constraint firstItem="9tI-IC-GeY" firstAttribute="width" secondItem="GZ8-22-n99" secondAttribute="width" id="cTc-bZ-5LB"/>
-                        <constraint firstItem="9tI-IC-GeY" firstAttribute="leading" secondItem="GZ8-22-n99" secondAttribute="trailing" constant="1" id="cvH-rz-qAk"/>
-                        <constraint firstItem="VuA-JF-bWC" firstAttribute="leading" secondItem="0yJ-XE-Xkt" secondAttribute="leading" constant="1" id="dZd-vI-Cw2"/>
+                        <constraint firstItem="9tI-IC-GeY" firstAttribute="leading" secondItem="GZ8-22-n99" secondAttribute="trailing" constant="5" id="cvH-rz-qAk"/>
+                        <constraint firstItem="VuA-JF-bWC" firstAttribute="leading" secondItem="0yJ-XE-Xkt" secondAttribute="leading" constant="5" id="dZd-vI-Cw2"/>
                         <constraint firstItem="VuA-JF-bWC" firstAttribute="top" secondItem="0yJ-XE-Xkt" secondAttribute="top" id="efN-q3-Z7V"/>
                         <constraint firstItem="f1y-n3-8ao" firstAttribute="leading" secondItem="VuA-JF-bWC" secondAttribute="leading" id="gti-82-PB0"/>
                         <constraint firstItem="f1y-n3-8ao" firstAttribute="height" secondItem="VuA-JF-bWC" secondAttribute="height" id="ik6-h2-nqr"/>
@@ -127,7 +130,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.9333423376083374" green="0.93334239721298218" blue="0.9333423376083374" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="Phr-HM-Z0l" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="03n-Ry-oIQ"/>
                 <constraint firstItem="0yJ-XE-Xkt" firstAttribute="top" secondItem="9qX-8U-GFe" secondAttribute="top" id="Bla-xi-CvS"/>
