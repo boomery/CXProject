@@ -179,6 +179,8 @@
 		908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D03761E835EB600F0C0C1 /* BaseViewController.m */; };
 		908D037B1E83987300F0C0C1 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 908D037A1E83987300F0C0C1 /* TopBarView.m */; };
 		90ACDC5B1EEFBE2F0035056D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ACDC5A1EEFBE2F0035056D /* FileManager.m */; };
+		90B699ED1F02452B00B9C868 /* AttendanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B699EB1F02452B00B9C868 /* AttendanceViewController.m */; };
+		90B699EE1F02452B00B9C868 /* AttendanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */; };
 		90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA67E1ED3E262003C85CB /* SoundPlayer.m */; };
 		90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6821ED3E35C003C85CB /* 0.WAV */; };
 		90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6831ED3E35C003C85CB /* 1.WAV */; };
@@ -548,6 +550,9 @@
 		908D037A1E83987300F0C0C1 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
 		90ACDC591EEFBE2F0035056D /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		90ACDC5A1EEFBE2F0035056D /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		90B699EA1F02452B00B9C868 /* AttendanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceViewController.h; sourceTree = "<group>"; };
+		90B699EB1F02452B00B9C868 /* AttendanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceViewController.m; sourceTree = "<group>"; };
+		90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttendanceViewController.xib; sourceTree = "<group>"; };
 		90BCA67D1ED3E262003C85CB /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		90BCA67E1ED3E262003C85CB /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		90BCA6821ED3E35C003C85CB /* 0.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.WAV; sourceTree = "<group>"; };
@@ -889,6 +894,9 @@
 			children = (
 				901781451E8275E000D6E8A1 /* MineViewController.h */,
 				901781461E8275E000D6E8A1 /* MineViewController.m */,
+				90B699EA1F02452B00B9C868 /* AttendanceViewController.h */,
+				90B699EB1F02452B00B9C868 /* AttendanceViewController.m */,
+				90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */,
 				9028C9AD1EB30A41003DA545 /* FeedbackViewController.h */,
 				9028C9AE1EB30A41003DA545 /* FeedbackViewController.m */,
 				9028C9B01EB3203B003DA545 /* ContactViewController.h */,
@@ -1526,6 +1534,7 @@
 				908BFE2B1E95E9AB00937372 /* InputCell.xib in Resources */,
 				9028C9B41EB3203B003DA545 /* ContactViewController.xib in Resources */,
 				906E85951EF8F39E00A40E33 /* UploadPhotoViewController.xib in Resources */,
+				90B699EE1F02452B00B9C868 /* AttendanceViewController.xib in Resources */,
 				9028C98B1EB2D937003DA545 /* star_gray.png in Resources */,
 				9028C97E1EB1DF81003DA545 /* GroupEvaluateViewController.xib in Resources */,
 				90F5BA861EDFAF8B00C2CE7F /* MyProjectCell.xib in Resources */,
@@ -1671,6 +1680,7 @@
 				90635C7D1EE555C2009725E0 /* Risk_Progress_PhotoEditorViewController.m in Sources */,
 				906E851C1EEFE16E00A40E33 /* FSActionSheet.m in Sources */,
 				908C824F1E9B73B90086EDCD /* DetailMeasureViewController.m in Sources */,
+				90B699ED1F02452B00B9C868 /* AttendanceViewController.m in Sources */,
 				90635C841EE78E6F009725E0 /* Risk_Progress_DetailViewController.m in Sources */,
 				906E859E1EF8FE5800A40E33 /* UploadCell.m in Sources */,
 				9043401A1E8A019C00D33ED9 /* User.m in Sources */,

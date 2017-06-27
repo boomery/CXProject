@@ -12,6 +12,7 @@
 #import "ContactViewController.h"
 #import "VersionViewController.h"
 #import "PYSearchViewController.h"
+#import "AttendanceViewController.h"
 @interface MineViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     NSDictionary *_titleDict;
@@ -126,6 +127,13 @@
     if ([titileArray[indexPath.row] isEqualToString:@"我的项目"])
     {
         MyProjectViewController *vc = [[MyProjectViewController alloc] init];
+        vc.title = titileArray[indexPath.row];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([titileArray[indexPath.row] isEqualToString:@"现场考勤"])
+    {
+        AttendanceViewController *vc = [[AttendanceViewController alloc] init];
         vc.title = titileArray[indexPath.row];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

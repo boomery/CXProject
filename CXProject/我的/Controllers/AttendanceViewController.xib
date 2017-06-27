@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AttendanceViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIo-h0-ClF">
+                    <rect key="frame" x="94" y="74" width="187.5" height="187.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="LIo-h0-ClF" secondAttribute="height" id="nsE-yw-kbW"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="signin"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-Zu-fRP">
+                    <rect key="frame" x="94" y="361.5" width="187.5" height="187.5"/>
+                    <state key="normal" backgroundImage="signout"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMo-lh-6Xo">
+                    <rect key="frame" x="0.0" y="331.5" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.78434300422668457" green="0.78434300422668457" blue="0.78434300422668457" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.5" id="WUS-4h-z20"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="签到" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDt-wX-Vgd">
+                    <rect key="frame" x="156.5" y="271.5" width="61" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="签退" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-sj-sou">
+                    <rect key="frame" x="157" y="559" width="61" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="KpS-sj-sou" firstAttribute="top" secondItem="mEK-Zu-fRP" secondAttribute="bottom" constant="10" id="016-bY-0Ea"/>
+                <constraint firstItem="bDt-wX-Vgd" firstAttribute="centerX" secondItem="LIo-h0-ClF" secondAttribute="centerX" id="Epq-pX-9Jr"/>
+                <constraint firstItem="mEK-Zu-fRP" firstAttribute="width" secondItem="LIo-h0-ClF" secondAttribute="width" id="JC1-Ur-q3D"/>
+                <constraint firstItem="LIo-h0-ClF" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.5" id="NSi-Ry-M8N"/>
+                <constraint firstItem="yMo-lh-6Xo" firstAttribute="top" secondItem="LIo-h0-ClF" secondAttribute="bottom" constant="70" id="QvA-WC-iUJ"/>
+                <constraint firstItem="bDt-wX-Vgd" firstAttribute="top" secondItem="LIo-h0-ClF" secondAttribute="bottom" constant="10" id="Rd9-CH-pad"/>
+                <constraint firstItem="LIo-h0-ClF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wge-de-MgT"/>
+                <constraint firstItem="mEK-Zu-fRP" firstAttribute="top" secondItem="LIo-h0-ClF" secondAttribute="bottom" constant="100" id="Wmr-LY-V36"/>
+                <constraint firstItem="LIo-h0-ClF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="aKZ-a1-N06"/>
+                <constraint firstItem="KpS-sj-sou" firstAttribute="centerX" secondItem="mEK-Zu-fRP" secondAttribute="centerX" id="d8G-Yh-nff"/>
+                <constraint firstItem="mEK-Zu-fRP" firstAttribute="height" secondItem="LIo-h0-ClF" secondAttribute="height" id="h34-Ll-67I"/>
+                <constraint firstAttribute="trailing" secondItem="yMo-lh-6Xo" secondAttribute="trailing" id="oUi-3O-sWT"/>
+                <constraint firstItem="mEK-Zu-fRP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qBT-25-HiB"/>
+                <constraint firstItem="yMo-lh-6Xo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v0r-nz-mfe"/>
+            </constraints>
+            <point key="canvasLocation" x="-184.5" y="-33.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="signin" width="183" height="183"/>
+        <image name="signout" width="183" height="183"/>
+    </resources>
+</document>
