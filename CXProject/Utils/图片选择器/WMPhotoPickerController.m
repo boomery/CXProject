@@ -35,7 +35,7 @@
     
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
     flow.scrollDirection = UICollectionViewScrollDirectionVertical;
-    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT - 64 - 49) collectionViewLayout:flow];
+    self.myCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT - 64 - 49) collectionViewLayout:flow];
     self.myCollectionView.backgroundColor = [UIColor whiteColor];
     self.myCollectionView.showsVerticalScrollIndicator = NO;
    // self.myCollectionView.delegate = self;
