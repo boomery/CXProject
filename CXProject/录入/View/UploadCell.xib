@@ -21,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6n-4t-Q8g" userLabel="bgView">
-                        <rect key="frame" x="0.0" y="0.0" width="501" height="264.5"/>
+                        <rect key="frame" x="8" y="0.0" width="493" height="264.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GYp-Y7-Tdy">
@@ -73,7 +73,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="V6n-4t-Q8g" secondAttribute="trailing" id="hlg-Xx-2yE"/>
                     <constraint firstItem="4Ja-Yb-daZ" firstAttribute="leading" secondItem="dDx-7F-oe9" secondAttribute="leading" id="jWR-tF-bVs"/>
                     <constraint firstItem="M0L-ur-Xrd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="yGb-Al-nsY"/>
-                    <constraint firstItem="V6n-4t-Q8g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="zFw-Wm-BcW"/>
+                    <constraint firstItem="V6n-4t-Q8g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="zFw-Wm-BcW"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

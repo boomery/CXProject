@@ -10,6 +10,9 @@
 
 @interface ProjectCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *lbgView;
+@property (weak, nonatomic) IBOutlet UIView *rbgView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *districtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;

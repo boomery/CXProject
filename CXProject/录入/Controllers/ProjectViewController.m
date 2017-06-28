@@ -25,6 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.93 alpha:1.00];
     self.title = @"录入菜单";
 }
 
@@ -52,8 +53,8 @@
 #pragma mark - 抽取结果
 - (IBAction)extractionResult:(id)sender
 {
-//    ExtractionResultViewController *newVC = [[ExtractionResultViewController alloc] init];
-    SignViewController *newVC = [[SignViewController alloc] init];
+    ExtractionResultViewController *newVC = [[ExtractionResultViewController alloc] init];
+//    SignViewController *newVC = [[SignViewController alloc] init];
     newVC.title = @"抽取结果";
     [self.navigationController pushViewController:newVC animated:YES];
 }
@@ -74,6 +75,7 @@
     newVC.title = @"团队互评";
     [self.navigationController pushViewController:newVC animated:YES];
 }
+
 - (IBAction)managementClick:(id)sender
 {
     ManagementViewController *newVC = [[ManagementViewController alloc] init];

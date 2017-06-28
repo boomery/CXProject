@@ -5,6 +5,7 @@
 //  Created by zhangchaoxin on 2017/3/22.
 //  Copyright © 2017年 zhangchaoxin. All rights reserved.
 //
+#define BACK_IMAGE_HEIGHT self.view.width/750.0 * 358
 
 #import "MineViewController.h"
 #import "MyProjectViewController.h"
@@ -18,6 +19,7 @@
     NSDictionary *_titleDict;
     NSDictionary *_imageNameDict;
 }
+@property (nonatomic, strong) UIImageView *headerView;
 @property (nonatomic, strong) UITableView *tableView;
 @end
 
@@ -50,19 +52,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
     UIImageView *headerView = [[UIImageView alloc] init];
     headerView.image = [UIImage imageNamed:@"pd"];
-    headerView.frame = CGRectMake(0, 0, self.view.width, self.view.width/750.0 * 358);
+    headerView.frame = CGRectMake(0, 0, self.view.width, BACK_IMAGE_HEIGHT);
+    [self.view addSubview:headerView];
+    self.headerView = headerView;
+    
+    UIView *topBgView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, DEF_SCREEN_WIDTH, self.view.width/750.0 * 358)];
+    topBgView.backgroundColor = [UIColor clearColor];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DEF_SCREEN_WIDTH, DEF_SCREEN_HEIGHT - 49) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
-    tableView.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
+    tableView.backgroundColor = [UIColor clearColor];
     tableView.tableFooterView = [[UIView alloc] init];
     tableView.dataSource = self;
     tableView.delegate = self;
     self.tableView = tableView;
-    self.tableView.tableHeaderView = headerView;
+    self.tableView.tableHeaderView = topBgView;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat yOffset  = scrollView.contentOffset.y;
+    if (yOffset <= 0)
+    {
+        CGFloat offsetY = -scrollView.contentOffset.y;
+        CGFloat oldH = BACK_IMAGE_HEIGHT;
+        CGFloat oldW = DEF_SCREEN_WIDTH;
+        
+        CGFloat newH = oldH + offsetY;
+        CGFloat newW = oldW * (newH/oldH);
+        
+        self.headerView.frame = CGRectMake(0, 0, newW, newH);
+        self.headerView.center = CGPointMake(DEF_SCREEN_WIDTH/2.0, self.headerView.center.y);
+    }
+    else
+    {
+        CGFloat offsetY = scrollView.contentOffset.y;
+        self.headerView.top = -offsetY * 0.9;
+    }
 }
 
 - (void)logout
@@ -198,7 +227,7 @@
     return view;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
 //    if (section == 1)
 //    {

@@ -181,6 +181,7 @@
 		90ACDC5B1EEFBE2F0035056D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ACDC5A1EEFBE2F0035056D /* FileManager.m */; };
 		90B699ED1F02452B00B9C868 /* AttendanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B699EB1F02452B00B9C868 /* AttendanceViewController.m */; };
 		90B699EE1F02452B00B9C868 /* AttendanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */; };
+		90B699F21F03554000B9C868 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B699F11F03554000B9C868 /* icon@2x.png */; };
 		90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA67E1ED3E262003C85CB /* SoundPlayer.m */; };
 		90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6821ED3E35C003C85CB /* 0.WAV */; };
 		90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6831ED3E35C003C85CB /* 1.WAV */; };
@@ -208,8 +209,6 @@
 		90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB988C1E8F9CA4000FB2BC /* ProjecListtViewController.xib */; };
 		90CB98951E8F9CA4000FB2BC /* PhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */; };
 		90CB98971E8F9CA4000FB2BC /* ProjecListtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB988F1E8F9CA4000FB2BC /* ProjecListtViewController.m */; };
-		90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98991E8F9D61000FB2BC /* AddProjectCell.m */; };
-		90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB989A1E8F9D61000FB2BC /* AddProjectCell.xib */; };
 		90CB98A21E8FA18C000FB2BC /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98A11E8FA18C000FB2BC /* Project.m */; };
 		90CB98A61E8FA63D000FB2BC /* ProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 90CB98A41E8FA63D000FB2BC /* ProjectCell.m */; };
 		90CB98A71E8FA63D000FB2BC /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */; };
@@ -553,6 +552,7 @@
 		90B699EA1F02452B00B9C868 /* AttendanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceViewController.h; sourceTree = "<group>"; };
 		90B699EB1F02452B00B9C868 /* AttendanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceViewController.m; sourceTree = "<group>"; };
 		90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttendanceViewController.xib; sourceTree = "<group>"; };
+		90B699F11F03554000B9C868 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		90BCA67D1ED3E262003C85CB /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		90BCA67E1ED3E262003C85CB /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		90BCA6821ED3E35C003C85CB /* 0.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.WAV; sourceTree = "<group>"; };
@@ -592,9 +592,6 @@
 		90CB988D1E8F9CA4000FB2BC /* PhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewController.xib; sourceTree = "<group>"; };
 		90CB988F1E8F9CA4000FB2BC /* ProjecListtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjecListtViewController.m; sourceTree = "<group>"; };
 		90CB98911E8F9CA4000FB2BC /* ProjecListtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjecListtViewController.h; sourceTree = "<group>"; };
-		90CB98981E8F9D61000FB2BC /* AddProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectCell.h; sourceTree = "<group>"; };
-		90CB98991E8F9D61000FB2BC /* AddProjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectCell.m; sourceTree = "<group>"; };
-		90CB989A1E8F9D61000FB2BC /* AddProjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddProjectCell.xib; sourceTree = "<group>"; };
 		90CB98A01E8FA18C000FB2BC /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
 		90CB98A11E8FA18C000FB2BC /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
 		90CB98A31E8FA63D000FB2BC /* ProjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectCell.h; sourceTree = "<group>"; };
@@ -789,6 +786,7 @@
 				901781351E82754600D6E8A1 /* 我的 */,
 				901780EB1E82626600D6E8A1 /* Assets.xcassets */,
 				901780F01E82626600D6E8A1 /* Info.plist */,
+				90B699F11F03554000B9C868 /* icon@2x.png */,
 				9028C93C1EA4BC6A003DA545 /* measure.sqlite */,
 				908C82561E9B7D500086EDCD /* Measure.geojson */,
 				9028C9EA1EC43570003DA545 /* Risk.geojson */,
@@ -1307,11 +1305,8 @@
 				906E858C1EF8C27400A40E33 /* MeasureCell.h */,
 				906E858D1EF8C27400A40E33 /* MeasureCell.m */,
 				906E858E1EF8C27400A40E33 /* MeasureCell.xib */,
-				90CB98981E8F9D61000FB2BC /* AddProjectCell.h */,
 				9028C9FF1ECC23BA003DA545 /* LabelReusableView.h */,
 				9028CA001ECC23BA003DA545 /* LabelReusableView.m */,
-				90CB98991E8F9D61000FB2BC /* AddProjectCell.m */,
-				90CB989A1E8F9D61000FB2BC /* AddProjectCell.xib */,
 				90CB98A31E8FA63D000FB2BC /* ProjectCell.h */,
 				90CB98A41E8FA63D000FB2BC /* ProjectCell.m */,
 				90CB98A51E8FA63D000FB2BC /* ProjectCell.xib */,
@@ -1552,7 +1547,6 @@
 				90BCA6921ED3E35C003C85CB /* 6.WAV in Resources */,
 				90BCA68E1ED3E35C003C85CB /* 2.WAV in Resources */,
 				9028C93D1EA4BC6A003DA545 /* measure.sqlite in Resources */,
-				90CB989C1E8F9D61000FB2BC /* AddProjectCell.xib in Resources */,
 				908C82551E9B784E0086EDCD /* LabelCell.xib in Resources */,
 				90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */,
 				908C82481E9B4DEE0086EDCD /* MeasureViewController.xib in Resources */,
@@ -1585,6 +1579,7 @@
 				90CB987B1E8F8A19000FB2BC /* PhotoEditorViewController.xib in Resources */,
 				904340081E88AA9000D33ED9 /* CountViewController.xib in Resources */,
 				90CB98941E8F9CA4000FB2BC /* ProjecListtViewController.xib in Resources */,
+				90B699F21F03554000B9C868 /* icon@2x.png in Resources */,
 				90BCA6AA1ED6A5AF003C85CB /* MainViewController.xib in Resources */,
 				906E859A1EF8F9BC00A40E33 /* UploadPhotoTableViewController.xib in Resources */,
 				9028C9B91EB32B2A003DA545 /* VersionViewController.xib in Resources */,
@@ -1786,7 +1781,6 @@
 				9028C9A41EB30A17003DA545 /* AddImageView.m in Sources */,
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */,
-				90CB989B1E8F9D61000FB2BC /* AddProjectCell.m in Sources */,
 				906E853A1EF2288300A40E33 /* Management_PhotoEditorViewController.m in Sources */,
 				906E850D1EEFE16E00A40E33 /* SDWebImageCompat.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
