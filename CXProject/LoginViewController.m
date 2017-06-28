@@ -23,13 +23,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _userView.layer.cornerRadius = 5;
+    _userView.layer.cornerRadius = 3;
     _userView.clipsToBounds = YES;
     
-    _passView.layer.cornerRadius = 5;
+    _passView.layer.cornerRadius = 3;
     _passView.clipsToBounds = YES;
     
-    _loginButton.layer.cornerRadius = 5;
+    _loginButton.layer.cornerRadius = 3;
     _loginButton.clipsToBounds = YES;
     
     self.title = @"快速登录";

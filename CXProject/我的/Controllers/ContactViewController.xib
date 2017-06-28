@@ -21,14 +21,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-i5-T8e">
-                    <rect key="frame" x="95" y="84" width="184.5" height="94"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dBa-i5-T8e">
+                    <rect key="frame" x="89" y="84" width="197" height="58.5"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="dBa-i5-T8e" secondAttribute="height" multiplier="369:188" id="1aG-S6-pKm"/>
+                        <constraint firstAttribute="width" secondItem="dBa-i5-T8e" secondAttribute="height" multiplier="395:117" id="1aG-S6-pKm"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZR-1l-8q0">
-                    <rect key="frame" x="0.0" y="228" width="375" height="100"/>
+                    <rect key="frame" x="0.0" y="192.5" width="375" height="100"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="phone" translatesAutoresizingMaskIntoConstraints="NO" id="Az4-qx-JxB">
                             <rect key="frame" x="20" y="25" width="43" height="50"/>
@@ -43,7 +43,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.83916711807250977" green="0.8274269700050354" blue="0.83139574527740479" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.99212253093719482" green="0.98426628112792969" blue="0.98823726177215576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="Az4-qx-JxB" firstAttribute="leading" secondItem="hZR-1l-8q0" secondAttribute="leading" constant="20" id="7tB-1W-RY0"/>
                         <constraint firstAttribute="trailing" secondItem="qQz-fz-5WE" secondAttribute="trailing" constant="20" id="D6z-HM-WrM"/>
@@ -60,14 +60,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65O-bw-4hw">
-                    <rect key="frame" x="0.0" y="328" width="375" height="0.5"/>
+                    <rect key="frame" x="0.0" y="292.5" width="375" height="0.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="o8t-WW-ynA"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vuX-9r-Mby">
-                    <rect key="frame" x="0.0" y="328.5" width="375" height="100"/>
+                    <rect key="frame" x="0.0" y="293" width="375" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shpingda@shpingda.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjc-rZ-LKb">
                             <rect key="frame" x="161" y="34.5" width="194" height="31"/>
@@ -82,7 +82,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.8391671181" green="0.82742696999999998" blue="0.83139574530000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" red="0.99212253093719482" green="0.98426628112792969" blue="0.98823726177215576" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstItem="kjc-rZ-LKb" firstAttribute="centerY" secondItem="fJy-Dy-xRA" secondAttribute="centerY" id="6qG-1d-p7V"/>
                         <constraint firstItem="fJy-Dy-xRA" firstAttribute="centerY" secondItem="vuX-9r-Mby" secondAttribute="centerY" id="fPF-md-nQi"/>
@@ -90,7 +90,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.9333423376083374" green="0.93334239721298218" blue="0.9333423376083374" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="65O-bw-4hw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0Yd-5i-L7v"/>
                 <constraint firstItem="fJy-Dy-xRA" firstAttribute="width" secondItem="Az4-qx-JxB" secondAttribute="width" id="AdP-KV-fzT"/>
@@ -100,7 +100,7 @@
                 <constraint firstItem="kjc-rZ-LKb" firstAttribute="trailing" secondItem="qQz-fz-5WE" secondAttribute="trailing" id="FJ5-LL-iyd"/>
                 <constraint firstItem="vuX-9r-Mby" firstAttribute="height" secondItem="hZR-1l-8q0" secondAttribute="height" id="Hf8-Ce-jtg"/>
                 <constraint firstItem="65O-bw-4hw" firstAttribute="top" secondItem="hZR-1l-8q0" secondAttribute="bottom" id="MSF-l0-jbM"/>
-                <constraint firstItem="dBa-i5-T8e" firstAttribute="width" secondItem="dBa-i5-T8e" secondAttribute="height" multiplier="369:188" id="TTs-Ap-cWz"/>
+                <constraint firstItem="dBa-i5-T8e" firstAttribute="width" secondItem="dBa-i5-T8e" secondAttribute="height" multiplier="395:117" id="TTs-Ap-cWz"/>
                 <constraint firstItem="vuX-9r-Mby" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Vk7-Hf-0MI"/>
                 <constraint firstItem="65O-bw-4hw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Y0y-lf-LuZ"/>
                 <constraint firstItem="vuX-9r-Mby" firstAttribute="top" secondItem="65O-bw-4hw" secondAttribute="bottom" id="eTs-1x-wzQ"/>
@@ -112,12 +112,12 @@
                 <constraint firstItem="vuX-9r-Mby" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uah-fn-2SH"/>
                 <constraint firstItem="hZR-1l-8q0" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.15" id="xgN-lI-yNN"/>
             </constraints>
-            <point key="canvasLocation" x="-142.5" y="-20.5"/>
+            <point key="canvasLocation" x="-450" y="-54"/>
         </view>
     </objects>
     <resources>
         <image name="email" width="49" height="35"/>
-        <image name="logo" width="184" height="94"/>
+        <image name="logo" width="197" height="58"/>
         <image name="phone" width="43" height="50"/>
     </resources>
 </document>

@@ -19,6 +19,7 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:0];
     self.navigationController.navigationBar.shadowImage = nil;
+    self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
 }
 
 - (void)didReceiveMemoryWarning {

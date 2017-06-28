@@ -25,30 +25,27 @@
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:0];
     self.navigationController.navigationBar.shadowImage = nil;
+    self.view.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.00];
     
     self.savedModelArray = [[NSMutableArray alloc] init];
     
-    self.suggestionTextView = [[UIPlaceHolderTextView alloc]initWithFrame:CGRectMake(20, 64 + 20, DEF_SCREEN_WIDTH-40,130/568.0 *DEF_SCREEN_HEIGHT)];
+    self.suggestionTextView = [[UIPlaceHolderTextView alloc]initWithFrame:CGRectMake(0, 64, DEF_SCREEN_WIDTH, 130/568.0 * DEF_SCREEN_HEIGHT)];
     self.suggestionTextView.scrollEnabled = YES;
     self.suggestionTextView.font        = [UIFont systemFontOfSize:13.5];
     self.suggestionTextView.textColor   = [UIColor blackColor];
-    self.suggestionTextView.placeholder =@"输入您的建议";
-    self.suggestionTextView.placeholderColor = LINE_COLOR;
+    self.suggestionTextView.placeholder =@"请输入遇到的问题或建议...";
+    self.suggestionTextView.placeholderColor = [UIColor grayColor];
     self.suggestionTextView.delegate    = self;
-    self.suggestionTextView.layer.cornerRadius = 5;
-    self.suggestionTextView.clipsToBounds = YES;
     self.suggestionTextView.returnKeyType = UIReturnKeyDone;
-    self.suggestionTextView.layer.borderWidth = 0.5;;
-    self.suggestionTextView.layer.borderColor = [LINE_COLOR CGColor];
     [self.view addSubview:self.suggestionTextView];
     
-    //
-    UILabel *addImageLab= [[UILabel alloc] initWithFrame:CGRectMake(20 ,self.suggestionTextView.bottom + 20,65 ,30)];
-    addImageLab.text = @"添加图片:";
+    UILabel *addImageLab= [[UILabel alloc] initWithFrame:CGRectMake(20, self.suggestionTextView.bottom + 20, 95, 30)];
+    addImageLab.text = @"添加图片说明";
     addImageLab.font = [UIFont systemFontOfSize:13.5];
     [self.view addSubview:addImageLab];
-    UILabel *imageCountLB= [[UILabel alloc] initWithFrame:CGRectMake(addImageLab.right, self.suggestionTextView.bottom + 20, 100 , 30)];
+    UILabel *imageCountLB= [[UILabel alloc] initWithFrame:CGRectMake(addImageLab.right, self.suggestionTextView.bottom + 20, 100, 30)];
     imageCountLB.text = @"(最多5张)";
+    imageCountLB.textColor = [UIColor grayColor];
     imageCountLB.font = [UIFont systemFontOfSize:12];
     [self.view addSubview:imageCountLB];
     
@@ -59,13 +56,14 @@
     
     UIButton *commitButton = [[UIButton alloc] initForAutoLayout];
     [self.view addSubview:commitButton];
-    [commitButton setBackgroundImage:[UIImage imageNamed:@"commit"] forState:UIControlStateNormal];
+    commitButton.backgroundColor = [UIColor colorWithRed:0.84 green:0.20 blue:0.15 alpha:1.00];
+    commitButton.layer.cornerRadius = 10;
+    commitButton.clipsToBounds = YES;
     [commitButton autoAlignAxisToSuperviewAxis:ALAxisVertical];
-    [commitButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:view withOffset:10];
-    [commitButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
+    [commitButton autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:view withOffset:40];
+    [commitButton autoSetDimensionsToSize:CGSizeMake(DEF_SCREEN_WIDTH - 40, 44)];
     [commitButton setTitle:@"提交" forState:UIControlStateNormal];
     [commitButton addTarget:self action:@selector(commit) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (void)commit
