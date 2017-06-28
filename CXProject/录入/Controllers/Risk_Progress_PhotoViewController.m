@@ -174,12 +174,12 @@ static NSString *headerIdentifier = @"sectionHeader";
     [titleLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeTop ofView:view withOffset:5];
     [titleLabel autoSetDimension:ALDimensionHeight toSize:40];
 
-    titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    titleLabel.font = [UIFont systemFontOfSize:17];
     titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.backgroundColor = [UIColor colorWithRed:0.15 green:0.15 blue:0.15 alpha:1.00];
+    titleLabel.backgroundColor = [UIColor whiteColor];
     titleLabel.layer.cornerRadius = 5;
     titleLabel.clipsToBounds = YES;
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor blackColor];
     if (!self.kind)
     {
         NSInteger index = [[_arrayDict allKeys][indexPath.section] integerValue];
