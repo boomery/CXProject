@@ -141,36 +141,21 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-//    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (self.savedModelArray.count < 5)
+    {
+        ImageModel *model = [[ImageModel alloc] init];
+        model.image = image;
+        [self.savedModelArray addObject:model];
+    }
+    [self.addImageView setModelArray:self.savedModelArray];
     
-    
-//    PhotoEditorViewController *editor = [[PhotoEditorViewController alloc] init];
-//    [picker pushViewController:editor animated:YES];
-//    editor.image = image;
-//    
-//    editor.imageBlock = ^(UIImage *image){
-//        
-//        NSString *imageName = [CXDataBaseUtil imageName];
-//        //其中参数0.5表示压缩比例，1表示不压缩，数值越小压缩比例越大
-//        if ([CXDataBaseUtil saveImage:image withRatio:0.5 imageName:imageName])
-//        {
-//            MeasureResult *res = [self exsistMeasureResultForIndexPath:_indexPath];
-//            if (res.measurePhoto.length != 0)
-//            {
-//                [[NSFileManager defaultManager] removeItemAtPath:[CXDataBaseUtil imagePathForName:res.measurePhoto] error:nil];
-//                NSLog(@"移除旧照片");
-//            }
-//            res.measurePhoto = imageName;
-//            [MeasureResult insertNewMeasureResult:res];
-//            [SVProgressHUD showSuccessWithStatus:@"照片保存成功"];
-//        }
-    
-        [picker dismissViewControllerAnimated:YES completion:^{
-            [[UIApplication sharedApplication] setStatusBarHidden:NO];
-            // 改变状态栏的颜色  改变为白色
-            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-        }];
-    };
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarHidden:NO];
+        // 改变状态栏的颜色  改变为白色
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    }];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

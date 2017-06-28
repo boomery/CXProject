@@ -47,7 +47,7 @@
                         <constraints>
                             <constraint firstAttribute="width" secondItem="DDa-Xf-asI" secondAttribute="height" multiplier="1:1" id="Ob6-Ca-kaz"/>
                         </constraints>
-                        <state key="normal" backgroundImage="add"/>
+                        <state key="normal" backgroundImage="add_blue"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -73,6 +73,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="add" width="70" height="70"/>
+        <image name="add_blue" width="141" height="141"/>
     </resources>
 </document>
