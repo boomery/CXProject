@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Env-CK-CjN">
-                    <rect key="frame" x="89" y="84" width="197" height="58.5"/>
+                    <rect key="frame" x="89" y="104" width="197" height="58.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Env-CK-CjN" secondAttribute="height" multiplier="395:117" id="g5w-gE-TKl"/>
                     </constraints>
@@ -38,7 +38,7 @@
                 <constraint firstItem="fhO-2k-R6q" firstAttribute="centerX" secondItem="8US-zg-h8V" secondAttribute="centerX" id="4te-ti-N1O"/>
                 <constraint firstAttribute="bottom" secondItem="fhO-2k-R6q" secondAttribute="bottom" constant="40" id="8ZA-M9-auB"/>
                 <constraint firstItem="Env-CK-CjN" firstAttribute="centerX" secondItem="8US-zg-h8V" secondAttribute="centerX" id="BHX-GO-9Dw"/>
-                <constraint firstItem="Env-CK-CjN" firstAttribute="top" secondItem="8US-zg-h8V" secondAttribute="top" constant="84" id="Ml3-Oz-tYJ"/>
+                <constraint firstItem="Env-CK-CjN" firstAttribute="top" secondItem="8US-zg-h8V" secondAttribute="top" constant="104" id="Ml3-Oz-tYJ"/>
             </constraints>
             <point key="canvasLocation" x="-142.5" y="-20.5"/>
         </view>

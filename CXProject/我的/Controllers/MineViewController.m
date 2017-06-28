@@ -36,13 +36,13 @@
     
     if ([User userIsOurStaff])
     {
-        _imageNameDict = @{@"0":@[@"my_project", @"attence", @"key_dict"], @"1":@[@"feedback", @"version", @"contact"]};
-        _titleDict = @{@"0":@[ @"我的项目", @"现场考勤", @"关键词字典"], @"1":@[@"意见反馈", @"关于平大", @"联系我们"]};
+        _imageNameDict = @{@"0":@[@"my_project", @"attence", @"key_dict"], @"1":@[@"feedback", @"version", @"contact"], @"2":@[@"logout"]};
+        _titleDict = @{@"0":@[ @"我的项目", @"现场考勤", @"关键词字典"], @"1":@[@"意见反馈", @"关于平大", @"联系我们"], @"2":@[@"安全退出"]};
     }
     else
     {
-        _imageNameDict = @{@"0":@[@"my_project"],@"1":@[@"feedback", @"version", @"contact"]};
-        _titleDict = @{@"0":@[ @"我的项目"], @"1":@[@"意见反馈", @"关于平大", @"联系我们"]};
+        _imageNameDict = @{@"0":@[@"my_project"],@"1":@[@"feedback", @"version", @"contact"], @"2":@[@"logout"]};
+        _titleDict = @{@"0":@[ @"我的项目"], @"1":@[@"意见反馈", @"关于平大", @"联系我们"], @"2":@[@"安全退出"]};
     }
     [self.tableView reloadData];
 }
@@ -171,33 +171,39 @@
         searchViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:searchViewController animated:YES];
     }
+    else if ([titileArray[indexPath.row] isEqualToString:@"安全退出"])
+    {
+        [self logout];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (section == 1)
-    {
-        UIView *view = [[UIView alloc] init];
-        UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
-        [view addSubview:logoutButton];
-        logoutButton.backgroundColor = [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:1.00];
-        logoutButton.layer.cornerRadius = 5;
-        logoutButton.clipsToBounds = YES;
-        [logoutButton autoCenterInSuperview];
-        [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
-        [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
-        [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
-        return view;
-    }
-    return nil;
+//    if (section == 1)
+//    {
+//        UIView *view = [[UIView alloc] init];
+//        UIButton *logoutButton = [[UIButton alloc] initForAutoLayout];
+//        [view addSubview:logoutButton];
+//        logoutButton.backgroundColor = [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:1.00];
+//        logoutButton.layer.cornerRadius = 5;
+//        logoutButton.clipsToBounds = YES;
+//        [logoutButton autoCenterInSuperview];
+//        [logoutButton autoSetDimensionsToSize:CGSizeMake(225, 44)];
+//        [logoutButton setTitle:@"退出" forState:UIControlStateNormal];
+//        [logoutButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+//        return view;
+//    }
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 1)
-    {
-        return 88;
-    }
+//    if (section == 1)
+//    {
+//        return 88;
+//    }
     return 10;
 }
 
