@@ -182,6 +182,7 @@
 		90B699ED1F02452B00B9C868 /* AttendanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B699EB1F02452B00B9C868 /* AttendanceViewController.m */; };
 		90B699EE1F02452B00B9C868 /* AttendanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */; };
 		90B699F21F03554000B9C868 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B699F11F03554000B9C868 /* icon@2x.png */; };
+		90B699F51F03A54800B9C868 /* NSDictionary+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B699F41F03A54800B9C868 /* NSDictionary+LOG.m */; };
 		90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA67E1ED3E262003C85CB /* SoundPlayer.m */; };
 		90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6821ED3E35C003C85CB /* 0.WAV */; };
 		90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6831ED3E35C003C85CB /* 1.WAV */; };
@@ -553,6 +554,8 @@
 		90B699EB1F02452B00B9C868 /* AttendanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceViewController.m; sourceTree = "<group>"; };
 		90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttendanceViewController.xib; sourceTree = "<group>"; };
 		90B699F11F03554000B9C868 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		90B699F31F03A54800B9C868 /* NSDictionary+LOG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LOG.h"; sourceTree = "<group>"; };
+		90B699F41F03A54800B9C868 /* NSDictionary+LOG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LOG.m"; sourceTree = "<group>"; };
 		90BCA67D1ED3E262003C85CB /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		90BCA67E1ED3E262003C85CB /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		90BCA6821ED3E35C003C85CB /* 0.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.WAV; sourceTree = "<group>"; };
@@ -1106,6 +1109,8 @@
 		90635C861EE7A22C009725E0 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				90B699F31F03A54800B9C868 /* NSDictionary+LOG.h */,
+				90B699F41F03A54800B9C868 /* NSDictionary+LOG.m */,
 				90635C871EE7A244009725E0 /* UIViewController+BackButtonHandler.h */,
 				90635C881EE7A244009725E0 /* UIViewController+BackButtonHandler.m */,
 			);
@@ -1782,6 +1787,7 @@
 				90CB98791E8F7F55000FB2BC /* YYClassInfo.m in Sources */,
 				9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */,
 				906E853A1EF2288300A40E33 /* Management_PhotoEditorViewController.m in Sources */,
+				90B699F51F03A54800B9C868 /* NSDictionary+LOG.m in Sources */,
 				906E850D1EEFE16E00A40E33 /* SDWebImageCompat.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,

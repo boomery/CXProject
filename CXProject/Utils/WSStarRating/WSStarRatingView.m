@@ -143,16 +143,32 @@
 - (UIView *)buidlStarViewWithImageName:(NSString *)imageName
 {
     CGRect frame = self.bounds;
+    self.backgroundColor = [UIColor clearColor];
     UIView *view = [[UIView alloc] initWithFrame:frame];
     view.clipsToBounds = YES;
     for (int i = 0; i < self.numberOfStar; i ++){
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
-        CGFloat imageWidth = frame.size.width / self.numberOfStar - 5;
-        imageView.frame = CGRectMake(i * imageWidth, 0, imageWidth, frame.size.height);
-        NSLog(@"%@",NSStringFromCGRect(self.frame));
+        CGFloat gap = 5;
+        CGFloat imageWidth = (frame.size.width - gap * (self.numberOfStar - 1) ) / self.numberOfStar;
+        CGFloat imageHeight = imageWidth*65/71.0;
+        CGFloat originY = (self.frame.size.height-imageWidth)/2.0;
+        imageView.frame = CGRectMake(i * (imageWidth + gap), originY, imageWidth, imageHeight);
         [view addSubview:imageView];
     }
     return view;
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    [self removeAllSubviews];
+    [self commonInit];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+//    NSLog(@"%@", NSStringFromCGRect(self.frame));
 }
 
 #pragma mark -

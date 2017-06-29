@@ -287,10 +287,11 @@
         } else {
             if (success) {
                 NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
+                NSLog(@"%@",[dict descriptionWithLocale:nil]);
+                
                 NSString *code = dict[@"code"];
                 NSString *msg = dict[@"msg"];
                 NSDictionary *dataDict = dict[@"data"];
-                
                 if ([code isEqualToString:@"0"])
                 {
                     //产生错误信息

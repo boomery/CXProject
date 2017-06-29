@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define kBACKGROUND_STAR @"star_gray"
-#define kFOREGROUND_STAR @"star_yellow"
+#define kBACKGROUND_STAR @"star_gray2"
+#define kFOREGROUND_STAR @"star_red"
 #define kNUMBER_OF_STAR  5
 
 @class WSStarRatingView;
