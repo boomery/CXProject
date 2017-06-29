@@ -11,7 +11,7 @@
 #import "ProjectViewController.h"
 #import "Project.h"
 #import "ProjectCell.h"
-@interface ProjecListtViewController ()
+@interface ProjecListtViewController () <DZNEmptyDataSetSource>
 {
     NSMutableArray *_projectArray;
 }
@@ -40,6 +40,7 @@ static NSString *projectCell = @"ProjectCell";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:photoButton];
     self.navigationItem.rightBarButtonItem = item;
     
+    self.tableView.emptyDataSetSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"ProjectCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:projectCell];
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
@@ -92,6 +93,24 @@ static NSString *projectCell = @"ProjectCell";
     [User setEditingProject:_projectArray[indexPath.row]];
     projectVC.project = _projectArray[indexPath.row];
     [self.navigationController pushViewController:projectVC animated:YES];
+}
+
+#pragma mark - DZNEmptyDataSetSource
+- (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
+{
+    NSString *text = @"没有任何项目";
+    NSDictionary *attributes = @{NSFontAttributeName: [UIFont systemFontOfSize:18.0f], NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+    return [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return [UIImage imageNamed:@"M_smile"];
+}
+
+- (CGFloat)verticalOffsetForEmptyDataSet:(UIScrollView *)scrollView
+{
+    return -100;
 }
 
 - (void)didReceiveMemoryWarning
