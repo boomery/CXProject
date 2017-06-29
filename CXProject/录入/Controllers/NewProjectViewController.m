@@ -54,15 +54,16 @@ static NSString *inputCell3 = @"InputCell3";
 static NSString *inputCell4 = @"InputCell4";
 - (void)initViews
 {
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(save)];
     self.navigationItem.rightBarButtonItem = item;
     
-    UITableView *tableView = [[UITableView alloc] initForAutoLayout];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, self.view.height) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.dataSource = self;
     tableView.delegate = self;
-    [tableView autoPinEdgesToSuperviewEdges];
     self.tableView = tableView;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"InputCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:inputCell];
