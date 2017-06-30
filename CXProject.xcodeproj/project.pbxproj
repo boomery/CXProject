@@ -196,6 +196,8 @@
 		90B69A131F04E66B00B9C868 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A121F04E66B00B9C868 /* libresolv.tbd */; };
 		90B69A181F04E78900B9C868 /* jcore-ios-1.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A151F04E78900B9C868 /* jcore-ios-1.1.3.a */; };
 		90B69A191F04E78900B9C868 /* jpush-ios-3.0.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A161F04E78900B9C868 /* jpush-ios-3.0.5.a */; };
+		90B69A1C1F05DFC300B9C868 /* NSString+blankString.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B69A1B1F05DFC300B9C868 /* NSString+blankString.m */; };
+		90B69A1F1F05DFD000B9C868 /* NSString+MHCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B69A1E1F05DFD000B9C868 /* NSString+MHCommon.m */; };
 		90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA67E1ED3E262003C85CB /* SoundPlayer.m */; };
 		90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6821ED3E35C003C85CB /* 0.WAV */; };
 		90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6831ED3E35C003C85CB /* 1.WAV */; };
@@ -584,6 +586,10 @@
 		90B69A151F04E78900B9C868 /* jcore-ios-1.1.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.3.a"; sourceTree = "<group>"; };
 		90B69A161F04E78900B9C868 /* jpush-ios-3.0.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.5.a"; sourceTree = "<group>"; };
 		90B69A171F04E78900B9C868 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
+		90B69A1A1F05DFC300B9C868 /* NSString+blankString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+blankString.h"; sourceTree = "<group>"; };
+		90B69A1B1F05DFC300B9C868 /* NSString+blankString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+blankString.m"; sourceTree = "<group>"; };
+		90B69A1D1F05DFD000B9C868 /* NSString+MHCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MHCommon.h"; sourceTree = "<group>"; };
+		90B69A1E1F05DFD000B9C868 /* NSString+MHCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MHCommon.m"; sourceTree = "<group>"; };
 		90BCA67D1ED3E262003C85CB /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		90BCA67E1ED3E262003C85CB /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		90BCA6821ED3E35C003C85CB /* 0.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.WAV; sourceTree = "<group>"; };
@@ -1163,6 +1169,10 @@
 		90635C861EE7A22C009725E0 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				90B69A1D1F05DFD000B9C868 /* NSString+MHCommon.h */,
+				90B69A1E1F05DFD000B9C868 /* NSString+MHCommon.m */,
+				90B69A1A1F05DFC300B9C868 /* NSString+blankString.h */,
+				90B69A1B1F05DFC300B9C868 /* NSString+blankString.m */,
 				90B699F31F03A54800B9C868 /* NSDictionary+LOG.h */,
 				90B699F41F03A54800B9C868 /* NSDictionary+LOG.m */,
 				90635C871EE7A244009725E0 /* UIViewController+BackButtonHandler.h */,
@@ -1774,6 +1784,7 @@
 				906E850F1EEFE16E00A40E33 /* SDWebImageDownloader.m in Sources */,
 				906E85991EF8F9BC00A40E33 /* UploadPhotoTableViewController.m in Sources */,
 				9028C96D1EB1C623003DA545 /* MeasureRiskViewController.m in Sources */,
+				90B69A1F1F05DFD000B9C868 /* NSString+MHCommon.m in Sources */,
 				908D03771E835EB600F0C0C1 /* BaseViewController.m in Sources */,
 				906E85241EEFE16F00A40E33 /* TADotView.m in Sources */,
 				906E851A1EEFE16E00A40E33 /* UIImage+XLExtension.m in Sources */,
@@ -1868,6 +1879,7 @@
 				9028CA011ECC23BA003DA545 /* LabelReusableView.m in Sources */,
 				906E853A1EF2288300A40E33 /* Management_PhotoEditorViewController.m in Sources */,
 				90B699F51F03A54800B9C868 /* NSDictionary+LOG.m in Sources */,
+				90B69A1C1F05DFC300B9C868 /* NSString+blankString.m in Sources */,
 				906E850D1EEFE16E00A40E33 /* SDWebImageCompat.m in Sources */,
 				908C82541E9B784E0086EDCD /* LabelCell.m in Sources */,
 				9016C7991E8A53D600B19056 /* GCDAsyncUdpSocket.m in Sources */,
