@@ -183,6 +183,19 @@
 		90B699EE1F02452B00B9C868 /* AttendanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90B699EC1F02452B00B9C868 /* AttendanceViewController.xib */; };
 		90B699F21F03554000B9C868 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90B699F11F03554000B9C868 /* icon@2x.png */; };
 		90B699F51F03A54800B9C868 /* NSDictionary+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B699F41F03A54800B9C868 /* NSDictionary+LOG.m */; };
+		90B699FF1F04E60C00B9C868 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B699FE1F04E60C00B9C868 /* CFNetwork.framework */; };
+		90B69A011F04E61400B9C868 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A001F04E61400B9C868 /* CoreFoundation.framework */; };
+		90B69A031F04E61C00B9C868 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A021F04E61C00B9C868 /* CoreTelephony.framework */; };
+		90B69A051F04E62500B9C868 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A041F04E62500B9C868 /* SystemConfiguration.framework */; };
+		90B69A071F04E62C00B9C868 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A061F04E62C00B9C868 /* CoreGraphics.framework */; };
+		90B69A091F04E63800B9C868 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A081F04E63800B9C868 /* Foundation.framework */; };
+		90B69A0B1F04E63D00B9C868 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A0A1F04E63D00B9C868 /* UIKit.framework */; };
+		90B69A0D1F04E64600B9C868 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A0C1F04E64600B9C868 /* Security.framework */; };
+		90B69A0F1F04E65200B9C868 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A0E1F04E65200B9C868 /* libz.tbd */; };
+		90B69A111F04E65F00B9C868 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A101F04E65F00B9C868 /* UserNotifications.framework */; };
+		90B69A131F04E66B00B9C868 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A121F04E66B00B9C868 /* libresolv.tbd */; };
+		90B69A181F04E78900B9C868 /* jcore-ios-1.1.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A151F04E78900B9C868 /* jcore-ios-1.1.3.a */; };
+		90B69A191F04E78900B9C868 /* jpush-ios-3.0.5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B69A161F04E78900B9C868 /* jpush-ios-3.0.5.a */; };
 		90BCA67F1ED3E262003C85CB /* SoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BCA67E1ED3E262003C85CB /* SoundPlayer.m */; };
 		90BCA68C1ED3E35C003C85CB /* 0.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6821ED3E35C003C85CB /* 0.WAV */; };
 		90BCA68D1ED3E35C003C85CB /* 1.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 90BCA6831ED3E35C003C85CB /* 1.WAV */; };
@@ -556,6 +569,21 @@
 		90B699F11F03554000B9C868 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		90B699F31F03A54800B9C868 /* NSDictionary+LOG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LOG.h"; sourceTree = "<group>"; };
 		90B699F41F03A54800B9C868 /* NSDictionary+LOG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LOG.m"; sourceTree = "<group>"; };
+		90B699F61F04E33200B9C868 /* CXProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CXProject.entitlements; sourceTree = "<group>"; };
+		90B699FE1F04E60C00B9C868 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		90B69A001F04E61400B9C868 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		90B69A021F04E61C00B9C868 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		90B69A041F04E62500B9C868 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		90B69A061F04E62C00B9C868 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		90B69A081F04E63800B9C868 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		90B69A0A1F04E63D00B9C868 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		90B69A0C1F04E64600B9C868 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		90B69A0E1F04E65200B9C868 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		90B69A101F04E65F00B9C868 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		90B69A121F04E66B00B9C868 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		90B69A151F04E78900B9C868 /* jcore-ios-1.1.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jcore-ios-1.1.3.a"; sourceTree = "<group>"; };
+		90B69A161F04E78900B9C868 /* jpush-ios-3.0.5.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-3.0.5.a"; sourceTree = "<group>"; };
+		90B69A171F04E78900B9C868 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		90BCA67D1ED3E262003C85CB /* SoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundPlayer.h; sourceTree = "<group>"; };
 		90BCA67E1ED3E262003C85CB /* SoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundPlayer.m; sourceTree = "<group>"; };
 		90BCA6821ED3E35C003C85CB /* 0.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.WAV; sourceTree = "<group>"; };
@@ -630,7 +658,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90B69A131F04E66B00B9C868 /* libresolv.tbd in Frameworks */,
+				90B69A111F04E65F00B9C868 /* UserNotifications.framework in Frameworks */,
+				90B69A0F1F04E65200B9C868 /* libz.tbd in Frameworks */,
+				90B69A0D1F04E64600B9C868 /* Security.framework in Frameworks */,
+				90B69A0B1F04E63D00B9C868 /* UIKit.framework in Frameworks */,
+				90B69A091F04E63800B9C868 /* Foundation.framework in Frameworks */,
+				90B69A071F04E62C00B9C868 /* CoreGraphics.framework in Frameworks */,
+				90B69A051F04E62500B9C868 /* SystemConfiguration.framework in Frameworks */,
+				90B69A031F04E61C00B9C868 /* CoreTelephony.framework in Frameworks */,
+				90B69A181F04E78900B9C868 /* jcore-ios-1.1.3.a in Frameworks */,
+				90B69A011F04E61400B9C868 /* CoreFoundation.framework in Frameworks */,
+				90B699FF1F04E60C00B9C868 /* CFNetwork.framework in Frameworks */,
 				90CB986A1E8F7527000FB2BC /* Photos.framework in Frameworks */,
+				90B69A191F04E78900B9C868 /* jpush-ios-3.0.5.a in Frameworks */,
 				9016C7A01E8A583500B19056 /* libicucore.tbd in Frameworks */,
 				92D2DC898484AA0B8E6EA2BD /* Pods_CXProject.framework in Frameworks */,
 			);
@@ -656,6 +697,17 @@
 		2781D770A6715334B5D287CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90B69A121F04E66B00B9C868 /* libresolv.tbd */,
+				90B69A101F04E65F00B9C868 /* UserNotifications.framework */,
+				90B69A0E1F04E65200B9C868 /* libz.tbd */,
+				90B69A0C1F04E64600B9C868 /* Security.framework */,
+				90B69A0A1F04E63D00B9C868 /* UIKit.framework */,
+				90B69A081F04E63800B9C868 /* Foundation.framework */,
+				90B69A061F04E62C00B9C868 /* CoreGraphics.framework */,
+				90B69A041F04E62500B9C868 /* SystemConfiguration.framework */,
+				90B69A021F04E61C00B9C868 /* CoreTelephony.framework */,
+				90B69A001F04E61400B9C868 /* CoreFoundation.framework */,
+				90B699FE1F04E60C00B9C868 /* CFNetwork.framework */,
 				9028C9E41EC3FAFA003DA545 /* ICViewPager.framework */,
 				90CB98691E8F7527000FB2BC /* Photos.framework */,
 				9016C7A61E8B938400B19056 /* AVFoundation.framework */,
@@ -768,6 +820,7 @@
 		901780DB1E82626600D6E8A1 /* CXProject */ = {
 			isa = PBXGroup;
 			children = (
+				90B699F61F04E33200B9C868 /* CXProject.entitlements */,
 				901780DF1E82626600D6E8A1 /* AppDelegate.h */,
 				901780E01E82626600D6E8A1 /* AppDelegate.m */,
 				908D03751E835EB600F0C0C1 /* BaseViewController.h */,
@@ -779,6 +832,7 @@
 				904340121E89FAA400D33ED9 /* LoginViewController.h */,
 				904340131E89FAA400D33ED9 /* LoginViewController.m */,
 				904340141E89FAA400D33ED9 /* LoginViewController.xib */,
+				90B699F71F04E36E00B9C868 /* SDK */,
 				90635C861EE7A22C009725E0 /* Category */,
 				9016C79B1E8A564F00B19056 /* Utils */,
 				9016C7461E8A53D500B19056 /* Network */,
@@ -1261,6 +1315,24 @@
 			path = "时间选择器";
 			sourceTree = "<group>";
 		};
+		90B699F71F04E36E00B9C868 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				90B69A141F04E78900B9C868 /* Lib */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		90B69A141F04E78900B9C868 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				90B69A151F04E78900B9C868 /* jcore-ios-1.1.3.a */,
+				90B69A161F04E78900B9C868 /* jpush-ios-3.0.5.a */,
+				90B69A171F04E78900B9C868 /* JPUSHService.h */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 		90BCA6791ED3DE97003C85CB /* 音频播放 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1489,8 +1561,16 @@
 				TargetAttributes = {
 					901780D81E82626600D6E8A1 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = H73AEQD672;
+						DevelopmentTeam = 779WEGWC3Z;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					901780F41E82626600D6E8A1 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1874,8 +1954,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 765007045@qq.com (D26UAX876B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1894,10 +1974,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "df142401-1efc-4bba-9897-efc46c08d1b1";
+				PROVISIONING_PROFILE = "775031fc-dc00-4ec1-99fa-16b9be007f80";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1924,8 +2004,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 765007045@qq.com (D26UAX876B)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Pingda Project Management&Consulting Co.,Ltd";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Pingda Project Management&Consulting Co.,Ltd";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1938,9 +2018,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "df142401-1efc-4bba-9897-efc46c08d1b1";
+				PROVISIONING_PROFILE = "775031fc-dc00-4ec1-99fa-16b9be007f80";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1952,16 +2032,43 @@
 			baseConfigurationReference = BF5CC928867F17D29D35F1D0 /* Pods-CXProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CXProject/CXProject.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H73AEQD672;
+				DEVELOPMENT_TEAM = 779WEGWC3Z;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CXProject/PrefixHeader.pch";
 				INFOPLIST_FILE = CXProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zcx.CXProject;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CXProject/SDK/JsmsSDK",
+					"$(PROJECT_DIR)/CXProject/SDK/Lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetwork\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"FMDB\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"PureLayout\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"UIView_HHFrame\"",
+					"-Objc",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pdTool.project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1974,16 +2081,43 @@
 			baseConfigurationReference = 18E32DCD72DC853A516D37CD /* Pods-CXProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = CXProject/CXProject.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Pingda Project Management&Consulting Co.,Ltd";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H73AEQD672;
+				DEVELOPMENT_TEAM = 779WEGWC3Z;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CXProject/PrefixHeader.pch";
 				INFOPLIST_FILE = CXProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zcx.CXProject;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CXProject/SDK/JsmsSDK",
+					"$(PROJECT_DIR)/CXProject/SDK/Lib",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetwork\"",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"DZNEmptyDataSet\"",
+					"-framework",
+					"\"FMDB\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"PureLayout\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"UIView_HHFrame\"",
+					"-Objc",
+					"-all_load",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pdTool.project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

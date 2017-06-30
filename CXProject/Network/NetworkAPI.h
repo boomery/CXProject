@@ -38,4 +38,10 @@
             showHUD:(BOOL)showHUD
        successBlock:(SuccessBlock)successBlock
        failureBlock:(FailureBlock)failureBlock;
+
++ (void)downloadProjectItemWithProjectID:(NSString *)projectID
+                                 showHUD:(BOOL)showHUD
+                            successBlock:(SuccessBlock)successBlock
+                            failureBlock:(FailureBlock)failureBlock;
+
 @end

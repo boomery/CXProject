@@ -14,7 +14,15 @@
 #import "MineViewController.h"
 #import "LoginViewController.h"
 #import "CXDataBaseUtil.h"
-@interface AppDelegate () <UITabBarControllerDelegate>
+
+// 引 JPush功能所需头 件
+#import "JPUSHService.h"
+// iOS10注册APNs所需头 件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+@interface AppDelegate () <UITabBarControllerDelegate, JPUSHRegisterDelegate>
 
 @property (nonatomic, strong) BaseNavigationController *logNav;
 
@@ -34,6 +42,28 @@
     [self setupControllers];
     [self setTheme];
     [self initData];
+    [self initJPush];
+
+    NSDictionary *remoteNotification = [launchOptions objectForKey: UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotification)
+    {
+        // 程序完全退出时，点击通知，添加需求。。。
+    }
+    //Required
+    //notice: 3.0.0及以后版本注册可以这样写，也可以继续用之前的注册方式
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
+    [JPUSHService setupWithOption:launchOptions appKey:appKey
+                          channel:channel
+                 apsForProduction:isProduction
+            advertisingIdentifier:nil];  // 这里是没有advertisingIdentifier的情况，有的话，大家在自行添加
     return YES;
 }
 
@@ -46,7 +76,12 @@
     [User sharedUser];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [CXDataBaseUtil creatTable];
-     });
+    });
+    //    [NetworkAPI downloadProjectItemWithProjectID:nil showHUD:YES successBlock:^(id returnData) {
+    //
+    //    } failureBlock:^(NSError *error) {
+    //
+    //    }];
 }
 
 - (void)setTheme
@@ -54,7 +89,7 @@
     [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
     [SVProgressHUD setForegroundColor:THEME_COLOR];
     [SVProgressHUD setInfoImage:[UIImage imageNamed:@"smile"]];
-
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     //背景颜色
     [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:1 green:0.34 blue:0.31 alpha:1.00]];
@@ -73,7 +108,7 @@
 - (void)setupControllers
 {
     MainViewController *mainVC = [[MainViewController alloc] init];
-//    mainVC.title = @"首页";
+    //    mainVC.title = @"首页";
     BaseNavigationController *mainNav = [[BaseNavigationController alloc] initWithRootViewController:mainVC];
     mainNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"home_selected"]];
     
@@ -88,7 +123,7 @@
     countNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"数据查询" image:[[UIImage imageNamed:@"search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"search_selected"]];
     
     MineViewController *mineVC = [[MineViewController alloc] init];
-//    mineVC.title = @"我的";
+    //    mineVC.title = @"我的";
     BaseNavigationController *mineNav = [[BaseNavigationController alloc] initWithRootViewController:mineVC];
     
     mineNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[[UIImage imageNamed:@"my"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  selectedImage:[UIImage imageNamed:@"my_selected"]];
@@ -127,22 +162,120 @@
     [_logNav dismissViewControllerAnimated:self completion:nil];
 }
 
+#pragma mark - 推送相关
+- (void)initJPush
+{
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 10.0) {
+        JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+        entity.types = UNAuthorizationOptionAlert|UNAuthorizationOptionBadge|UNAuthorizationOptionSound;
+        [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    }
+    else if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        //可以添加自定义categories
+        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |
+                                                          UIUserNotificationTypeSound |
+                                                          UIUserNotificationTypeAlert)
+                                              categories:nil];
+    }
+    else {
+        //categories 必须为nil
+        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                          UIRemoteNotificationTypeSound |
+                                                          UIRemoteNotificationTypeAlert)
+                                              categories:nil];
+    }
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
+}
+
+#pragma mark- JPUSHRegisterDelegate
+// ios 10 support 处于前台时接收到通知
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]])
+    {
+        [JPUSHService handleRemoteNotification:userInfo];
+        // 添加各种需求。。。。。
+    }
+    completionHandler(UNNotificationPresentationOptionAlert);
+    // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+    // 处于前台时，添加需求，一般是弹出alert跟用户进行交互，这时候completionHandler(UNNotificationPresentationOptionAlert)这句话就可以注释掉了，这句话是系统的alert，显示在app的顶部，
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler
+{
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]])
+    {
+        [JPUSHService handleRemoteNotification:userInfo];
+        //推送打开
+        if (userInfo)
+        {
+            // 取得 APNs 标准信息内容
+            //            NSDictionary *aps = [userInfo valueForKey:@"aps"];
+            //            NSString *content = [aps valueForKey:@"alert"]; //推送显示的内容
+            //            NSInteger badge = [[aps valueForKey:@"badge"] integerValue]; //badge数量
+            //            NSString *sound = [aps valueForKey:@"sound"]; //播放的声音
+            
+            // 添加各种需求。。。。。
+            
+            [JPUSHService handleRemoteNotification:userInfo];
+            completionHandler(UIBackgroundFetchResultNewData);
+        }
+        completionHandler();  // 系统要求执行这个方法
+    }
+}
+
+// Required, iOS 7 Support
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive)
+    {
+        // 处于前台时 ，添加各种需求代码。。。。
+        
+    }else if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground)
+    {
+        // app 处于后台 ，添加各种需求
+    }
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    [[UIApplication alloc] setApplicationIconBadgeNumber:0];
+}
+
+// 点击之后badge清零
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    [application setApplicationIconBadgeNumber:0];
+    [[UNUserNotificationCenter alloc] removeAllPendingNotificationRequests];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

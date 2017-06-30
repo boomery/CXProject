@@ -71,6 +71,20 @@
     } showHud:YES];
 }
 
++ (void)downloadProjectItemWithProjectID:(NSString *)projectID
+                                 showHUD:(BOOL)showHUD
+                            successBlock:(SuccessBlock)successBlock
+                            failureBlock:(FailureBlock)failureBlock
+{
+    [NetworkManager POST:DEF_API_DOWNLOAD parameters:nil body:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        [SVProgressHUD showInfoWithStatus:@"成功"];
+        successBlock(responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD showInfoWithStatus:error.localizedDescription];
+        failureBlock(error);
+    } showHud:YES];
+}
+
 - (void)dismiss
 {
     [SVProgressHUD showSuccessWithStatus:@"上传完成"];

@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "TabBarController.h"
+
+static NSString *appKey = @"a53a1af63a367a61b0c93b1a";
+static NSString *channel = @"Publish channel";
+static BOOL isProduction = FALSE;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

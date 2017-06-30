@@ -30,5 +30,6 @@
 
 #define DEF_API_UPLOAD @"PDManage/shiceAction/save"
 
+#define DEF_API_DOWNLOAD @"PDManage/shiceAction/downProjectItem"
 
 #endif /* NetworkURLDefine_h */
